@@ -3,6 +3,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -29,17 +30,15 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
     entry: {
         main: ['@babel/polyfill', './index.tsx'],
-    }, 			                        
+    },
+    //devtool: 'inline-source-map',
     output: {
         filename: filename('js'),
         path: path.resolve(__dirname, 'dist')
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
-        alias: {
-            '@': path.resolve(__dirname, './'),
-            '@components': path.resolve(__dirname, './components'),
-        }
+        extensions: ['.tsx', '.ts', '.js', '.scss', '.css'],
+        plugins: [new TsconfigPathsPlugin()],
     },
     optimization: {
         splitChunks: {

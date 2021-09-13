@@ -1,0 +1,46 @@
+TYPESCRIPT
+
+npx create-react-app имя проекта --template typescript											-	создаем проект react TypeScript
+yarn add node-sass --dev																		-	установка sass
+yarn add @types/node-sass --dev																	-	установка sass тивы для typescript
+
+WEBPACK
+yarn add webpack --dev																			-	установка webpack корневой функционал --dev только для разработки
+yarn add webpack-cli --dev																		-	установка webpack-cli обеспечивает доступ работы с консолью используя команды webpack
+yarn add html-webpack-plugin --dev 																-	плагин позволяет взаимодействывать с html (подключает в html файл все скрипты указанные в output)
+yarn add clean-webpack-plugin --dev																-	удаляет устаревшие файл построенные webpack'ом (например хэшированные)
+yarn add style-loader css-loader --dev															-	устанавлиется плагин позволяющий webpack'у работыть с css
+yarn add file-loader --dev																		-	устанавлиется плагин позволяющий webpack'у работыть с картинками
+yarn add ts-loader --dev																		-	устанавлиется плагин позволяющий webpack'у работыть с typescript
+yarn add webpack-dev-server --dev																-	устанавлиется плагин позволяющий с билдом на сервере которрый хранит все файлы в оператвной памяти
+yarn add copy-webpack-plugin --dev																-	устанавлиется плагин позволяющий webpack'у переносить все необходивы файлы (картинки) переносить в билд
+yarn add sass-loader --dev																		-	устанавлиется пакета для sass
+npm install --save-dev cross-env																-	устанавлиется пакета для установки свох переменных
+npm install --save @babel/polyfill																-	имитация полнуй среды ES2015+
+yarn add --dev tsconfig-paths-webpack-plugin													-	плагин для получения путей из файла tsconfig.json
+
+BABLE
+npm install --save-dev babel-loader @babel/core 												-	bable позволяет компилировать новый js код для устаревших браузеров
+npm install --save-dev @babel/preset-react														-	пресет для react
+npm install --save-dev @babel/preset-typescript													-	пресет для typescript
+yarn add @babel/preset-env --dev																-	пресет для babel
+
+LIBRARY
+npm install --save react-router-dom																-	плагин для работы с маршрутами
+npm install --save @types/react-router-dom														-	типы для typescript
+
+npm install redux --save																		-	установка redux
+npm install --save @types/redux																	-	типы для typescript
+
+npm install react-redux --save																	-	установка react-redux это прослойка между интерфейсом и бизнес логикой
+npm install --save @types/react-redux															-	типы для typescript
+
+npm install redux-thunk	--save																	-	установка thunk
+npm install --save @types/redux-thunk															-	типы для typescript
+
+npm install axios --save																		-	установка библиотеки axios для выполнения ajax запросов
+npm install --save @types/axios																	-	типы для typescript
+
+DEBUG
+npm install --save redux-devtools-extension														-	дополнение для браузера, для разработки
+npm install --save @types/redux-devtools-extension												-	типы для typescript

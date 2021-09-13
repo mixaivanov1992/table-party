@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": { 
+      "@components/*": ["./src/components/*"],
+      "@css/*": ["./src/assets/css/*"],
+    },
     "target": "es5",
     "lib": [
       "dom",
@@ -19,9 +24,11 @@
     "isolatedModules": true,
     "noEmit": false,                                  //поменял
     "noImplicitAny": false,                           //добавил
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    //"sourceMap": true                                 //отображает ошибки в ts а не в js после сборки
   },
   "include": [
     "src"
-  ]
+  ],
+  "exclude": ["node_modules", ".vscode"]
 }
