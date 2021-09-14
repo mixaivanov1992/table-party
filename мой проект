@@ -18,6 +18,7 @@ yarn add sass-loader --dev																		-	устанавлиется пак�
 npm install --save-dev cross-env																-	устанавлиется пакета для установки свох переменных
 npm install --save @babel/polyfill																-	имитация полнуй среды ES2015+
 yarn add --dev tsconfig-paths-webpack-plugin													-	плагин для получения путей из файла tsconfig.json
+yarn add -D typescript-plugin-css-modules                                                       -   плагин для загрузки css в файлах typescript
 
 BABLE
 npm install --save-dev babel-loader @babel/core 												-	bable позволяет компилировать новый js код для устаревших браузеров
