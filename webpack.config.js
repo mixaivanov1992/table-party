@@ -37,7 +37,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js', '.scss', '.css'],
+        extensions: ['.tsx', '.ts', '.js'],
         plugins: [new TsconfigPathsPlugin()],
     },
     optimization: {

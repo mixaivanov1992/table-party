@@ -1,0 +1,26 @@
+$header-background-color: white;
+
+body{
+    background-color: blueviolet;
+}
+
+.header{
+    background-color: $header-background-color;
+    display: -webkit-flex;
+    -webkit-flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px;
+    .search{
+        flex: 1 1;
+        padding: 0 10px;
+        input{
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
+    .login{
+        flex: 0 1;
+    }
+}

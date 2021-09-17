@@ -3,6 +3,8 @@
     "baseUrl": ".",
     "paths": { 
       "@components/*": ["./src/components/*"],
+      "@shared/*": ["./src/shared/*"],
+      "@interfaces-types/*": ["./src/assets/interfaces-types/*"],
       "@css/*": ["./src/assets/css/*"],
     },
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
