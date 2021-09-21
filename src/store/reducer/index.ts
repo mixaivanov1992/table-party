@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import loader from './loader';
+import { loaderReducer } from '@store/reducer/loaderReducer';
 
 export const routeReducer = combineReducers({
-    loader
+    loader: loaderReducer
 });
+
+export type RootState = ReturnType<typeof routeReducer>;

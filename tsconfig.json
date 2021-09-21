@@ -1,11 +1,14 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": { 
+    "paths": {
+      "@src/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@shared/*": ["./src/shared/*"],
+      "@store/*": ["./src/store/*"],
       "@interfaces-types/*": ["./src/assets/interfaces-types/*"],
       "@css/*": ["./src/assets/css/*"],
+      "@hooks/*": ["./src/assets/hooks/*"],
     },
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "target": "es5",
@@ -28,7 +31,7 @@
     "noEmit": false,                                  //поменял
     "noImplicitAny": false,                           //добавил
     "jsx": "react-jsx",
-    //"sourceMap": true                               //отображает ошибки в ts а не в js после сборки
+    "sourceMap": true                               //отображает ошибки в ts а не в js после сборки
   },
   "include": [
     "src"

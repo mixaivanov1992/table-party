@@ -31,7 +31,7 @@ module.exports = {
     entry: {
         main: ['@babel/polyfill', './index.tsx'],
     },
-    //devtool: 'inline-source-map',
+    devtool: 'inline-source-map',
     output: {
         filename: filename('js'),
         path: path.resolve(__dirname, 'dist')

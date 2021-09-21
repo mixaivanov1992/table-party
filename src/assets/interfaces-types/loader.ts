@@ -1,17 +1,12 @@
-export interface ILoaderState{
+export interface LoaderState{
     isShow: boolean
 }
 export enum LoaderActionType {
     SET_VISIBILITY = 'SET_VISIBILITY',
 }
 
-interface ISetVisibility1Action {
+interface SetVisibility1Action {
     type: LoaderActionType.SET_VISIBILITY
 }
 
-export type LoaderAction = ISetVisibility1Action;
-
-export interface ISetVisibility {
-    type: LoaderActionType.SET_VISIBILITY
-    isShow: boolean
-}
+export type LoaderAction = SetVisibility1Action;
