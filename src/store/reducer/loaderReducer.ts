@@ -1,14 +1,21 @@
-import {LoaderState, LoaderAction, LoaderActionType} from '@interfaces-types/loader';
+import {LoaderState, LoaderAction, LoaderActionType, SetVisibility} from '@interfaces-types/loader';
 
 const initialState: LoaderState = {
-    isShow: false
+    loading: true
 }
 
 export const loaderReducer = (state = initialState, action: LoaderAction): LoaderState => {
     switch (action.type){
-        // case LoaderActionType.SET_VISIBILITY:
-        //     return {...state, isShow: !action.isShow};
+        case LoaderActionType.SET_VISIBILITY:
+            return {loading: action.loading};
         default:
             return state;
+    }
+}
+
+export const setVisibility = (loading:boolean): SetVisibility => {
+    return {
+        type: LoaderActionType.SET_VISIBILITY,
+        loading: loading
     }
 }
