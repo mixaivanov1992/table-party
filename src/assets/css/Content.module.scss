@@ -1,7 +1,7 @@
+@use 'core';
+
 .content{
-    display: -webkit-flex;
-    -webkit-flex-wrap: wrap;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 20px;
+    flex: 1 0;
+    border: 1px solid core.$panel-border;
+    padding: 20px;
 }

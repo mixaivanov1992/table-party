@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '@css/Header.module.scss';
+import { IoPersonCircle } from 'react-icons/io5';
 
 interface Props {
 }
@@ -10,8 +11,8 @@ const Header: React.FC<Props> = (props) => {
             <div className={styles.search}>
                 <input placeholder="Поиск"/>
             </div>
-            <div className={styles.login}>
-                <button>Вход</button>
+            <div className={styles.user_menu}>
+                <span className={styles.login}><IoPersonCircle size={40} color={'#000'}/></span>
             </div>
         </div>
     );

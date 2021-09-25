@@ -2,21 +2,21 @@ TYPESCRIPT
 
 npx create-react-app имя проекта --template typescript											-	создаем проект react TypeScript
 yarn add node-sass --dev																		-	установка sass
-yarn add @types/node-sass --dev																	-	установка sass тивы для typescript
+yarn add @types/node-sass --dev																	-	установка sass типы для typescript
 
 WEBPACK
 yarn add webpack --dev																			-	установка webpack корневой функционал --dev только для разработки
 yarn add webpack-cli --dev																		-	установка webpack-cli обеспечивает доступ работы с консолью используя команды webpack
-yarn add html-webpack-plugin --dev 																-	плагин позволяет взаимодействывать с html (подключает в html файл все скрипты указанные в output)
+yarn add html-webpack-plugin --dev 																-	плагин позволяет взаимодействовать с html (подключает в html файл все скрипты указанные в output)
 yarn add clean-webpack-plugin --dev																-	удаляет устаревшие файл построенные webpack'ом (например хэшированные)
-yarn add style-loader css-loader --dev															-	устанавлиется плагин позволяющий webpack'у работыть с css
-yarn add file-loader --dev																		-	устанавлиется плагин позволяющий webpack'у работыть с картинками
-yarn add ts-loader --dev																		-	устанавлиется плагин позволяющий webpack'у работыть с typescript
-yarn add webpack-dev-server --dev																-	устанавлиется плагин позволяющий с билдом на сервере которрый хранит все файлы в оператвной памяти
-yarn add copy-webpack-plugin --dev																-	устанавлиется плагин позволяющий webpack'у переносить все необходивы файлы (картинки) переносить в билд
-yarn add sass-loader --dev																		-	устанавлиется пакета для sass
-npm install --save-dev cross-env																-	устанавлиется пакета для установки свох переменных
-npm install --save @babel/polyfill																-	имитация полнуй среды ES2015+
+yarn add style-loader css-loader --dev															-	устанавливаем плагин позволяющий webpack'у работать с css
+yarn add file-loader --dev																		-	устанавливаем плагин позволяющий webpack'у работать с картинками
+yarn add ts-loader --dev																		-	устанавливаем плагин позволяющий webpack'у работать с typescript
+yarn add webpack-dev-server --dev																-	устанавливаем плагин позволяющий с билдом на сервере который хранит все файлы в оперативной памяти
+yarn add copy-webpack-plugin --dev																-	устанавливаем плагин позволяющий webpack'у переносить все необходимы файлы (картинки) переносить в билд
+yarn add sass-loader --dev																		-	устанавливаем пакета для sass
+npm install --save-dev cross-env																-	устанавливаем пакета для установки свох переменных
+npm install --save @babel/polyfill																-	имитация полной среды ES2015+
 yarn add --dev tsconfig-paths-webpack-plugin													-	плагин для получения путей из файла tsconfig.json
 yarn add -D typescript-plugin-css-modules                                                       -   плагин для загрузки css в файлах typescript
 
@@ -42,6 +42,9 @@ npm install --save @types/redux-thunk															-	типы для typescript
 npm install axios --save																		-	установка библиотеки axios для выполнения ajax запросов
 npm install --save @types/axios																	-	типы для typescript
 
+npm install react-icons --save                                                                  -   иконки для react
+
 DEBUG
 npm install --save redux-devtools-extension														-	дополнение для браузера, для разработки
 npm install --save @types/redux-devtools-extension												-	типы для typescript
+

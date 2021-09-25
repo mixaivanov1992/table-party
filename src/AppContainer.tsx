@@ -5,20 +5,20 @@ import { useTypedSelector } from '@hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
 import { setVisibility } from '@store/reducer/loaderReducer';
 
-function AppContainer() {
-  const loader = useTypedSelector(state => state.loader),
-        dispatch = useDispatch();
-        
-  //[loader, setLoader] = useState(useTypedSelector(state => state.loader));
-  useEffect(() => {
-    dispatch(setVisibility(!loader.loading));
-  }, []);
+const AppContainer: React.FC = () => {
+	const loader = useTypedSelector(state => state.loader),
+		dispatch = useDispatch();
 
-  if(loader.loading){
-    return <Loader />;
-  }
+	//[loader, setLoader] = useState(useTypedSelector(state => state.loader));
+	useEffect(() => {
+		dispatch(setVisibility(!loader.loading));
+	}, []);
 
-  return <App />;
+	if (loader.loading) {
+		return <Loader />;
+	}
+
+	return <App />;
 }
 
 export default AppContainer;
