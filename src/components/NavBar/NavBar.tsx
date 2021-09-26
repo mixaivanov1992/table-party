@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from '@css/NavBar.module.scss';
 import { Link } from "react-router-dom";
-import { IoArrowUndoCircleSharp, IoArrowRedoCircleSharp, IoHome, IoDiceSharp, IoAccessibility } from 'react-icons/io5';
+import { IoArrowUndoCircleSharp, IoArrowRedoCircleSharp, IoHome, IoDiceSharp } from 'react-icons/io5';
+import { ImUsers } from "react-icons/im";
 
 interface Props {
-    clickToggle: any,
+    clickToggle(): void,
     toggle: boolean
 }
 
@@ -19,10 +20,10 @@ const NavBar: React.FC<Props> = (props) => {
                             <Link to="/">Главная</Link>
                         </li>
                         <li>
-                            <Link to="/about">Правила</Link>
+                            <Link to="/rules">Правила</Link>
                         </li>
                         <li>
-                            <Link to="/login">О нас</Link>
+                            <Link to="/about">О нас</Link>
                         </li>
                     </ul>
                 </nav>
@@ -38,10 +39,10 @@ const NavBar: React.FC<Props> = (props) => {
                             <Link to="/"><IoHome size={40} color={'#000'}/></Link>
                         </li>
                         <li>
-                            <Link to="/about"><IoDiceSharp size={40} color={'#000'}/></Link>
+                            <Link to="/rules"><IoDiceSharp size={40} color={'#000'}/></Link>
                         </li>
                         <li>
-                            <Link to="/login"><IoAccessibility size={40} color={'#000'}/></Link>
+                            <Link to="/about"><ImUsers size={40} color={'#000'}/></Link>
                         </li>
                     </ul>
                 </nav>

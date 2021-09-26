@@ -6,7 +6,7 @@
     border: 1px solid core.$panel-border;
     min-height: 200px;
     padding: 10px;
-    margin-right: 50px;
+    margin: 0 50px 0 20px;
     .toggle{
         position: absolute;
         right: -45px;
@@ -41,5 +41,14 @@
     width: 60px;
     ul{
         padding: 0;
+        text-align: center;
+        li{
+            margin-bottom: 15px;
+            a:hover{
+                path{
+                    color: #0969da;
+                }
+            }
+        }
     }
 }
