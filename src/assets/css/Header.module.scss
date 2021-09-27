@@ -3,7 +3,8 @@
 .wrapper{
     flex: 0 0 auto;
     .header{
-        border-bottom: 1px solid core.$panel-border;
+        background: core.$panel-color;
+        box-shadow: 0 2px 2px -2px core.$panel-hover;
         display: -webkit-flex;
         -webkit-flex-wrap: wrap;
         display: flex;
@@ -35,7 +36,7 @@
                 display: inline-block;
                 &:hover{
                     path{
-                        color: #0969da;
+                        color: core.$hover;
                     }
                 }
             }

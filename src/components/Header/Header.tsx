@@ -16,7 +16,7 @@ const Header: React.FC<Props> = (props) => {
                 </div>
                 <div className={styles.user_menu}>
                     <Link className={styles.login} to="/login">
-                        <IoPersonCircle size={40} color={'#000'}/>
+                        <IoPersonCircle size={40} color={'#24292f'}/>
                     </Link>
                 </div>
             </header>

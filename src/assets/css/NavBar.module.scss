@@ -2,8 +2,9 @@
 
 .min_navbar,
 .navbar{
+    background: core.$panel-color;
     position: relative;
-    border: 1px solid core.$panel-border;
+    box-shadow: 0 0 2px core.$panel-hover;
     min-height: 200px;
     padding: 10px;
     margin: 0 50px 0 20px;
@@ -15,7 +16,7 @@
         cursor: pointer;
         &:hover{
             path{
-                color: #0969da;
+                color: core.$hover;
             }
         }
     }
@@ -27,7 +28,7 @@
                 color: black;
                 text-decoration: none;
                 &:hover{
-                    color: #0969da;
+                    color: core.$hover;
                 }
             }
         }
@@ -46,7 +47,7 @@
             margin-bottom: 15px;
             a:hover{
                 path{
-                    color: #0969da;
+                    color: core.$hover;
                 }
             }
         }

@@ -2,7 +2,8 @@
 
 .content{
     flex: 1 0;
-    border: 1px solid core.$panel-border;
+    background: core.$panel-color;
+    box-shadow: 0 0 2px core.$panel-hover;
     padding: 20px;
     margin-right: 20px;
 }

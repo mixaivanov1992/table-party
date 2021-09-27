@@ -27,7 +27,7 @@ const NavBar: React.FC<Props> = (props) => {
                         </li>
                     </ul>
                 </nav>
-                <div onClick={props.clickToggle} className={styles.toggle}><IoArrowUndoCircleSharp size={40} color={'#000'}/></div>
+                <div onClick={props.clickToggle} className={styles.toggle}><IoArrowUndoCircleSharp size={40} color={'#24292f'}/></div>
             </div>
         );
     }else{
@@ -36,17 +36,17 @@ const NavBar: React.FC<Props> = (props) => {
                 <nav>
                     <ul>
                         <li>
-                            <Link to="/"><IoHome size={40} color={'#000'}/></Link>
+                            <Link to="/"><IoHome size={40} color={'#24292f'}/></Link>
                         </li>
                         <li>
-                            <Link to="/rules"><IoDiceSharp size={40} color={'#000'}/></Link>
+                            <Link to="/rules"><IoDiceSharp size={40} color={'#24292f'}/></Link>
                         </li>
                         <li>
-                            <Link to="/about"><ImUsers size={40} color={'#000'}/></Link>
+                            <Link to="/about"><ImUsers size={40} color={'#24292f'}/></Link>
                         </li>
                     </ul>
                 </nav>
-                <div onClick={props.clickToggle} className={styles.toggle}><IoArrowRedoCircleSharp size={40} color={'#000'}/></div>
+                <div onClick={props.clickToggle} className={styles.toggle}><IoArrowRedoCircleSharp size={40} color={'#24292f'}/></div>
             </div>
         );
     }

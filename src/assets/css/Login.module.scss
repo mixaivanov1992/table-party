@@ -1,0 +1,52 @@
+@use 'core';
+
+.login{
+    margin: auto;
+    border-radius: 5px;
+    width: 350px;
+    height: 450px;
+    background: core.$panel-color;
+    box-shadow: 0 0 2px core.$panel-hover;
+    .back{
+        box-shadow: 0 0 2px core.$panel-hover;
+        display: inline-block;
+        border-radius: 50%;
+        position: relative;
+        background: core.$panel-hover;
+        left: -18px;
+        top: 30px;
+        padding: 5px;
+        > span{
+            display: inline-block;
+            position: relative;
+            top: 2px;
+            right: 1px;
+        }
+        &:hover{
+            background: core.$hover;
+            background-color: core.$hover;
+            box-shadow: 0 0 2px core.$hover;
+            path{
+                color: core.$panel-color;
+            }
+        }
+    }
+    .data{
+        text-align: center;
+        .input{
+            margin-top: 15px;
+            input{
+                margin-top: 5px;
+            }
+        }
+        .logo{
+            display: inline-block;
+            svg:hover{
+                opacity: 0.7;
+            }
+        }
+        .btn{
+            
+        }
+    }
+}
