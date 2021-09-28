@@ -10,10 +10,28 @@ import {
 	Switch,
 	Route
 } from "react-router-dom";
-import { Path } from '@src/assets/interfaces-types/path';
+import { Path, ContentPath } from '@src/assets/interfaces-types/path';
+import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
 
-function App() {
+const App: React.FC = () => {
     console.debug('App');
+
+	const chunk = (path:ContentPath) => {
+		return (
+			<>
+				<Header />
+				<Breadcrumbs />
+				<div className={styles.wrapper}>
+					<div>
+						<NavBarContainer />
+						<Content path={path} />
+					</div>
+				</div>
+				<Footer />
+			</>
+		);
+	}
+
 	return (
 		<div className={styles.app}>
 			<Router>
@@ -22,34 +40,13 @@ function App() {
 						<Login />
 					</Route>
 					<Route path={`/${Path.about}`}>
-						<Header />
-						<div className={styles.wrapper}>
-							<div>
-								<NavBarContainer />
-								<Content path={Path.about} />
-							</div>
-						</div>
-						<Footer />
+						{chunk(Path.about)}
 					</Route>
 					<Route path={`/${Path.rules}`}>
-						<Header />
-						<div className={styles.wrapper}>
-							<div>
-								<NavBarContainer />
-								<Content path={Path.rules} />
-							</div>
-						</div>
-						<Footer />
+						{chunk(Path.rules)}
 					</Route>
 					<Route path="/">
-						<Header />
-						<div className={styles.wrapper}>
-							<div>
-								<NavBarContainer />
-								<Content path={Path.home} />
-							</div>
-						</div>
-						<Footer />
+						{chunk(Path.home)}
 					</Route>
 				</Switch>
 			</Router>

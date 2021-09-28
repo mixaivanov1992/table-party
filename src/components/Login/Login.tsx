@@ -5,7 +5,7 @@ import { IoChevronBackOutline, IoPersonCircle } from 'react-icons/io5';
 const Login: React.FC = () => {
     return (
         <div className={styles.login}>
-            <span className={styles.back}>
+            <span onClick={() => history.back()} className={styles.back}>
                 <span>
                     <IoChevronBackOutline size={25} color={'#f9f9f9'}/>
                 </span>

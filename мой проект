@@ -42,6 +42,9 @@ npm install --save @types/redux-thunk															-	типы для typescript
 npm install axios --save																		-	установка библиотеки axios для выполнения ajax запросов
 npm install --save @types/axios																	-	типы для typescript
 
+yarn add formik                                                                                 -   работа с формами
+yarn add use-react-router-breadcrumbs                                                           -   хлебные крошки
+
 npm install react-icons --save                                                                  -   иконки для react
 
 DEBUG
