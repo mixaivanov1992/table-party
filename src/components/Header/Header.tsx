@@ -15,9 +15,12 @@ const Header: React.FC<Props> = (props) => {
                     <input placeholder="Поиск"/>
                 </div>
                 <div className={styles.user_menu}>
-                    <Link className={styles.login} to="/login">
-                        <IoPersonCircle size={40} color={'#24292f'}/>
-                    </Link>
+                    <div>
+                        <Link className={styles.login} to="/login">
+                            <IoPersonCircle size={50} color={'#24292f'}/><br />
+                            <span>qqq</span>
+                        </Link>
+                    </div>
                 </div>
             </header>
         </div>

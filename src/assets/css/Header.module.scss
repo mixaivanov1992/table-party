@@ -4,7 +4,7 @@
     flex: 0 0 auto;
     .header{
         background: core.$panel-color;
-        box-shadow: 0 2px 2px -2px core.$panel-hover;
+        box-shadow: 0 2px 2px -2px core.$shadow;
         display: -webkit-flex;
         -webkit-flex-wrap: wrap;
         display: flex;
@@ -30,13 +30,21 @@
         }
         .user_menu{
             flex: 1 0;
-            text-align: right;
-            .login{
-                cursor: pointer;
-                display: inline-block;
-                &:hover{
-                    path{
-                        color: core.$hover;
+            > div{
+                display: flex;
+                display: -webkit-flex;
+                justify-content: right;
+                .login{
+                    text-align: center;
+                    color:#0a0a0a;
+                    text-decoration: none;
+                    cursor: pointer;
+                    display: inline-block;
+                    &:hover{
+                        span,
+                        path{
+                            color: #0969da;
+                        }
                     }
                 }
             }

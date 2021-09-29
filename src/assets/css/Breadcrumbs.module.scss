@@ -1,6 +1,6 @@
 @use 'core';
 
-$green: #96be11;
+$active: #24292f;
 
 @mixin inline {
     display: inline-block;
@@ -29,12 +29,12 @@ $green: #96be11;
 
             &:hover {
                 &:before {
-                    border-left: 10px solid core.$hover;
+                    border-left: 10px solid #0969da;
                 }
 
                 a {
                     color: #fff;
-                    background: core.$hover;;
+                    background: #0969da;
                 }
             }
 
@@ -63,8 +63,11 @@ $green: #96be11;
 
             &:last-child {
                 a {
-                    color: #000;
-                    background: $green;
+                    color: #fff;
+                    background: $active;
+                }
+                &:before {
+                    border-left: 10px solid $active;
                 }
             }
 
