@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '@css/App.module.scss';
 import Header from '@components/Header/Header';
 import Content from '@components/Content/Content';
-import NavBarContainer from '@src/components/NavBar/NavBarContainer';
+import NavBarContainer from '@components/NavBar/NavBarContainer';
 import Login from '@components/Login/Login';
 import Footer from '@components/Footer/Footer';
 import {
@@ -13,7 +13,11 @@ import {
 import { Path, ContentPath } from '@src/assets/interfaces-types/path';
 import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
 
-const App: React.FC = () => {
+interface Props {
+	isAuthorized: boolean
+}
+
+const App: React.FC<Props> = (props) => {
     console.debug('App');
 
 	const chunk = (path:ContentPath) => {
@@ -23,13 +27,23 @@ const App: React.FC = () => {
 				<Breadcrumbs />
 				<div className={styles.wrapper}>
 					<div>
-						<NavBarContainer />
+						<NavBarContainer isAuthorized={props.isAuthorized}/>
 						<Content path={path} />
 					</div>
 				</div>
 				<Footer />
 			</>
 		);
+	}
+
+	const isAuthorized = (path:ContentPath) => {
+		if(props.isAuthorized){
+            return (
+				<Route path={`/${path}`}>
+					{chunk(path)}
+				</Route>
+			)
+		}
 	}
 
 	return (
@@ -45,6 +59,9 @@ const App: React.FC = () => {
 					<Route path={`/${Path.rules}`}>
 						{chunk(Path.rules)}
 					</Route>
+					{
+						isAuthorized(Path.library)
+					}
 					<Route path="/">
 						{chunk(Path.home)}
 					</Route>

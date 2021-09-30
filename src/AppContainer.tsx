@@ -11,6 +11,7 @@ const AppContainer: React.FC = () => {
 			personalData = useTypedSelector(state => state.personalData),
 			dispatch = useDispatch();
 
+			console.log(personalData);
 	//[loader, setLoader] = useState(useTypedSelector(state => state.loader));
 	useEffect(() => {
 		dispatch(setVisibility(!loader.loading));
@@ -21,7 +22,7 @@ const AppContainer: React.FC = () => {
 		return <Loader />;
 	}
 
-	return <App />;
+	return <App isAuthorized={personalData.isAuthorized}/>;
 }
 
 export default AppContainer;

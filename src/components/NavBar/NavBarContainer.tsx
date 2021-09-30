@@ -2,8 +2,11 @@ import React from 'react';
 import { useState } from 'react';
 import NavBar from './NavBar';
 
+interface Props {
+	isAuthorized: boolean
+}
 
-const NavBarContainer: React.FC = () => {
+const NavBarContainer: React.FC<Props> = (props) => {
     const [toggle, setToggle] = useState(true);
 
     const clickToggle = () => {
@@ -11,7 +14,7 @@ const NavBarContainer: React.FC = () => {
     }
 
 	return (
-        <NavBar toggle={toggle} clickToggle={clickToggle}/>
+        <NavBar toggle={toggle} clickToggle={clickToggle} isAuthorized={props.isAuthorized} />
     );
 }
 

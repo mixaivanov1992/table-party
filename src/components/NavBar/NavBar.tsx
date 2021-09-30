@@ -3,14 +3,27 @@ import styles from '@css/NavBar.module.scss';
 import { Link } from "react-router-dom";
 import { IoArrowUndoCircleSharp, IoArrowRedoCircleSharp, IoHome, IoDiceSharp } from 'react-icons/io5';
 import { ImUsers } from "react-icons/im";
+import { Path } from '@src/assets/interfaces-types/path';
 
 interface Props {
     clickToggle(): void,
-    toggle: boolean
+    toggle: boolean,
+    isAuthorized: boolean
 }
 
 const NavBar: React.FC<Props> = (props) => {
     console.debug('NavBar');
+
+	const isAuthorized = () => {
+		if(props.isAuthorized){
+            return (
+                <li>
+                    <Link to={`/${Path.library}`}>Моя библиотека правил</Link>
+                </li>
+            )
+		}
+	}
+    
     if(props.toggle){
         return (
             <div className={styles.navbar}>
@@ -19,11 +32,14 @@ const NavBar: React.FC<Props> = (props) => {
                         <li>
                             <Link to="/">Главная</Link>
                         </li>
+                        {
+                            isAuthorized()
+                        }
                         <li>
-                            <Link to="/rules">Правила</Link>
+                            <Link to={`/${Path.rules}`}>Правила</Link>
                         </li>
                         <li>
-                            <Link to="/about">О нас</Link>
+                            <Link to={`/${Path.about}`}>О нас</Link>
                         </li>
                     </ul>
                 </nav>
@@ -39,10 +55,10 @@ const NavBar: React.FC<Props> = (props) => {
                             <Link to="/"><IoHome size={40} color={'#24292f'}/></Link>
                         </li>
                         <li>
-                            <Link to="/rules"><IoDiceSharp size={40} color={'#24292f'}/></Link>
+                            <Link to={`/${Path.rules}`}><IoDiceSharp size={40} color={'#24292f'}/></Link>
                         </li>
                         <li>
-                            <Link to="/about"><ImUsers size={40} color={'#24292f'}/></Link>
+                            <Link to={`/${Path.about}`}><ImUsers size={40} color={'#24292f'}/></Link>
                         </li>
                     </ul>
                 </nav>

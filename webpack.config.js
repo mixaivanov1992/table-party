@@ -58,11 +58,11 @@ module.exports = {
                 use: ['style-loader', 'css-loader'],
             },
             {
-                test: /\.(png|jpg|svg|gif)$/,                                  
+                test: /\.(png|jpg|svg|gif)$/,
                 use: ['file-loader'],
             },
             {
-                test: /\.ts(x?)$/,                                  
+                test: /\.ts(x?)$/,
                 use: ['ts-loader'],
                 exclude: /node_modules/,
             },
