@@ -1,0 +1,38 @@
+.rules{
+    margin: 10px 20px;
+    display: -webkit-flex;
+    -webkit-flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    > div{
+        cursor: pointer;
+        border: 1px solid #f9f9f9;
+        width: calc(25% - 22px);
+        height: 205px;
+        margin: 10px 10px;
+        position: relative;
+        text-align: center;
+        .logo{
+            height: 100%;
+            .no_image{
+                font-size: 180px;
+            }
+        }
+        .name{
+            position: absolute;
+            bottom: 10px;
+            left: 0; 
+            right: 0; 
+            margin-left: auto; 
+            margin-right: auto; 
+            width: 250px;
+            text-align: center;
+        }
+        &:hover{
+            opacity: 0.5;
+            width: calc(25% - 22px);
+            border: 1px solid;
+            border-radius: 5px;
+        }
+    }
+}

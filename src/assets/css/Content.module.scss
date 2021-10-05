@@ -1,9 +1,7 @@
 @use 'core';
-
-.content{
-    flex: 1 0;
-    background: core.$panel-color;
-    box-shadow: 0 0 2px core.$shadow;
-    padding: 20px;
-    margin-right: 20px;
+@media screen and (min-device-width: 320px) and (max-width:1279px) {
+    @import './screen/content/_min-width-320';
+}
+@media screen and (min-device-width: 1280px) {
+    @import './screen/content/_min-width-1280';
 }

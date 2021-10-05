@@ -1,0 +1,27 @@
+@media screen and (min-height: 720px) {
+    .content{
+        height: 360px; /*360*/
+    }
+}
+@media screen and (min-height: 920px) {
+    .content{
+        height: 540px;
+    }
+}
+@media screen and (min-height: 1080px) {
+    .content{
+        height: 720px;
+    }
+}
+.content{
+    flex: 1 0;
+    background: core.$panel-color;
+    box-shadow: 0 0 2px core.$shadow;
+    margin-right: 20px;
+    overflow-y: auto;
+    .header{
+        margin-top: 10px;
+        font-size: 28px;
+        text-align: center;
+    }
+}

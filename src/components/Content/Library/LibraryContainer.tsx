@@ -2,7 +2,7 @@ import React from 'react';
 
 const LibraryContainer: React.FC = () => {
     return (
-        <div>asd</div>
+        <div>library</div>
     );
 }
 

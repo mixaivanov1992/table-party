@@ -1,0 +1,13 @@
+.content{
+    flex: 1 0;
+    background: core.$panel-color;
+    box-shadow: 0 0 2px core.$shadow;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    .header{
+        margin-top: 10px;
+        font-size: 28px;
+        text-align: center;
+    }
+}

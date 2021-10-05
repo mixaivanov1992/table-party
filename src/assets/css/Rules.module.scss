@@ -1,7 +1,6 @@
-@use 'core';
 @media screen and (min-device-width: 320px) and (max-width:1279px) {
-    @import './screen/breadcrumbs/_min-width-320';
+    @import './screen/rules/_min-width-320';
 }
 @media screen and (min-device-width: 1280px) {
-    @import './screen/breadcrumbs/_min-width-1280';
+    @import './screen/rules/_min-width-1280';
 }

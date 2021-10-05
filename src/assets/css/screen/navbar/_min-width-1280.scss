@@ -1,0 +1,53 @@
+.min_navbar,
+.navbar {
+    background: core.$panel-color;
+    position: relative;
+    box-shadow: 0 0 2px core.$shadow;
+    padding: 10px;
+    margin: 0 50px 0 20px;
+    .toggle {
+        position: absolute;
+        right: -45px;
+        bottom: 0;
+        opacity: 1;
+        cursor: pointer;
+        &:hover {
+            path {
+                color: #0969da;
+            }
+        }
+    }
+    ul {
+        list-style-type: none;
+        padding-left: 5px;
+        li {
+            margin: 5px;
+            a {
+                color: black;
+                text-decoration: none;
+                &:hover {
+                    color: #0969da;
+                }
+            }
+        }
+    }
+}
+
+.navbar {
+    width: 250px;
+}
+.min_navbar {
+    width: 60px;
+    ul {
+        padding: 0;
+        text-align: center;
+        li {
+            margin-bottom: 15px;
+            a:hover {
+                path {
+                    color: #0969da;
+                }
+            }
+        }
+    }
+}

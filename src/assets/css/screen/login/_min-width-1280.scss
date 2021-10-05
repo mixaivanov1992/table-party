@@ -1,0 +1,52 @@
+
+
+.login{
+    margin: auto;
+    border-radius: 5px;
+    width: 350px;
+    height: 450px;
+    background: core.$panel-color;
+    box-shadow: 0 0 2px core.$shadow;
+    .back{
+        box-shadow: 0 0 2px core.$shadow;
+        display: inline-block;
+        border-radius: 50%;
+        position: relative;
+        background: #24292f;
+        left: -18px;
+        top: 30px;
+        padding: 5px 7px;
+        > span{
+            display: inline-block;
+            position: relative;
+            top: 2px;
+            right: 1px;
+        }
+        &:hover{
+            cursor: pointer;
+            background: #0969da;
+            background-color: #0969da;
+            path{
+                color: #fff;
+            }
+        }
+    }
+    .data{
+        text-align: center;
+        .input{
+            margin-top: 15px;
+            input{
+                margin-top: 5px;
+            }
+        }
+        .logo{
+            display: inline-block;
+        }
+        .btn{
+            margin-top: 15px;
+            input:hover{
+                box-shadow: 0 0 1px #0969da;
+            }
+        }
+    }
+}

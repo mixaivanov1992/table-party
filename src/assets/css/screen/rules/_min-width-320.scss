@@ -1,0 +1,13 @@
+.rules{
+    margin: 10px 20px;
+    display: -webkit-flex;
+    -webkit-flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    > div{
+        width: calc(100% - 22px);
+        height: 205px;
+        margin: 10px 10px;
+        border: 1px solid black;
+    }
+}

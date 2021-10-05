@@ -2,6 +2,9 @@ import React from 'react';
 import styles from '@css/Content.module.scss';
 import { ContentPath, Path } from '@src/assets/interfaces-types/path';
 import LibraryContainer from '@components/Content/Library/LibraryContainer';
+import HomeContainer from './Home/HomeContainer';
+import AboutContainer from './About/AboutContainer';
+import RulesContainer from './Rules/RulesContainer';
 
 
 interface Props {
@@ -15,13 +18,33 @@ const Content: React.FC<Props> = (props) => {
 	const chunk = (path:ContentPath) => {
         switch(path){
             case Path.library:
-                return <LibraryContainer />;
-            // case Path.home:
-            //     return <HomeContainer />;
-            // case Path.about:
-            //     return <AboutContainer />;
-            // case Path.rules:
-            //     return <RulesContainer />;
+                return (
+                    <div>
+                        <div className={styles.header}>library</div>
+                        <LibraryContainer />
+                    </div>
+                );
+            case Path.home:
+                return (
+                    <div>
+                        <div className={styles.header}>home</div>
+                        <HomeContainer />
+                    </div>
+                );
+            case Path.about:
+                return (
+                    <div>
+                        <div className={styles.header}>about</div>
+                        <AboutContainer />
+                    </div>
+                );
+            case Path.rules:
+                return (
+                    <div>
+                        <div className={styles.header}>rules</div>
+                        <RulesContainer />
+                    </div>
+                );
         }
 	}
 
