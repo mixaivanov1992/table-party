@@ -1,0 +1,30 @@
+.new_rule{
+    display: flex;
+    min-height: 70vh;
+    flex-direction: column;
+    .game_name{
+        flex: 0;
+        margin: 10px 0;
+        text-align: center;
+        label{
+            margin-right: 5px;
+        }
+    }
+    .content{
+        flex: 1;
+    }
+    .footer_panel{
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        height: 90px;
+        flex: 0 0 auto;
+        text-align: center;
+        input{
+            width: 70px;
+            margin-right: 5px;
+        }
+        .save{
+            margin-top: 10px;
+        }
+    }
+}

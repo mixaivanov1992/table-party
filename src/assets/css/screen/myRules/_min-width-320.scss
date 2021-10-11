@@ -1,0 +1,41 @@
+@media screen and (device-height: 320px) {
+    .add{
+        //310px;
+    }
+}
+.my_rules{
+    .container {
+        margin: 10px 20px;
+        display: -webkit-flex;
+        -webkit-flex-wrap: wrap;
+        display: flex;
+        flex-wrap: wrap;
+        .item{
+            cursor: pointer;
+            border: 1px solid #f9f9f9;
+            margin: 0 auto;
+            text-align: center;
+            .logo{
+                height: 180px;
+                color: #24292f;
+                .no_image{
+                    font-size: 180px;
+                }
+            }
+            .name{
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .add{
+        position: fixed;
+        bottom: 160px;
+        right: 20px;
+        .icon{
+            cursor: pointer;
+            color: #24292f;
+            font-size: 50px;
+            z-index: 1;
+        }
+    }
+}

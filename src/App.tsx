@@ -59,9 +59,8 @@ const App: React.FC<Props> = (props) => {
 					<Route path={`/${Path.rules}`}>
 						{chunk(Path.rules)}
 					</Route>
-					{
-						isAuthorized(Path.library)
-					}
+					{isAuthorized(Path.myRules)}
+					{isAuthorized(Path.newRule)}
 					<Route path="/">
 						{chunk(Path.home)}
 					</Route>

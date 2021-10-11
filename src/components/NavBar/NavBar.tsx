@@ -3,6 +3,7 @@ import styles from '@css/NavBar.module.scss';
 import { Link } from "react-router-dom";
 import { IoArrowUndoCircleSharp, IoArrowRedoCircleSharp, IoHome, IoDiceSharp } from 'react-icons/io5';
 import { ImUsers } from "react-icons/im";
+import { IoLibrarySharp } from "react-icons/io5";
 import { Path } from '@src/assets/interfaces-types/path';
 
 interface Props {
@@ -16,11 +17,19 @@ const NavBar: React.FC<Props> = (props) => {
 
 	const isAuthorized = () => {
 		if(props.isAuthorized){
-            return (
-                <li>
-                    <Link to={`/${Path.library}`}>Моя библиотека правил</Link>
-                </li>
-            )
+            if(props.toggle){
+                return (
+                    <li>
+                        <Link to={`/${Path.myRules}`}>Моя библиотека правил</Link>
+                    </li>
+                )
+            }else{
+                return (
+                    <li>
+                        <Link to={`/${Path.myRules}`}><IoLibrarySharp size={40} color={'#24292f'}/></Link>
+                    </li>
+                )
+            }
 		}
 	}
     
@@ -54,6 +63,9 @@ const NavBar: React.FC<Props> = (props) => {
                         <li>
                             <Link to="/"><IoHome size={40} color={'#24292f'}/></Link>
                         </li>
+                        {
+                            isAuthorized()
+                        }
                         <li>
                             <Link to={`/${Path.rules}`}><IoDiceSharp size={40} color={'#24292f'}/></Link>
                         </li>

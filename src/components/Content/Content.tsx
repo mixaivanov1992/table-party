@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from '@css/Content.module.scss';
 import { ContentPath, Path } from '@src/assets/interfaces-types/path';
-import LibraryContainer from '@components/Content/Library/LibraryContainer';
+import MyRulesContainer from '@components/Content/MyRules/MyRulesContainer';
 import HomeContainer from './Home/HomeContainer';
 import AboutContainer from './About/AboutContainer';
 import RulesContainer from './Rules/RulesContainer';
+import NewRuleContainer from './MyRules/NewRule/NewRuleContainer';
 
 
 interface Props {
@@ -17,11 +18,11 @@ const Content: React.FC<Props> = (props) => {
 
 	const chunk = (path:ContentPath) => {
         switch(path){
-            case Path.library:
+            case Path.myRules:
                 return (
                     <div>
-                        <div className={styles.header}>library</div>
-                        <LibraryContainer />
+                        <div className={styles.header}>my rules</div>
+                        <MyRulesContainer />
                     </div>
                 );
             case Path.home:
@@ -43,6 +44,13 @@ const Content: React.FC<Props> = (props) => {
                     <div>
                         <div className={styles.header}>rules</div>
                         <RulesContainer />
+                    </div>
+                );
+            case Path.newRule:
+                return (
+                    <div>
+                        <div className={styles.header}>new rule</div>
+                        <NewRuleContainer />
                     </div>
                 );
         }

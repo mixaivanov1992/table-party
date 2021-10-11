@@ -1,14 +1,9 @@
-@media screen and (min-height: 720px) {
+@media screen and (device-height: 720px) {
     .content{
-        height: 360px; /*360*/
+        height: 360px; /*360 - все блоки кроме content*/
     }
 }
-@media screen and (min-height: 920px) {
-    .content{
-        height: 540px;
-    }
-}
-@media screen and (min-height: 1080px) {
+@media screen and (device-height: 1080px) {
     .content{
         height: 720px;
     }

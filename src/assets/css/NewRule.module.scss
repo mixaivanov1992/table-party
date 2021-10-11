@@ -1,0 +1,7 @@
+@use 'core';
+@media screen and (min-device-width: 320px) and (max-width:1279px) {
+    @import './screen/newRule/_min-width-320';
+}
+@media screen and (min-device-width: 1280px) {
+    @import './screen/newRule/_min-width-1280';
+}

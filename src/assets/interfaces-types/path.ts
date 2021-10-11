@@ -3,7 +3,8 @@ export enum Path {
     rules = 'rules',
     about = 'about',
     login = 'login',
-    library = 'library',
+    myRules = 'my-rules',
+    newRule = 'new-rule'
 }
 
-export type ContentPath = Path.home | Path.about | Path.rules | Path.library;
+export type ContentPath = Path.home | Path.about | Path.rules | Path.myRules | Path.newRule;

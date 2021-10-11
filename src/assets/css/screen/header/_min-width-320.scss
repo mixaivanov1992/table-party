@@ -1,4 +1,12 @@
 /*height 113px, width 100% */
+@media screen and (device-width: 320px) {
+    .search{
+        width: 150px;
+        input{
+            width: inherit;
+        }
+    }
+}
 .wrapper{
     flex: 0 0 auto;
     .header{

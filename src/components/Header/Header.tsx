@@ -12,7 +12,7 @@ const Header: React.FC<Props> = (props) => {
         <div className={styles.wrapper}>
             <header className={styles.header}>
                 <div className={styles.search}>
-                    <input placeholder="Поиск"/>
+                    <input type="text" placeholder="Поиск"/>
                 </div>
                 <div className={styles.user_menu}>
                     <div>

@@ -46,6 +46,7 @@ yarn add formik                                                                 
 yarn add use-react-router-breadcrumbs                                                           -   хлебные крошки
 
 npm install react-icons --save                                                                  -   иконки для react
+npm install react-number-format --save                                                          -   маска для input
 
 DEBUG
 npm install --save redux-devtools-extension														-	дополнение для браузера, для разработки
