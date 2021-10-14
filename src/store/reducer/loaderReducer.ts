@@ -1,4 +1,4 @@
-import {LoaderState, LoaderAction, LoaderActionType, SetVisibility} from '@interfaces-types/loader';
+import {LoaderState, LoaderAction, LoaderActionType, SetVisibility} from '@interfaces-types/loaderReducer';
 
 const initialState: LoaderState = {
     loading: true

@@ -1,4 +1,4 @@
-import { PersonalDataAction, personalDataActionType, personalDataState, SetPersonalData } from '@interfaces-types/personalData';
+import { PersonalDataAction, personalDataActionType, personalDataState, SetPersonalData } from '@interfaces-types/personalDataReducer';
 
 const initialState: personalDataState = {
     isAuthorized: false,

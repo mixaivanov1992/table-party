@@ -2,18 +2,24 @@ body{
     background: #fff;
     margin: 0px;
 }
-input[type="password"],
-input[type="text"],
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number]{
+  -moz-appearance: textfield;
+}
+
+input[type=number],
+input[type=password],
+input[type=text],
 button{
 	display: inline-block;
 	font-weight: 400;
 	text-align: center;
 	white-space: nowrap;
 	vertical-align: middle;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
 	border: 1px solid #24292f;
 	padding: .375rem .75rem;
 	line-height: 1.5;
