@@ -1,0 +1,58 @@
+.container{
+    margin: 10px 10px;
+    position: relative;
+    .row{
+        margin-right: 50px;
+        border: 1px solid #24292f;
+        padding: 10px;
+        min-height: 21px;
+    }
+    .settings_btn{
+        position: absolute;
+        right: 0;
+        top: 0;
+        .icon{
+            cursor: pointer;
+            color: #24292f;
+            font-size: 38px;
+            z-index: 1;
+            &:hover{
+                color: #0969da;
+            }
+        }
+        &:hover + .settings{
+            opacity: 1;
+        }
+    }
+    .settings{
+        opacity: 0;
+        border: 1px solid #24292f;
+        z-index: 2;
+        position: absolute;
+        background-color: #fff;
+        right: 0;
+        transition: 0.2s;
+        margin-top: 2px;
+        padding: 10px;
+        &:hover{
+            opacity: 1;
+        }
+        input{
+            margin: 0 8px;
+        }
+        .remove{
+            text-align: center;
+            margin-top: 10px;
+            .icon{
+                cursor: pointer;
+                color: #24292f;
+                font-size: 38px;
+                z-index: 1;
+                text-align: center;
+                &:hover{
+                    color: #0969da;
+                }
+            }
+        }
+    }
+}

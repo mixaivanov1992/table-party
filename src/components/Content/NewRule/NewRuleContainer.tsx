@@ -14,11 +14,11 @@ const NewRuleContainer: React.FC = () => {
         dispatch(setRowCount(rowCountLocal));
     }
     
-    const inputRowCount = (rowCountLocal): void => {
+    const inputRowCount = (rowCountLocal:number): void => {
         setRowCountLocal(rowCountLocal);
     }
     
-    const changeGameName = (gameName): void => {
+    const changeGameName = (gameName:string): void => {
         dispatch(setGameName(gameName));
     }
     

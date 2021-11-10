@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Loader from '@shared/loader/Loader';
+import Loader from '@src/shared/Loader/Loader';
 import App from '@src/App';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
@@ -10,8 +10,7 @@ const AppContainer: React.FC = () => {
 	const	{loading} = useTypedSelector(state => state.loader),
 			personalData = useTypedSelector(state => state.personalData),
 			dispatch = useDispatch();
-
-			console.log(personalData);
+			
 	//[loader, setLoader] = useState(useTypedSelector(state => state.loader));
 	useEffect(() => {
 		dispatch(setVisibility(!loading));

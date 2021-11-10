@@ -5,7 +5,7 @@ import MyRulesContainer from '@components/Content/MyRules/MyRulesContainer';
 import HomeContainer from './Home/HomeContainer';
 import AboutContainer from './About/AboutContainer';
 import RulesContainer from './Rules/RulesContainer';
-import NewRuleContainer from './MyRules/NewRule/NewRuleContainer';
+import NewRuleContainer from './NewRule/NewRuleContainer';
 
 
 interface Props {
