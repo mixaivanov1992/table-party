@@ -28,12 +28,11 @@ yarn add @types/node-sass --dev																	-	установка sass тип
 WEBPACK
 yarn add webpack --dev																			-	установка webpack корневой функционал --dev только для разработки
 yarn add @types/webpack --dev                                                                   -	добавление типов
+yarn add -D webpack-merge                                                                       -   позволяет объединять файлы
 yarn add webpack-cli --dev																		-	установка webpack-cli обеспечивает доступ работы с консолью используя команды webpack
 yarn add html-webpack-plugin --dev 																-	плагин позволяет взаимодействовать с html (подключает в html файл все скрипты указанные в output)
 yarn add clean-webpack-plugin --dev																-	удаляет устаревшие файл построенные webpack'ом (например хэшированные)
 yarn add style-loader css-loader --dev															-	устанавливаем плагин позволяющий webpack'у работать с css
-yarn add file-loader --dev																		-	устанавливаем плагин позволяющий webpack'у работать с картинками
-yarn add ts-loader --dev																		-	устанавливаем плагин позволяющий webpack'у работать с typescript
 yarn add webpack-dev-server --dev																-	устанавливаем плагин позволяющий с билдом на сервере который хранит все файлы в оперативной памяти
 yarn add @types/webpack-dev-server --dev														-	добавление типов
 yarn add copy-webpack-plugin --dev																-	устанавливаем плагин позволяющий webpack'у переносить все необходимы файлы (картинки) переносить в билд
@@ -48,6 +47,7 @@ npm install --save-dev babel-loader @babel/core 												-	bable позвол
 npm install --save-dev @babel/preset-react														-	пресет для react
 npm install --save-dev @babel/preset-typescript													-	пресет для typescript
 yarn add @babel/preset-env --dev																-	пресет для babel
+yarn add @babel/plugin-transform-runtime --dev                                                  -   Вынесите ссылки на помощники и встроенные функции, автоматически заполнив ваш код, не загрязняя глобальные объекты.
 
 LIBRARY
 npm install --save react-router-dom																-	плагин для работы с маршрутами
