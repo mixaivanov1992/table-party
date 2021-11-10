@@ -1,3 +1,17 @@
+REACT
+yarn add react                                                                                  -   установка react
+yarn add -D @types/react                                                                        -   установка типов react
+
+yarn add react-dom                                                                              -   установка react-dom
+yarn add -D @types/react-dom                                                                    -   установка типов react-dom
+
+yarn add -D @testing-library/jest-dom                                                           -   установка testing-library/jest-dom
+yarn add -D @testing-library/react                                                              -   установка testing-library/react
+yarn add -D @testing-library/user-event                                                         -   установка testing-library/user-event
+
+yarn add -D @types/jest                                                                         -   установка типов types/jest
+yarn add -D @types/node                                                                         -   установка типов types/node
+
 TYPESCRIPT
 
 yarn add -D typescript                                                                          -   установка typescript
