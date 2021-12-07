@@ -1,14 +1,14 @@
 @media screen and (device-height: 720px) {
-    .content{
-        height: 360px; /*360 - все блоки кроме content*/
+    .container{
+        height: 360px; /*360 - все блоки кроме container*/
     }
 }
 @media screen and (device-height: 1080px) {
-    .content{
+    .container{
         height: 720px;
     }
 }
-.content{
+.container{
     flex: 1 0;
     background: core.$panel-color;
     box-shadow: 0 0 2px core.$shadow;

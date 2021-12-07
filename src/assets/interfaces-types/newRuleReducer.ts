@@ -1,10 +1,8 @@
-export interface newRuleState {
-    rowCount: number,
+export interface NewRuleState {
     gameName: string,
 }
 export enum newRuleActionType {
     SET_GAME_NAME = 'SET_GAME_NAME',
-    SET_ROW_COUNT = 'SET_ROW_COUNT',
 }
 
 export interface SetGameName {
@@ -12,10 +10,5 @@ export interface SetGameName {
     gameName: string
 }
 
-export interface SetRowCount {
-    type: newRuleActionType.SET_ROW_COUNT,
-    rowCount: number
-}
-
-export type NewRuleAction = SetGameName | SetRowCount;
+export type NewRuleAction = SetGameName;
 

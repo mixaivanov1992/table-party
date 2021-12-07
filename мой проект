@@ -41,6 +41,7 @@ npm install --save-dev cross-env																-	устанавливаем п�
 npm install --save-dev @babel/polyfill															-	имитация полной среды ES2015+
 yarn add --dev tsconfig-paths-webpack-plugin													-	плагин для получения путей из файла tsconfig.json
 yarn add -D typescript-plugin-css-modules                                                       -   плагин для загрузки css в файлах typescript
+yarn add -D @pmmmwh/react-refresh-webpack-plugin react-refresh                                  -   плагин позволяет не перезагружать страницу после внесения правок в коде
 
 BABLE
 npm install --save-dev babel-loader @babel/core 												-	bable позволяет компилировать новый js код для устаревших браузеров
@@ -69,6 +70,8 @@ yarn add formik                                                                 
 yarn add use-react-router-breadcrumbs                                                           -   хлебные крошки
 
 npm install react-icons --save                                                                  -   иконки для react
+
+npm install react-transition-group --save                                                       -   анимация
 
 DEBUG
 npm install --save-dev redux-devtools-extension													-	дополнение для браузера, для разработки

@@ -1,15 +1,15 @@
-export interface personalDataState {
+export interface PersonalDataState {
     isAuthorized: boolean,
     userName: string,
     favorites: Array<Number>,
     libraryOwner: Array<Number>
 }
-export enum personalDataActionType {
+export enum PersonalDataActionType {
     SET_PERSONAL_DATA = 'SET_PERSONAL_DATA',
 }
 
 export interface SetPersonalData {
-    type: personalDataActionType.SET_PERSONAL_DATA,
+    type: PersonalDataActionType.SET_PERSONAL_DATA,
     isAuthorized: boolean
 }
 

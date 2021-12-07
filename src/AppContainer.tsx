@@ -7,8 +7,8 @@ import { setVisibility } from '@store/reducer/loaderReducer';
 import { setPersonalData } from '@store/reducer/personalDataReducer';
 
 const AppContainer: React.FC = () => {
-	const	{loading} = useTypedSelector(state => state.loader),
-			personalData = useTypedSelector(state => state.personalData),
+	const	{loading} = useTypedSelector(state => state.loaderReducer),
+			personalDataReducer = useTypedSelector(state => state.personalDataReducer),
 			dispatch = useDispatch();
 			
 	//[loader, setLoader] = useState(useTypedSelector(state => state.loader));
@@ -21,7 +21,7 @@ const AppContainer: React.FC = () => {
 		return <Loader />;
 	}
 
-	return <App isAuthorized={personalData.isAuthorized}/>;
+	return <App isAuthorized={personalDataReducer.isAuthorized}/>;
 }
 
 export default AppContainer;

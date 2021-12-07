@@ -1,16 +1,16 @@
-import { PersonalDataAction, personalDataActionType, personalDataState, SetPersonalData } from '@interfaces-types/personalDataReducer';
+import { PersonalDataAction, PersonalDataActionType, PersonalDataState, SetPersonalData } from '@interfaces-types/personalDataReducer';
 
-const initialState: personalDataState = {
+const initialState: PersonalDataState = {
     isAuthorized: false,
     userName: '',
     favorites: [],
     libraryOwner: [] 
 }
 
-export const personalDataReducer = (state = initialState, action: PersonalDataAction): personalDataState => {
+export const personalDataReducer = (state = initialState, action: PersonalDataAction): PersonalDataState => {
     //console.log(action, action.isAuthorized);
     switch (action.type){
-        case personalDataActionType.SET_PERSONAL_DATA:
+        case PersonalDataActionType.SET_PERSONAL_DATA:
             return {
                 ...state,
                 isAuthorized: action.isAuthorized
@@ -22,7 +22,7 @@ export const personalDataReducer = (state = initialState, action: PersonalDataAc
 
 export const setPersonalData = (isAuthorized: boolean): SetPersonalData => {
     return {
-        type: personalDataActionType.SET_PERSONAL_DATA,
+        type: PersonalDataActionType.SET_PERSONAL_DATA,
         isAuthorized: isAuthorized
     }
 }

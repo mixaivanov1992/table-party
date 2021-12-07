@@ -1,58 +1,58 @@
-.container{
-    margin: 10px 10px;
-    position: relative;
-    .row{
-        margin-right: 50px;
-        border: 1px solid #24292f;
-        padding: 10px;
-        min-height: 21px;
+.container {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    flex: 0 0 auto;
+    text-align: center;
+    > input {
+        width: 70px;
+        margin-right: 5px;
     }
-    .settings_btn{
-        position: absolute;
-        right: 0;
-        top: 0;
-        .icon{
+    .row {
+        margin: 15px 15px 5px;
+        border: 1px solid #24292f;
+        min-height: 48px;
+    }
+    .settings_btn {
+        display: inline-block;
+        padding-top: 10px;
+        margin: 0 15px;
+        .icon {
             cursor: pointer;
             color: #24292f;
-            font-size: 38px;
+            font-size: 25px;
             z-index: 1;
-            &:hover{
+            &:hover {
                 color: #0969da;
             }
         }
-        &:hover + .settings{
-            opacity: 1;
-        }
     }
-    .settings{
-        opacity: 0;
-        border: 1px solid #24292f;
-        z-index: 2;
-        position: absolute;
+    .settings {
         background-color: #fff;
-        right: 0;
-        transition: 0.2s;
         margin-top: 2px;
-        padding: 10px;
-        &:hover{
-            opacity: 1;
-        }
-        input{
+        // padding: 10px;
+        > input {
             margin: 0 8px;
         }
-        .remove{
+        .remove {
             text-align: center;
             margin-top: 10px;
-            .icon{
-                cursor: pointer;
-                color: #24292f;
-                font-size: 38px;
-                z-index: 1;
-                text-align: center;
-                &:hover{
-                    color: #0969da;
-                }
-            }
         }
+    }
+    .enter {
+        opacity: 0;
+    }
+
+    .enterActive {
+        opacity: 1;
+        transition: opacity 1200ms ease-in-out;
+    }
+
+    .exit {
+        opacity: 1;
+    }
+
+    .exitActive {
+        opacity: 0;
+        transition: opacity 1200ms ease-in-out;
     }
 }

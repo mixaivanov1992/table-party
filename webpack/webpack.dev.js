@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 //const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-//const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -10,6 +10,7 @@ module.exports = {
     devServer: {
         hot: true,
         open: true,
+        historyApiFallback: true
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -19,7 +20,7 @@ module.exports = {
             }
         }),
         //new BundleAnalyzerPlugin(),
-        //new ReactRefreshWebpackPlugin(),
+        new ReactRefreshWebpackPlugin(),
         new webpack.DefinePlugin({
             'process.env.name': JSON.stringify('dev'),
         }),

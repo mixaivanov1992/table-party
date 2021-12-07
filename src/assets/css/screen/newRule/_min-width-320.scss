@@ -10,21 +10,7 @@
             margin-right: 5px;
         }
     }
-    .content{
+    .container{
         flex: 1;
-    }
-    .footer_panel{
-        -webkit-flex-wrap: wrap;
-        flex-wrap: wrap;
-        height: 90px;
-        flex: 0 0 auto;
-        text-align: center;
-        input{
-            width: 70px;
-            margin-right: 5px;
-        }
-        .save{
-            margin-top: 10px;
-        }
     }
 }

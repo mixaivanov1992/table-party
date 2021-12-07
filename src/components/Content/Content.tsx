@@ -57,7 +57,7 @@ const Content: React.FC<Props> = (props) => {
 	}
 
     return (
-        <div className={styles.content}>
+        <div className={styles.container}>
             {chunk(props.path)}
         </div>
     );

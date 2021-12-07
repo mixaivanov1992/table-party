@@ -1,22 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import NewRule from './NewRule'
-import { useTypedSelector } from '@hooks/useTypedSelector';
-import { setGameName, setRowCount } from '@store/reducer/newRuleReducer';
 import { useDispatch } from 'react-redux';
+import { useTypedSelector } from '@hooks/useTypedSelector';
+import { setGameName } from '@store/reducer/newRuleReducer';
+//import { setCellCount } from '@src/store/reducer/rowReducer';
 
 
 const NewRuleContainer: React.FC = () => {
-    const {gameName, rowCount} = useTypedSelector(state => state.newRule);
+    const {gameName} = useTypedSelector(state => state.newRuleReducer);
     const dispatch = useDispatch();
-    const [rowCountLocal, setRowCountLocal] = useState(rowCount?rowCount:1);
-
-    const clickRowAdd = (): void => {
-        dispatch(setRowCount(rowCountLocal));
-    }
-    
-    const inputRowCount = (rowCountLocal:number): void => {
-        setRowCountLocal(rowCountLocal);
-    }
     
     const changeGameName = (gameName:string): void => {
         dispatch(setGameName(gameName));
@@ -24,11 +16,7 @@ const NewRuleContainer: React.FC = () => {
     
     return (
         <NewRule
-            clickRowAdd={clickRowAdd}
-            inputRowCount={inputRowCount}
             changeGameName={changeGameName}
-            rowCountLocal={rowCountLocal}
-            rowCount={rowCount}
             gameName={gameName}
         />
     );

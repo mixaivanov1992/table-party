@@ -7,7 +7,7 @@ import { IoLibrarySharp } from "react-icons/io5";
 import { Path } from '@src/assets/interfaces-types/path';
 
 interface Props {
-    clickToggle(): void,
+    onClickToggle(): void,
     toggle: boolean,
     isAuthorized: boolean
 }
@@ -52,7 +52,7 @@ const NavBar: React.FC<Props> = (props) => {
                         </li>
                     </ul>
                 </nav>
-                <div onClick={props.clickToggle} className={styles.toggle}><IoArrowUndoCircleSharp size={40} color={'#24292f'}/></div>
+                <div onClick={props.onClickToggle} className={styles.toggle}><IoArrowUndoCircleSharp size={40} color={'#24292f'}/></div>
             </div>
         );
     }else{
@@ -74,7 +74,7 @@ const NavBar: React.FC<Props> = (props) => {
                         </li>
                     </ul>
                 </nav>
-                <div onClick={props.clickToggle} className={styles.toggle}><IoArrowRedoCircleSharp size={40} color={'#24292f'}/></div>
+                <div onClick={props.onClickToggle} className={styles.toggle}><IoArrowRedoCircleSharp size={40} color={'#24292f'}/></div>
             </div>
         );
     }

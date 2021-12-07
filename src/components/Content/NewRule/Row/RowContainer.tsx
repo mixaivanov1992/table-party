@@ -1,45 +1,58 @@
+import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import { setColumnCount, addRow, setSettingsVisibility, removeRow } from '@src/store/reducer/rowReducer';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Row from './Row';
 
-interface Props{
-    rowCount: number,
+interface Props {
 }
 
-const RowContainer:React.FC<Props> = (props) => {
-    
-    //const {gameName, rowCount} = useTypedSelector(state => state.newRule);
-    const cellCount = 1;
+const RowContainer: React.FC<Props> = (props) => {
     const dispatch = useDispatch();
-    const [cellCountLocal, setCellCountLocal] = useState(cellCount?cellCount:1);
+    const rowReducer = useTypedSelector(state => state.rowReducer);
+    const [rowCount, setRowCount] = useState(1);
+    
+    //const [columnCount, setColumnCount] = useState(1);
+    // const [localCellCount, setCellCountLocal] = useState(cellCount?cellCount:1);
 
-    const clickCellAdd = (): void => {
-        //dispatch(setRowCount(rowCountLocal));
+    // const onClickColumnAdd = (): void => {
+    //     //dispatch(setRowCount(rowCount));
+    // }
+
+    const inputColumn = (columnCount:number, index: number): void => {
+        dispatch(setColumnCount(index, columnCount));
+    }
+
+    const onClickSettingsVisibility = (index: number): void => {
+        dispatch(setSettingsVisibility(index));
+    }
+
+    const onClickRemoveRow = (index: number): void => {
+        dispatch(removeRow(index));
+    }
+
+    const onClickRowAdd = (): void => {
+        dispatch(addRow(rowCount));
     }
     
-    const inputCellCount = (cellCountLocal:number): void => {
-        setCellCountLocal(cellCountLocal);
+    const inputRow = (rowCount: number): void => {
+        setRowCount(rowCount);
     }
-
-    let row: JSX.Element[];
-        row = [];
-    for (let i = 0; i < props.rowCount; i++) {
-        row.push(
-            <div key={i}>
-                <Row
-                    clickCellAdd={clickCellAdd}
-                    inputCellCount={inputCellCount}
-                    cellCountLocal={cellCountLocal}
-                    cellCount={cellCount}
-                    cellIndex={i}
-                />
-            </div>
-        );
-    }
+    
     return (
-		<React.Fragment>
-            {row}
-        </React.Fragment>
+        <Row
+            onClickSettingsVisibility={onClickSettingsVisibility}
+            // onClickCellAdd={onClickCellAdd}
+            inputColumn={inputColumn}
+            // localCellCount={localCellCount}
+            //columnCount={columnCount}
+            // rowState={rowReducer}
+            onClickRowAdd={onClickRowAdd}
+            onClickRemoveRow={onClickRemoveRow}
+            inputRow={inputRow}
+            rowState={rowReducer}
+            rowCount={rowCount}
+        />
     );
 }
 

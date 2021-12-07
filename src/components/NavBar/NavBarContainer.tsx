@@ -9,12 +9,12 @@ interface Props {
 const NavBarContainer: React.FC<Props> = (props) => {
     const [toggle, setToggle] = useState(true);
 
-    const clickToggle = () => {
+    const onClickToggle = () => {
         setToggle(!toggle);
     }
 
 	return (
-        <NavBar toggle={toggle} clickToggle={clickToggle} isAuthorized={props.isAuthorized} />
+        <NavBar toggle={toggle} onClickToggle={onClickToggle} isAuthorized={props.isAuthorized} />
     );
 }
 
