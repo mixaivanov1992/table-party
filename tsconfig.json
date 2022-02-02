@@ -23,6 +23,9 @@
 			"@hooks/*": [
 				"./src/assets/hooks/*"
 			],
+			"@localization/*": [
+				"./src/assets/localization/*"
+			],
 		},
 		"plugins": [
 			{

@@ -3,13 +3,13 @@ import styles from '@css/MyRules.module.scss';
 import { IoMdImages } from 'react-icons/io';
 import { IoAddCircleOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom';
-import { Path } from '@src/assets/interfaces-types/path';
+import { Page } from '@src/assets/interfaces-types/pagesPath';
 
 const MyRules: React.FC = () => {
     return (
         <div className={styles.my_rules}>
             <div className={styles.add}>
-                <Link to={`/${Path.newRule}`}>
+                <Link to={`/${Page.newRule}`}>
                     <IoAddCircleOutline className={styles.icon} title="Создать новое правило"/>
                 </Link>
             </div>

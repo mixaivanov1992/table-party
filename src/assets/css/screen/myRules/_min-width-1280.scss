@@ -7,13 +7,13 @@
         flex-wrap: wrap;
         .item{
             cursor: pointer;
-            border: 1px solid #f9f9f9;
+            border: 1px solid core.$third-color;
             width: calc(25% - 22px);
             margin: 10px 10px;
             text-align: center;
             .logo{
                 height: 180px;
-                color: #24292f;
+                color: core.$second-color;
                 .no_image{
                     font-size: 180px;
                 }
@@ -31,16 +31,16 @@
     }
     .add{
         height: 80px;
-        position: fixed;
-        bottom: 200px;
-        right: 35px;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
         .icon{
             cursor: pointer;
-            color: #24292f;
+            color: core.$second-color;
             font-size: 80px;
             z-index: 1;
             &:hover{
-                color: #0969da;
+                color: core.$first-color;
             }
         }
     }

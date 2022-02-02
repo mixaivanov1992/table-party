@@ -42,6 +42,7 @@ npm install --save-dev @babel/polyfill															-	имитация полн
 yarn add --dev tsconfig-paths-webpack-plugin													-	плагин для получения путей из файла tsconfig.json
 yarn add -D typescript-plugin-css-modules                                                       -   плагин для загрузки css в файлах typescript
 yarn add -D @pmmmwh/react-refresh-webpack-plugin react-refresh                                  -   плагин позволяет не перезагружать страницу после внесения правок в коде
+yarn add --dev fork-ts-checker-webpack-plugin                                                   -   Плагин Webpack, который запускает проверку типов TypeScript в отдельном процессе.
 
 BABLE
 npm install --save-dev babel-loader @babel/core 												-	bable позволяет компилировать новый js код для устаревших браузеров
@@ -53,27 +54,23 @@ yarn add @babel/plugin-transform-runtime --dev                                  
 LIBRARY
 npm install --save react-router-dom																-	плагин для работы с маршрутами
 npm install --save-dev @types/react-router-dom													-	типы для typescript
-
 npm install redux --save																		-	установка redux
 npm install --save-dev @types/redux																-	типы для typescript
-
 npm install react-redux --save																	-	установка react-redux это прослойка между интерфейсом и бизнес логикой
 npm install --save-dev @types/react-redux														-	типы для typescript
-
 npm install redux-thunk	--save																	-	установка thunk
 npm install --save-dev @types/redux-thunk														-	типы для typescript
-
 npm install axios --save																		-	установка библиотеки axios для выполнения ajax запросов
 npm install --save-dev @types/axios																-	типы для typescript
-
 yarn add formik                                                                                 -   работа с формами
 yarn add use-react-router-breadcrumbs                                                           -   хлебные крошки
-
 npm install react-icons --save                                                                  -   иконки для react
-
 npm install react-transition-group --save                                                       -   анимация
+npm install normalize.css --save                                                                -   normalize
+npm install react-localization --save                                                           -   локализация
 
 DEBUG
 npm install --save-dev redux-devtools-extension													-	дополнение для браузера, для разработки
 npm install --save-dev @types/redux-devtools-extension											-	типы для typescript
+
 

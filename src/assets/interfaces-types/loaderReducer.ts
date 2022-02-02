@@ -1,5 +1,5 @@
 export interface LoaderState {
-    loading: boolean | undefined
+    isLoading: boolean | undefined
 }
 export enum LoaderActionType {
     SET_VISIBILITY = 'SET_VISIBILITY',
@@ -7,11 +7,11 @@ export enum LoaderActionType {
 
 interface SetVisibility1Action {
     type: LoaderActionType.SET_VISIBILITY,
-    loading?: boolean
+    isLoading?: boolean
 }
 export interface SetVisibility {
     type: LoaderActionType.SET_VISIBILITY,
-    loading: boolean
+    isLoading: boolean
 }
 
 export type LoaderAction = SetVisibility1Action;

@@ -1,14 +1,8 @@
-.app{
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+
+@use 'core';
+@media screen and (max-width:600px) {
+    @import './screen/app/mobile';
 }
-.wrapper{
-    flex: 1 0 auto;
-    > div{
-        display: -webkit-flex;
-        -webkit-flex-wrap: wrap;
-        display: flex;
-        flex-wrap: wrap;
-    }
+@media screen and (min-width: 601px) {
+    @import './screen/app/display';
 }

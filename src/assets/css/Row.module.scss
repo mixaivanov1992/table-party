@@ -1,58 +1,62 @@
+@use 'core';
 .container {
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-    flex: 0 0 auto;
     text-align: center;
-    > input {
-        width: 70px;
-        margin-right: 5px;
+    > div:first-child {
+        box-shadow: 0px 1px 0px 0px rgba(36, 41, 47, 0.3);
+        padding-bottom: 15px;
+        > input {
+            width: 70px;
+            margin-right: 5px;
+        }
     }
     .row {
         margin: 15px 15px 5px;
-        border: 1px solid #24292f;
+        border-bottom: 1px solid rgba(36, 41, 47, 0.3);
         min-height: 48px;
-    }
-    .settings_btn {
-        display: inline-block;
-        padding-top: 10px;
-        margin: 0 15px;
-        .icon {
-            cursor: pointer;
-            color: #24292f;
-            font-size: 25px;
-            z-index: 1;
-            &:hover {
-                color: #0969da;
+        > div:first-child {
+            display: flex;
+            -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+            > div {
+                height: 100px;
+                border: 1px solid rgba(36, 41, 47, 0.3);
+                margin-right: 15px;
+                flex: 2 0 auto;
+            }
+            > div:last-child {
+                flex: 0 0 auto;
+                height: auto;
+                border: 0px;
+                margin-right: 0;
             }
         }
-    }
-    .settings {
-        background-color: #fff;
-        margin-top: 2px;
-        // padding: 10px;
-        > input {
-            margin: 0 8px;
+        .settings {
+            background-color: #fff;
+            margin-top: 2px;
+            > input {
+                margin: 0 8px;
+            }
+            .remove {
+                text-align: center;
+                margin-top: 10px;
+            }
+            .column {
+                margin-top: 5px;
+                span:first-child {
+                    border-color: core.$first-color;
+                }
+                span {
+                    border: 1px solid black;
+                    margin: 0 2px;
+                    height: 15px;
+                    width: 15px;
+                    display: inline-block;
+                    cursor: pointer;
+                    &:hover {
+                        border-color: core.$first-color;
+                    }
+                }
+            }
         }
-        .remove {
-            text-align: center;
-            margin-top: 10px;
-        }
-    }
-    .enter {
-        opacity: 0;
-    }
-
-    .enterActive {
-        opacity: 1;
-        transition: opacity 1200ms ease-in-out;
-    }
-
-    .exit {
-        opacity: 1;
-    }
-
-    .exitActive {
-        opacity: 0;
-        transition: opacity 1200ms ease-in-out;
     }
 }

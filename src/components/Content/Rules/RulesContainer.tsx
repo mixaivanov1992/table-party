@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Rules from './Rules';
 
-const RulesContainer: React.FC = () => {
+interface Props {
+    children: ReactNode
+}
+const RulesContainer: React.FC<Props> = (props) => {
     return (
-        <Rules />
+        <>
+            {props.children}
+            <Rules />
+        </>
     );
 }
 

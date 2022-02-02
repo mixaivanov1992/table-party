@@ -1,8 +1,13 @@
-import React from 'react';
-
-const AboutContainer: React.FC = () => {
+import React, { ReactNode } from 'react';
+interface Props {
+    children: ReactNode
+}
+const AboutContainer: React.FC<Props> = (props) => {
     return (
-        <div>about</div>
+        <>
+            {props.children}
+            <div></div>
+        </>
     );
 }
 

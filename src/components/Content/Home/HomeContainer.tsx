@@ -1,8 +1,14 @@
-import React from 'react';
-
-const HomeContainer: React.FC = () => {
+import React, { ReactNode } from 'react';
+import Home from '@components/Content/Home/Home'
+interface Props {
+    children: ReactNode
+}
+const HomeContainer: React.FC<Props> = (props) => {
     return (
-        <div>home</div>
+        <>
+            {props.children}
+            <Home />
+        </>
     );
 }
 

@@ -1,64 +1,43 @@
 import React from 'react';
 import styles from '@css/Content.module.scss';
-import { ContentPath, Path } from '@src/assets/interfaces-types/path';
+import Localization from '@localization/content';
+import { GiRollingDices, GiPerspectiveDiceSixFacesFive, GiRollingDiceCup, GiDiceEightFacesEight, GiDiceFire } from "react-icons/gi";
 import MyRulesContainer from '@components/Content/MyRules/MyRulesContainer';
-import HomeContainer from './Home/HomeContainer';
-import AboutContainer from './About/AboutContainer';
-import RulesContainer from './Rules/RulesContainer';
-import NewRuleContainer from './NewRule/NewRuleContainer';
-
+import HomeContainer from '@components/Content/Home/HomeContainer';
+import AboutContainer from '@components/Content/About/AboutContainer';
+import RulesContainer from '@components/Content/Rules/RulesContainer';
+import NewRuleContainer from '@components/Content/NewRule/NewRuleContainer';
+import { PageData } from '@src/assets/interfaces-types/personalDataReducer';
 
 interface Props {
-    path: ContentPath
+    pageData: PageData
 }
-
 const Content: React.FC<Props> = (props) => {
-    console.debug('Header', 'page-'+props.path);
-
-
-	const chunk = (path:ContentPath) => {
-        switch(path){
-            case Path.myRules:
-                return (
-                    <div>
-                        <div className={styles.header}>my rules</div>
-                        <MyRulesContainer />
-                    </div>
-                );
-            case Path.home:
-                return (
-                    <div>
-                        <div className={styles.header}>home</div>
-                        <HomeContainer />
-                    </div>
-                );
-            case Path.about:
-                return (
-                    <div>
-                        <div className={styles.header}>about</div>
-                        <AboutContainer />
-                    </div>
-                );
-            case Path.rules:
-                return (
-                    <div>
-                        <div className={styles.header}>rules</div>
-                        <RulesContainer />
-                    </div>
-                );
-            case Path.newRule:
-                return (
-                    <div>
-                        <div className={styles.header}>new rule</div>
-                        <NewRuleContainer />
-                    </div>
-                );
-        }
-	}
+    console.debug('Header', 'page-' + props.pageData.name);
+    const component = {
+        home: HomeContainer,
+        about: AboutContainer,
+        rules: RulesContainer,
+        newRule: NewRuleContainer,
+        myRules: MyRulesContainer,
+    };
+    const Component = component[props.pageData.name];
+    
+    const randomInt = (min: number, max: number): number => {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    };
+    const dice = [GiRollingDices, GiPerspectiveDiceSixFacesFive, GiRollingDiceCup, GiDiceEightFacesEight, GiDiceFire];
+    const DiceComponent = dice[randomInt(0, 4)];
 
     return (
         <div className={styles.container}>
-            {chunk(props.path)}
+            <Component>
+                {/* pageData={props.pageData} */}
+                <div className={styles.header}>
+                    <span>{Localization[props.pageData.name]}</span>
+                    <DiceComponent />
+                </div>
+            </Component>
         </div>
     );
 }

@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 //const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -24,6 +25,7 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env.name': JSON.stringify('dev'),
         }),
+        new ForkTsCheckerWebpackPlugin(),
     ],
     output: {
         path: path.resolve(__dirname, '..', 'dist'),

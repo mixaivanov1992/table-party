@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import MyRules from './MyRules';
 
-const MyRulesContainer: React.FC = () => {
+interface Props {
+    children: ReactNode
+}
+const MyRulesContainer: React.FC<Props> = (props) => {
     return (
-        <MyRules />
+        <>
+            {props.children}
+            <MyRules />
+        </>
     );
 }
 
-export default MyRules;
+export default MyRulesContainer;

@@ -1,0 +1,44 @@
+.container {
+    flex: 1 0;
+    background: core.$third-color;
+    border: 1px solid core.$border;
+    border-radius: 3px;
+    margin-right: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    .header {
+        margin: 16px 10px;
+        position: relative;
+        font-size: 28px;
+        &:before {
+            content: "";
+            position: absolute;
+            top: calc(50% - 6px);
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: core.$first-color;
+            width: calc(95% - 40px);
+        }
+        > span {
+            background: white;
+            z-index: 1;
+            position: relative;
+            padding: 0 15px;
+            margin-left: 20px;
+            display: inline-block;
+        }
+        > svg {
+            color: core.$first-color;
+            font-size: 40px;
+            position: absolute;
+            right: 4%;
+            top: 6px
+        }
+    }
+    > * {
+        padding: 10px 20px;
+    }
+}

@@ -1,6 +1,9 @@
+@use 'core';
 body{
     background: #fff;
     margin: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -20,24 +23,26 @@ button{
 	text-align: center;
 	white-space: nowrap;
 	vertical-align: middle;
-	border: 1px solid #24292f;
+	border: 1px solid core.$border;
 	padding: .375rem .75rem;
 	line-height: 1.5;
 	border-radius: .25rem;
 	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 button:hover{
-	color: #0969da;
+	color: core.$first-color;
 	background-color: transparent;
 	background-image: none;
-	border-color: #0969da;
+	border-color: core.$first-color;
 }
 
-input[type="text"]:focus{
-	color: #0969da;
+input[type=number]:focus,
+input[type=password]:focus,
+input[type=text]:focus{
+	color: core.$first-color;
 	background-color: transparent;
 	background-image: none;
-	border-color: #0969da;
+	border-color: core.$first-color;
 }
 button:active{
 	position: relative;

@@ -1,7 +1,106 @@
 @use 'core';
-@media screen and (min-device-width: 320px) and (max-width:1279px) {
-    @import './screen/login/_min-width-320';
-}
-@media screen and (min-device-width: 1280px) {
-    @import './screen/login/_min-width-1280';
+.login{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    .data{
+        width: 60%;
+        background: core.$third-color;
+        border: 1px solid core.$border;
+        border-radius: 5px;
+        padding: 2% 10%;
+        text-align: center;
+        position: relative;
+        .back{
+            cursor: pointer;
+            border: 1px solid core.$border;
+            border-radius: 50%;
+            position: absolute;
+            background: core.$second-color;
+            left: -20px;
+            top: 30px;
+            padding: 5px 7px;
+            > span{
+                display: inline-block;
+                position: relative;
+                top: 2px;
+                right: 1px;
+                svg{
+                    font-size: 25px;
+                    color: core.$third-color;
+                }
+            }
+            &:hover{
+                background: core.$first-color;
+            }
+        }
+        .input{
+            margin-top: 5px;
+            position: relative;
+            label{
+                position: absolute;
+                left: 25%;
+                opacity: 0;
+                top: 20%;
+                padding: 5px 10px;
+            }
+            input{
+                margin-top: 5px;
+                &:focus + label{
+                    opacity: 1;
+                }
+            }
+        }
+        .logo{
+            display: inline-block;
+            svg{
+                font-size: 80px;
+                color: core.$second-color;
+                // &:hover{
+                //     cursor: pointer;
+                // }
+                // &:hover > path{
+                //     color: core.$first-color;
+                // }
+                // path{
+                //     scale: 1.23;
+                //     transform: translate(-47px, -47px);
+                // }
+            }
+        }
+        .btn{
+            margin-top: 15px;
+            > input{
+                padding: 5px 10px;
+            }
+            >:first-child{
+                margin-right: 10px;
+            }
+        }
+        .forgot_password{
+            margin-top: 15px;
+            a{
+                text-decoration: none;
+                color: core.$second-color;
+                &:hover{
+                    color: core.$first-color;
+                }
+            }
+        }
+        .social_login{
+            margin-top: 25px;
+            :first-child{
+                border-bottom: 1px solid core.$border;
+                margin-bottom: 5px;
+                padding-bottom: 5px;
+            }
+            svg{
+                font-size: 45px;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
 }

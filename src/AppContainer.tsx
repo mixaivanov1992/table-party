@@ -7,21 +7,25 @@ import { setVisibility } from '@store/reducer/loaderReducer';
 import { setPersonalData } from '@store/reducer/personalDataReducer';
 
 const AppContainer: React.FC = () => {
-	const	{loading} = useTypedSelector(state => state.loaderReducer),
-			personalDataReducer = useTypedSelector(state => state.personalDataReducer),
-			dispatch = useDispatch();
-			
-	//[loader, setLoader] = useState(useTypedSelector(state => state.loader));
+	const { isLoading } = useTypedSelector(state => state.loaderReducer);
+	const personalDataReducer = useTypedSelector(state => state.personalDataReducer);
+	const dispatch = useDispatch();
+
 	useEffect(() => {
-		dispatch(setVisibility(!loading));
+		dispatch(setVisibility(false));
 		dispatch(setPersonalData(true));
 	}, []);
 
-	if (loading) {
+
+	if (isLoading) {
 		return <Loader />;
 	}
 
-	return <App isAuthorized={personalDataReducer.isAuthorized}/>;
+	return (
+		<App
+			accessiblePages={personalDataReducer.accessiblePages}
+		/>
+	);
 }
 
 export default AppContainer;

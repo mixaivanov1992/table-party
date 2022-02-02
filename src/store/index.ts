@@ -12,7 +12,6 @@ export const routeReducer = combineReducers({
     personalDataReducer,
     newRuleReducer,
     rowReducer
-
 });
 
 export type RootState = ReturnType<typeof routeReducer>;
