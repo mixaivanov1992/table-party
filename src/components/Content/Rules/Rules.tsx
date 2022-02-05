@@ -5,7 +5,7 @@ import { IoMdImages } from 'react-icons/io';
 const Rules: React.FC = () => {
     return (
         <div className={styles.rules}>
-            <div>
+            <div className={styles.list}>
                 <div className={styles.logo}>
                     <IoMdImages className={styles.no_image} />
                 </div>

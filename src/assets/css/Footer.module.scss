@@ -1,7 +1,8 @@
 @use 'core';
-@media screen and (min-device-width: 320px) and (max-width:1279px) {
-    @import './screen/footer/_min-width-320';
-}
-@media screen and (min-device-width: 1280px) {
-    @import './screen/footer/_min-width-1280';
+.footer{
+    margin-top: 20px;
+    background: core.$second-color;
+    min-height: 100px;
+    padding: 20px;
+    color: core.$third-color;
 }

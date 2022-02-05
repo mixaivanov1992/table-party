@@ -9,21 +9,23 @@ interface Props {
 const Header: React.FC<Props> = (props) => {
     console.debug('Header');
     return (
-        <div className={styles.wrapper}>
-            <header className={styles.header}>
-                <div className={styles.search}>
-                    <input type="text" placeholder="Поиск"/>
-                </div>
+        <header className={styles.header}>
+            <div className={styles.search}>
+                <input type="text" placeholder="Поиск"/>
+            </div>
+            <div>
+                <select className={styles.language}>
+                    <option lang="ru" value="russian" selected>RU</option>
+                    <option lang="en" value="english">EN</option>
+                </select>
                 <div className={styles.user_menu}>
-                    <div>
-                        <Link className={styles.login} to="/login">
-                            <IoPersonCircle size={50} color={'#24292f'}/><br />
-                            <span>qqq</span>
-                        </Link>
-                    </div>
+                    <Link className={styles.login} to="/login">
+                        <IoPersonCircle /><br />
+                        <span>qqq</span>
+                    </Link>
                 </div>
-            </header>
-        </div>
+            </div>
+        </header>
     );
 }
 

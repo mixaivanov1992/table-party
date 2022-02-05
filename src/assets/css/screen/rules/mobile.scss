@@ -1,0 +1,8 @@
+.rules{
+    > div{
+        width: calc(100% - 20px);
+        .no_image{
+            font-size: 180px;
+        }
+    }
+}

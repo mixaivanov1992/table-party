@@ -3,9 +3,7 @@ import styles from '@css/Footer.module.scss';
 
 const Footer: React.FC = () => {
     return (
-        <div className={styles.wrapper}>
-            <footer className={styles.footer}>Footer</footer>
-        </div>
+        <footer className={styles.footer}>Footer</footer>
     );
 }
 

@@ -1,19 +1,9 @@
 .min_navbar,
 .navbar {
-    background: core.$third-color;
-    position: relative;
-    border: 1px solid core.$border;
-    border-radius: 3px;
-    padding: 10px;
     margin: 0 50px 0 20px;
     .toggle {
-        position: absolute;
         right: -45px;
-        color: core.$second-color;
-        font-size: 40px;
         bottom: 0;
-        opacity: 1;
-        cursor: pointer;
         &:hover {
             color: core.$first-color;
         }
@@ -21,35 +11,10 @@
 }
 
 .navbar {
-    width: 250px;
+    width: 22vw;
     ul {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        list-style-type: none;
         li {
-            padding: 6px 0;
             a {
-                position: relative;
-                display: block;
-                padding: 4px 0;
-                color: core.$second-color;
-                text-decoration: none;
-                text-transform: uppercase;
-                transition: 0.5s;
-
-                &::after {
-                    position: absolute;
-                    content: "";
-                    top: 100%;
-                    left: 0;
-                    width: 100%;
-                    height: 3px;
-                    transform: scaleX(0);
-                    background: core.$second-color;
-                    transform-origin: right;
-                    transition: transform 0.5s;
-                }
                 &:hover {
                     opacity: 0.7;
                 }
@@ -76,17 +41,11 @@
 .min_navbar {
     width: 60px;
     ul {
-        list-style-type: none;
         padding-left: 5px;
-        padding: 0;
         text-align: center;
-        font-size: 40px;
-        color: core.$second-color;
         li {
             margin-bottom: 15px;
             a {
-                color: core.$second-color;
-                position: relative;
                 &:hover {
                     &::after {
                         content: attr(data-localization);

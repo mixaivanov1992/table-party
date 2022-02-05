@@ -1,4 +1,73 @@
 @use 'core';
+.min_navbar,
+.navbar {
+    background: core.$third-color;
+    position: relative;
+    border: 1px solid core.$border;
+    border-radius: 3px;
+    padding: 10px;
+    .toggle {
+        position: absolute;
+        color: core.$second-color;
+        font-size: 40px;
+        opacity: 1;
+        cursor: pointer;
+    }
+}
+.navbar {
+    ul {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        list-style-type: none;
+        li {
+            padding: 6px 0;
+            a {
+                position: relative;
+                display: block;
+                padding: 4px 0;
+                color: core.$second-color;
+                text-decoration: none;
+                text-transform: uppercase;
+                transition: 0.5s;
+
+                &::after {
+                    position: absolute;
+                    content: "";
+                    top: 100%;
+                    left: 0;
+                    width: 100%;
+                    height: 3px;
+                    transform: scaleX(0);
+                    background: core.$second-color;
+                    transform-origin: right;
+                    transition: transform 0.5s;
+                }
+                &:hover {
+                    opacity: 0.7;
+                }
+                &:hover::after {
+                    transform: scaleX(1);
+                    transform-origin: left;
+                }
+            }
+        }
+    }
+}
+.min_navbar {
+    ul {
+        list-style-type: none;
+        padding: 0;
+        font-size: 40px;
+        color: core.$second-color;
+        li {
+            a {
+                color: core.$second-color;
+                position: relative;
+            }
+        }
+    }
+}
 @media screen and (max-width:600px) {
     @import './screen/navbar/mobile';
 }

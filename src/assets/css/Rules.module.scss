@@ -1,7 +1,23 @@
 @use 'core';
-@media screen and (min-device-width: 320px) and (max-width:1279px) {
-    @import './screen/rules/_min-width-320';
+.rules{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    > div{
+        margin: 10px 10px;
+        text-align: center;
+        .logo{
+            color: core.$second-color;
+        }
+        .name{
+            margin-bottom: 10px;
+        }
+    }
 }
-@media screen and (min-device-width: 1280px) {
-    @import './screen/rules/_min-width-1280';
+@media screen and (min-width: 601px) {
+    @import './screen/rules/display';
+}
+@media screen and (max-width:600px) {
+    @import './screen/rules/mobile';
 }

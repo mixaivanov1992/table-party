@@ -1,56 +1,27 @@
-.wrapper {
-    flex: 0 0 auto;
-    .header {
-        background: core.$third-color;
-        border-bottom: 1px solid core.$border;
-        display: -webkit-flex;
-        -webkit-flex-wrap: wrap;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        padding: 10px;
-        margin: 0 20px 20px;
-        .search {
-            width: 400px;
-            padding: 0 10px;
-            input {
-                width: 200px;
-                box-sizing: border-box;
-                &:focus {
-                    transition: 1s;
-                    width: 400px;
-                }
-                &:not(focus) {
-                    transition: 1s;
-                    width: 200px;
-                }
+.header {
+    .search {
+        flex: 0;
+        width: 400px;
+        input {
+            width: 200px;
+            box-sizing: border-box;
+            &:focus {
+                width: 400px;
             }
         }
-        .user_menu {
-            flex: 1 0;
-            > div {
-                display: flex;
-                display: -webkit-flex;
-                justify-content: right;
-                .login {
-                    text-align: center;
-                    color: #0a0a0a;
-                    text-decoration: none;
-                    cursor: pointer;
-                    display: inline-block;
-                    span {
-                        display: inline-block;
-                        max-width: 200px;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                    }
-                    &:hover {
-                        span,
-                        path {
-                            color: core.$first-color;
-                        }
-                    }
-                }
+    }
+    .search + div{
+        justify-content: end;
+    }
+    .user_menu {
+        svg{
+            color: core.$second-color;
+            font-size: 50px;
+        }
+        &:hover {
+            span,
+            path {
+                color: core.$first-color;
             }
         }
     }
