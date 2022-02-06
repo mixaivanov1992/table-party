@@ -1,0 +1,23 @@
+.container {
+    .row {
+        .settings{
+            .column{
+                span {
+                    &:hover {
+                        border-color: core.$first-color;
+                        transform: scale(1.1);
+                        color: core.$first-color;
+                    }
+                }
+            }
+        }
+    }
+    .cell{
+        height: 250px;
+        &:hover{
+            border-color: core.$first-color;
+            transform: scale(1.1);
+            color: core.$first-color;
+        }
+    }
+}

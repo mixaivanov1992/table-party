@@ -1,62 +1,66 @@
 @use 'core';
 .container {
-    text-align: center;
     > div:first-child {
-        box-shadow: 0px 1px 0px 0px rgba(36, 41, 47, 0.3);
-        padding-bottom: 15px;
+        text-align: center;
         > input {
             width: 70px;
             margin-right: 5px;
         }
+        > button{
+            margin-top: 5px;
+        }
     }
     .row {
-        margin: 15px 15px 5px;
-        border-bottom: 1px solid rgba(36, 41, 47, 0.3);
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid core.$border;
         min-height: 48px;
-        > div:first-child {
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        > div{
+            box-sizing: border-box;
             display: flex;
-            -webkit-flex-wrap: wrap;
-            flex-wrap: wrap;
-            > div {
-                height: 100px;
-                border: 1px solid rgba(36, 41, 47, 0.3);
-                margin-right: 15px;
-                flex: 2 0 auto;
-            }
-            > div:last-child {
-                flex: 0 0 auto;
-                height: auto;
-                border: 0px;
-                margin-right: 0;
+            align-items: center;
+        }
+        .settings{
+            justify-content: center;
+            flex: 1 0 100%;
+            .column{
+                display: flex;
+                span {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.3s ease-in-out;
+                    border: 1px solid core.$border;
+                    background-color: white;
+                    margin: 0 5px;
+                    height: 35px;
+                    width: 35px;
+                    cursor: pointer;
+                }
             }
         }
-        .settings {
-            background-color: #fff;
-            margin-top: 2px;
-            > input {
-                margin: 0 8px;
-            }
-            .remove {
-                text-align: center;
-                margin-top: 10px;
-            }
-            .column {
-                margin-top: 5px;
-                span:first-child {
-                    border-color: core.$first-color;
-                }
-                span {
-                    border: 1px solid black;
-                    margin: 0 2px;
-                    height: 15px;
-                    width: 15px;
-                    display: inline-block;
-                    cursor: pointer;
-                    &:hover {
-                        border-color: core.$first-color;
-                    }
-                }
-            }
+        .cell{
+            justify-content: center;
+            margin-top: 15px;
+            width: calc(30% - 2%);
+            margin-right: 2%;
+            border: 1px solid core.$border;
+            background-color: white;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .remove{
+            margin-top: 15px;
+            width: calc(4% - 40px);
         }
     }
+}
+@media screen and (max-width:600px) {
+    @import './screen/row/mobile';
+}
+@media screen and (min-width: 601px) {
+    @import './screen/row/display';
 }

@@ -4,7 +4,7 @@ import InputNumber from '@shared/InputNumber/InputNumber';
 import { RowState } from '@interfaces-types/rowReducer';
 
 interface Props {
-    onClickSettingsVisibility(index: number): void,
+    // onClickSettingsVisibility(index: number): void,
     //onClickColumnAdd(): void,
     inputColumn(columnCount: number, index: number): void,
     // localCellCount: number,
@@ -19,55 +19,69 @@ interface Props {
 //remove visibility
 
 const Row: React.FC<Props> = (props) => {
-    let row: JSX.Element,
-        rows: JSX.Element[];
+    // useMemo(() => {
 
-    rows = [];
-    useMemo(() => {
-        for (let i = 0; i < props.rowState.rows.length; i++) {
-            if (props.rowState.rows[i].index !== 0) {
-                row =
-                    <div className={styles.settings}>
-                        <div>Кол-во колонок:</div>
-                        <div className={styles.column}>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        {/* <InputNumber
-                                value={props.rowState.rows[i].columnCount}
-                                setValue={props.inputColumn}
-                            /> */}
-                    </div>;
+        const rows = props.rowState.rows.map((item)=>{
+            console.log(item)
+        });
 
-                rows.push(
-                    <div key={props.rowState.rows[i].index} className={styles.row}>
-                        <div>
-                            <div>cell</div>
-                            <div>cell</div>
-                            <div>cell</div>
-                            <div className={styles.remove}>
-                                <button onClick={
-                                    () => {
-                                        props.onClickRemoveRow(props.rowState.rows[i].index);
-                                    }
-                                }>&#10005;</button>
-                            </div>
-                        </div>
-                        {row}
-                        {/* <span className={styles.settings_btn}
-                            onClick={
-                                (e) => {
-                                    props.onClickSettingsVisibility(props.rowState.rows[i].index);
-                                }
-                            }
-                        >
-                        </span> */}
-                    </div>
-                );
-            }
-        }
-    }, [props.rowState]);
+        // let settings: JSX.Element,
+        // rows: JSX.Element[];
+
+        // rows = [];
+
+        
+
+
+
+
+        // for (let i = 0; i < props.rowState.rows.length; i++) {
+        //     if (props.rowState.rows[i].index !== 0) {
+        //         settings =
+        //             <div className={styles.settings}>
+        //                 <div>Кол-во колонок:</div>
+        //                 <div className={styles.column}>
+        //                     <span>1</span>
+        //                     <span>2</span>
+        //                     <span>3</span>
+        //                 </div>
+        //                 {/* <InputNumber
+        //                         value={props.rowState.rows[i].columnCount}
+        //                         setValue={props.inputColumn}
+        //                     /> */}
+        //             </div>;
+
+        //         rows.push(
+        //             <div key={props.rowState.rows[i].index} className={styles.row}>
+        //                 {settings}
+        //                 <div className={styles.cell}>cell</div>
+        //                 <div className={styles.cell}>cell</div>
+        //                 <div className={styles.cell}>cell</div>
+        //                 <div className={styles.remove}>
+        //                     <button onClick={
+        //                         () => {
+        //                             props.onClickRemoveRow(props.rowState.rows[i].index);
+        //                         }
+        //                     }>&#10005;</button>
+        //                 </div>
+        //                 {/* <span className={styles.settings_btn}
+        //                     onClick={
+        //                         (e) => {
+        //                             props.onClickSettingsVisibility(props.rowState.rows[i].index);
+        //                         }
+        //                     }
+        //                 >
+        //                 </span> */}
+        //             </div>
+        //         );
+        //     }
+        // }
+
+
+
+
+
+    // }, [props.rowState]);
     return (
         <div className={styles.container}>
             <div>

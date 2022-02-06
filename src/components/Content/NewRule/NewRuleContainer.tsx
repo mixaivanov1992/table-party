@@ -3,7 +3,6 @@ import NewRule from './NewRule'
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import { setGameName } from '@store/reducer/newRuleReducer';
-//import { setCellCount } from '@src/store/reducer/rowReducer';
 
 
 interface Props {

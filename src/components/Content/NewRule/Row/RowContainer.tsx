@@ -1,5 +1,5 @@
 import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
-import { setColumnCount, addRow, setSettingsVisibility, removeRow } from '@src/store/reducer/rowReducer';
+import { setColumnCount, addRow, /*setSettingsVisibility,*/ removeRow } from '@src/store/reducer/rowReducer';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Row from './Row';
@@ -9,7 +9,7 @@ interface Props {
 
 const RowContainer: React.FC<Props> = (props) => {
     const dispatch = useDispatch();
-    const rowReducer = useTypedSelector(state => state.rowReducer);
+    const rowState = useTypedSelector(state => state.rowReducer);
     const [rowCount, setRowCount] = useState(1);
     
     //const [columnCount, setColumnCount] = useState(1);
@@ -23,9 +23,9 @@ const RowContainer: React.FC<Props> = (props) => {
         dispatch(setColumnCount(index, columnCount));
     }
 
-    const onClickSettingsVisibility = (index: number): void => {
-        dispatch(setSettingsVisibility(index));
-    }
+    // const onClickSettingsVisibility = (index: number): void => {
+    //     dispatch(setSettingsVisibility(index));
+    // }
 
     const onClickRemoveRow = (index: number): void => {
         dispatch(removeRow(index));
@@ -41,7 +41,7 @@ const RowContainer: React.FC<Props> = (props) => {
     
     return (
         <Row
-            onClickSettingsVisibility={onClickSettingsVisibility}
+            // onClickSettingsVisibility={onClickSettingsVisibility}
             // onClickCellAdd={onClickCellAdd}
             inputColumn={inputColumn}
             // localCellCount={localCellCount}
@@ -50,7 +50,7 @@ const RowContainer: React.FC<Props> = (props) => {
             onClickRowAdd={onClickRowAdd}
             onClickRemoveRow={onClickRemoveRow}
             inputRow={inputRow}
-            rowState={rowReducer}
+            rowState={rowState}
             rowCount={rowCount}
         />
     );

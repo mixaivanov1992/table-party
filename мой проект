@@ -68,6 +68,7 @@ npm install react-icons --save                                                  
 npm install react-transition-group --save                                                       -   анимация
 npm install normalize.css --save                                                                -   normalize
 npm install react-localization --save                                                           -   локализация
+npm i react-id-generator                                                                        -   уникальный ID/UID
 
 DEBUG
 npm install --save-dev redux-devtools-extension													-	дополнение для браузера, для разработки

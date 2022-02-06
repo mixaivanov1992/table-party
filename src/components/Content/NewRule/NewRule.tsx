@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from '@css/NewRule.module.scss';
 import RowContainer from './Row/RowContainer';
-//import InputNumber from '@shared/InputNumber/InputNumber';
 
 interface Props{
     changeGameName(gameName:string): void,

@@ -1,7 +1,21 @@
 @use 'core';
-@media screen and (min-device-width: 320px) and (max-width:1279px) {
-    @import './screen/newRule/_min-width-320';
+.new_rule{
+    display: flex;
+    flex-direction: column;
+    .game_name{
+        margin-bottom: 5px;
+        text-align: center;
+        label{
+            margin-right: 5px;
+        }
+    }
+    .container{
+        flex: 1;
+    }
 }
-@media screen and (min-device-width: 1280px) {
-    @import './screen/newRule/_min-width-1280';
+@media screen and (max-width:600px) {
+    @import './screen/newRule/mobile';
+}
+@media screen and (min-width: 601px) {
+    @import './screen/newRule/display';
 }

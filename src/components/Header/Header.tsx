@@ -11,11 +11,11 @@ const Header: React.FC<Props> = (props) => {
     return (
         <header className={styles.header}>
             <div className={styles.search}>
-                <input type="text" placeholder="Поиск"/>
+                <input type="text" placeholder="Поиск правил"/>
             </div>
             <div>
                 <select className={styles.language}>
-                    <option lang="ru" value="russian" selected>RU</option>
+                    <option lang="ru" value="russian">RU</option>
                     <option lang="en" value="english">EN</option>
                 </select>
                 <div className={styles.user_menu}>

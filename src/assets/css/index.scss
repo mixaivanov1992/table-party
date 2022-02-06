@@ -13,12 +13,38 @@ input::-webkit-inner-spin-button {
 input[type=number]{
   -moz-appearance: textfield;
 }
+button{
+	padding: 7.5px;
+	border: 1px solid core.$border;
+	font-weight: 400;
+	border-radius: .25rem;
+	background-color: core.$first-color;
+	color: core.$third-color;
+	outline: none;
+}
+button:hover{
+	opacity: 0.9;
+}
+button:active{
+	background-color: core.$third-color;
+	color: core.$first-color;
+	opacity: 1;
+}
+button:focus{
+	outline: 1px solid core.$second-color;
+}
+select{
+	font-weight: 400;
+	border: 1px solid core.$border;
+	padding: 5px;
+	border-radius: .25rem;
+	background-color: white;
+	outline: none;
+}
 
 input[type=number],
 input[type=password],
-input[type=text],
-select,
-button{
+input[type=text]{
 	display: inline-block;
 	font-weight: 400;
 	text-align: center;
@@ -36,17 +62,15 @@ button{
 	font-family: Arial, Helvetica, sans-serif;
 	outline: none;
 }
-// button:hover,
 select:hover,
+select:focus,
 input[type=number]:hover,
 input[type=password]:hover,
 input[type=text]:hover,
-select:focus,
 input[type=number]:focus,
 input[type=password]:focus,
 input[type=text]:focus{
 	color: core.$first-color;
-	background-image: none;
 	border-color: core.$first-color;
 }
 input[type=number]:hover::placeholder,
@@ -57,7 +81,3 @@ input[type=password]:focus::placeholder,
 input[type=text]:focus::placeholder{
 	color: core.$first-color;
 }
-// button:active{
-// 	position: relative;
-// 	top: 1px;
-// }
