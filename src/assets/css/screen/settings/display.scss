@@ -1,0 +1,11 @@
+.settings {
+  .column {
+    span {
+      &:hover {
+        border-color: core.$first-color;
+        transform: scale(1.1);
+        color: core.$first-color;
+      }
+    }
+  }
+}

@@ -1,73 +1,51 @@
 import { RowState, RowActionType, SetColumnCount, AddRow, RowAction, /*SetSettingsVisibility,*/ RemoveRow } from '@interfaces-types/rowReducer';
-
+import nextId from "react-id-generator";
 const initialState: RowState = {
-    rows: [/*{
-        index: 0,
-        columnCount: 1,
-        settings: {
-            visibility: false
-        }
-    }*/]
+    rows: [{
+        index: '',
+        columnCount: 0,
+    }]
 }
 
 export const rowReducer = (state = initialState, action: RowAction): RowState => {
-    let newState;
-
     switch (action.type) {
-        case RowActionType.SET_COLUMN_COUNT:
-            return {
-                ...state,
-                rows: [...state.rows]
-            };
-        // case RowActionType.SET_SETTINGS_VISIBILITY:
-        //     newState = { ...state };
-        //     for (let i = 0; i < newState.rows.length; i++) {
-        //         if (newState.rows[i].index === action.index) {
-        //             newState.rows[i].settings.visibility = !newState.rows[i].settings.visibility;
-        //         } else {
-        //             newState.rows[i].settings.visibility = false;
-        //         }
-        //     }
-        //     return newState;
-        case RowActionType.ADD_ROW:
-            newState = { ...state };
-            for (let i = 0; i < action.count; i++) {
-                newState.rows.push({
-                    index: Math.floor(Math.random() * (Date.now() - i) + i),
-                    settings: {
-                        visibility: false
-                    },
-                    columnCount: 1
-                });
-            }
-            return newState;
-        case RowActionType.REMOVE_ROW:
-            newState = { ...state, rows: [] };
-            for (let i = 0; i < state.rows.length; i++) {
-                if (state.rows[i].index !== action.index) {
-                    newState.rows.push({ ...state.rows[i] });
+        case RowActionType.SET_COLUMN_COUNT: {
+            const rows = [...state.rows];
+            rows.forEach((row, index) => {
+                if(row.index === action.index){
+                    rows[index].columnCount = action.count;
                 }
-            }
-            return newState;
+            });
+            return { ...state, rows };
+        }
+        case RowActionType.ADD_ROW: {
+            const rows = [...state.rows];
+            [...Array(action.count)].forEach(element => {
+                rows.push({
+                    index: nextId('row-id-'),
+                    columnCount: 3
+                });
+            });
+            return { ...state, rows };
+        }
+        case RowActionType.REMOVE_ROW: {
+            const rows = state.rows.filter(row => {
+                return row.index != action.index
+            });
+            return { ...state, rows };
+        }
         default:
             return state;
     }
 }
 
-export const setColumnCount = (index: number, count: number): SetColumnCount => {
+export const setColumnCount = (index: string, count: number): SetColumnCount => {
     return {
         type: RowActionType.SET_COLUMN_COUNT,
         index,
         count
     }
 }
-
-// export const setSettingsVisibility = (index: number): SetSettingsVisibility => {
-//     return {
-//         type: RowActionType.SET_SETTINGS_VISIBILITY,
-//         index
-//     }
-// }
 
 export const addRow = (count: number): AddRow => {
     return {
@@ -76,7 +54,7 @@ export const addRow = (count: number): AddRow => {
     }
 }
 
-export const removeRow = (index: number): RemoveRow => {
+export const removeRow = (index: string): RemoveRow => {
     return {
         type: RowActionType.REMOVE_ROW,
         index

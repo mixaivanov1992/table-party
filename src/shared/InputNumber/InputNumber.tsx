@@ -2,19 +2,18 @@ import React from "react";
 
 interface Props{
     value: number,
-    setValue(value:number, index?: number): void
+    inputRow(value: string): void
 }
 
 const InputNumber: React.FC<Props> = (props) => {
     return(
         <>
-            <input type="number" onInput={(e) => {
-                let value = (e.currentTarget as HTMLInputElement).value.replace(/^0/, '');
-                
-                if(new RegExp('^[0-9]*$').test(value) && new RegExp('^(?!\s*$).+').test(value)){
-                    props.setValue(parseInt(value));
+            <input type="text" onInput={(e) => {
+                const value = (e.currentTarget as HTMLInputElement).value;
+                if((new RegExp('^[1-9]').test(value) && new RegExp('^[0-9]+$').test(value)) || value === ''){
+                    props.inputRow(value);
                 }
-            }} value={props.value} />
+            }} value={String(props.value).replace(/^0/, '')} />
         </>
     );
 }
