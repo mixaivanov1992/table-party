@@ -1,0 +1,82 @@
+@use "../../../../../core";
+.dialog_background {
+    position: fixed;
+    z-index: 90;
+    width: 100vw;
+    height: 100vh;
+    background-color: core.$second-color;
+    opacity: 0.7;
+    top: 0;
+    left: 0;
+}
+.dialog {
+    overflow: auto;
+    position: fixed;
+    z-index: 91;
+    width: 90vw;
+    height: 90vh;
+    background-color: core.$third-color;
+    left: 5vw;
+    top: 5vh;
+    display: flex;
+    flex-direction: column;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    .header {
+        display: flex;
+        width: 100%;
+        background-color: core.$first-color;
+        border: 1px solid core.$third-color;
+        box-sizing: border-box;
+        color: core.$third-color;
+        .title {
+            display: flex;
+            justify-content: center;
+            flex: 1;
+            background-color: core.$first-color;
+            padding: 20px 0;
+            border-right: 1px solid core.$third-color;
+            box-sizing: border-box;
+        }
+        .close {
+            padding: 20px;
+            cursor: pointer;
+        }
+    }
+    .container {
+        flex: 1;
+        display: flex;
+        width: 100%;
+        border-top: 1px solid core.$border;
+        box-sizing: border-box;
+        padding: 20px;
+        flex-direction: column;
+        .elements {
+            width: 100%;
+            display: flex;
+            .type {
+                text-align: center;
+                width: 25%;
+                background-color: core.$first-color;
+                color: core.$third-color;
+                padding: 20px 0;
+                box-sizing: border-box;
+                border: 1px solid core.$third-color;
+            }
+        }
+        .content {
+            padding: 20px 0;
+            width: 100%;
+        }
+    }
+    .footer {
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        justify-content: end;
+        box-sizing: border-box;
+        > button {
+            margin-left: 10px;
+        }
+    }
+}

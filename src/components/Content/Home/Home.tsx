@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@css/Home.module.scss';
+import styles from '@css/content/home/Home.module.scss';
 import Localization from '@localization/home';
 
 const Home: React.FC = () => {

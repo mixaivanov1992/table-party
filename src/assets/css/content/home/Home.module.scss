@@ -1,12 +1,12 @@
-@use 'core';
-.home{
-    .text{
+@use "../../core";
+.home {
+    .text {
         margin-top: 0;
-        &:last-child{
+        &:last-child {
             text-align: right;
         }
     }
-    .text{
+    .text {
         text-indent: 30px;
     }
 }

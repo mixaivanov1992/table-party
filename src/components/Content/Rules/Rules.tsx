@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@css/Rules.module.scss';
+import styles from '@css/content/rules/Rules.module.scss';
 import { IoMdImages } from 'react-icons/io';
 
 const Rules: React.FC = () => {

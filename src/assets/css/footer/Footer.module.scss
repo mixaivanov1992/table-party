@@ -1,5 +1,5 @@
-@use 'core';
-.footer{
+@use "../core";
+.footer {
     margin-top: 20px;
     background: core.$second-color;
     min-height: 100px;

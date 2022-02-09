@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@css/About.module.scss';
+import styles from '@css/content/about/About.module.scss';
 import Localization from '@localization/about';
 
 const About: React.FC = () => {

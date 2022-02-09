@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@css/Login.module.scss'
+import styles from '@css/login/Login.module.scss'
 import { IoChevronBackOutline, IoPersonCircle } from 'react-icons/io5';
 import { FcGoogle } from "react-icons/fc";
 

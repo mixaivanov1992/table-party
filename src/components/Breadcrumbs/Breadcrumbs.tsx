@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from '@css/Breadcrumbs.module.scss';
+import styles from '@css/breadcrumbs/Breadcrumbs.module.scss';
 import useBreadcrumbs from 'use-react-router-breadcrumbs';
 import Localization from '@localization/breadcrumbs/';
 import { GuestAccessiblePages, UserAccessiblePages } from '@src/assets/interfaces-types/personalDataReducer';

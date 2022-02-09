@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@css/MyRules.module.scss';
+import styles from '@css/content/myRules/MyRules.module.scss';
 import { IoMdImages } from 'react-icons/io';
 import { IoAddCircleOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom';

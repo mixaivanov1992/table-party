@@ -1,5 +1,6 @@
-import React from "react";
-import styles from '@css/Column.module.scss';
+import React, { useState } from "react";
+import styles from '@css/content/newRule/row/column/Column.module.scss';
+import DialogContainer from "./Dialog/DialogContainer";
 
 interface Props {
     onClickRemoveRow(index: string): void,
@@ -9,11 +10,13 @@ interface Props {
 
 const Column: React.FC<Props> = (props) => {
     console.debug('Column');
+    const [showDialog, setShowDialog] = useState(false);
+    
     return (
         <>
             {
                 [...Array(props.columnCount)].map((element, index) => {
-                    return <div key={index} className={styles.column}>column</div>
+                    return <div onClick={()=>{ setShowDialog(true) }} key={index} className={styles.column}>column</div>
                 })
             }
             <div className={styles.remove}>
@@ -23,6 +26,7 @@ const Column: React.FC<Props> = (props) => {
                     }
                 }>&#10005;</button>
             </div>
+            { showDialog? <DialogContainer /> : '' }
         </>
     );
 }

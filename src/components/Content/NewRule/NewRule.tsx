@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@css/NewRule.module.scss';
+import styles from '@css/content/newRule/NewRule.module.scss';
 import RowContainer from './Row/RowContainer';
 
 interface Props{

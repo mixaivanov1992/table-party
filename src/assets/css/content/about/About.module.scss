@@ -1,9 +1,9 @@
-@use 'core';
-.about{
-    .text{
+@use "../../core";
+.about {
+    .text {
         margin-top: 0;
     }
-    .text{
+    .text {
         text-indent: 30px;
     }
 }

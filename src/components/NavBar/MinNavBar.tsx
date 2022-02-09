@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@css/NavBar.module.scss';
+import styles from '@css/navBar/NavBar.module.scss';
 import Localization from '@localization/navBar';
 import { Link, useLocation } from "react-router-dom";
 import { IoArrowRedoCircleSharp, IoHome, IoDiceSharp } from 'react-icons/io5';

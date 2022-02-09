@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@css/Content.module.scss';
+import styles from '@css/content/Content.module.scss';
 import Localization from '@localization/content';
 import { GiRollingDices, GiPerspectiveDiceSixFacesFive, GiRollingDiceCup, GiDiceEightFacesEight, GiDiceFire } from "react-icons/gi";
 import MyRulesContainer from '@components/Content/MyRules/MyRulesContainer';

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@css/Header.module.scss';
+import styles from '@css/header/Header.module.scss';
 import { Link } from "react-router-dom";
 import { IoPersonCircle } from 'react-icons/io5';
 

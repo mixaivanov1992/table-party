@@ -1,5 +1,5 @@
 import React from "react";
-import styles from '@css/Settings.module.scss';
+import styles from '@css/content/newRule/row/settings/Settings.module.scss';
 
 interface Props {
     onClickChangeColumnCount(index: string, columnCount: number): void,

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@css/Row.module.scss';
+import styles from '@css/content/newRule/row/Row.module.scss';
 import InputNumber from '@shared/InputNumber/InputNumber';
 import { RowState } from '@interfaces-types/rowReducer';
 import ColumnContainer from './Column/ColumnContainer';

@@ -1,0 +1,33 @@
+@use "../../../core";
+.container {
+    > div:first-child {
+        text-align: center;
+        > input {
+            width: 70px;
+            margin-right: 5px;
+        }
+        > button {
+            margin-top: 5px;
+        }
+    }
+    .row {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid core.$border;
+        min-height: 48px;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        > div {
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    @import "./_resolution/mobile";
+}
+@media screen and (min-width: 601px) {
+    @import "./_resolution/display";
+}
