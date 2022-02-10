@@ -4,6 +4,7 @@ import InputNumber from '@shared/InputNumber/InputNumber';
 import { RowState } from '@interfaces-types/rowReducer';
 import ColumnContainer from './Column/ColumnContainer';
 import SettingsContainer from './Settings/SettingsContainer';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 interface Props {
     onClickRowAdd(): void,
@@ -13,13 +14,24 @@ interface Props {
 }
 const Row: React.FC<Props> = (props) => {
     console.debug('Row');
-    const rows = props.rowState.rows.map((rowData)=>{
+    const rows = props.rowState.rows.map((rowData, number)=>{
         if(rowData.index){
             return (
-                <div key={rowData.index} className={styles.row}>
-                    <SettingsContainer rowIndex={rowData.index} columnCount={rowData.columnCount}/>
-                    <ColumnContainer rowIndex={rowData.index} columnCount={rowData.columnCount}/>
-                </div>
+                <CSSTransition
+                    key={rowData.index}
+                    timeout={200}
+                    classNames={{
+                        enter: styles.row_enter,
+                        enterActive: styles.row_enter_active,
+                        exit: styles.row_exit,
+                        exitActive: styles.row_exit_active,
+                    }}
+                >
+                    <div className={styles.row}>
+                        <SettingsContainer rowIndex={rowData.index} columnCount={rowData.columnCount}/>
+                        <ColumnContainer rowIndex={rowData.index} columnCount={rowData.columnCount} number={number}/>
+                    </div>
+                </CSSTransition>
             );
         }
     });
@@ -32,9 +44,10 @@ const Row: React.FC<Props> = (props) => {
                 />
                 <button onClick={props.onClickRowAdd}>Добавить строки(у)</button>
             </div>
-            {rows}
+            <TransitionGroup>
+                {rows}
+            </TransitionGroup>
         </div>
     );
 }
-
 export default Row;

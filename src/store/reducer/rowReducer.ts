@@ -1,5 +1,5 @@
 import { RowState, RowActionType, SetColumnCount, AddRow, RowAction, /*SetSettingsVisibility,*/ RemoveRow } from '@interfaces-types/rowReducer';
-import nextId from "react-id-generator";
+import uuid from 'uuid';
 const initialState: RowState = {
     rows: [{
         index: '',
@@ -22,7 +22,7 @@ export const rowReducer = (state = initialState, action: RowAction): RowState =>
             const rows = [...state.rows];
             [...Array(action.count)].forEach(element => {
                 rows.push({
-                    index: nextId('row-id-'),
+                    index: uuid(),
                     columnCount: 3
                 });
             });
