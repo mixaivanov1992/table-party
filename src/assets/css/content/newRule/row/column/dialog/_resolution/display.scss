@@ -1,4 +1,10 @@
 .dialog {
+    width: 90vw;
+    left: 5vw;
+    top: 5vh;
+    height: 90vh;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
     .header {
         .close {
             &:hover {
@@ -9,18 +15,18 @@
             }
         }
     }
-    .container {
-        .elements {
-            .type {
-                &:hover {
-                    background-color: core.$first-color;
-                    opacity: 0.9;
-                }
-                &:active {
-                    background-color: core.$second-color;
-                    opacity: 0.9;
-                }
-            }
-        }
-    }
+    // .container {
+    //     .elements {
+    //         .type {
+    //             &:hover {
+    //                 background-color: core.$first-color;
+    //                 opacity: 0.9;
+    //             }
+    //             &:active {
+    //                 background-color: core.$second-color;
+    //                 opacity: 0.9;
+    //             }
+    //         }
+    //     }
+    // }
 }

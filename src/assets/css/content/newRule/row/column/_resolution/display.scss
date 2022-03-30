@@ -1,8 +1,8 @@
 .column {
-  height: 250px;
-  &:hover {
-    border-color: core.$first-color;
-    transform: scaleY(1.05);
-    color: core.$first-color;
-  }
+    min-height: 25vh;
+    &:hover {
+        border-color: core.$first-color;
+        transform: scaleY(1.05);
+        color: core.$first-color;
+    }
 }

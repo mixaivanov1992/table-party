@@ -11,7 +11,6 @@
     .header {
         margin: 16px 10px;
         position: relative;
-        font-size: 28px;
         &:before {
             content: "";
             position: absolute;
@@ -20,24 +19,24 @@
             right: 0;
             height: 12px;
             background: core.$first-color;
-            width: calc(95% - 40px);
+            width: 92%;
         }
         > span {
             background: core.$third-color;
             position: relative;
             padding: 0 15px;
-            margin-left: 20px;
+            margin: 0 20px;
             display: inline-block;
         }
         > svg {
             color: core.$first-color;
-            font-size: 40px;
             position: absolute;
-            right: 4%;
-            top: -6px;
+            right: 0;
+            top: 0;
+            background-color: core.$third-color;
         }
     }
-    > * {
+    > div {
         margin: 20px;
     }
 }

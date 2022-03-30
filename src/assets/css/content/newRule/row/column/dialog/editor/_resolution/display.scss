@@ -1,0 +1,16 @@
+.toolbar_wysiwyg {
+    .rdw-link-modal,
+    .rdw-image-modal,
+    .rdw-emoji-modal,
+    .rdw-embedded-modal,
+    .rdw-colorpicker-modal {
+        width: 90vw;
+        left: 5vw;
+        top: 5vh;
+        height: 90vh;
+        box-shadow: none;
+    }
+    .rdw-emoji-modal {
+        align-content: start;
+    }
+}

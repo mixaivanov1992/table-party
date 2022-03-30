@@ -53,15 +53,6 @@ const Loader = () => {
                     </div>
                 </div>
             </div>
-            <div className={styles.text}>
-                <div className={`${styles.ball} ${styles.one}`}></div>
-                <div className={`${styles.ball} ${styles.two}`}></div>
-                <div className={`${styles.ball} ${styles.three}`}></div>
-                <div>LOADING</div>
-                <div className={`${styles.ball} ${styles.three}`}></div>
-                <div className={`${styles.ball} ${styles.two}`}></div>
-                <div className={`${styles.ball} ${styles.one}`}></div>
-            </div>
         </div>
     );
 }

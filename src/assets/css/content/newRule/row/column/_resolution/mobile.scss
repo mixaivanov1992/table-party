@@ -1,3 +1,13 @@
+// @media (orientation: portrait) {
+//     .column {
+//         min-height: 10vh;
+//     }
+// }
+// @media (orientation: landscape) {
+//     .column {
+//         min-height: 20vw;
+//     }
+// }
 .column {
-  height: 100px;
+    min-height: 15vh;
 }

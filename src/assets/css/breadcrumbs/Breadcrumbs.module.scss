@@ -9,7 +9,8 @@ $active: core.$second-color;
 }
 .wrapper {
     ul {
-        margin: 0 0 20px 20px;
+        margin-left: 20px;
+        margin-bottom: 15px;
         padding: 0px;
         font-size: 0px;
         line-height: 0px;
@@ -17,7 +18,7 @@ $active: core.$second-color;
 
         li {
             position: relative;
-            margin: 0px 0px;
+            margin-bottom: 5px;
             padding: 0px;
             list-style: none;
             list-style-image: none;

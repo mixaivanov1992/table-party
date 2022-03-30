@@ -1,9 +1,9 @@
 .min_navbar,
 .navbar {
-    margin: 0 20px 60px;
+    margin: 0 20px;
     width: 100%;
     .toggle {
-        bottom: -70px;
+        display: none;
     }
 }
 
@@ -22,7 +22,36 @@
 }
 .min_navbar {
     ul {
-        justify-content: space-around;
+        margin-top: 0;
+        margin-bottom: 0;
         display: flex;
+        flex-direction: column;
+        li {
+            margin-bottom: 15px;
+            a {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                text-decoration: none;
+                &::after {
+                    content: attr(data-localization);
+                    font-size: 4vw;
+                    margin-left: 12px;
+                    color: core.$second-color;
+                    border-radius: 5px;
+                    box-sizing: border-box;
+                }
+            }
+        }
+        .active {
+            a {
+                &::after {
+                    color: core.$first-color;
+                }
+                path {
+                    color: core.$first-color;
+                }
+            }
+        }
     }
 }

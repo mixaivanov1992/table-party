@@ -1,4 +1,10 @@
 .container {
     margin-top: 20px;
     margin-left: 20px;
+    .header {
+        font-size: 7vw;
+        > svg {
+            font-size: 11vw;
+        }
+    }
 }

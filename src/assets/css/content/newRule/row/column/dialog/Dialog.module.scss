@@ -10,18 +10,11 @@
     left: 0;
 }
 .dialog {
-    overflow: auto;
+    // overflow: auto;
     position: fixed;
     z-index: 91;
-    width: 90vw;
-    height: 90vh;
     background-color: core.$third-color;
-    left: 5vw;
-    top: 5vh;
-    display: flex;
     flex-direction: column;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
     .header {
         display: flex;
         width: 100%;
@@ -44,45 +37,14 @@
         }
     }
     .container {
-        flex: 1;
         display: flex;
         width: 100%;
         border-top: 1px solid core.$border;
         box-sizing: border-box;
-        padding: 20px;
+        padding: 20px 20px 0;
         flex-direction: column;
-        .elements {
-            width: 100%;
-            display: flex;
-            .type {
-                cursor: pointer;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                text-align: center;
-                width: 25%;
-                background-color: core.$second-color;
-                color: core.$third-color;
-                padding: 20px 0;
-                box-sizing: border-box;
-                border: 1px solid core.$third-color;
-                -webkit-touch-callout: none;
-                -webkit-user-select: none;
-                -khtml-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-            }
-            .active {
-                background-color: core.$first-color;
-            }
-        }
-        .content {
-            padding: 20px;
-            width: calc(100% - 1px);
-            border: 1px solid core.$border;
-            box-sizing: border-box;
-            flex: 1;
-        }
+        overflow-y: auto;
+        flex: 1;
     }
     .footer {
         width: 100%;
