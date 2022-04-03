@@ -69,13 +69,15 @@ npm install react-transition-group --save                                       
 npm install normalize.css --save                                                                -   normalize
 npm install react-localization --save                                                           -   локализация
 npm i react-draft-wysiwyg --save                                                                -   редактор
-
+npm install uuid --save                                                                         -   uuid
 DEBUG
 npm install --save-dev redux-devtools-extension													-	дополнение для браузера, для разработки
 npm install --save-dev @types/redux-devtools-extension											-	типы для typescript
 
 
-
+ESLINT
+npm install eslint --save-dev
+npm install eslint-import-resolver-typescript --save-dev
 
 ????
 react-scripts

@@ -11,4 +11,3 @@ export interface SetGameName {
 }
 
 export type NewRuleAction = SetGameName;
-

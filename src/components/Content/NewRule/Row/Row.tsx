@@ -2,9 +2,9 @@ import React from 'react';
 import styles from '@css/content/newRule/row/Row.module.scss';
 import InputNumber from '@shared/InputNumber/InputNumber';
 import { RowState } from '@interfaces-types/rowReducer';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import ColumnContainer from './Column/ColumnContainer';
 import SettingsContainer from './Settings/SettingsContainer';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 interface Props {
     onClickRowAdd(): void,
@@ -14,8 +14,8 @@ interface Props {
 }
 const Row: React.FC<Props> = (props) => {
     console.debug('Row');
-    const rows = props.rowState.rows.map((rowData, number)=>{
-        if(rowData.index){
+    const rows = props.rowState.rows.map((rowData, number) => {
+        if (rowData.index) {
             return (
                 <CSSTransition
                     key={rowData.index}
@@ -28,8 +28,8 @@ const Row: React.FC<Props> = (props) => {
                     }}
                 >
                     <div className={styles.row}>
-                        <SettingsContainer rowIndex={rowData.index} columnCount={rowData.columnCount}/>
-                        <ColumnContainer rowIndex={rowData.index} columnCount={rowData.columnCount} number={number}/>
+                        <SettingsContainer rowIndex={rowData.index} columnCount={rowData.columnCount} />
+                        <ColumnContainer rowIndex={rowData.index} columnCount={rowData.columnCount} number={number} />
                     </div>
                 </CSSTransition>
             );
@@ -49,5 +49,5 @@ const Row: React.FC<Props> = (props) => {
             </TransitionGroup>
         </div>
     );
-}
+};
 export default Row;

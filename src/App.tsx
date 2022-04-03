@@ -7,55 +7,60 @@ import Login from '@components/Login/Login';
 import Footer from '@components/Footer/Footer';
 import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs';
 import { GuestAccessiblePages, UserAccessiblePages } from '@interfaces-types/personalDataReducer';
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import {
+    BrowserRouter as Router, Switch, Route, Redirect,
+} from 'react-router-dom';
 
 interface Props {
-	accessiblePages: GuestAccessiblePages | UserAccessiblePages
+    accessiblePages: GuestAccessiblePages | UserAccessiblePages
 }
 
 const App: React.FC<Props> = (props) => {
-	console.debug('App');
+    console.debug('App');
 
-	const redirect = Object.keys(props.accessiblePages).map((pageName) => {
-		if (props.accessiblePages[pageName].redirect) {
-			return <Redirect key={pageName} from={props.accessiblePages[pageName].path} to={props.accessiblePages[pageName].redirect} />;
-		}
-	});
-	const route = Object.keys(props.accessiblePages).map((pageName) => {
-		const pageData = props.accessiblePages[pageName];
-		const path = pageData.redirect?pageData.redirect:pageData.path;
-		
-		if (pageData.isContent) {
-			return (
-				<Route key={pageName} exact path={path}>
-					<Header />
-					<Breadcrumbs accessiblePages={props.accessiblePages} />
-					<div className={styles.wrapper}>
-						<NavBarContainer accessiblePages={props.accessiblePages} />
-						<Content pageData={{name:pageName, ...pageData}} />
-					</div>
-					<Footer />
-				</Route>
-			)
-		} else {
-			return (
-				<Route key={pageName} exact path={path}>
-					<Login />
-				</Route>
-			)
-		}
-	});
+    const { accessiblePages } = props;
 
-	return (
-		<div className={styles.app}>
-			<Router>
-				<Switch>
-					{route}
-					{redirect}
-				</Switch>
-			</Router>
-		</div>
-	);
-}
+    const redirect = Object.keys(accessiblePages).map((pageName) => {
+        if (accessiblePages[pageName].redirect) {
+            const { path } = accessiblePages[pageName];
+            return <Redirect key={pageName} from={path} to={accessiblePages[pageName].redirect} />;
+        }
+        return undefined;
+    });
+    const route = Object.keys(accessiblePages).map((pageName) => {
+        const pageData = accessiblePages[pageName];
+        const path = pageData.redirect ? pageData.redirect : pageData.path;
+
+        if (pageData.isContent) {
+            return (
+                <Route key={pageName} exact path={path}>
+                    <Header />
+                    <Breadcrumbs accessiblePages={accessiblePages} />
+                    <div className={styles.wrapper}>
+                        <NavBarContainer accessiblePages={accessiblePages} />
+                        <Content pageData={{ name: pageName, ...pageData }} />
+                    </div>
+                    <Footer />
+                </Route>
+            );
+        }
+        return (
+            <Route key={pageName} exact path={path}>
+                <Login />
+            </Route>
+        );
+    });
+
+    return (
+        <div className={styles.app}>
+            <Router>
+                <Switch>
+                    {route}
+                    {redirect}
+                </Switch>
+            </Router>
+        </div>
+    );
+};
 
 export default App;

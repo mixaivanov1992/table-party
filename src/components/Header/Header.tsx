@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '@css/header/Header.module.scss';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import { IoPersonCircle } from 'react-icons/io5';
 
 interface Props {
@@ -11,7 +11,7 @@ const Header: React.FC<Props> = (props) => {
     return (
         <header className={styles.header}>
             <div className={styles.search}>
-                <input type="text" placeholder="Поиск правил"/>
+                <input type="text" placeholder="Поиск правил" />
             </div>
             <div>
                 <select className={styles.language}>
@@ -20,13 +20,14 @@ const Header: React.FC<Props> = (props) => {
                 </select>
                 <div className={styles.user_menu}>
                     <Link className={styles.login} to="/login">
-                        <IoPersonCircle /><br />
+                        <IoPersonCircle />
+                        <br />
                         <span>qqq</span>
                     </Link>
                 </div>
             </div>
         </header>
     );
-}
+};
 
 export default React.memo(Header);

@@ -1,4 +1,3 @@
-
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
@@ -30,7 +29,7 @@ module.exports = {
                 use: [
                     'style-loader',
                     'css-loader',
-                    'sass-loader'
+                    'sass-loader',
                 ],
             },
             {
@@ -47,4 +46,4 @@ module.exports = {
         new CleanWebpackPlugin(),
     ],
     stats: 'errors-only',
-}
+};

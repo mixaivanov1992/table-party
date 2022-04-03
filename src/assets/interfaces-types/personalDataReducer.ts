@@ -64,4 +64,3 @@ export type UserAccessiblePages = {
 };
 
 export type PersonalDataAction = SetPersonalData;
-

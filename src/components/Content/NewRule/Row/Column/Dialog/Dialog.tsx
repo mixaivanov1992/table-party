@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 import styles from '@css/content/newRule/row/column/dialog/Dialog.module.scss';
 import Editor from '@shared/Editor/Editor';
 
@@ -9,7 +9,7 @@ interface Props {
 const Dialog: React.FC<Props> = (props) => {
     console.debug('Dialog');
 
-    useEffect(()=>{
+    useEffect(() => {
         // function handleKeyPress(event){
         //     if(!(event.target as HTMLElement).matches('.window-dialog-element')){
         //         event.preventDefault();
@@ -20,27 +20,28 @@ const Dialog: React.FC<Props> = (props) => {
         return () => {
             document.body.style.overflow = 'auto';
             // window.removeEventListener('keypress', handleKeyPress);
-        }
+        };
     }, []);
 
+    const { onClickShowDialog } = props;
     return (
         <>
             <div className={styles.dialog}>
                 <div className={styles.header}>
                     <div className={styles.title}>Выбор компонента</div>
-                    <div onClick={()=>{ props.onClickShowDialog(false) }} className={styles.close}>&#10005;</div>
+                    <div role="button" onClick={() => { onClickShowDialog(false); }} className={styles.close}>&#10005;</div>
                 </div>
                 <div className={styles.container}>
                     <Editor />
                 </div>
                 <div className={styles.footer}>
-                    <button onClick={()=>{ props.onClickShowDialog(false) }}>Отмена</button>
-                    <button>Применить</button>
+                    <button type="button" onClick={() => { onClickShowDialog(false); }}>Отмена</button>
+                    <button type="button" onClick={() => { onClickShowDialog(false); }}>Применить</button>
                 </div>
             </div>
-            <div className={styles.dialog_background}></div>
+            <div className={styles.dialog_background} />
         </>
     );
-}
+};
 
 export default Dialog;

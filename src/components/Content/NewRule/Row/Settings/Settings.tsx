@@ -1,5 +1,6 @@
-import React from "react";
+import React from 'react';
 import styles from '@css/content/newRule/row/settings/Settings.module.scss';
+import { v4 as uuidv4 } from 'uuid';
 
 interface Props {
     onClickChangeColumnCount(index: string, columnCount: number): void,
@@ -9,23 +10,28 @@ interface Props {
 
 const Settings: React.FC<Props> = (props) => {
     console.debug('Settings');
-    const columnsIndex = [1,2,3];
+    const columnsIndex = [1, 2, 3];
+    const { columnCount, rowIndex } = props;
     const columns = columnsIndex.map((index) => {
-        if(index === props.columnCount){
+        if (index === columnCount) {
             return (
                 <span
-                    onClick={()=>{ props.onClickChangeColumnCount(props.rowIndex, index) }}
-                    key={index} className={styles.active}>{index}
-                </span>
-            );
-        }else{
-            return (
-                <span
-                    onClick={()=>{ props.onClickChangeColumnCount(props.rowIndex, index) }}
-                    key={index}>{index}
+                    onClick={() => { props.onClickChangeColumnCount(rowIndex, index); }}
+                    key={uuidv4()}
+                    className={styles.active}
+                >
+                    {index}
                 </span>
             );
         }
+        return (
+            <span
+                onClick={() => { props.onClickChangeColumnCount(rowIndex, index); }}
+                key={uuidv4()}
+            >
+                {index}
+            </span>
+        );
     });
     return (
         <div className={styles.settings}>
@@ -35,6 +41,6 @@ const Settings: React.FC<Props> = (props) => {
             </div>
         </div>
     );
-}
+};
 
 export default Settings;

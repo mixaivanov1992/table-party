@@ -1,0 +1,48 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "import/no-dynamic-require": "off", //пересмотреть
+        "global-require": "off", //пересмотреть
+        "import/no-extraneous-dependencies": "off", //пересмотреть
+        "import/extensions": "off", //пересмотреть
+        "no-shadow": "off",//пересмотреть
+        "@typescript-eslint/no-shadow": ["error"],//пересмотреть
+        "no-unused-vars": "off",//пересмотреть
+        "@typescript-eslint/no-unused-vars": "error",//пересмотреть
+        "import/prefer-default-export": "off",
+        "no-restricted-syntax": ["off", "ForInStatement"],
+        "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ],
+        "react/function-component-definition": [2, { "namedComponents": ["arrow-function", "function-expression"] }],
+        "max-len": "off",
+        "no-console": "off",
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-use-before-define": ["error"],
+        "indent": ["error", 4],
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4]
+    },
+    "settings": {
+        "import/resolver": {
+            "typescript": {}
+        }
+    }
+}

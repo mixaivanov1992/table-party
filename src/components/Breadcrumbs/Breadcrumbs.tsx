@@ -6,30 +6,34 @@ import Localization from '@localization/breadcrumbs/';
 import { GuestAccessiblePages, UserAccessiblePages } from '@src/assets/interfaces-types/personalDataReducer';
 
 interface Props {
-	accessiblePages: GuestAccessiblePages | UserAccessiblePages
+    accessiblePages: GuestAccessiblePages | UserAccessiblePages
 }
 
 const Breadcrumbs: React.FC<Props> = (props) => {
-	const breadcrumbs = useBreadcrumbs();
-	//Localization.setLanguage('en');
-	return (
-		<>
-			<div className={styles.wrapper}>
-				<ul>
-					{
-						breadcrumbs.map(({ match }) => {
-							for(const pageName in props.accessiblePages){
-								if (match.url === props.accessiblePages[pageName].path) {
-									const localizationIndex = pageName;
-									return <li key={match.url}><Link to={match.url}>{Localization[localizationIndex]}</Link></li>
-								}
-							}
-						})
-					}
-				</ul>
-			</div>
-		</>
-	);
-}
+    const breadcrumbs = useBreadcrumbs();
+    const { accessiblePages } = props;
+    // Localization.setLanguage('en');
+    return (
+        <div className={styles.wrapper}>
+            <ul>
+                {
+                    breadcrumbs.map(({ match }) => {
+                        for (const pageName in accessiblePages) {
+                            if (match.url === accessiblePages[pageName].path) {
+                                const localizationIndex = pageName;
+                                return (
+                                    <li key={match.url}>
+                                        <Link to={match.url}>{Localization[localizationIndex]}</Link>
+                                    </li>
+                                );
+                            }
+                        }
+                        return undefined;
+                    })
+                }
+            </ul>
+        </div>
+    );
+};
 
 export default Breadcrumbs;

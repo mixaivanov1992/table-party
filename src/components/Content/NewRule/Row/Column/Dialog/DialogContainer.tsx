@@ -1,18 +1,16 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import Dialog from "./Dialog";
+import React from 'react';
+import Dialog from './Dialog';
 
 interface Props {
     onClickShowDialog(isShow: boolean): void
 }
 const DialogContainer: React.FC<Props> = (props) => {
-    const dispatch = useDispatch();
-
+    const { onClickShowDialog } = props;
     return (
         <Dialog
-            onClickShowDialog = {props.onClickShowDialog}
+            onClickShowDialog={onClickShowDialog}
         />
     );
-}
+};
 
 export default DialogContainer;

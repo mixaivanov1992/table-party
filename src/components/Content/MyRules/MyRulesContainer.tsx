@@ -5,12 +5,13 @@ interface Props {
     children: ReactNode
 }
 const MyRulesContainer: React.FC<Props> = (props) => {
+    const { children } = props;
     return (
         <>
-            {props.children}
+            {children}
             <MyRules />
         </>
     );
-}
+};
 
 export default MyRulesContainer;

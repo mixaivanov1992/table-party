@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-//const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
@@ -11,16 +11,16 @@ module.exports = {
     devServer: {
         hot: true,
         open: true,
-        historyApiFallback: true
+        historyApiFallback: true,
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '..', './public/index.html'),
             minify: {
-                collapseWhitespace: false
-            }
+                collapseWhitespace: false,
+            },
         }),
-        //new BundleAnalyzerPlugin(),
+        // new BundleAnalyzerPlugin(),
         new ReactRefreshWebpackPlugin(),
         new webpack.DefinePlugin({
             'process.env.name': JSON.stringify('dev'),
@@ -31,4 +31,4 @@ module.exports = {
         path: path.resolve(__dirname, '..', 'dist'),
         filename: 'bundle.js',
     },
-}
+};

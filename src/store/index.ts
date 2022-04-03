@@ -1,8 +1,8 @@
 import { rowReducer } from '@store/reducer/rowReducer';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { combineReducers } from 'redux';
+
 import { loaderReducer } from '@store/reducer/loaderReducer';
 import { personalDataReducer } from '@store/reducer/personalDataReducer';
 import { newRuleReducer } from '@store/reducer/newRuleReducer';
@@ -11,7 +11,7 @@ export const routeReducer = combineReducers({
     loaderReducer,
     personalDataReducer,
     newRuleReducer,
-    rowReducer
+    rowReducer,
 });
 
 export type RootState = ReturnType<typeof routeReducer>;
