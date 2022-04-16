@@ -13,7 +13,7 @@ interface Props {
 const NavBar: React.FC<Props> = (props) => {
     console.debug('NavBar');
 
-    const { accessiblePages } = props;
+    const { accessiblePages, onClickToggle } = props;
     return (
         <div className={styles.navbar}>
             <nav>
@@ -34,7 +34,16 @@ const NavBar: React.FC<Props> = (props) => {
                     }
                 </ul>
             </nav>
-            <div role="button" onClick={props.onClickToggle} className={styles.toggle}><IoArrowUndoCircleSharp /></div>
+            <div
+                tabIndex={0}
+                onKeyPress={() => {}}
+                role="button"
+                onClick={onClickToggle}
+                className={styles.toggle}
+            >
+                <IoArrowUndoCircleSharp />
+
+            </div>
         </div>
     );
 };

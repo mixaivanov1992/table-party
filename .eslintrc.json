@@ -28,6 +28,8 @@
         "@typescript-eslint/no-shadow": ["error"],//пересмотреть
         "no-unused-vars": "off",//пересмотреть
         "@typescript-eslint/no-unused-vars": "error",//пересмотреть
+        "prefer-regex-literals": "off",
+        "default-param-last": "off",
         "import/prefer-default-export": "off",
         "no-restricted-syntax": ["off", "ForInStatement"],
         "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ],

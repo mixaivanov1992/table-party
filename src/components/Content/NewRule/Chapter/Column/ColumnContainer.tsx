@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { removeRow } from '@src/store/reducer/rowReducer';
+import { removeChapter } from '@src/store/reducer/chapterReducer';
 import { useDispatch } from 'react-redux';
 import Column from './Column';
 
 interface Props {
     columnCount: number,
-    rowIndex: string,
+    chapterIndex: string,
     number: number,
 }
 const ColumnContainer: React.FC<Props> = (props) => {
@@ -13,17 +13,17 @@ const ColumnContainer: React.FC<Props> = (props) => {
     const [showDialog, setShowDialog] = useState(false);
 
     const onClickShowDialog = (isShow) => setShowDialog(isShow);
-    const onClickRemoveRow = (rowIndex: string): void => {
-        dispatch(removeRow(rowIndex));
+    const onClickRemoveChapter = (chapterIndex: string): void => {
+        dispatch(removeChapter(chapterIndex));
     };
 
-    const { columnCount, rowIndex, number } = props;
+    const { columnCount, chapterIndex, number } = props;
     return (
         <Column
             onClickShowDialog={onClickShowDialog}
-            onClickRemoveRow={onClickRemoveRow}
+            onClickRemoveChapter={onClickRemoveChapter}
             columnCount={columnCount}
-            rowIndex={rowIndex}
+            chapterIndex={chapterIndex}
             showDialog={showDialog}
             number={number}
         />

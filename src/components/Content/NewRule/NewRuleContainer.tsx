@@ -11,13 +11,13 @@ const NewRuleContainer: React.FC<Props> = (props) => {
     const { gameName } = useTypedSelector((state) => state.newRuleReducer);
     const dispatch = useDispatch();
 
-    const changeGameName = (gameName: string): void => {
-        dispatch(setGameName(gameName));
+    const changeGameName = (name: string): void => {
+        dispatch(setGameName(name));
     };
-    const children = { props };
+    const { children } = props;
     return (
         <>
-            {props.children}
+            {children}
             <NewRule
                 changeGameName={changeGameName}
                 gameName={gameName}

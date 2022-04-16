@@ -1,14 +1,14 @@
 import React from 'react';
-import styles from '@css/content/newRule/row/column/Column.module.scss';
+import styles from '@css/content/newRule/chapter/column/Column.module.scss';
 import { CSSTransition } from 'react-transition-group';
 import { v4 as uuidv4 } from 'uuid';
 import DialogContainer from './Dialog/DialogContainer';
 
 interface Props {
     onClickShowDialog(isShow: boolean): void,
-    onClickRemoveRow(index: string): void,
+    onClickRemoveChapter(index: string): void,
     columnCount: number,
-    rowIndex: string,
+    chapterIndex: string,
     showDialog: boolean
     number: number,
 }
@@ -16,12 +16,25 @@ interface Props {
 const Column: React.FC<Props> = (props) => {
     console.debug('Column');
     const {
-        columnCount, rowIndex, showDialog, number, onClickShowDialog, onClickRemoveRow,
+        columnCount, chapterIndex, showDialog, number, onClickShowDialog, onClickRemoveChapter,
     } = props;
     return (
         <>
             {
-                [...Array(columnCount)].map(() => <div role="button" onClick={() => { onClickShowDialog(true); }} key={uuidv4()} className={styles.column}>column</div>)
+                [...Array(columnCount)].map(
+                    () => (
+                        <div
+                            role="button"
+                            tabIndex={0}
+                            onKeyPress={() => {}}
+                            onClick={() => { onClickShowDialog(true); }}
+                            key={uuidv4()}
+                            className={styles.column}
+                        >
+                            column
+                        </div>
+                    ),
+                )
             }
             <div className={styles.remove}>
                 <div>
@@ -32,7 +45,7 @@ const Column: React.FC<Props> = (props) => {
                     type="button"
                     onClick={
                         () => {
-                            onClickRemoveRow(rowIndex);
+                            onClickRemoveChapter(chapterIndex);
                         }
                     }
                 >

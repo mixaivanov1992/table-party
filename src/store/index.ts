@@ -1,4 +1,4 @@
-import { rowReducer } from '@store/reducer/rowReducer';
+import { chapterReducer } from '@src/store/reducer/chapterReducer';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -11,7 +11,7 @@ export const routeReducer = combineReducers({
     loaderReducer,
     personalDataReducer,
     newRuleReducer,
-    rowReducer,
+    chapterReducer,
 });
 
 export type RootState = ReturnType<typeof routeReducer>;

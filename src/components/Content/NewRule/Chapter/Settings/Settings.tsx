@@ -1,22 +1,25 @@
 import React from 'react';
-import styles from '@css/content/newRule/row/settings/Settings.module.scss';
+import styles from '@css/content/newRule/chapter/settings/Settings.module.scss';
 import { v4 as uuidv4 } from 'uuid';
 
 interface Props {
     onClickChangeColumnCount(index: string, columnCount: number): void,
     columnCount: number,
-    rowIndex: string,
+    chapterIndex: string,
 }
 
 const Settings: React.FC<Props> = (props) => {
     console.debug('Settings');
     const columnsIndex = [1, 2, 3];
-    const { columnCount, rowIndex } = props;
+    const { columnCount, chapterIndex, onClickChangeColumnCount } = props;
     const columns = columnsIndex.map((index) => {
         if (index === columnCount) {
             return (
                 <span
-                    onClick={() => { props.onClickChangeColumnCount(rowIndex, index); }}
+                    tabIndex={0}
+                    onKeyPress={() => {}}
+                    role="button"
+                    onClick={() => { onClickChangeColumnCount(chapterIndex, index); }}
                     key={uuidv4()}
                     className={styles.active}
                 >
@@ -26,7 +29,10 @@ const Settings: React.FC<Props> = (props) => {
         }
         return (
             <span
-                onClick={() => { props.onClickChangeColumnCount(rowIndex, index); }}
+                tabIndex={0}
+                onKeyPress={() => {}}
+                role="button"
+                onClick={() => { onClickChangeColumnCount(chapterIndex, index); }}
                 key={uuidv4()}
             >
                 {index}

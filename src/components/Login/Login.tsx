@@ -6,7 +6,13 @@ import { FcGoogle } from 'react-icons/fc';
 const Login: React.FC = () => (
     <div className={styles.login}>
         <div className={styles.data}>
-            <span onClick={() => history.back()} className={styles.back}>
+            <span
+                tabIndex={0}
+                onKeyPress={() => {}}
+                role="button"
+                onClick={() => history.back()}
+                className={styles.back}
+            >
                 <span>
                     <IoChevronBackOutline />
                 </span>

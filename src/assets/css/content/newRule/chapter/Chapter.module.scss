@@ -10,7 +10,7 @@
             margin-top: 5px;
         }
     }
-    .row {
+    .chapter {
         margin-top: 15px;
         padding-top: 15px;
         border-top: 1px solid core.$border;
@@ -24,17 +24,17 @@
             align-items: center;
         }
     }
-    .row_enter {
+    .chapter_enter {
         opacity: 0;
     }
-    .row_enter_active {
+    .chapter_enter_active {
         opacity: 1;
         transition: opacity 200ms ease-in;
     }
-    .row_exit {
+    .chapter_exit {
         opacity: 1;
     }
-    .row_exit_active {
+    .chapter_exit_active {
         opacity: 0;
         transition: opacity 200ms ease-in;
     }

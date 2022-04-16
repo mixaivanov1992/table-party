@@ -44,7 +44,16 @@ const MinNavBar: React.FC<Props> = (props) => {
                     }
                 </ul>
             </nav>
-            <div role="button" tabIndex={0} onClick={onClickToggle} className={styles.toggle}><IoArrowRedoCircleSharp /></div>
+            <div
+                role="button"
+                tabIndex={0}
+                onKeyPress={() => {}}
+                onClick={onClickToggle}
+                className={styles.toggle}
+            >
+                <IoArrowRedoCircleSharp />
+
+            </div>
         </div>
     );
 };

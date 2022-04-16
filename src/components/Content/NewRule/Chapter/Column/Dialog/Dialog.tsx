@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styles from '@css/content/newRule/row/column/dialog/Dialog.module.scss';
+import styles from '@css/content/newRule/chapter/column/dialog/Dialog.module.scss';
 import Editor from '@shared/Editor/Editor';
 
 interface Props {
@@ -8,7 +8,6 @@ interface Props {
 
 const Dialog: React.FC<Props> = (props) => {
     console.debug('Dialog');
-
     useEffect(() => {
         // function handleKeyPress(event){
         //     if(!(event.target as HTMLElement).matches('.window-dialog-element')){
@@ -28,8 +27,16 @@ const Dialog: React.FC<Props> = (props) => {
         <>
             <div className={styles.dialog}>
                 <div className={styles.header}>
-                    <div className={styles.title}>Выбор компонента</div>
-                    <div role="button" onClick={() => { onClickShowDialog(false); }} className={styles.close}>&#10005;</div>
+                    <div className={styles.title}>Ввод данных</div>
+                    <div
+                        role="button"
+                        tabIndex={0}
+                        onKeyPress={() => {}}
+                        onClick={() => { onClickShowDialog(false); }}
+                        className={styles.close}
+                    >
+                        &#10005;
+                    </div>
                 </div>
                 <div className={styles.container}>
                     <Editor />

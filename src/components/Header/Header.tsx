@@ -6,7 +6,7 @@ import { IoPersonCircle } from 'react-icons/io5';
 interface Props {
 }
 
-const Header: React.FC<Props> = (props) => {
+const Header: React.FC<Props> = () => {
     console.debug('Header');
     return (
         <header className={styles.header}>
