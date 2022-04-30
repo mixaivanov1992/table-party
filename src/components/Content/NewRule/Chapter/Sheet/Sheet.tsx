@@ -1,27 +1,24 @@
 import React from 'react';
-import styles from '@css/content/newRule/chapter/column/Column.module.scss';
+import styles from '@css/content/newRule/chapter/sheet/Sheet.module.scss';
 import { CSSTransition } from 'react-transition-group';
 import { v4 as uuidv4 } from 'uuid';
 import DialogContainer from './Dialog/DialogContainer';
 
 interface Props {
     onClickShowDialog(isShow: boolean): void,
-    onClickRemoveChapter(index: string): void,
-    columnCount: number,
-    chapterIndex: string,
+    sheetCount: number,
     showDialog: boolean
-    number: number,
 }
 
-const Column: React.FC<Props> = (props) => {
-    console.debug('Column');
+const Sheet: React.FC<Props> = (props) => {
+    console.debug('Sheet');
     const {
-        columnCount, chapterIndex, showDialog, number, onClickShowDialog, onClickRemoveChapter,
+        sheetCount, showDialog, onClickShowDialog,
     } = props;
     return (
         <>
             {
-                [...Array(columnCount)].map(
+                [...Array(sheetCount)].map(
                     () => (
                         <div
                             role="button"
@@ -29,29 +26,13 @@ const Column: React.FC<Props> = (props) => {
                             onKeyPress={() => {}}
                             onClick={() => { onClickShowDialog(true); }}
                             key={uuidv4()}
-                            className={styles.column}
+                            className={styles.sheet}
                         >
-                            column
+                            <div>sheet</div>
                         </div>
                     ),
                 )
             }
-            <div className={styles.remove}>
-                <div>
-                    №
-                    {number}
-                </div>
-                <button
-                    type="button"
-                    onClick={
-                        () => {
-                            onClickRemoveChapter(chapterIndex);
-                        }
-                    }
-                >
-                    &#10005;
-                </button>
-            </div>
             <CSSTransition
                 in={showDialog}
                 timeout={300}
@@ -72,4 +53,4 @@ const Column: React.FC<Props> = (props) => {
     );
 };
 
-export default Column;
+export default Sheet;

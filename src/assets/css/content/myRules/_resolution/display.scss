@@ -1,27 +1,27 @@
-.my_rules{
+.my_rules {
     .container {
         margin: 10px 20px;
         display: -webkit-flex;
         -webkit-flex-wrap: wrap;
         display: flex;
         flex-wrap: wrap;
-        .item{
+        .item {
             cursor: pointer;
             border: 1px solid core.$third-color;
             width: calc(25% - 22px);
             margin: 10px 10px;
             text-align: center;
-            .logo{
+            .logo {
                 height: 180px;
                 color: core.$second-color;
-                .no_image{
+                .no_image {
                     font-size: 180px;
                 }
             }
-            .name{
+            .name {
                 margin-bottom: 10px;
             }
-            &:hover{
+            &:hover {
                 opacity: 0.5;
                 width: calc(25% - 22px);
                 border: 1px solid;
@@ -29,17 +29,17 @@
             }
         }
     }
-    .add{
+    .add {
         height: 80px;
         position: absolute;
         bottom: 10px;
         right: 10px;
-        .icon{
+        .icon {
             cursor: pointer;
             color: core.$second-color;
             font-size: 80px;
             z-index: 1;
-            &:hover{
+            &:hover {
                 color: core.$first-color;
             }
         }

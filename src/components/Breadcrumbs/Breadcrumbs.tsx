@@ -14,25 +14,23 @@ const Breadcrumbs: React.FC<Props> = (props) => {
     const { accessiblePages } = props;
     // Localization.setLanguage('en');
     return (
-        <div className={styles.wrapper}>
-            <ul>
-                {
-                    breadcrumbs.map(({ match }) => {
-                        for (const pageName in accessiblePages) {
-                            if (match.url === accessiblePages[pageName].path) {
-                                const localizationIndex = pageName;
-                                return (
-                                    <li key={match.url}>
-                                        <Link to={match.url}>{Localization[localizationIndex]}</Link>
-                                    </li>
-                                );
-                            }
+        <ul className={styles.breadcrumbs}>
+            {
+                breadcrumbs.map(({ match }) => {
+                    for (const pageName in accessiblePages) {
+                        if (match.url === accessiblePages[pageName].path) {
+                            const localizationIndex = pageName;
+                            return (
+                                <li key={match.url}>
+                                    <Link to={match.url}>{Localization[localizationIndex]}</Link>
+                                </li>
+                            );
                         }
-                        return undefined;
-                    })
-                }
-            </ul>
-        </div>
+                    }
+                    return undefined;
+                })
+            }
+        </ul>
     );
 };
 

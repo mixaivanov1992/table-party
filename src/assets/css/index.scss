@@ -88,3 +88,8 @@ input[type="password"]:focus::placeholder,
 input[type="text"]:focus::placeholder {
     color: core.$first-color;
 }
+#root {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}

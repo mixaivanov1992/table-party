@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styles from '@css/content/newRule/chapter/column/dialog/Dialog.module.scss';
+import styles from '@css/content/newRule/chapter/sheet/dialog/Dialog.module.scss';
 import Editor from '@shared/Editor/Editor';
 
 interface Props {

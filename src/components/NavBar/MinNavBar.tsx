@@ -17,33 +17,31 @@ const MinNavBar: React.FC<Props> = (props) => {
 
     const { accessiblePages, onClickToggle } = props;
     return (
-        <div className={styles.min_navbar}>
-            <nav>
-                <ul>
-                    {
-                        Object.keys(accessiblePages).map((pageName) => {
-                            const linkContent = {
-                                home: IoHome,
-                                about: ImUsers,
-                                rules: IoDiceSharp,
-                                newRule: GiRuleBook,
-                                myRules: ImBook,
-                            };
-                            const Icon = linkContent[pageName];
-                            const location = useLocation();
-                            let styleName = '';
-                            if (location.pathname === accessiblePages[pageName].path || location.pathname === accessiblePages[pageName].redirect) {
-                                styleName = styles.active;
-                            }
-                            return (
-                                <li key={pageName} className={styleName}>
-                                    <Link data-localization={Localization[pageName]} to={accessiblePages[pageName].path}><Icon /></Link>
-                                </li>
-                            );
-                        })
-                    }
-                </ul>
-            </nav>
+        <nav className={styles.min_navbar}>
+            <ul>
+                {
+                    Object.keys(accessiblePages).map((pageName) => {
+                        const linkContent = {
+                            home: IoHome,
+                            about: ImUsers,
+                            rules: IoDiceSharp,
+                            newRule: GiRuleBook,
+                            myRules: ImBook,
+                        };
+                        const Icon = linkContent[pageName];
+                        const location = useLocation();
+                        let styleName = '';
+                        if (location.pathname === accessiblePages[pageName].path || location.pathname === accessiblePages[pageName].redirect) {
+                            styleName = styles.active;
+                        }
+                        return (
+                            <li key={pageName} className={styleName}>
+                                <Link data-localization={Localization[pageName]} to={accessiblePages[pageName].path}><Icon /></Link>
+                            </li>
+                        );
+                    })
+                }
+            </ul>
             <div
                 role="button"
                 tabIndex={0}
@@ -54,7 +52,7 @@ const MinNavBar: React.FC<Props> = (props) => {
                 <IoArrowRedoCircleSharp />
 
             </div>
-        </div>
+        </nav>
     );
 };
 export default MinNavBar;

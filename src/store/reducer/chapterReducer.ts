@@ -1,12 +1,12 @@
 import {
-    ChapterState, ChapterActionType, SetColumnCount, AddChapter, ChapterAction, /* SetSettingsVisibility, */ RemoveChapter,
+    ChapterState, ChapterActionType, SetSheetCount, AddChapter, ChapterAction, /* SetSettingsVisibility, */ RemoveChapter,
 } from '@src/assets/interfaces-types/chapterReducer';
 import { v4 as uuidv4 } from 'uuid';
 
 const initialState: ChapterState = {
     chapters: [{
         index: '',
-        columnCount: 0,
+        sheetCount: 0,
     }],
 };
 
@@ -16,7 +16,7 @@ export const chapterReducer = (state = initialState, action: ChapterAction): Cha
         const chapters = [...state.chapters];
         chapters.forEach((chapter, index) => {
             if (chapter.index === action.index) {
-                chapters[index].columnCount = action.count;
+                chapters[index].sheetCount = action.count;
             }
         });
         return { ...state, chapters };
@@ -26,7 +26,7 @@ export const chapterReducer = (state = initialState, action: ChapterAction): Cha
         [...Array(action.count)].forEach(() => {
             chapters.push({
                 index: uuidv4(),
-                columnCount: 3,
+                sheetCount: 3,
             });
         });
         return { ...state, chapters };
@@ -40,7 +40,7 @@ export const chapterReducer = (state = initialState, action: ChapterAction): Cha
     }
 };
 
-export const setColumnCount = (index: string, count: number): SetColumnCount => ({
+export const setSheetCount = (index: string, count: number): SetSheetCount => ({
     type: ChapterActionType.SET_COLUMN_COUNT,
     index,
     count,

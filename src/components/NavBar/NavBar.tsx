@@ -15,25 +15,23 @@ const NavBar: React.FC<Props> = (props) => {
 
     const { accessiblePages, onClickToggle } = props;
     return (
-        <div className={styles.navbar}>
-            <nav>
-                <ul>
-                    {
-                        Object.keys(accessiblePages).map((pageName) => {
-                            const location = useLocation();
-                            let styleName = '';
-                            if (location.pathname === accessiblePages[pageName].path || location.pathname === accessiblePages[pageName].redirect) {
-                                styleName = styles.active;
-                            }
-                            return (
-                                <li key={pageName} className={styleName}>
-                                    <Link to={accessiblePages[pageName].path}>{Localization[pageName]}</Link>
-                                </li>
-                            );
-                        })
-                    }
-                </ul>
-            </nav>
+        <nav className={styles.navbar}>
+            <ul>
+                {
+                    Object.keys(accessiblePages).map((pageName) => {
+                        const location = useLocation();
+                        let styleName = '';
+                        if (location.pathname === accessiblePages[pageName].path || location.pathname === accessiblePages[pageName].redirect) {
+                            styleName = styles.active;
+                        }
+                        return (
+                            <li key={pageName} className={styleName}>
+                                <Link to={accessiblePages[pageName].path}>{Localization[pageName]}</Link>
+                            </li>
+                        );
+                    })
+                }
+            </ul>
             <div
                 tabIndex={0}
                 onKeyPress={() => {}}
@@ -44,7 +42,7 @@ const NavBar: React.FC<Props> = (props) => {
                 <IoArrowUndoCircleSharp />
 
             </div>
-        </div>
+        </nav>
     );
 };
 

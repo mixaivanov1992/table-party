@@ -1,8 +1,7 @@
-.column {
-    min-height: 25vh;
+.sheet {
     &:hover {
         border-color: core.$first-color;
-        transform: scaleY(1.05);
+        transform: scale(1.02);
         color: core.$first-color;
     }
 }

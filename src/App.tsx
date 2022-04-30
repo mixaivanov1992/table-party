@@ -36,10 +36,10 @@ const App: React.FC<Props> = (props) => {
                 <Route key={pageName} exact path={path}>
                     <Header />
                     <Breadcrumbs accessiblePages={accessiblePages} />
-                    <div className={styles.wrapper}>
+                    <main className={styles.wrapper}>
                         <NavBarContainer accessiblePages={accessiblePages} />
                         <Content pageData={{ name: pageName, ...pageData }} />
-                    </div>
+                    </main>
                     <Footer />
                 </Route>
             );
@@ -52,14 +52,12 @@ const App: React.FC<Props> = (props) => {
     });
 
     return (
-        <div className={styles.app}>
-            <Router>
-                <Switch>
-                    {route}
-                    {redirect}
-                </Switch>
-            </Router>
-        </div>
+        <Router>
+            <Switch>
+                {route}
+                {redirect}
+            </Switch>
+        </Router>
     );
 };
 

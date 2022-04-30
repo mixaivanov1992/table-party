@@ -2,7 +2,8 @@
 .settings {
     justify-content: center;
     flex: 1 0 100%;
-    .column {
+    flex-wrap: wrap;
+    .sheet {
         display: flex;
         span {
             display: flex;
@@ -19,6 +20,14 @@
         .active {
             border-color: core.$first-color;
             color: core.$first-color;
+        }
+    }
+    .remove {
+        margin-top: 15px;
+        text-align: center;
+        width: 100%;
+        > span {
+            margin-right: 5px;
         }
     }
 }

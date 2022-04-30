@@ -1,25 +1,32 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setColumnCount } from '@src/store/reducer/chapterReducer';
+import { setSheetCount, removeChapter } from '@src/store/reducer/chapterReducer';
 import Settings from './Settings';
 
 interface Props {
-    columnCount: number,
+    sheetCount: number,
     chapterIndex: string,
+    number: number,
 }
 
 const SettingsContainer: React.FC<Props> = (props) => {
     const dispatch = useDispatch();
-    const onClickChangeColumnCount = ((index: string, columnCount: number) => {
-        dispatch(setColumnCount(index, columnCount));
+    const onClickChangeSheetCount = ((index: string, sheetCount: number) => {
+        dispatch(setSheetCount(index, sheetCount));
     });
-    const { columnCount, chapterIndex } = props;
+    const { sheetCount, chapterIndex, number } = props;
+
+    const onClickRemoveChapter = (index: string): void => {
+        dispatch(removeChapter(index));
+    };
 
     return (
         <Settings
-            onClickChangeColumnCount={onClickChangeColumnCount}
-            columnCount={columnCount}
+            onClickRemoveChapter={onClickRemoveChapter}
+            onClickChangeSheetCount={onClickChangeSheetCount}
+            sheetCount={sheetCount}
             chapterIndex={chapterIndex}
+            number={number}
         />
     );
 };

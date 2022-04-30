@@ -3,7 +3,7 @@ import styles from '@css/content/newRule/chapter/Chapter.module.scss';
 import InputNumber from '@shared/InputNumber/InputNumber';
 import { ChapterState } from '@src/assets/interfaces-types/chapterReducer';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import ColumnContainer from './Column/ColumnContainer';
+import SheetContainer from './Sheet/SheetContainer';
 import SettingsContainer from './Settings/SettingsContainer';
 
 interface Props {
@@ -32,8 +32,8 @@ const Chapter: React.FC<Props> = (props) => {
                     }}
                 >
                     <div className={styles.chapter}>
-                        <SettingsContainer chapterIndex={chapterData.index} columnCount={chapterData.columnCount} />
-                        <ColumnContainer chapterIndex={chapterData.index} columnCount={chapterData.columnCount} number={number} />
+                        <SettingsContainer chapterIndex={chapterData.index} sheetCount={chapterData.sheetCount} number={number} />
+                        <SheetContainer sheetCount={chapterData.sheetCount} />
                     </div>
                 </CSSTransition>
             );

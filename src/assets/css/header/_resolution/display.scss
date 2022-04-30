@@ -1,20 +1,18 @@
 .header {
     .search {
-        flex: 0;
-        width: 400px;
         input {
-            width: 200px;
+            width: 400px;
             box-sizing: border-box;
             &:focus {
-                width: 400px;
+                width: 500px;
             }
         }
     }
-    .search + div{
+    .search + div {
         justify-content: end;
     }
     .user_menu {
-        svg{
+        svg {
             color: core.$second-color;
             font-size: 50px;
         }

@@ -2,12 +2,10 @@
 .min_navbar,
 .navbar {
     background: core.$third-color;
-    position: relative;
     border: 1px solid core.$border;
     border-radius: 3px;
     padding: 10px;
     .toggle {
-        position: absolute;
         color: core.$second-color;
         font-size: 40px;
         opacity: 1;

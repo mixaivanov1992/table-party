@@ -1,21 +1,17 @@
 @use "../../../../core";
-.column {
+.sheet {
     justify-content: center;
     margin-top: 15px;
-    margin-right: 2%;
+    margin-right: 15px;
     border: 1px solid core.$border;
     background-color: white;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
-    flex: 1;
-}
-.remove {
-    flex: 0;
-    margin-top: 15px;
-    position: relative;
-    > div {
-        position: absolute;
-        top: 0;
+    width: calc(33% - 17px);
+    &:after {
+        content: "";
+        padding-top: 100%;
+        float: left;
     }
 }
 .dialog_enter {
