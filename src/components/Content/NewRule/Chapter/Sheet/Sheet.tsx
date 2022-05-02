@@ -19,7 +19,7 @@ const Sheet: React.FC<Props> = (props) => {
         <>
             {
                 [...Array(sheetCount)].map(
-                    () => (
+                    (empty, index) => (
                         <div
                             role="button"
                             tabIndex={0}
@@ -28,7 +28,10 @@ const Sheet: React.FC<Props> = (props) => {
                             key={uuidv4()}
                             className={styles.sheet}
                         >
-                            <div>sheet</div>
+                            <div>
+                                Лист №
+                                {index + 1}
+                            </div>
                         </div>
                     ),
                 )

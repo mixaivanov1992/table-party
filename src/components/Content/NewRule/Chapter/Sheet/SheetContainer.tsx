@@ -19,4 +19,4 @@ const SheetContainer: React.FC<Props> = (props) => {
     );
 };
 
-export default SheetContainer;
+export default React.memo(SheetContainer);

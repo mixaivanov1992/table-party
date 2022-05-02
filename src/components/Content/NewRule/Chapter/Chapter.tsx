@@ -8,17 +8,17 @@ import SettingsContainer from './Settings/SettingsContainer';
 
 interface Props {
     onClickChapterAdd(): void,
-    inputChapter(chapterCount: string): void,
+    onInputChapter(chapterCount: string): void,
     chapterState: ChapterState,
     chapterCount: number,
 }
 const Chapter: React.FC<Props> = (props) => {
     console.debug('Chapter');
     const {
-        chapterState, chapterCount, inputChapter, onClickChapterAdd,
+        chapterState, chapterCount, onInputChapter, onClickChapterAdd,
     } = props;
 
-    const chapters = chapterState.chapters.map((chapterData, number) => {
+    const chapters = chapterState.chapters.map((chapterData, chapterNumber) => {
         if (chapterData.index) {
             return (
                 <CSSTransition
@@ -32,7 +32,7 @@ const Chapter: React.FC<Props> = (props) => {
                     }}
                 >
                     <div className={styles.chapter}>
-                        <SettingsContainer chapterIndex={chapterData.index} sheetCount={chapterData.sheetCount} number={number} />
+                        <SettingsContainer chapterIndex={chapterData.index} sheetCount={chapterData.sheetCount} chapterNumber={chapterNumber} chapterName={chapterData.name} />
                         <SheetContainer sheetCount={chapterData.sheetCount} />
                     </div>
                 </CSSTransition>
@@ -44,8 +44,9 @@ const Chapter: React.FC<Props> = (props) => {
         <div className={styles.container}>
             <div>
                 <InputNumber
+                    index="chapter"
                     value={chapterCount}
-                    inputChapter={inputChapter}
+                    onInputData={onInputChapter}
                 />
                 <button type="button" onClick={onClickChapterAdd}>Добавить раздел(ы)</button>
             </div>

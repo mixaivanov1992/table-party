@@ -1,58 +1,50 @@
 import React from 'react';
 import styles from '@css/content/newRule/chapter/settings/Settings.module.scss';
-import { v4 as uuidv4 } from 'uuid';
+import InputNumber from '@shared/InputNumber/InputNumber';
 
 interface Props {
-    onClickChangeSheetCount(index: string, sheetCount: number): void,
+    onClickRemoveChapter(index: string): void,
+    onInputSheet(sheetCount: string): void,
+    onChangeChapterName(name: string): void,
     sheetCount: number,
     chapterIndex: string,
-    number: number,
-    onClickRemoveChapter(index: string): void,
+    chapterNumber: number,
+    chapterName: string
 }
 
 const Settings: React.FC<Props> = (props) => {
     console.debug('Settings');
-    const sheetsIndex = [1, 2, 3];
     const {
-        sheetCount, chapterIndex, number, onClickChangeSheetCount, onClickRemoveChapter,
+        sheetCount, chapterIndex, chapterNumber, chapterName, onClickRemoveChapter, onInputSheet, onChangeChapterName,
     } = props;
-    const sheets = sheetsIndex.map((index) => {
-        if (index === sheetCount) {
-            return (
-                <span
-                    tabIndex={0}
-                    onKeyPress={() => {}}
-                    role="button"
-                    onClick={() => { onClickChangeSheetCount(chapterIndex, index); }}
-                    key={uuidv4()}
-                    className={styles.active}
-                >
-                    {index}
-                </span>
-            );
-        }
-        return (
-            <span
-                tabIndex={0}
-                onKeyPress={() => {}}
-                role="button"
-                onClick={() => { onClickChangeSheetCount(chapterIndex, index); }}
-                key={uuidv4()}
-            >
-                {index}
-            </span>
-        );
-    });
+
     return (
         <div className={styles.settings}>
             <div>Кол-во листов:</div>
             <div className={styles.sheet}>
-                {sheets}
+                <InputNumber
+                    index={chapterIndex}
+                    value={sheetCount}
+                    onInputData={onInputSheet}
+                />
             </div>
             <div className={styles.remove}>
                 <span>
                     Глава №
-                    {number}
+                    {chapterNumber}
+                    <label htmlFor={`'chapterName-'${chapterNumber}`}>
+                        <input
+                            type="text"
+                            placeholder="Название главы"
+                            id={`'chapterName-'${chapterNumber}`}
+                            value={chapterName}
+                            onChange={
+                                (e) => {
+                                    onChangeChapterName(e.currentTarget.value);
+                                }
+                            }
+                        />
+                    </label>
                 </span>
                 <button
                     type="button"

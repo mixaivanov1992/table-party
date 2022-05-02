@@ -1,34 +1,44 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setSheetCount, removeChapter } from '@src/store/reducer/chapterReducer';
+import { setSheetCount, setChapterName, removeChapter } from '@src/store/reducer/chapterReducer';
 import Settings from './Settings';
 
 interface Props {
     sheetCount: number,
     chapterIndex: string,
-    number: number,
+    chapterNumber: number,
+    chapterName: string
 }
 
 const SettingsContainer: React.FC<Props> = (props) => {
     const dispatch = useDispatch();
-    const onClickChangeSheetCount = ((index: string, sheetCount: number) => {
-        dispatch(setSheetCount(index, sheetCount));
-    });
-    const { sheetCount, chapterIndex, number } = props;
+    const {
+        sheetCount, chapterIndex, chapterNumber, chapterName,
+    } = props;
 
     const onClickRemoveChapter = (index: string): void => {
         dispatch(removeChapter(index));
     };
 
+    const onChangeChapterName = (name: string): void => {
+        dispatch(setChapterName(chapterIndex, name));
+    };
+
+    const onInputSheet = (count: string): void => {
+        dispatch(setSheetCount(chapterIndex, +count));
+    };
+
     return (
         <Settings
             onClickRemoveChapter={onClickRemoveChapter}
-            onClickChangeSheetCount={onClickChangeSheetCount}
+            onChangeChapterName={onChangeChapterName}
+            onInputSheet={onInputSheet}
             sheetCount={sheetCount}
             chapterIndex={chapterIndex}
-            number={number}
+            chapterNumber={chapterNumber}
+            chapterName={chapterName}
         />
     );
 };
 
-export default SettingsContainer;
+export default React.memo(SettingsContainer);

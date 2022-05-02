@@ -13,14 +13,14 @@ const ChapterContainer: React.FC = () => {
         dispatch(addChapter(chapterCount));
     };
 
-    const inputChapter = (count: string): void => {
+    const onInputChapter = (count: string): void => {
         setChapterCount(+count);
     };
 
     return (
         <Chapter
             onClickChapterAdd={onClickChapterAdd}
-            inputChapter={inputChapter}
+            onInputChapter={onInputChapter}
             chapterState={chapterState}
             chapterCount={chapterCount}
         />
