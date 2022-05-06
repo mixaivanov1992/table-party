@@ -19,6 +19,9 @@
         "react",
         "@typescript-eslint"
     ],
+    "globals": {
+        "JSX": "readonly"
+    },
     "rules": {
         "import/no-dynamic-require": "off", //пересмотреть
         "global-require": "off", //пересмотреть

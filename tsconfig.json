@@ -32,13 +32,13 @@
 				"name": "typescript-plugin-css-modules"
 			}
 		],
-		"target": "es5",
 		"lib": [
 			"dom",
 			"dom.iterable",
 			"esnext"
 		],
-		//"allowJs": true,
+		"target": "es5",
+		"allowJs": true,
 		"skipLibCheck": true,
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
@@ -49,10 +49,11 @@
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
-		"noEmit": false, //поменял
+		"noEmit": false,
 		"noImplicitAny": false, //добавил
 		"jsx": "react-jsx",
-		"sourceMap": true //отображает ошибки в ts а не в js после сборки
+        "removeComments": true,
+		"sourceMap": true
 	},
 	"include": [
 		"src"

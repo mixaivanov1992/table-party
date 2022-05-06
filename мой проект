@@ -70,6 +70,9 @@ npm install normalize.css --save                                                
 npm install react-localization --save                                                           -   локализация
 npm i react-draft-wysiwyg --save                                                                -   редактор
 npm install uuid --save                                                                         -   uuid
+npm install react-paginate --save                                                               -   paginate
+npm install --save-dev @types/react-paginate                                                    -   paginate type
+
 DEBUG
 npm install --save-dev redux-devtools-extension													-	дополнение для браузера, для разработки
 npm install --save-dev @types/redux-devtools-extension											-	типы для typescript

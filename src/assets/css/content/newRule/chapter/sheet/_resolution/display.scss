@@ -1,7 +1,9 @@
 .sheet {
-    &:hover {
-        border-color: core.$first-color;
-        transform: scale(1.02);
-        color: core.$first-color;
+    .item {
+        &:hover {
+            border-color: core.$first-color;
+            transform: scale(1.02);
+            color: core.$first-color;
+        }
     }
 }

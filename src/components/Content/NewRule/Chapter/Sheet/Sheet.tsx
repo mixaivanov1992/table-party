@@ -16,7 +16,7 @@ const Sheet: React.FC<Props> = (props) => {
         sheetCount, showDialog, onClickShowDialog,
     } = props;
     return (
-        <>
+        <div className={styles.sheet}>
             {
                 [...Array(sheetCount)].map(
                     (empty, index) => (
@@ -26,7 +26,7 @@ const Sheet: React.FC<Props> = (props) => {
                             onKeyPress={() => {}}
                             onClick={() => { onClickShowDialog(true); }}
                             key={uuidv4()}
-                            className={styles.sheet}
+                            className={styles.item}
                         >
                             <div>
                                 Лист №
@@ -52,7 +52,7 @@ const Sheet: React.FC<Props> = (props) => {
                     onClickShowDialog={onClickShowDialog}
                 />
             </CSSTransition>
-        </>
+        </div>
     );
 };
 

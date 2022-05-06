@@ -3,17 +3,36 @@ import {
 } from '@interfaces-types/personalDataReducer';
 
 const guestAccessiblePages: GuestAccessiblePages = {
-    home: { path: '/', isContent: true, redirect: '/home' },
-    rules: { path: '/rules', isContent: true, redirect: '' },
-    about: { path: '/about', isContent: true, redirect: '' },
-    login: { path: '/login', isContent: false, redirect: '' },
+    home: {
+        path: '/', isContent: true, redirect: '/home', component: 'Home',
+    },
+    rules: {
+        path: '/rules', isContent: true, redirect: '', component: 'Rules',
+    },
+    about: {
+        path: '/about', isContent: true, redirect: '', component: 'About',
+    },
+    login: {
+        path: '/login', isContent: false, redirect: '', component: 'Login',
+    },
 };
+
 const userAccessiblePages: UserAccessiblePages = {
-    home: { path: '/', isContent: true, redirect: '/home' },
-    rules: { path: '/rules', isContent: true, redirect: '' },
-    myRules: { path: '/my-rules', isContent: true, redirect: '' },
-    newRule: { path: '/new-rule', isContent: true, redirect: '' },
-    about: { path: '/about', isContent: true, redirect: '' },
+    home: {
+        path: '/', isContent: true, redirect: '/home', component: 'Home',
+    },
+    rules: {
+        path: '/rules', isContent: true, redirect: '', component: 'Rules',
+    },
+    myRules: {
+        path: '/my-rules', isContent: true, redirect: '', component: 'MyRules',
+    },
+    newRule: {
+        path: '/new-rule', isContent: true, redirect: '', component: 'NewRule',
+    },
+    about: {
+        path: '/about', isContent: true, redirect: '', component: 'About',
+    },
 };
 
 const initialState: PersonalDataState = {

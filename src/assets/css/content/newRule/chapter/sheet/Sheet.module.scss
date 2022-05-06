@@ -1,17 +1,26 @@
 @use "../../../../core";
 .sheet {
+    display: flex;
     justify-content: center;
-    margin-top: 15px;
-    margin-right: 15px;
-    border: 1px solid core.$border;
-    background-color: white;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-    width: calc(33% - 17px);
-    &:after {
-        content: "";
-        padding-top: 100%;
-        float: left;
+    margin-bottom: 15px;
+    > div:first-child + div {
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+    .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid core.$border;
+        background-color: white;
+        transition: all 0.3s ease-in-out;
+        width: calc(33% - 30px);
+        cursor: pointer;
+        &:after {
+            content: "";
+            padding-top: 100%;
+            float: left;
+        }
     }
 }
 .dialog_enter {

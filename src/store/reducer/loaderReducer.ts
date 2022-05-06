@@ -7,7 +7,6 @@ const initialState: LoaderState = {
 };
 
 export const loaderReducer = (state = initialState, action: LoaderAction): LoaderState => {
-    // console.log(action, action.loading);
     switch (action.type) {
     case LoaderActionType.SET_VISIBILITY:
         return { isLoading: action.isLoading };

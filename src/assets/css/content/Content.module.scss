@@ -1,5 +1,5 @@
 @use "../core";
-.container {
+.content {
     flex: 1 0;
     background: core.$third-color;
     border: 1px solid core.$border;
@@ -31,8 +31,9 @@
         > svg {
             color: core.$first-color;
             position: absolute;
-            right: 0;
-            top: 0;
+            right: 3%;
+            top: -60%;
+            font-size: 40px;
             background-color: core.$third-color;
         }
     }

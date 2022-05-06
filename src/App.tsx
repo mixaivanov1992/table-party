@@ -3,7 +3,6 @@ import styles from '@css/App.module.scss';
 import Header from '@components/Header/Header';
 import Content from '@components/Content/Content';
 import NavBarContainer from '@components/NavBar/NavBarContainer';
-import Login from '@components/Login/Login';
 import Footer from '@components/Footer/Footer';
 import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs';
 import { GuestAccessiblePages, UserAccessiblePages } from '@interfaces-types/personalDataReducer';
@@ -20,33 +19,35 @@ const App: React.FC<Props> = (props) => {
 
     const { accessiblePages } = props;
 
-    const redirect = Object.keys(accessiblePages).map((pageName) => {
-        if (accessiblePages[pageName].redirect) {
-            const { path } = accessiblePages[pageName];
-            return <Redirect key={pageName} from={path} to={accessiblePages[pageName].redirect} />;
-        }
-        return undefined;
+    const pageAliases = Object.keys(accessiblePages);
+    const redirectAliases = pageAliases.filter((alias) => accessiblePages[alias].redirect);
+    const redirects = redirectAliases.map((alias) => {
+        const { path, redirect } = accessiblePages[alias];
+        return <Redirect key={alias} from={path} to={redirect} />;
     });
-    const route = Object.keys(accessiblePages).map((pageName) => {
-        const pageData = accessiblePages[pageName];
+
+    const routes = pageAliases.map((alias) => {
+        const pageData = accessiblePages[alias];
         const path = pageData.redirect ? pageData.redirect : pageData.path;
 
         if (pageData.isContent) {
             return (
-                <Route key={pageName} exact path={path}>
+                <Route key={alias} exact path={path}>
                     <Header />
                     <Breadcrumbs accessiblePages={accessiblePages} />
                     <main className={styles.wrapper}>
                         <NavBarContainer accessiblePages={accessiblePages} />
-                        <Content pageData={{ name: pageName, ...pageData }} />
+                        <Content pageData={{ alias, ...pageData }} />
                     </main>
                     <Footer />
                 </Route>
             );
         }
+
+        const Component = require(`./components/${pageData.component}/${pageData.component}`).default;
         return (
-            <Route key={pageName} exact path={path}>
-                <Login />
+            <Route key={alias} exact path={path}>
+                <Component />
             </Route>
         );
     });
@@ -54,8 +55,8 @@ const App: React.FC<Props> = (props) => {
     return (
         <Router>
             <Switch>
-                {route}
-                {redirect}
+                {routes}
+                {redirects}
             </Switch>
         </Router>
     );

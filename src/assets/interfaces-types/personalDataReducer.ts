@@ -19,48 +19,26 @@ export interface SetPersonalData {
     type: PersonalDataActionType.SET_PERSONAL_DATA,
     isAuthorized: boolean
 }
-
-// enum Path {
-//     home = '/',
-//     rules = '/rules',
-//     about = '/about',
-//     myRules = '/my-rules',
-//     newRule = '/new-rule',
-// }
-// enum Redirect {
-//     home = '/home',
-//     rules = '',
-//     about = '',
-//     myRules = '',
-//     newRule = '',
-// }
-// enum Page {
-//     home = 'home',
-//     rules = 'rules',
-//     about = 'about',
-//     myRules = 'myRules',
-//     newRule = 'newRule',
-// }
-
 export type PageData = {
-    name: string,
-    path: string,
-    isContent: boolean,
-    redirect: string
+    readonly alias: string,
+    readonly path: string,
+    readonly isContent: boolean,
+    readonly redirect: string,
+    readonly component: string
 }
 
 export type GuestAccessiblePages = {
-    home: {path: '/', isContent: true, redirect: '/home'},
-    rules: {path: '/rules', isContent: true, redirect: ''},
-    about: {path: '/about', isContent: true, redirect: ''},
-    login: {path: '/login', isContent: false, redirect: ''},
+    home: {readonly path: string, readonly isContent: boolean, readonly redirect: string, component: string},
+    rules: {readonly path: string, readonly isContent: boolean, readonly redirect: string, component: string},
+    about: {readonly path: string, readonly isContent: boolean, readonly redirect: string, component: string},
+    login: {readonly path: string, readonly isContent: boolean, readonly redirect: string, component: string},
 };
 export type UserAccessiblePages = {
-    home: {path: '/', isContent: true, redirect: '/home'},
-    rules: {path: '/rules', isContent: true, redirect: ''},
-    myRules: {path: '/my-rules', isContent: true, redirect: ''},
-    newRule: {path: '/new-rule', isContent: true, redirect: ''},
-    about: {path: '/about', isContent: true, redirect: ''},
+    home: {readonly path: string, readonly isContent: boolean, readonly redirect: string, component: string},
+    rules: {readonly path: string, readonly isContent: boolean, readonly redirect: string, component: string},
+    myRules: {readonly path: string, readonly isContent: boolean, readonly redirect: string, component: string},
+    newRule: {readonly path: string, readonly isContent: boolean, readonly redirect: string, component: string},
+    about: {readonly path: string, readonly isContent: boolean, readonly redirect: string, component: string},
 };
 
 export type PersonalDataAction = SetPersonalData;

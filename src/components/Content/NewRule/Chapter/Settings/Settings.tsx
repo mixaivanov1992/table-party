@@ -20,32 +20,34 @@ const Settings: React.FC<Props> = (props) => {
 
     return (
         <div className={styles.settings}>
-            <div>Кол-во листов:</div>
             <div className={styles.sheet}>
+                <span>Кол-во листов:</span>
                 <InputNumber
                     index={chapterIndex}
                     value={sheetCount}
                     onInputData={onInputSheet}
                 />
             </div>
-            <div className={styles.remove}>
+            <div className={styles.chapter_name}>
                 <span>
                     Глава №
                     {chapterNumber}
-                    <label htmlFor={`'chapterName-'${chapterNumber}`}>
-                        <input
-                            type="text"
-                            placeholder="Название главы"
-                            id={`'chapterName-'${chapterNumber}`}
-                            value={chapterName}
-                            onChange={
-                                (e) => {
-                                    onChangeChapterName(e.currentTarget.value);
-                                }
-                            }
-                        />
-                    </label>
                 </span>
+                <label htmlFor={`'chapterName-'${chapterNumber}`}>
+                    <input
+                        type="text"
+                        placeholder="Название главы"
+                        id={`'chapterName-'${chapterNumber}`}
+                        value={chapterName}
+                        onChange={
+                            (e) => {
+                                onChangeChapterName(e.currentTarget.value);
+                            }
+                        }
+                    />
+                </label>
+            </div>
+            <div className={styles.remove_chapter}>
                 <button
                     type="button"
                     onClick={

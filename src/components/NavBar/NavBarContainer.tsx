@@ -9,12 +9,16 @@ interface Props {
 }
 
 const NavBarContainer: React.FC<Props> = (props) => {
-    const item = localStorage.getItem('toggle');
-    const [toggle, setToggle] = useState<boolean>(item !== null ? JSON.parse(item) : true);
+    const storage = localStorage.getItem('toggle');
+    const [toggle, setToggle] = useState<boolean>(storage !== null ? JSON.parse(storage) : true);
     const { accessiblePages } = props;
 
     useEffect(() => {
-        localStorage.setItem('toggle', JSON.stringify(toggle ? '1' : ''));
+        if (toggle) {
+            localStorage.setItem('toggle', JSON.stringify(true));
+        } else {
+            localStorage.setItem('toggle', JSON.stringify(false));
+        }
     }, [toggle]);
 
     const onClickToggle = () => {

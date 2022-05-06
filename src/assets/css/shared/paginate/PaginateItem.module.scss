@@ -1,0 +1,14 @@
+.paginate_enter {
+    opacity: 0;
+}
+.paginate_enter_active {
+    opacity: 1;
+    transition: opacity 200ms ease-in;
+}
+.paginate_exit {
+    opacity: 1;
+}
+.paginate_exit_active {
+    opacity: 0;
+    transition: opacity 200ms ease-in;
+}

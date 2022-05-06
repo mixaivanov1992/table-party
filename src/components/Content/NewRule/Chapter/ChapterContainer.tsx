@@ -13,6 +13,9 @@ const ChapterContainer: React.FC = () => {
         dispatch(addChapter(chapterCount));
     };
 
+    const onClickDeleteChapters = (): void => {
+    };
+
     const onInputChapter = (count: string): void => {
         setChapterCount(+count);
     };
@@ -20,6 +23,7 @@ const ChapterContainer: React.FC = () => {
     return (
         <Chapter
             onClickChapterAdd={onClickChapterAdd}
+            onClickDeleteChapters={onClickDeleteChapters}
             onInputChapter={onInputChapter}
             chapterState={chapterState}
             chapterCount={chapterCount}

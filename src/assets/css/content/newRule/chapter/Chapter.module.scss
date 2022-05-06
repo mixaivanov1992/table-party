@@ -1,43 +1,22 @@
 @use "../../../core";
-.container {
-    > div:first-child {
-        text-align: center;
-        > input {
-            width: 70px;
+.chapter {
+    .settings {
+        margin-bottom: 15px;
+        justify-content: center;
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        > input + button {
+            margin-left: 5px;
             margin-right: 5px;
         }
-        > button {
-            margin-top: 5px;
+        > * {
+            margin-bottom: 5px;
         }
     }
-    .chapter {
-        margin-top: 15px;
+    .container {
         padding-top: 15px;
         border-top: 1px solid core.$border;
-        min-height: 48px;
-        display: flex;
-        -webkit-flex-wrap: wrap;
-        flex-wrap: wrap;
-        justify-content: center;
-        > div {
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-        }
-    }
-    .chapter_enter {
-        opacity: 0;
-    }
-    .chapter_enter_active {
-        opacity: 1;
-        transition: opacity 200ms ease-in;
-    }
-    .chapter_exit {
-        opacity: 1;
-    }
-    .chapter_exit_active {
-        opacity: 0;
-        transition: opacity 200ms ease-in;
     }
 }
 @media screen and (max-width: 600px) {
