@@ -1,11 +1,11 @@
 import {
-    ChapterState, ChapterActionType, SetSheetCount, SetChapterName, AddChapter, ChapterAction, /* SetSettingsVisibility, */ RemoveChapter,
+    ChapterState, ChapterActionType, SetSheetCount, SetChapterName, AddChapter, ChapterAction, RemoveChapter, DeleteChapters,
 } from '@src/assets/interfaces-types/chapterReducer';
 import { v4 as uuidv4 } from 'uuid';
 
 const initialState: ChapterState = {
     chapters: [{
-        index: '',
+        uid: '',
         sheetCount: 0,
         name: '',
     }],
@@ -16,7 +16,7 @@ export const chapterReducer = (state = initialState, action: ChapterAction): Cha
     case ChapterActionType.SET_COLUMN_COUNT: {
         const chapters = [...state.chapters];
         chapters.forEach((chapter, index) => {
-            if (chapter.index === action.index) {
+            if (chapter.uid === action.uid) {
                 chapters[index].sheetCount = action.count;
             }
         });
@@ -26,7 +26,7 @@ export const chapterReducer = (state = initialState, action: ChapterAction): Cha
         const chapters = [...state.chapters];
         [...Array(action.count)].forEach(() => {
             chapters.push({
-                index: uuidv4(),
+                uid: uuidv4(),
                 sheetCount: 3,
                 name: '',
             });
@@ -34,32 +34,34 @@ export const chapterReducer = (state = initialState, action: ChapterAction): Cha
         return { ...state, chapters };
     }
     case ChapterActionType.REMOVE_CHAPTER: {
-        const chapters = state.chapters.filter((chapter) => chapter.index !== action.index);
+        const chapters = state.chapters.filter((chapter) => chapter.uid !== action.uid);
         return { ...state, chapters };
     }
     case ChapterActionType.SET_CHAPTER_NAME: {
         const chapters = [...state.chapters];
         chapters.forEach((chapter, index) => {
-            if (chapter.index === action.index) {
+            if (chapter.uid === action.uid) {
                 chapters[index].name = action.name;
             }
         });
         return { ...state, chapters };
     }
+    case ChapterActionType.DELETE_CHAPTERS:
+        return initialState;
     default:
         return state;
     }
 };
 
-export const setSheetCount = (index: string, count: number): SetSheetCount => ({
+export const setSheetCount = (uid: string, count: number): SetSheetCount => ({
     type: ChapterActionType.SET_COLUMN_COUNT,
-    index,
+    uid,
     count,
 });
 
-export const setChapterName = (index: string, name: string): SetChapterName => ({
+export const setChapterName = (uid: string, name: string): SetChapterName => ({
     type: ChapterActionType.SET_CHAPTER_NAME,
-    index,
+    uid,
     name,
 });
 
@@ -68,7 +70,11 @@ export const addChapter = (count: number): AddChapter => ({
     count,
 });
 
-export const removeChapter = (index: string): RemoveChapter => ({
+export const removeChapter = (uid: string): RemoveChapter => ({
     type: ChapterActionType.REMOVE_CHAPTER,
-    index,
+    uid,
+});
+
+export const deleteChapters = (): DeleteChapters => ({
+    type: ChapterActionType.DELETE_CHAPTERS,
 });

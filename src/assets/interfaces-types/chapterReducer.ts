@@ -1,6 +1,6 @@
 export interface ChapterState{
     chapters: Array<{
-        index: string,
+        uid: string,
         sheetCount: number,
         name: string
     }>
@@ -10,17 +10,18 @@ export enum ChapterActionType{
     SET_COLUMN_COUNT = 'SET_COLUMN_COUNT',
     ADD_CHAPTER = 'ADD_CHAPTER',
     REMOVE_CHAPTER = 'REMOVE_CHAPTER',
-    SET_CHAPTER_NAME = 'SET_CHAPTER_NAME'
+    SET_CHAPTER_NAME = 'SET_CHAPTER_NAME',
+    DELETE_CHAPTERS = 'DELETE_CHAPTERS'
 }
 
 export interface SetSheetCount{
     type: ChapterActionType.SET_COLUMN_COUNT,
-    index: string,
+    uid: string,
     count: number
 }
 export interface SetChapterName{
     type: ChapterActionType.SET_CHAPTER_NAME,
-    index: string,
+    uid: string,
     name: string
 }
 
@@ -31,7 +32,11 @@ export interface AddChapter{
 
 export interface RemoveChapter{
     type: ChapterActionType.REMOVE_CHAPTER,
-    index: string
+    uid: string
 }
 
-export type ChapterAction = SetSheetCount | AddChapter | RemoveChapter | SetChapterName;
+export interface DeleteChapters{
+    type: ChapterActionType.DELETE_CHAPTERS
+}
+
+export type ChapterAction = SetSheetCount | AddChapter | RemoveChapter | SetChapterName | DeleteChapters;

@@ -1,20 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '@css/content/newRule/chapter/sheet/Sheet.module.scss';
 import { CSSTransition } from 'react-transition-group';
 import { v4 as uuidv4 } from 'uuid';
-import DialogContainer from './Dialog/DialogContainer';
+import Dialog from './Dialog/Dialog';
 
 interface Props {
-    onClickShowDialog(isShow: boolean): void,
     sheetCount: number,
-    showDialog: boolean
 }
-
 const Sheet: React.FC<Props> = (props) => {
     console.debug('Sheet');
-    const {
-        sheetCount, showDialog, onClickShowDialog,
-    } = props;
+    const [showDialog, setShowDialog] = useState(false);
+    const onClickShowDialog = (isShow) => setShowDialog(isShow);
+
+    const { sheetCount } = props;
     return (
         <div className={styles.sheet}>
             {
@@ -48,7 +46,7 @@ const Sheet: React.FC<Props> = (props) => {
                 mountOnEnter
                 unmountOnExit
             >
-                <DialogContainer
+                <Dialog
                     onClickShowDialog={onClickShowDialog}
                 />
             </CSSTransition>
@@ -56,4 +54,4 @@ const Sheet: React.FC<Props> = (props) => {
     );
 };
 
-export default Sheet;
+export default React.memo(Sheet);

@@ -45,7 +45,6 @@ const initialState: PersonalDataState = {
 };
 
 export const personalDataReducer = (state = initialState, action: PersonalDataAction): PersonalDataState => {
-    // console.log(action, action.isAuthorized);
     switch (action.type) {
     case PersonalDataActionType.SET_PERSONAL_DATA:
         // запрос на сервак возвращает роль ... + по уникальному идентификатору

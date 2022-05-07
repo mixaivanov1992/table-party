@@ -1,47 +1,33 @@
+import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 import React from 'react';
 import styles from '@css/content/newRule/chapter/Chapter.module.scss';
-import InputNumber from '@shared/InputNumber/InputNumber';
-import { ChapterState } from '@src/assets/interfaces-types/chapterReducer';
 import Paginate from '@shared/Paginate/Paginate';
-import Localization from '@src/assets/localization/content/newRule/chapter';
-import SheetContainer from './Sheet/SheetContainer';
-import SettingsContainer from './Settings/SettingsContainer';
+import Sheet from './Sheet/Sheet';
+import Settings from './Settings/Settings';
 
-interface Props {
-    onClickChapterAdd(): void,
-    onClickDeleteChapters(): void,
-    onInputChapter(chapterCount: string): void,
-    chapterState: ChapterState,
-    chapterCount: number,
-}
-const Chapter: React.FC<Props> = (props) => {
+const Chapter: React.FC = () => {
     console.debug('Chapter');
-    const {
-        chapterState, chapterCount, onInputChapter, onClickChapterAdd, onClickDeleteChapters,
-    } = props;
+
+    const chapterState = useTypedSelector((state) => state.chapterReducer);
     const emptyIndex = 1;
     const chapters = chapterState.chapters.slice(emptyIndex);
     const paginateItems = [...Array(chapters.length)].map((empty, i) => i);
-    const chapterItems = chapters.map((chapterData, chapterNumber) => (
-        <div className={styles.container}>
-            <SettingsContainer chapterIndex={chapterData.index} sheetCount={chapterData.sheetCount} chapterNumber={chapterNumber + 1} chapterName={chapterData.name} />
-            <SheetContainer sheetCount={chapterData.sheetCount} />
-        </div>
-    ));
+
+    const renderContent = (index: number): JSX.Element => {
+        const { uid, sheetCount, name } = chapters[index];
+        return (
+            <div className={styles.container}>
+                <Settings chapterUid={uid} sheetCount={sheetCount} chapterNumber={index + 1} chapterName={name} />
+                <Sheet sheetCount={sheetCount} />
+            </div>
+        );
+    };
 
     return (
         <div className={styles.chapter}>
-            <div className={styles.settings}>
-                <InputNumber
-                    index="chapter"
-                    value={chapterCount}
-                    onInputData={onInputChapter}
-                />
-                <button type="button" onClick={onClickChapterAdd}>{Localization.addChapter}</button>
-                <button type="button" onClick={onClickDeleteChapters}>{Localization.deleteChapters}</button>
-            </div>
-            {!!paginateItems.length && <Paginate content={chapterItems} items={paginateItems} itemsPerPage={5} />}
+            {!!paginateItems.length && <Paginate renderContent={renderContent} items={paginateItems} itemsPerPage={5} />}
         </div>
     );
 };
-export default Chapter;
+
+export default React.memo(Chapter);

@@ -1,27 +1,21 @@
-import React from 'react';
-import styles from '@css/content/newRule/NewRule.module.scss';
-import Localization from '@src/assets/localization/content/newRule';
-import ChapterContainer from './Chapter/ChapterContainer';
+import React, { ReactNode } from 'react';
+import Chapter from './Chapter/Chapter';
+import Settings from './Settings/Settings';
 
-interface Props{
-    changeGameName(gameName:string): void,
-    gameName: string
+interface Props {
+    children: ReactNode
 }
-
 const NewRule: React.FC<Props> = (props) => {
-    const { changeGameName, gameName } = props;
+    console.debug('NewRule');
+    const { children } = props;
     return (
-        <div className={styles.new_rule}>
-            <div className={styles.game_name}>
-                <label htmlFor="gameName">
-                    <span>
-                        {Localization.gameName}
-                    </span>
-                    <input onChange={(e) => { changeGameName(e.currentTarget.value); }} id="gameName" type="text" placeholder={Localization.enterName} value={gameName} />
-                </label>
+        <>
+            {children}
+            <div>
+                <Settings />
+                <Chapter />
             </div>
-            <ChapterContainer />
-        </div>
+        </>
     );
 };
 

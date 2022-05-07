@@ -18,7 +18,7 @@ const Content: React.FC<Props> = (props) => {
     const dice = [GiRollingDices, GiPerspectiveDiceSixFacesFive, GiRollingDiceCup, GiDiceEightFacesEight, GiDiceFire];
     const DiceComponent = dice[randomInt(0, 4)];
 
-    const Component = require(`./${pageData.component}/${pageData.component}Container`).default;
+    const Component = require(`./${pageData.component}/${pageData.component}`).default;
     return (
         <div className={styles.content}>
             <Component>

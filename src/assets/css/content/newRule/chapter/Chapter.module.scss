@@ -1,19 +1,5 @@
 @use "../../../core";
 .chapter {
-    .settings {
-        margin-bottom: 15px;
-        justify-content: center;
-        display: flex;
-        width: 100%;
-        flex-wrap: wrap;
-        > input + button {
-            margin-left: 5px;
-            margin-right: 5px;
-        }
-        > * {
-            margin-bottom: 5px;
-        }
-    }
     .container {
         padding-top: 15px;
         border-top: 1px solid core.$border;

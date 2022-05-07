@@ -1,29 +1,41 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { setSheetCount, setChapterName, removeChapter } from '@src/store/reducer/chapterReducer';
 import styles from '@css/content/newRule/chapter/settings/Settings.module.scss';
 import InputNumber from '@shared/InputNumber/InputNumber';
 
 interface Props {
-    onClickRemoveChapter(index: string): void,
-    onInputSheet(sheetCount: string): void,
-    onChangeChapterName(name: string): void,
     sheetCount: number,
-    chapterIndex: string,
+    chapterUid: string,
     chapterNumber: number,
     chapterName: string
 }
 
 const Settings: React.FC<Props> = (props) => {
     console.debug('Settings');
+    const dispatch = useDispatch();
     const {
-        sheetCount, chapterIndex, chapterNumber, chapterName, onClickRemoveChapter, onInputSheet, onChangeChapterName,
+        sheetCount, chapterUid, chapterNumber, chapterName,
     } = props;
+
+    const onClickRemoveChapter = (): void => {
+        dispatch(removeChapter(chapterUid));
+    };
+
+    const onChangeChapterName = (name: string): void => {
+        dispatch(setChapterName(chapterUid, name));
+    };
+
+    const onInputSheet = (count: string): void => {
+        dispatch(setSheetCount(chapterUid, +count));
+    };
 
     return (
         <div className={styles.settings}>
             <div className={styles.sheet}>
                 <span>Кол-во листов:</span>
                 <InputNumber
-                    index={chapterIndex}
+                    uid={chapterUid}
                     value={sheetCount}
                     onInputData={onInputSheet}
                 />
@@ -33,11 +45,11 @@ const Settings: React.FC<Props> = (props) => {
                     Глава №
                     {chapterNumber}
                 </span>
-                <label htmlFor={`'chapterName-'${chapterNumber}`}>
+                <label htmlFor={`chapterName-${chapterNumber}`}>
                     <input
                         type="text"
                         placeholder="Название главы"
-                        id={`'chapterName-'${chapterNumber}`}
+                        id={`chapterName-${chapterNumber}`}
                         value={chapterName}
                         onChange={
                             (e) => {
@@ -52,7 +64,7 @@ const Settings: React.FC<Props> = (props) => {
                     type="button"
                     onClick={
                         () => {
-                            onClickRemoveChapter(chapterIndex);
+                            onClickRemoveChapter();
                         }
                     }
                 >
@@ -63,4 +75,4 @@ const Settings: React.FC<Props> = (props) => {
     );
 };
 
-export default Settings;
+export default React.memo(Settings);

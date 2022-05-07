@@ -4,16 +4,16 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import styles from '@css/shared/paginate/PaginateItem.module.scss';
 
 interface Props {
-    content: JSX.Element[],
+    renderContent(index: number): JSX.Element,
     currentItems: number[]
 }
 const PaginateItems: React.FC<Props> = (props) => {
-    const { content, currentItems } = props;
+    const { renderContent, currentItems } = props;
     return (
         <TransitionGroup>
             {
                 currentItems
-                && currentItems.map((item) => (
+                && currentItems.map((index) => (
                     <CSSTransition
                         key={uuidv4()}
                         timeout={200}
@@ -24,7 +24,7 @@ const PaginateItems: React.FC<Props> = (props) => {
                             exitActive: styles.paginate_exit_active,
                         }}
                     >
-                        {content[item]}
+                        {renderContent(index)}
                     </CSSTransition>
                 ))
             }

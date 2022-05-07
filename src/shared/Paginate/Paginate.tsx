@@ -4,13 +4,13 @@ import styles from '@css/shared/paginate/Paginate.module.scss';
 import PaginateItems from './PaginateItems';
 
 interface Props {
-    content: JSX.Element[],
+    renderContent(index: number): JSX.Element,
     items: Array<number>,
     itemsPerPage: number
 }
 
 const Paginate: React.FC<Props> = (props) => {
-    const { content, items, itemsPerPage } = props;
+    const { renderContent, items, itemsPerPage } = props;
 
     const [currentItems, setCurrentItems] = useState<Array<number>>([]);
     const [pageCount, setPageCount] = useState(0);
@@ -31,7 +31,7 @@ const Paginate: React.FC<Props> = (props) => {
 
     return (
         <>
-            <PaginateItems content={content} currentItems={currentItems} />
+            <PaginateItems renderContent={renderContent} currentItems={currentItems} />
             <div className={styles.paginate}>
                 <ReactPaginate
                     breakLabel="..."

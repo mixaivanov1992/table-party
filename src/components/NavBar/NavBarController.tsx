@@ -8,7 +8,7 @@ interface Props {
     accessiblePages: GuestAccessiblePages | UserAccessiblePages
 }
 
-const NavBarContainer: React.FC<Props> = (props) => {
+const NavBarController: React.FC<Props> = (props) => {
     const storage = localStorage.getItem('toggle');
     const [toggle, setToggle] = useState<boolean>(storage !== null ? JSON.parse(storage) : true);
     const { accessiblePages } = props;
@@ -30,4 +30,4 @@ const NavBarContainer: React.FC<Props> = (props) => {
     return <MinNavBar onClickToggle={onClickToggle} accessiblePages={accessiblePages} />;
 };
 
-export default NavBarContainer;
+export default NavBarController;

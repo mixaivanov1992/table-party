@@ -5,9 +5,9 @@ import Editor from '@shared/Editor/Editor';
 interface Props {
     onClickShowDialog(isShow: boolean): void
 }
-
 const Dialog: React.FC<Props> = (props) => {
     console.debug('Dialog');
+    const { onClickShowDialog } = props;
     useEffect(() => {
         // function handleKeyPress(event){
         //     if(!(event.target as HTMLElement).matches('.window-dialog-element')){
@@ -22,7 +22,6 @@ const Dialog: React.FC<Props> = (props) => {
         };
     }, []);
 
-    const { onClickShowDialog } = props;
     return (
         <>
             <div className={styles.dialog}>

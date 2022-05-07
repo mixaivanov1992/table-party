@@ -1,16 +1,16 @@
 import React from 'react';
 
 interface Props{
-    index: string,
+    uid: string,
     value: number,
     onInputData(value: string): void
 }
 
 const InputNumber: React.FC<Props> = (props) => {
-    const { index, value, onInputData } = props;
+    const { uid, value, onInputData } = props;
     return (
         <input
-            key={index}
+            key={uid}
             type="text"
             onInput={(e) => {
                 const targetValue = e.currentTarget.value;
