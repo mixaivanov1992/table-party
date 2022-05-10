@@ -1,5 +1,6 @@
 @use "../../../core";
 .settings {
+    border-bottom: 1px solid core.$border;
     .game_name {
         margin-bottom: 5px;
         label {

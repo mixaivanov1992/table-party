@@ -1,0 +1,14 @@
+.login {
+    .wrapper {
+        .action {
+            > :first-child {
+                margin-right: 5px;
+            }
+        }
+        .social {
+            > div:hover {
+                background-color: core.$third-color;
+            }
+        }
+    }
+}

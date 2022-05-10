@@ -4,7 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 import { v4 as uuidv4 } from 'uuid';
 import Paginate from '@shared/Paginate/Paginate';
 import Localization from '@src/assets/localization/content/newRule/chapter/settings/sheet';
-import Dialog from './Dialog/Dialog';
+import Dialog from '@shared/Dialog/Dialog';
 
 interface Props {
     chapterSheetCount: number,

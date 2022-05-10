@@ -9,8 +9,12 @@
     flex-direction: column;
     position: relative;
     .header {
-        margin: 16px 10px;
+        display: flex;
+        align-items: center;
+        flex: 0;
+        justify-content: space-between;
         position: relative;
+        margin: 20px;
         &:before {
             content: "";
             position: absolute;
@@ -25,20 +29,19 @@
             background: core.$third-color;
             position: relative;
             padding: 0 15px;
-            margin: 0 20px;
-            display: inline-block;
+            margin-left: 15px;
         }
         > svg {
             color: core.$first-color;
-            position: absolute;
-            right: 3%;
-            top: -60%;
-            font-size: 40px;
             background-color: core.$third-color;
+            position: relative;
         }
     }
-    > div {
-        margin: 20px;
+    .header + div {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin: 0 20px 20px;
     }
 }
 @media screen and (max-width: 600px) {

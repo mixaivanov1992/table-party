@@ -3,10 +3,7 @@ import styles from '@css/header/Header.module.scss';
 import { Link } from 'react-router-dom';
 import { IoPersonCircle } from 'react-icons/io5';
 
-interface Props {
-}
-
-const Header: React.FC<Props> = () => {
+const Header: React.FC = () => {
     console.debug('Header');
     return (
         <header className={styles.header}>
@@ -30,4 +27,4 @@ const Header: React.FC<Props> = () => {
     );
 };
 
-export default React.memo(Header);
+export default Header;

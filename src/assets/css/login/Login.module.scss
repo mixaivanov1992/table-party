@@ -4,9 +4,8 @@
     height: 100vh;
     align-items: center;
     justify-content: center;
-    .data {
+    .wrapper {
         width: 60%;
-        background: core.$third-color;
         border: 1px solid core.$border;
         border-radius: 5px;
         padding: 2% 10%;
@@ -14,18 +13,16 @@
         position: relative;
         .back {
             cursor: pointer;
-            border: 1px solid core.$border;
             border-radius: 50%;
             position: absolute;
             background: core.$second-color;
             left: -20px;
             top: 30px;
-            padding: 5px 7px;
+            padding: 7px;
             > span {
-                display: inline-block;
-                position: relative;
-                top: 2px;
-                right: 1px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 svg {
                     font-size: 25px;
                     color: core.$third-color;
@@ -35,25 +32,17 @@
                 background: core.$first-color;
             }
         }
-        .input {
-            margin-top: 5px;
-            position: relative;
+        .email,
+        .password {
             label {
-                position: absolute;
-                left: 25%;
-                opacity: 0;
-                top: 20%;
-                padding: 5px 10px;
-            }
-            input {
-                margin-top: 5px;
-                &:focus + label {
-                    opacity: 1;
+                display: flex;
+                flex-direction: column;
+                > input {
+                    margin-bottom: 15px;
                 }
             }
         }
         .logo {
-            display: inline-block;
             svg {
                 font-size: 80px;
                 color: core.$second-color;
@@ -69,17 +58,8 @@
                 // }
             }
         }
-        .btn {
-            margin-top: 15px;
-            > input {
-                padding: 5px 10px;
-            }
-            > :first-child {
-                margin-right: 10px;
-            }
-        }
         .forgot_password {
-            margin-top: 15px;
+            margin-bottom: 5px;
             a {
                 text-decoration: none;
                 color: core.$second-color;
@@ -88,19 +68,43 @@
                 }
             }
         }
-        .social_login {
-            margin-top: 25px;
-            :first-child {
-                border-bottom: 1px solid core.$border;
-                margin-bottom: 5px;
-                padding-bottom: 5px;
+        .action {
+            > button {
+                margin-bottom: 10px;
+            }
+        }
+        .social {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            .google,
+            .yandex {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                margin-bottom: 10px;
+                border: 1px solid core.$border;
+                border-radius: 5px 0 0 5px;
+                width: 100%;
+                background-color: core.$fourth-color;
+                > div:first-child {
+                    width: 20%;
+                }
+                > div:last-child {
+                    padding: 15px 10px;
+                    border-left: 1px solid core.$border;
+                }
             }
             svg {
-                font-size: 45px;
-                &:hover {
-                    cursor: pointer;
-                }
+                font-size: 20px;
             }
         }
     }
+}
+@media screen and (max-width: 600px) {
+    @import "./_resolution/mobile";
+}
+@media screen and (min-width: 601px) {
+    @import "./_resolution/display";
 }

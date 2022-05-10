@@ -12,7 +12,7 @@ const App: React.FC = () => {
     useEffect(() => {
         setIsLoading(false);
         dispatch(setPersonalData(true));
-    }, []);
+    }, [dispatch]);
 
     if (isLoading) {
         return <Loader />;

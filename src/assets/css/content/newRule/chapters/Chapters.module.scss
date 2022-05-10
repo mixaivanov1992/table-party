@@ -1,10 +1,16 @@
 @use "../../../core";
 .chapter {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     .container {
+        flex: 1;
+        border-bottom: 1px solid core.$border;
+        border-left: 1px solid core.$border;
+        border-right: 1px solid core.$border;
         padding-top: 15px;
-        border-top: 1px solid core.$border;
     }
-    .chapterNavigation {
+    .chapter_navigation {
         text-align: center;
     }
     // .paginate_enter {
