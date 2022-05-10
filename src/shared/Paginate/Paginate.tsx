@@ -5,30 +5,28 @@ import PaginateItems from './PaginateItems';
 
 interface Props {
     renderContent(index: number): JSX.Element,
-    items: Array<number>,
+    chapterCount: number,
     itemsPerPage: number
 }
 
 const Paginate: React.FC<Props> = (props) => {
-    const { renderContent, items, itemsPerPage } = props;
+    console.debug('Paginate');
 
-    const [currentItems, setCurrentItems] = useState<Array<number>>([]);
-    const [pageCount, setPageCount] = useState(0);
+    const { renderContent, chapterCount, itemsPerPage } = props;
+    const paginateItems = [...Array(chapterCount)].map((empty, i) => i);
+
+    const [pageCount, setPageCount] = useState(Math.ceil(chapterCount / itemsPerPage));
     const [itemOffset, setItemOffset] = useState(0);
+    const currentItems = paginateItems.slice(itemOffset, itemOffset + itemsPerPage);
 
     useEffect(() => {
-        const endOffset = itemOffset + itemsPerPage;
-        console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-        setCurrentItems(items.slice(itemOffset, endOffset));
-        setPageCount(Math.ceil(items.length / itemsPerPage));
-    }, [itemOffset, itemsPerPage, items]);
+        setPageCount(Math.ceil(chapterCount / itemsPerPage));
+    }, [chapterCount, itemsPerPage]);
 
     const handlePageClick = (event: {selected: number}) => {
-        const newOffset = (event.selected * itemsPerPage) % items.length;
-        console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
+        const newOffset = (event.selected * itemsPerPage) % chapterCount;
         setItemOffset(newOffset);
     };
-
     return (
         <>
             <PaginateItems renderContent={renderContent} currentItems={currentItems} />
@@ -42,7 +40,6 @@ const Paginate: React.FC<Props> = (props) => {
                     previousLabel="«"
                     breakClassName={styles.paginate_item}
                     breakLinkClassName={styles.paginate_link}
-                    // containerClassName={styles.pagination}
                     pageClassName={styles.paginate_item}
                     pageLinkClassName={styles.paginate_link}
                     previousClassName={styles.paginate_item}

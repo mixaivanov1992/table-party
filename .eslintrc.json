@@ -17,7 +17,8 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "react-hooks"
     ],
     "globals": {
         "JSX": "readonly"
@@ -43,7 +44,9 @@
         "@typescript-eslint/no-use-before-define": ["error"],
         "indent": ["error", 4],
         "react/jsx-indent": ["error", 4],
-        "react/jsx-indent-props": ["error", 4]
+        "react/jsx-indent-props": ["error", 4],
+        "react-hooks/rules-of-hooks": "error", // Проверяем правила хуков
+        "react-hooks/exhaustive-deps": "warn" // Проверяем зависимости эффекта
     },
     "settings": {
         "import/resolver": {

@@ -8,7 +8,7 @@ import Localization from '@src/assets/localization/content/newRule/settings';
 import InputNumber from '@shared/InputNumber/InputNumber';
 
 const Settings: React.FC = () => {
-    console.log('NewRuleSettings');
+    console.debug('NewRuleSettings');
     const { gameName } = useTypedSelector((state) => state.newRuleReducer);
     const [chapterCount, setChapterCount] = useState(1);
     const dispatch = useDispatch();

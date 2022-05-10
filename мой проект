@@ -81,6 +81,7 @@ npm install --save-dev @types/redux-devtools-extension											-	типы дл
 ESLINT
 npm install eslint --save-dev
 npm install eslint-import-resolver-typescript --save-dev
+npm install eslint-plugin-react-hooks --save-dev
 
 ????
 react-scripts

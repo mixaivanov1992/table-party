@@ -1,18 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Loader from '@src/shared/Loader/Loader';
 import Routes from '@src/Routes';
-import { useTypedSelector } from '@hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
-import { setVisibility } from '@store/reducer/loaderReducer';
 import { setPersonalData } from '@store/reducer/personalDataReducer';
 
 const App: React.FC = () => {
     console.debug('App');
-    const { isLoading } = useTypedSelector((state) => state.loaderReducer);
+    const [isLoading, setIsLoading] = useState(true);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(setVisibility(false));
+        setIsLoading(false);
         dispatch(setPersonalData(true));
     }, []);
 

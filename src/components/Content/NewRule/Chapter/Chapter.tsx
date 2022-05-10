@@ -8,26 +8,20 @@ import Settings from './Settings/Settings';
 const Chapter: React.FC = () => {
     console.debug('Chapter');
 
-    const chapterState = useTypedSelector((state) => state.chapterReducer);
     const emptyIndex = 1;
-    const chapters = chapterState.chapters.slice(emptyIndex);
-    const paginateItems = [...Array(chapters.length)].map((empty, i) => i);
+    const chapterCount = useTypedSelector((state) => state.chapterReducer.chapters.length) - emptyIndex;
 
-    const renderContent = (index: number): JSX.Element => {
-        const { uid, sheetCount, name } = chapters[index];
-        return (
-            <div className={styles.container}>
-                <Settings chapterUid={uid} sheetCount={sheetCount} chapterNumber={index + 1} chapterName={name} />
-                <Sheet sheetCount={sheetCount} />
-            </div>
-        );
-    };
-
+    const renderContent = (index: number): JSX.Element => (
+        <div className={styles.container}>
+            <Settings chapterIndex={index + emptyIndex} />
+            <Sheet chapterIndex={index + emptyIndex} />
+        </div>
+    );
     return (
         <div className={styles.chapter}>
-            {!!paginateItems.length && <Paginate renderContent={renderContent} items={paginateItems} itemsPerPage={5} />}
+            {!!chapterCount && <Paginate renderContent={renderContent} chapterCount={chapterCount} itemsPerPage={5} />}
         </div>
     );
 };
 
-export default React.memo(Chapter);
+export default Chapter;

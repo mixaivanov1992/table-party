@@ -1,22 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setSheetCount, setChapterName, removeChapter } from '@src/store/reducer/chapterReducer';
 import styles from '@css/content/newRule/chapter/settings/Settings.module.scss';
 import InputNumber from '@shared/InputNumber/InputNumber';
+import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 
 interface Props {
-    sheetCount: number,
-    chapterUid: string,
-    chapterNumber: number,
-    chapterName: string
+    chapterIndex: number
 }
 
 const Settings: React.FC<Props> = (props) => {
     console.debug('Settings');
     const dispatch = useDispatch();
-    const {
-        sheetCount, chapterUid, chapterNumber, chapterName,
-    } = props;
+
+    const { chapterIndex } = props;
+    const { sheetCount, uid: chapterUid, name: chapterName } = useTypedSelector((state) => state.chapterReducer.chapters[chapterIndex]);
+
+    const [updateComponent, setUpdateComponent] = useState(true);
 
     const onClickRemoveChapter = (): void => {
         dispatch(removeChapter(chapterUid));
@@ -24,10 +24,12 @@ const Settings: React.FC<Props> = (props) => {
 
     const onChangeChapterName = (name: string): void => {
         dispatch(setChapterName(chapterUid, name));
+        setUpdateComponent(!updateComponent);
     };
 
     const onInputSheet = (count: string): void => {
         dispatch(setSheetCount(chapterUid, +count));
+        setUpdateComponent(!updateComponent);
     };
 
     return (
@@ -43,13 +45,13 @@ const Settings: React.FC<Props> = (props) => {
             <div className={styles.chapter_name}>
                 <span>
                     Глава №
-                    {chapterNumber}
+                    {chapterIndex}
                 </span>
-                <label htmlFor={`chapterName-${chapterNumber}`}>
+                <label htmlFor={`chapterName-${chapterIndex}`}>
                     <input
                         type="text"
                         placeholder="Название главы"
-                        id={`chapterName-${chapterNumber}`}
+                        id={`chapterName-${chapterIndex}`}
                         value={chapterName}
                         onChange={
                             (e) => {
@@ -75,4 +77,4 @@ const Settings: React.FC<Props> = (props) => {
     );
 };
 
-export default React.memo(Settings);
+export default Settings;
