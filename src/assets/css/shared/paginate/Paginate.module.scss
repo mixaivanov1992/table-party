@@ -1,6 +1,7 @@
 @use "../../core";
 .paginate {
     border-top: 1px solid core.$border;
+    margin-top: 15px;
     ul {
         display: flex;
         list-style: none;

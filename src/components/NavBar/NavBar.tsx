@@ -33,7 +33,7 @@ const NavBar: React.FC<Props> = (props) => {
                 }
             </ul>
             <div
-                tabIndex={0}
+                tabIndex={-1}
                 onKeyPress={() => {}}
                 role="button"
                 onClick={onClickToggle}

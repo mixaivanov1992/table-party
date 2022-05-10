@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styles from '@css/content/newRule/chapter/sheet/dialog/Dialog.module.scss';
+import styles from '@css/content/newRule/chapters/settings/sheets/dialog/Dialog.module.scss';
 import Editor from '@shared/Editor/Editor';
 
 interface Props {
@@ -29,7 +29,7 @@ const Dialog: React.FC<Props> = (props) => {
                     <div className={styles.title}>Ввод данных</div>
                     <div
                         role="button"
-                        tabIndex={0}
+                        tabIndex={-1}
                         onKeyPress={() => {}}
                         onClick={() => { onClickShowDialog(false); }}
                         className={styles.close}

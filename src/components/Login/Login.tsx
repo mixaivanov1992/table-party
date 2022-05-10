@@ -7,7 +7,7 @@ const Login: React.FC = () => (
     <div className={styles.login}>
         <div className={styles.data}>
             <span
-                tabIndex={0}
+                tabIndex={-1}
                 onKeyPress={() => {}}
                 role="button"
                 onClick={() => history.back()}

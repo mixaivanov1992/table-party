@@ -44,7 +44,7 @@ const MinNavBar: React.FC<Props> = (props) => {
             </ul>
             <div
                 role="button"
-                tabIndex={0}
+                tabIndex={-1}
                 onKeyPress={() => {}}
                 onClick={onClickToggle}
                 className={styles.toggle}

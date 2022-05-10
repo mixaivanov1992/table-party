@@ -5,26 +5,26 @@ import PaginateItems from './PaginateItems';
 
 interface Props {
     renderContent(index: number): JSX.Element,
-    chapterCount: number,
+    itemCount: number,
     itemsPerPage: number
 }
 
 const Paginate: React.FC<Props> = (props) => {
     console.debug('Paginate');
 
-    const { renderContent, chapterCount, itemsPerPage } = props;
-    const paginateItems = [...Array(chapterCount)].map((empty, i) => i);
+    const { renderContent, itemCount, itemsPerPage } = props;
+    const paginateItems = [...Array(itemCount)].map((empty, i) => i);
 
-    const [pageCount, setPageCount] = useState(Math.ceil(chapterCount / itemsPerPage));
+    const [pageCount, setPageCount] = useState(Math.ceil(itemCount / itemsPerPage));
     const [itemOffset, setItemOffset] = useState(0);
     const currentItems = paginateItems.slice(itemOffset, itemOffset + itemsPerPage);
 
     useEffect(() => {
-        setPageCount(Math.ceil(chapterCount / itemsPerPage));
-    }, [chapterCount, itemsPerPage]);
+        setPageCount(Math.ceil(itemCount / itemsPerPage));
+    }, [itemCount, itemsPerPage]);
 
     const handlePageClick = (event: {selected: number}) => {
-        const newOffset = (event.selected * itemsPerPage) % chapterCount;
+        const newOffset = (event.selected * itemsPerPage) % itemCount;
         setItemOffset(newOffset);
     };
     return (

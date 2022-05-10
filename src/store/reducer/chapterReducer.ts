@@ -8,6 +8,10 @@ const initialState: ChapterState = {
         uid: '',
         sheetCount: 0,
         name: '',
+        sheets: [{
+            uid: '',
+            content: '',
+        }],
     }],
 };
 
@@ -15,8 +19,17 @@ export const chapterReducer = (state = initialState, action: ChapterAction): Cha
     switch (action.type) {
     case ChapterActionType.SET_COLUMN_COUNT: {
         const chapters = [...state.chapters];
-        chapters.forEach((chapter, index) => {
+        chapters.forEach((chapter, index) => { // заменить на for
             if (chapter.uid === action.uid) {
+                if (chapter.sheetCount > action.count) {
+                    chapters[index].sheets = chapters[index].sheets.slice(0, action.count);
+                } else if (chapter.sheetCount < action.count) {
+                    const sheets = [...Array(action.count - chapter.sheetCount)].map(() => ({
+                        uid: uuidv4(),
+                        content: '',
+                    }));
+                    chapters[index].sheets = chapters[index].sheets.concat(sheets);
+                }
                 chapters[index].sheetCount = action.count;
             }
         });
@@ -24,11 +37,18 @@ export const chapterReducer = (state = initialState, action: ChapterAction): Cha
     }
     case ChapterActionType.ADD_CHAPTER: {
         const chapters = [...state.chapters];
-        [...Array(action.count)].forEach(() => {
+
+        [...Array(action.chapterCount)].forEach(() => {
+            const sheets = [...Array(action.sheetCount)].map(() => ({
+                uid: uuidv4(),
+                content: '',
+            }));
+
             chapters.push({
                 uid: uuidv4(),
-                sheetCount: 3,
+                sheetCount: action.sheetCount,
                 name: '',
+                sheets,
             });
         });
         return { ...state, chapters };
@@ -65,9 +85,10 @@ export const setChapterName = (uid: string, name: string): SetChapterName => ({
     name,
 });
 
-export const addChapter = (count: number): AddChapter => ({
+export const addChapter = (chapterCount: number, sheetCount: number): AddChapter => ({
     type: ChapterActionType.ADD_CHAPTER,
-    count,
+    chapterCount,
+    sheetCount,
 });
 
 export const removeChapter = (uid: string): RemoveChapter => ({

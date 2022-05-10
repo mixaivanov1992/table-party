@@ -1,11 +1,15 @@
-@use "../../../../core";
+@use "../../../../../core";
 .sheet {
     display: flex;
     justify-content: center;
     margin-bottom: 15px;
+    flex-wrap: wrap;
     > div:first-child + div {
         margin-right: 15px;
         margin-left: 15px;
+    }
+    > div:last-child {
+        width: 100%;
     }
     .item {
         display: flex;

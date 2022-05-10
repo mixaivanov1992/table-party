@@ -7,18 +7,23 @@ import { addChapter, deleteChapters } from '@src/store/reducer/chapterReducer';
 import Localization from '@src/assets/localization/content/newRule/settings';
 import InputNumber from '@shared/InputNumber/InputNumber';
 
-const Settings: React.FC = () => {
+interface Props {
+    sheetCount: number,
+}
+
+const Settings: React.FC<Props> = (props) => {
     console.debug('NewRuleSettings');
     const { gameName } = useTypedSelector((state) => state.newRuleReducer);
     const [chapterCount, setChapterCount] = useState(1);
     const dispatch = useDispatch();
+    const { sheetCount } = props;
 
     const changeGameName = (name: string): void => {
         dispatch(setGameName(name));
     };
 
     const onClickChapterAdd = (): void => {
-        dispatch(addChapter(chapterCount));
+        dispatch(addChapter(chapterCount, sheetCount));
     };
 
     const onClickDeleteChapters = (): void => {

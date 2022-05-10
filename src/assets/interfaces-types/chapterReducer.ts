@@ -3,6 +3,10 @@ export interface ChapterState{
         uid: string,
         sheetCount: number,
         name: string
+        sheets: Array<{
+            uid: string,
+            content: string
+        }>
     }>
 }
 
@@ -27,7 +31,8 @@ export interface SetChapterName{
 
 export interface AddChapter{
     type: ChapterActionType.ADD_CHAPTER,
-    count: number
+    chapterCount: number,
+    sheetCount: number
 }
 
 export interface RemoveChapter{

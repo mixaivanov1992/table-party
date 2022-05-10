@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import Chapter from './Chapter/Chapter';
+import Chapters from './Chapters/Chapters';
 import Settings from './Settings/Settings';
 
 interface Props {
@@ -8,12 +8,13 @@ interface Props {
 const NewRule: React.FC<Props> = (props) => {
     console.debug('NewRule');
     const { children } = props;
+    const sheetCount = 3;
     return (
         <>
             {children}
             <div>
-                <Settings />
-                <Chapter />
+                <Settings sheetCount={sheetCount} />
+                <Chapters />
             </div>
         </>
     );
