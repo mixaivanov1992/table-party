@@ -13,6 +13,9 @@ interface Props {
 
 const Settings: React.FC<Props> = (props) => {
     console.debug('NewRuleSettings');
+    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
+    Localization.setLanguage(language);
+
     const { gameName } = useTypedSelector((state) => state.newRuleReducer);
     const [chapterCount, setChapterCount] = useState(1);
     const dispatch = useDispatch();

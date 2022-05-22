@@ -5,7 +5,7 @@ import styles from '@css/content/newRule/chapters/settings/Settings.module.scss'
 import InputNumber from '@shared/InputNumber/InputNumber';
 import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 import Localization from '@src/assets/localization/content/newRule/chapter/settings';
-import Sheets from './Sheet/Sheet';
+import Sheets from './Sheets/Sheets';
 
 interface Props {
     chapterIndex: number
@@ -13,11 +13,14 @@ interface Props {
 
 const Settings: React.FC<Props> = (props) => {
     console.debug('Settings');
-    const dispatch = useDispatch();
 
+    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
+    Localization.setLanguage(language);
+
+    const dispatch = useDispatch();
     const { chapterIndex } = props;
     const {
-        sheetCount: chapterSheetCount, uid: chapterUid, name: chapterName, sheets,
+        sheetCount: chapterSheetCount, uid: chapterUid, name: chapterName,
     } = useTypedSelector((state) => state.chapterReducer.chapters[chapterIndex]);
 
     const [updateComponent, setUpdateComponent] = useState(true);
@@ -79,7 +82,7 @@ const Settings: React.FC<Props> = (props) => {
                     </button>
                 </div>
             </div>
-            <Sheets chapterSheetCount={chapterSheetCount} sheets={sheets} />
+            <Sheets chapterIndex={chapterIndex} chapterSheetCount={chapterSheetCount} />
         </>
     );
 };

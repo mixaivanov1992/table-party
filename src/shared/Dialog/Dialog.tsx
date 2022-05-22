@@ -1,48 +1,46 @@
 import React, { useEffect } from 'react';
 import styles from '@css/shared/dialog/Dialog.module.scss';
-import Editor from '@shared/Editor/Editor';
 
 interface Props {
-    onClickShowDialog(isShow: boolean): void
+    onClickCloseDialog(): void,
+    title: string,
+    content: JSX.Element,
+    footer: JSX.Element,
+    dialogSize: string
 }
 const Dialog: React.FC<Props> = (props) => {
     console.debug('Dialog');
-    const { onClickShowDialog } = props;
+    const {
+        onClickCloseDialog, title, content, footer, dialogSize,
+    } = props;
+    const stylesDialogSize = styles[`dialog_${dialogSize}`];
     useEffect(() => {
-        // function handleKeyPress(event){
-        //     if(!(event.target as HTMLElement).matches('.window-dialog-element')){
-        //         event.preventDefault();
-        //     }
-        // }
         document.body.style.overflow = 'hidden';
-        // window.addEventListener('keypress', handleKeyPress);
         return () => {
             document.body.style.overflow = 'auto';
-            // window.removeEventListener('keypress', handleKeyPress);
         };
     }, []);
 
     return (
         <>
-            <div className={styles.dialog}>
+            <div className={`${styles.dialog} ${stylesDialogSize}`}>
                 <div className={styles.header}>
-                    <div className={styles.title}>Ввод данных</div>
+                    <div className={styles.title}>{title}</div>
                     <div
                         role="button"
                         tabIndex={-1}
                         onKeyPress={() => {}}
-                        onClick={() => { onClickShowDialog(false); }}
+                        onClick={() => { onClickCloseDialog(); }}
                         className={styles.close}
                     >
                         &#10005;
                     </div>
                 </div>
                 <div className={styles.container}>
-                    <Editor />
+                    {content}
                 </div>
                 <div className={styles.footer}>
-                    <button type="button" onClick={() => { onClickShowDialog(false); }}>Отмена</button>
-                    <button type="button" onClick={() => { onClickShowDialog(false); }}>Применить</button>
+                    {footer}
                 </div>
             </div>
             <div className={styles.dialog_background} />
@@ -50,4 +48,4 @@ const Dialog: React.FC<Props> = (props) => {
     );
 };
 
-export default Dialog;
+export default React.memo(Dialog);

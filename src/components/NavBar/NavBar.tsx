@@ -4,6 +4,7 @@ import Localization from '@localization/navBar';
 import { Link, useLocation } from 'react-router-dom';
 import { IoArrowUndoCircleSharp } from 'react-icons/io5';
 import { GuestAccessiblePages, UserAccessiblePages } from '@src/assets/interfaces-types/personalDataReducer';
+import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 
 interface Props {
     onClickToggle(): void,
@@ -12,6 +13,8 @@ interface Props {
 
 const NavBar: React.FC<Props> = (props) => {
     console.debug('NavBar');
+    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
+    Localization.setLanguage(language);
 
     const { accessiblePages, onClickToggle } = props;
     return (

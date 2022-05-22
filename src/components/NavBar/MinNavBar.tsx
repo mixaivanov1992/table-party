@@ -6,6 +6,7 @@ import { IoArrowRedoCircleSharp, IoHome, IoDiceSharp } from 'react-icons/io5';
 import { ImUsers, ImBook } from 'react-icons/im';
 import { GuestAccessiblePages, UserAccessiblePages } from '@src/assets/interfaces-types/personalDataReducer';
 import { GiRuleBook } from 'react-icons/gi';
+import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 
 interface Props {
     onClickToggle(): void,
@@ -13,6 +14,8 @@ interface Props {
 }
 
 const MinNavBar: React.FC<Props> = (props) => {
+    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
+    Localization.setLanguage(language);
     console.debug('MinNavBar');
 
     const { accessiblePages, onClickToggle } = props;

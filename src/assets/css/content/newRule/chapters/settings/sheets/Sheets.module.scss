@@ -1,5 +1,5 @@
 @use "../../../../../core";
-.sheet {
+.sheets {
     display: flex;
     justify-content: center;
     margin-bottom: 15px;
@@ -11,38 +11,6 @@
     > div:last-child {
         width: 100%;
     }
-    .item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid core.$border;
-        background-color: white;
-        transition: all 0.3s ease-in-out;
-        width: calc(33% - 30px);
-        cursor: pointer;
-        &:after {
-            content: "";
-            padding-top: 100%;
-            float: left;
-        }
-    }
-}
-.dialog_enter {
-    opacity: 0;
-    transform: scale(0.9);
-}
-.dialog_enter_active {
-    opacity: 1;
-    transform: translateX(0);
-    transition: opacity 300ms, transform 300ms;
-}
-.dialog_exit {
-    opacity: 1;
-}
-.dialog_exit_active {
-    opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 300ms, transform 300ms;
 }
 
 @media screen and (max-width: 600px) {

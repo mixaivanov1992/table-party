@@ -9,6 +9,8 @@ import Settings from './Settings/Settings';
 
 const Chapter: React.FC = () => {
     console.debug('Chapter');
+    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
+    Localization.setLanguage(language);
 
     const emptyIndex = 1;
     const itemsPerPage = 5;

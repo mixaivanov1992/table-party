@@ -1,5 +1,5 @@
 import {
-    ChapterState, ChapterActionType, SetSheetCount, SetChapterName, AddChapter, ChapterAction, RemoveChapter, DeleteChapters,
+    ChapterState, ChapterActionType, SetSheetCount, SetChapterName, AddChapter, ChapterAction, RemoveChapter, DeleteChapters, SetSheetContent,
 } from '@src/assets/interfaces-types/chapterReducer';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -59,11 +59,22 @@ export const chapterReducer = (state = initialState, action: ChapterAction): Cha
     }
     case ChapterActionType.SET_CHAPTER_NAME: {
         const chapters = [...state.chapters];
-        chapters.forEach((chapter, index) => {
+        chapters.forEach((chapter, index) => { // заменить на for
             if (chapter.uid === action.uid) {
                 chapters[index].name = action.name;
             }
         });
+        return { ...state, chapters };
+    }
+    case ChapterActionType.SET_SHEET_CONTENT: {
+        const chapters = [...state.chapters];
+        const chapter = chapters.filter((item) => item.uid === action.chapterUid);
+        for (const chapterItem of chapter) {
+            const sheet = chapterItem.sheets.filter((item) => item.uid === action.sheetUid);
+            for (const sheetItem of sheet) {
+                sheetItem.content = action.content;
+            }
+        }
         return { ...state, chapters };
     }
     case ChapterActionType.DELETE_CHAPTERS:
@@ -98,4 +109,11 @@ export const removeChapter = (uid: string): RemoveChapter => ({
 
 export const deleteChapters = (): DeleteChapters => ({
     type: ChapterActionType.DELETE_CHAPTERS,
+});
+
+export const setSheetContent = (chapterUid: string, sheetUid: string, content: string): SetSheetContent => ({
+    type: ChapterActionType.SET_SHEET_CONTENT,
+    chapterUid,
+    sheetUid,
+    content,
 });

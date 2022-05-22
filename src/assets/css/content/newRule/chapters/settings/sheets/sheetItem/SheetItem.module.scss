@@ -1,0 +1,27 @@
+@use "../../../../../../core";
+.sheet {
+    display: flex;
+    border: 1px solid core.$border;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+    width: calc(33% - 30px);
+    cursor: pointer;
+    .number {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    &:after {
+        content: "";
+        padding-top: 100%;
+        float: left;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    @import "./_resolution/mobile";
+}
+@media screen and (min-width: 601px) {
+    @import "./_resolution/display";
+}

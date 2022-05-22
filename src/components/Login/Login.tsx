@@ -5,8 +5,11 @@ import Localization from '@localization/login';
 import { useHistory } from 'react-router-dom';
 import { CgGoogle } from 'react-icons/cg';
 import { FaYandex } from 'react-icons/fa';
+import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 
 const Login: React.FC = () => {
+    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
+    Localization.setLanguage(language);
     const history = useHistory();
     return (
         <div className={styles.login}>

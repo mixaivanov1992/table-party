@@ -5,11 +5,15 @@ import {
     GiRollingDices, GiPerspectiveDiceSixFacesFive, GiRollingDiceCup, GiDiceEightFacesEight, GiDiceFire,
 } from 'react-icons/gi';
 import { PageData } from '@src/assets/interfaces-types/personalDataReducer';
+import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 
 interface Props {
     pageData: PageData
 }
 const Content: React.FC<Props> = (props) => {
+    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
+    Localization.setLanguage(language);
+
     const { pageData } = props;
 
     console.debug('Content', `page-${pageData.alias}`);
