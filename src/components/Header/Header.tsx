@@ -34,7 +34,7 @@ const Header: React.FC = () => {
                     <Link className={styles.login} to="/login">
                         <IoPersonCircle />
                         <br />
-                        <span>qqq</span>
+                        <span>Гость</span>
                     </Link>
                 </div>
             </div>

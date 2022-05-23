@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { Editor as EditorWysiwyg } from 'react-draft-wysiwyg';
-import {
-    Editor as Draft, EditorState, ContentState, convertToRaw,
-} from 'draft-js';
+import { Editor as Wysiwyg } from 'react-draft-wysiwyg';
+import { EditorState, ContentState, convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
@@ -43,24 +41,23 @@ const Editor: React.FC<Props> = (props) => {
         editorResult(currentContent);
     };
     return (
-        // <EditorWysiwyg
-        //     toolbarClassName="toolbar_wysiwyg"
-        //     wrapperClassName="wrapper_wysiwyg"
-        //     editorClassName="editor_wysiwyg"
-        //     localization={{
-        //         locale: language,
-        //     }}
-        //     toolbar={{
-        //         image: {
-        //             uploadCallback: imageUploadCallback,
-        //             previewImage: true,
-        //         },
-        //     }}
-        //     // spellCheck
-        //     editorState={editorState}
-        //     onEditorStateChange={onEditorStateChange}
-        // />
-        <Draft editorState={editorState} onChange={onEditorStateChange} textAlignment="left" placeholder="Enter something here" />
+        <Wysiwyg
+            toolbarClassName="toolbar_wysiwyg"
+            wrapperClassName="wrapper_wysiwyg"
+            editorClassName="editor_wysiwyg"
+            localization={{
+                locale: language,
+            }}
+            toolbar={{
+                image: {
+                    uploadCallback: imageUploadCallback,
+                    previewImage: true,
+                },
+            }}
+            // spellCheck
+            editorState={editorState}
+            onEditorStateChange={onEditorStateChange}
+        />
     );
 };
 

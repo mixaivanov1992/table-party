@@ -68,7 +68,7 @@ npm install react-icons --save                                                  
 npm install react-transition-group --save                                                       -   анимация
 npm install normalize.css --save                                                                -   normalize
 npm install react-localization --save                                                           -   локализация
-npm i react-draft-wysiwyg --save                                                                -   редактор
+npm install react-draft-wysiwyg --save                                                                -   редактор
 npm install @types/react-draft-wysiwyg --save-dev
 
 
@@ -94,6 +94,9 @@ ESLINT
 npm install eslint --save-dev
 npm install eslint-import-resolver-typescript --save-dev
 npm install eslint-plugin-react-hooks --save-dev
+
+
+npm install patch-package --save-dev                                                                  -   для изменений в node_model
 
 ????
 react-scripts

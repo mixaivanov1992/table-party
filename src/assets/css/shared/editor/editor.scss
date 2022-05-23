@@ -10,6 +10,9 @@
     min-height: 50px;
 }
 .toolbar_wysiwyg {
+    .rdw-text-align-wrapper {
+        page-break-after: always;
+    }
     //text
     .rdw-dropdown-selectedtext {
         > span {
@@ -61,7 +64,7 @@
     .rdw-emoji-modal,
     .rdw-embedded-modal,
     .rdw-colorpicker-modal {
-        position: fixed;
+        box-shadow: none;
         z-index: 92;
         display: flex;
         input {
@@ -116,9 +119,9 @@
         }
     }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 480px) {
     @import "./_resolution/mobile";
 }
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 481px) {
     @import "./_resolution/display";
 }

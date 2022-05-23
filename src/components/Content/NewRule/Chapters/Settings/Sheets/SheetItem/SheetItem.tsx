@@ -4,8 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 import Localization from '@src/assets/localization/content/newRule/chapter/settings/sheets/sheetItem';
 import styles from '@css/content/newRule/chapters/settings/sheets/sheetItem/SheetItem.module.scss';
-import { Editor, EditorState, ContentState } from 'draft-js';
-// import { Editor } from 'react-draft-wysiwyg';
+import { EditorState, ContentState } from 'draft-js';
+import { Editor as Wysiwyg } from 'react-draft-wysiwyg';
 import htmlToDraft from 'html-to-draftjs';
 import { setActiveSheet } from '@src/store/reducer/activeSheetReducer';
 
@@ -49,9 +49,9 @@ const SheetItem:React.FC<Props> = (props) => {
             className={styles.sheet}
         >
             {sheetContent ? (
-                <Editor
+                <Wysiwyg
                     editorState={editorState}
-                    onChange={() => {}}
+                    toolbarClassName={styles.toolbar_wysiwyg}
                     readOnly
                 />
 
