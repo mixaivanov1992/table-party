@@ -42,6 +42,10 @@ const Editor: React.FC<Props> = (props) => {
     };
     return (
         <Wysiwyg
+            onTab={(event) => {
+                event.preventDefault();
+                const tabIndent = '     ';
+            }}
             toolbarClassName="toolbar_wysiwyg"
             wrapperClassName="wrapper_wysiwyg"
             editorClassName="editor_wysiwyg"
@@ -54,9 +58,14 @@ const Editor: React.FC<Props> = (props) => {
                     previewImage: true,
                 },
             }}
+            hashtag={{
+                separator: ' ',
+                trigger: '#',
+            }}
             // spellCheck
             editorState={editorState}
             onEditorStateChange={onEditorStateChange}
+
         />
     );
 };

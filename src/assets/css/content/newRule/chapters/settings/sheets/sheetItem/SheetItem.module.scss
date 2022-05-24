@@ -1,5 +1,6 @@
 @use "../../../../../../core";
 .sheet {
+    overflow: hidden;
     display: flex;
     border: 1px solid core.$border;
     background-color: white;
