@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Paginate: React.FC<Props> = (props) => {
-    console.debug('Paginate');
+    console.info('Paginate');
 
     const { renderContent, itemCount, itemsPerPage } = props;
     const paginateItems = [...Array(itemCount)].map((empty, i) => i);

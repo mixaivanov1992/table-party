@@ -15,7 +15,7 @@ interface Props {
 }
 
 const SheetItem:React.FC<Props> = (props) => {
-    console.debug('sheetItem');
+    console.info('sheetItem');
     const dispatch = useDispatch();
 
     const { language } = useTypedSelector((state) => state.mainSettingsReducer);

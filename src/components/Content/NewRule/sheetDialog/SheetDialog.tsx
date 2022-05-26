@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 import { setActiveSheet } from '@src/store/reducer/activeSheetReducer';
 
 const SheetDialog:React.FC = () => {
-    console.debug('sheetDialog');
+    console.info('sheetDialog');
     const dispatch = useDispatch();
 
     const { language } = useTypedSelector((state) => state.mainSettingsReducer);

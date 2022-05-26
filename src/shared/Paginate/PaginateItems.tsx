@@ -6,7 +6,7 @@ interface Props {
     currentItems: number[]
 }
 const PaginateItems: React.FC<Props> = (props) => {
-    console.debug('PaginateItem');
+    console.info('PaginateItem');
     const { renderContent, currentItems } = props;
     return (
         <>

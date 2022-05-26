@@ -9,39 +9,45 @@ import {
     BrowserRouter as Router, Switch, Route, Redirect,
 } from 'react-router-dom';
 import { useTypedSelector } from '@hooks/useTypedSelector';
+import { v4 as uuidv4 } from 'uuid';
+import { LinkLocation } from '@interfaces-types/accessiblePage';
 
 const Routes: React.FC = () => {
-    console.debug('Routes');
+    console.info('Routes');
     const { accessiblePages } = useTypedSelector((state) => state.personalDataReducer);
 
-    const pageAliases = Object.keys(accessiblePages);
-    const redirectAliases = pageAliases.filter((alias) => accessiblePages[alias].redirect);
-    const redirects = redirectAliases.map((alias) => {
-        const { path, redirect } = accessiblePages[alias];
-        return <Redirect key={alias} from={path} to={redirect} />;
+    const redirectFilter = accessiblePages.filter((accessiblePage) => accessiblePage.pageRedirect);
+
+    const redirects = redirectFilter.map((item) => {
+        const { pageRoute, pageRedirect } = item;
+        return <Redirect key={uuidv4()} from={pageRoute} to={pageRedirect || pageRoute} />;
     });
 
-    const routes = pageAliases.map((alias) => {
-        const pageData = accessiblePages[alias];
-        const path = pageData.redirect ? pageData.redirect : pageData.path;
+    const routes = accessiblePages.map((accessiblePage) => {
+        const {
+            pageRoute, pageRedirect, linkLocation, componentName,
+        } = accessiblePage;
+        const route = pageRedirect || pageRoute;
 
-        if (pageData.isContent) {
+        if (linkLocation !== LinkLocation.separately) {
+            const headerFilter = accessiblePages.filter((item) => item.linkLocation === LinkLocation.header);
+            const navbarFilter = accessiblePages.filter((item) => item.linkLocation === LinkLocation.navbar);
             return (
-                <Route key={alias} exact path={path}>
-                    <Header />
+                <Route key={uuidv4()} exact path={route}>
+                    <Header accessiblePages={headerFilter} />
                     <Breadcrumbs accessiblePages={accessiblePages} />
                     <main className={styles.wrapper}>
-                        <NavBarController accessiblePages={accessiblePages} />
-                        <Content pageData={{ alias, ...pageData }} />
+                        <NavBarController accessiblePages={navbarFilter} />
+                        <Content accessiblePage={accessiblePage} />
                     </main>
                     <Footer />
                 </Route>
             );
         }
 
-        const Component = require(`./components/${pageData.component}/${pageData.component}`).default;
+        const Component = require(`./components/${componentName}/${componentName}`).default;
         return (
-            <Route key={alias} exact path={path}>
+            <Route key={uuidv4()} exact path={route}>
                 <Component />
             </Route>
         );

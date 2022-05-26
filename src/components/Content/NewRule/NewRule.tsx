@@ -7,7 +7,7 @@ interface Props {
     children: ReactNode
 }
 const NewRule: React.FC<Props> = (props) => {
-    console.debug('NewRule');
+    console.info('NewRule');
     const { children } = props;
     const sheetCount = 3;
     return (

@@ -9,7 +9,7 @@ interface Props {
     dialogSize: string
 }
 const Dialog: React.FC<Props> = (props) => {
-    console.debug('Dialog');
+    console.info('Dialog');
     const {
         onClickCloseDialog, title, content, footer, dialogSize,
     } = props;

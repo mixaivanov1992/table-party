@@ -8,7 +8,7 @@ import Localization from '@src/assets/localization/content/newRule/chapter';
 import Settings from './Settings/Settings';
 
 const Chapter: React.FC = () => {
-    console.debug('Chapter');
+    console.info('Chapter');
     const { language } = useTypedSelector((state) => state.mainSettingsReducer);
     Localization.setLanguage(language);
 

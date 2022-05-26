@@ -8,18 +8,26 @@ import { setLanguage } from '@src/store/reducer/mainSettingsReducer';
 import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
 import Localization from '@localization/header';
+import { AccessiblePages } from '@interfaces-types/accessiblePage';
 
-const Header: React.FC = () => {
-    console.debug('Header');
+interface Props {
+    accessiblePages: AccessiblePages
+}
 
+const Header: React.FC<Props> = (props) => {
+    console.info('Header');
     const dispatch = useDispatch();
-    const option = Object.keys(Language).map((language) => <option key={uuidv4()} value={language}>{language.toUpperCase()}</option>);
 
-    const onChangeSetLanguage = (language: string): void => {
-        dispatch(setLanguage(language));
-    };
     const { language } = useTypedSelector((state) => state.mainSettingsReducer);
     Localization.setLanguage(language);
+
+    const { accessiblePages } = props;
+
+    const option = Object.keys(Language).map((item) => <option key={uuidv4()} value={item}>{item.toUpperCase()}</option>);
+
+    const onChangeSetLanguage = (item: string): void => {
+        dispatch(setLanguage(item));
+    };
 
     return (
         <header className={styles.header}>

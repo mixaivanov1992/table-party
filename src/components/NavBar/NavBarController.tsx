@@ -1,11 +1,11 @@
-import { GuestAccessiblePages, UserAccessiblePages } from '@src/assets/interfaces-types/personalDataReducer';
+import { AccessiblePages } from '@interfaces-types/accessiblePage';
 import React, { useEffect, useState } from 'react';
 
 import MinNavBar from './MinNavBar';
 import NavBar from './NavBar';
 
 interface Props {
-    accessiblePages: GuestAccessiblePages | UserAccessiblePages
+    accessiblePages: AccessiblePages
 }
 
 const NavBarController: React.FC<Props> = (props) => {

@@ -8,7 +8,7 @@ interface Props {
     chapterIndex: number,
 }
 const Sheets: React.FC<Props> = (props) => {
-    console.debug('sheets');
+    console.info('sheets');
 
     const sheetCountPerPage = 3;
     const { chapterSheetCount, chapterIndex } = props;

@@ -14,7 +14,7 @@ interface Props {
 }
 
 const Editor: React.FC<Props> = (props) => {
-    console.debug('Editor');
+    console.info('Editor');
     const { initialState, language, editorResult } = props;
 
     const { contentBlocks, entityMap } = htmlToDraft(initialState);

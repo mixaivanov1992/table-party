@@ -1,6 +1,6 @@
 @use "../../core";
 .paginate {
-    margin-top: 15px;
+    margin-top: 1em;
     ul {
         display: flex;
         list-style: none;
@@ -10,23 +10,23 @@
         .paginate_item {
             cursor: pointer;
             display: inline-block;
-            margin: 2px;
+            margin: 0.1em;
             text-decoration: none;
             transition: background-color 0.3s;
-            border: 1px solid core.$border;
+            border: 0.1em solid core.$border;
             &:hover {
                 background-color: core.$first-color;
                 color: core.$third-color;
             }
             .paginate_link {
-                padding: 8px 16px;
+                padding: 0.5em 1em;
                 display: inline-block;
             }
         }
         .active {
             background-color: core.$second-color;
             color: core.$third-color;
-            border: 1px solid core.$second-color;
+            border: 0.1em solid core.$second-color;
             &:hover {
                 background-color: core.$second-color;
                 opacity: 0.9;

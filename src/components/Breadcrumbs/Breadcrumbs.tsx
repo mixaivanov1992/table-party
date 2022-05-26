@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import styles from '@css/breadcrumbs/Breadcrumbs.module.scss';
 import useBreadcrumbs from 'use-react-router-breadcrumbs';
 import Localization from '@localization/breadcrumbs/';
-import { GuestAccessiblePages, UserAccessiblePages } from '@src/assets/interfaces-types/personalDataReducer';
+import { AccessiblePages } from '@interfaces-types/accessiblePage';
 import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 
 interface Props {
-    accessiblePages: GuestAccessiblePages | UserAccessiblePages
+    accessiblePages: AccessiblePages
 }
 
 const Breadcrumbs: React.FC<Props> = (props) => {
@@ -20,12 +20,13 @@ const Breadcrumbs: React.FC<Props> = (props) => {
         <ul className={styles.breadcrumbs}>
             {
                 breadcrumbs.map(({ match }) => {
-                    for (const pageName in accessiblePages) {
-                        if (match.url === accessiblePages[pageName].path) {
-                            const localizationIndex = pageName;
+                    for (const accessiblePage of accessiblePages) {
+                        const { pageRoute, pageAlias } = accessiblePage;
+
+                        if (match.url === pageRoute) {
                             return (
-                                <li key={match.url}>
-                                    <Link to={match.url}>{Localization[localizationIndex]}</Link>
+                                <li key={pageRoute}>
+                                    <Link to={pageRoute}>{Localization[pageAlias]}</Link>
                                 </li>
                             );
                         }

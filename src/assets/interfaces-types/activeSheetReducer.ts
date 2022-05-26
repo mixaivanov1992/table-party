@@ -7,6 +7,7 @@ export interface ActiveSheetState{
 export enum ActiveSheetActionType{
     SET_ACTIVE_SHEET = 'SET_ACTIVE_SHEET',
 }
+
 export interface SetActiveSheet{
     type: ActiveSheetActionType.SET_ACTIVE_SHEET,
     chapterUid: string,

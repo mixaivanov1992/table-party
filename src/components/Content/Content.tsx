@@ -4,30 +4,31 @@ import Localization from '@localization/content';
 import {
     GiRollingDices, GiPerspectiveDiceSixFacesFive, GiRollingDiceCup, GiDiceEightFacesEight, GiDiceFire,
 } from 'react-icons/gi';
-import { PageData } from '@src/assets/interfaces-types/personalDataReducer';
+import { AccessiblePage } from '@interfaces-types/accessiblePage';
 import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 
 interface Props {
-    pageData: PageData
+    accessiblePage: AccessiblePage
 }
 const Content: React.FC<Props> = (props) => {
     const { language } = useTypedSelector((state) => state.mainSettingsReducer);
     Localization.setLanguage(language);
 
-    const { pageData } = props;
+    const { accessiblePage } = props;
+    const { pageAlias, componentName } = accessiblePage;
 
-    console.debug('Content', `page-${pageData.alias}`);
+    console.info('Content', `page-${pageAlias}`);
 
     const randomInt = (min: number, max: number): number => Math.floor(Math.random() * (max - min + 1) + min);
     const dice = [GiRollingDices, GiPerspectiveDiceSixFacesFive, GiRollingDiceCup, GiDiceEightFacesEight, GiDiceFire];
     const DiceComponent = dice[randomInt(0, 4)];
 
-    const Component = require(`./${pageData.component}/${pageData.component}`).default;
+    const Component = require(`./${componentName}/${componentName}`).default;
     return (
         <div className={styles.content}>
             <Component>
                 <div className={styles.header}>
-                    <span>{Localization[pageData.alias]}</span>
+                    <span>{Localization[pageAlias]}</span>
                     <DiceComponent />
                 </div>
             </Component>

@@ -1,39 +1,43 @@
 import {
-    PersonalDataAction, PersonalDataActionType, PersonalDataState, SetPersonalData, Roles, GuestAccessiblePages, UserAccessiblePages,
+    PersonalDataAction,
+    PersonalDataActionType,
+    PersonalDataState,
+    SetPersonalData,
+    Roles,
 } from '@interfaces-types/personalDataReducer';
 
-const guestAccessiblePages: GuestAccessiblePages = {
-    home: {
-        path: '/', isContent: true, redirect: '/home', component: 'Home',
-    },
-    rules: {
-        path: '/rules', isContent: true, redirect: '', component: 'Rules',
-    },
-    about: {
-        path: '/about', isContent: true, redirect: '', component: 'About',
-    },
-    login: {
-        path: '/login', isContent: false, redirect: '', component: 'Login',
-    },
-};
+import {
+    AccessiblePages,
+    LinkLocation,
+    PageRoute,
+    PageAlias,
+} from '@interfaces-types/accessiblePage';
 
-const userAccessiblePages: UserAccessiblePages = {
-    home: {
-        path: '/', isContent: true, redirect: '/home', component: 'Home',
-    },
-    rules: {
-        path: '/rules', isContent: true, redirect: '', component: 'Rules',
-    },
-    myRules: {
-        path: '/my-rules', isContent: true, redirect: '', component: 'MyRules',
-    },
-    newRule: {
-        path: '/new-rule', isContent: true, redirect: '', component: 'NewRule',
-    },
-    about: {
-        path: '/about', isContent: true, redirect: '', component: 'About',
-    },
-};
+const initialAccessiblePages: AccessiblePages = [{
+    linkLocation: LinkLocation.navbar,
+    pageRoute: PageRoute.default,
+    pageAlias: PageAlias.home,
+    pageRedirect: PageRoute.home,
+    componentName: 'Home',
+}, {
+    linkLocation: LinkLocation.navbar,
+    pageRoute: PageRoute.rules,
+    pageAlias: PageAlias.rules,
+    pageRedirect: null,
+    componentName: 'Rules',
+}, {
+    linkLocation: LinkLocation.navbar,
+    pageRoute: PageRoute.about,
+    pageAlias: PageAlias.about,
+    pageRedirect: null,
+    componentName: 'About',
+}, {
+    linkLocation: LinkLocation.header,
+    pageRoute: PageRoute.login,
+    pageAlias: PageAlias.login,
+    pageRedirect: null,
+    componentName: 'Login',
+}];
 
 const initialState: PersonalDataState = {
     isAuthorized: false,
@@ -41,26 +45,49 @@ const initialState: PersonalDataState = {
     favorites: [],
     libraryOwner: [],
     role: Roles.GUEST,
-    accessiblePages: guestAccessiblePages,
+    accessiblePages: initialAccessiblePages,
 };
 
 export const personalDataReducer = (state = initialState, action: PersonalDataAction): PersonalDataState => {
     switch (action.type) {
     case PersonalDataActionType.SET_PERSONAL_DATA:
-        // запрос на сервак возвращает роль ... + по уникальному идентификатору
+
         if (action.isAuthorized) {
+            const accessiblePages: AccessiblePages = [...initialAccessiblePages];
+            accessiblePages.pop();
+            accessiblePages.push({
+                linkLocation: LinkLocation.navbar,
+                pageRoute: PageRoute.myRules,
+                pageAlias: PageAlias.myRules,
+                pageRedirect: null,
+                componentName: 'MyRules',
+            }, {
+                linkLocation: LinkLocation.navbar,
+                pageRoute: PageRoute.newRule,
+                pageAlias: PageAlias.newRule,
+                pageRedirect: null,
+                componentName: 'NewRule',
+            }, {
+                linkLocation: LinkLocation.header,
+                pageRoute: PageRoute.profile,
+                pageAlias: PageAlias.profile,
+                pageRedirect: null,
+                componentName: 'Profile',
+            });
+
             return {
                 ...state,
                 isAuthorized: action.isAuthorized,
                 role: Roles.USER,
-                accessiblePages: userAccessiblePages,
+                accessiblePages,
             };
         }
+
         return {
             ...state,
             isAuthorized: action.isAuthorized,
             role: Roles.GUEST,
-            accessiblePages: guestAccessiblePages,
+            accessiblePages: initialAccessiblePages,
         };
 
     default:

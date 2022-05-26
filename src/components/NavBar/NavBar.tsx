@@ -3,16 +3,18 @@ import styles from '@css/navBar/NavBar.module.scss';
 import Localization from '@localization/navBar';
 import { Link, useLocation } from 'react-router-dom';
 import { IoArrowUndoCircleSharp } from 'react-icons/io5';
-import { GuestAccessiblePages, UserAccessiblePages } from '@src/assets/interfaces-types/personalDataReducer';
+import { AccessiblePages } from '@interfaces-types/accessiblePage';
 import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import { UseLocation } from '@src/assets/interfaces-types/typeReactRouterDom';
+import { v4 as uuidv4 } from 'uuid';
 
 interface Props {
     onClickToggle(): void,
-    accessiblePages: GuestAccessiblePages | UserAccessiblePages
+    accessiblePages: AccessiblePages
 }
 
 const NavBar: React.FC<Props> = (props) => {
-    console.debug('NavBar');
+    console.info('NavBar');
     const { language } = useTypedSelector((state) => state.mainSettingsReducer);
     Localization.setLanguage(language);
 
@@ -21,15 +23,20 @@ const NavBar: React.FC<Props> = (props) => {
         <nav className={styles.navbar}>
             <ul>
                 {
-                    Object.keys(accessiblePages).map((pageName) => {
-                        const location = useLocation();
-                        let styleName = '';
-                        if (location.pathname === accessiblePages[pageName].path || location.pathname === accessiblePages[pageName].redirect) {
-                            styleName = styles.active;
+                    accessiblePages.map((accessiblePage) => {
+                        const { pageRoute, pageRedirect, pageAlias } = accessiblePage;
+                        const location = useLocation<UseLocation>();
+
+                        if (location.pathname === pageRoute || (pageRedirect && location.pathname === pageRedirect)) {
+                            return (
+                                <li key={uuidv4()} className={styles.active}>
+                                    <Link to={pageRoute}>{Localization[pageAlias]}</Link>
+                                </li>
+                            );
                         }
                         return (
-                            <li key={pageName} className={styleName}>
-                                <Link to={accessiblePages[pageName].path}>{Localization[pageName]}</Link>
+                            <li key={uuidv4()}>
+                                <Link to={pageRoute}>{Localization[pageAlias]}</Link>
                             </li>
                         );
                     })
@@ -43,7 +50,6 @@ const NavBar: React.FC<Props> = (props) => {
                 className={styles.toggle}
             >
                 <IoArrowUndoCircleSharp />
-
             </div>
         </nav>
     );

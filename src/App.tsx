@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { setPersonalData } from '@store/reducer/personalDataReducer';
 
 const App: React.FC = () => {
-    console.debug('App');
+    console.info('App');
     const [isLoading, setIsLoading] = useState(true);
     const dispatch = useDispatch();
 

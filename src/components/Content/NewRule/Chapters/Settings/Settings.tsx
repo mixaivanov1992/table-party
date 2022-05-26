@@ -12,7 +12,7 @@ interface Props {
 }
 
 const Settings: React.FC<Props> = (props) => {
-    console.debug('Settings');
+    console.info('Settings');
 
     const { language } = useTypedSelector((state) => state.mainSettingsReducer);
     Localization.setLanguage(language);
