@@ -19,24 +19,28 @@ const initialAccessiblePages: AccessiblePages = [{
     pageAlias: PageAlias.home,
     pageRedirect: PageRoute.home,
     componentName: 'Home',
+    isContentComponent: true,
 }, {
     linkLocation: LinkLocation.navbar,
     pageRoute: PageRoute.rules,
     pageAlias: PageAlias.rules,
     pageRedirect: null,
     componentName: 'Rules',
+    isContentComponent: true,
 }, {
     linkLocation: LinkLocation.navbar,
     pageRoute: PageRoute.about,
     pageAlias: PageAlias.about,
     pageRedirect: null,
     componentName: 'About',
+    isContentComponent: true,
 }, {
     linkLocation: LinkLocation.header,
     pageRoute: PageRoute.login,
     pageAlias: PageAlias.login,
     pageRedirect: null,
     componentName: 'Login',
+    isContentComponent: false,
 }];
 
 const initialState: PersonalDataState = {
@@ -61,18 +65,21 @@ export const personalDataReducer = (state = initialState, action: PersonalDataAc
                 pageAlias: PageAlias.myRules,
                 pageRedirect: null,
                 componentName: 'MyRules',
+                isContentComponent: true,
             }, {
                 linkLocation: LinkLocation.navbar,
                 pageRoute: PageRoute.newRule,
                 pageAlias: PageAlias.newRule,
                 pageRedirect: null,
                 componentName: 'NewRule',
+                isContentComponent: true,
             }, {
                 linkLocation: LinkLocation.header,
                 pageRoute: PageRoute.profile,
                 pageAlias: PageAlias.profile,
                 pageRedirect: null,
                 componentName: 'Profile',
+                isContentComponent: true,
             });
 
             return {

@@ -2,14 +2,15 @@
 .sheet {
     overflow: hidden;
     display: flex;
-    border: 1px solid core.$border;
-    background-color: white;
+    border: 0.1em solid core.$border;
+    background-color: core.$third-color;
     transition: all 0.3s ease-in-out;
-    width: calc(33% - 30px);
+    width: calc(33% - 2em);
     cursor: pointer;
     .number {
         display: flex;
         justify-content: center;
+        text-align: center;
         align-items: center;
         width: 100%;
     }

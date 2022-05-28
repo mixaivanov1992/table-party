@@ -25,11 +25,12 @@ const Routes: React.FC = () => {
 
     const routes = accessiblePages.map((accessiblePage) => {
         const {
-            pageRoute, pageRedirect, linkLocation, componentName,
+            pageRoute, pageRedirect, isContentComponent, componentName,
         } = accessiblePage;
         const route = pageRedirect || pageRoute;
 
-        if (linkLocation !== LinkLocation.separately) {
+        console.log(111, componentName);
+        if (isContentComponent) {
             const headerFilter = accessiblePages.filter((item) => item.linkLocation === LinkLocation.header);
             const navbarFilter = accessiblePages.filter((item) => item.linkLocation === LinkLocation.navbar);
             return (
@@ -44,7 +45,6 @@ const Routes: React.FC = () => {
                 </Route>
             );
         }
-
         const Component = require(`./components/${componentName}/${componentName}`).default;
         return (
             <Route key={uuidv4()} exact path={route}>

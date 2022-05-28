@@ -18,18 +18,18 @@
     .header {
         display: flex;
         background-color: core.$first-color;
-        border: 1px solid core.$third-color;
+        border: 0.1em solid core.$third-color;
         color: core.$third-color;
         .title {
             display: flex;
             justify-content: center;
             flex: 1;
             background-color: core.$first-color;
-            padding: 20px 0;
-            border-right: 1px solid core.$third-color;
+            padding: 1em 0;
+            border-right: 0.1em solid core.$third-color;
         }
         .close {
-            padding: 20px;
+            padding: 1em;
             cursor: pointer;
         }
     }
@@ -37,16 +37,16 @@
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        border-top: 1px solid core.$border;
-        padding: 20px 20px 0;
+        border-top: 0.1em solid core.$border;
+        padding: 1em 1em 0;
         flex: 1;
     }
     .footer {
-        padding: 20px;
+        padding: 1em;
         display: flex;
         justify-content: end;
         > button {
-            margin-left: 10px;
+            margin-left: 1em;
         }
     }
 }

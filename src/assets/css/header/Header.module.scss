@@ -1,15 +1,19 @@
 @use "../core";
 .header {
     background: core.$third-color;
-    border-bottom: 1px solid core.$border;
+    border-bottom: 0.1em solid core.$border;
+    border-left: 0.1em solid core.$border;
+    border-right: 0.1em solid core.$border;
+    border-bottom-left-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
     display: -webkit-flex;
     -webkit-flex-wrap: wrap;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
-    margin: 0 20px 20px;
+    padding: 0.5rem 1rem;
+    margin: 0 1rem 1rem;
     .search + div {
         flex: 1;
         display: -webkit-flex;
@@ -17,7 +21,7 @@
         align-items: center;
     }
     .language {
-        margin-right: 20px;
+        margin-right: 1rem;
     }
     .user_menu {
         .login {
@@ -34,7 +38,7 @@
             }
             svg {
                 color: core.$second-color;
-                font-size: 50px;
+                font-size: 4em;
             }
         }
     }

@@ -6,8 +6,8 @@
     justify-content: center;
     .wrapper {
         width: 60%;
-        border: 1px solid core.$border;
-        border-radius: 5px;
+        border: 0.1em solid core.$border;
+        border-radius: 0.3em;
         padding: 2% 10%;
         text-align: center;
         position: relative;
@@ -16,15 +16,15 @@
             border-radius: 50%;
             position: absolute;
             background: core.$second-color;
-            left: -20px;
-            top: 30px;
-            padding: 7px;
+            left: -1.8em;
+            top: 1.8em;
+            padding: 0.5em;
             > span {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 svg {
-                    font-size: 25px;
+                    font-size: 2.5em;
                     color: core.$third-color;
                 }
             }
@@ -38,28 +38,18 @@
                 display: flex;
                 flex-direction: column;
                 > input {
-                    margin-bottom: 15px;
+                    margin-bottom: 0.5em;
                 }
             }
         }
         .logo {
             svg {
-                font-size: 80px;
+                font-size: 5em;
                 color: core.$second-color;
-                // &:hover{
-                //     cursor: pointer;
-                // }
-                // &:hover > path{
-                //     color: core.$first-color;
-                // }
-                // path{
-                //     scale: 1.23;
-                //     transform: translate(-47px, -47px);
-                // }
             }
         }
         .forgot_password {
-            margin-bottom: 5px;
+            margin-bottom: 0.5em;
             a {
                 text-decoration: none;
                 color: core.$second-color;
@@ -70,7 +60,7 @@
         }
         .action {
             > button {
-                margin-bottom: 10px;
+                margin-bottom: 0.5em;
             }
         }
         .social {
@@ -83,21 +73,21 @@
                 display: flex;
                 align-items: center;
                 cursor: pointer;
-                margin-bottom: 10px;
-                border: 1px solid core.$border;
-                border-radius: 5px 0 0 5px;
+                margin-bottom: 1rem;
+                border: 0.1em solid core.$border;
+                border-radius: 0.2em 0 0 0.2em;
                 width: 100%;
                 background-color: core.$fourth-color;
                 > div:first-child {
                     width: 20%;
                 }
                 > div:last-child {
-                    padding: 15px 10px;
-                    border-left: 1px solid core.$border;
+                    padding: 0.8em 0.5em;
+                    border-left: 0.1em solid core.$border;
                 }
             }
             svg {
-                font-size: 20px;
+                font-size: 2em;
             }
         }
     }

@@ -1,31 +1,33 @@
 @use "../../../core";
 .settings {
-    border-bottom: 1px solid core.$border;
+    border: 0.1em solid core.$border;
+    background-color: core.$fourth-color;
+    padding-top: 2em;
     .game_name {
-        margin-bottom: 5px;
+        margin-bottom: 0.3em;
         label {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
             > * {
-                margin-left: 5px;
-                margin-right: 5px;
+                margin-left: 0.3em;
+                margin-right: 0.3em;
             }
         }
     }
     .chapter {
-        margin-bottom: 15px;
+        margin-bottom: 1em;
         justify-content: center;
         display: flex;
         width: 100%;
         flex-wrap: wrap;
         > input + button {
-            margin-left: 5px;
-            margin-right: 5px;
+            margin-left: 0.3em;
+            margin-right: 0.3em;
         }
         > * {
-            margin-bottom: 5px;
+            margin-bottom: 0.3em;
         }
     }
 }

@@ -30,7 +30,8 @@ export interface AccessiblePage {
     readonly pageRoute: PageRoute,
     readonly pageAlias: PageAlias,
     readonly pageRedirect: PageRoute | null,
-    readonly componentName: string
+    readonly componentName: string,
+    readonly isContentComponent: boolean
 }
 
 export type AccessiblePages = Array<AccessiblePage>;

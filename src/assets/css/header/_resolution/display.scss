@@ -1,9 +1,10 @@
 .header {
     .search {
+        width: 50%;
         input {
-            width: 400px;
+            width: 70%;
             &:focus {
-                width: 500px;
+                width: 100%;
             }
         }
     }
@@ -13,7 +14,7 @@
     .user_menu {
         svg {
             color: core.$second-color;
-            font-size: 50px;
+            font-size: 4em;
         }
         &:hover {
             span,

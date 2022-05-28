@@ -5,10 +5,10 @@
     flex: 1;
     .container {
         flex: 1;
-        border-bottom: 1px solid core.$border;
-        border-left: 1px solid core.$border;
-        border-right: 1px solid core.$border;
-        padding-top: 15px;
+        border: 0.1em solid core.$border;
+        padding-top: 2em;
+        margin-top: 2em;
+        background-color: core.$fourth-color;
     }
     .chapter_navigation {
         text-align: center;

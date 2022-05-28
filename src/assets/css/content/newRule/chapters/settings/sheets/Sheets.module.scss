@@ -2,11 +2,11 @@
 .sheets {
     display: flex;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 1em;
     flex-wrap: wrap;
     > div:first-child + div {
-        margin-right: 15px;
-        margin-left: 15px;
+        margin-right: 1em;
+        margin-left: 1em;
     }
     > div:last-child {
         width: 100%;

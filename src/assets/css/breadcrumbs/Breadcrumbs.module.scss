@@ -1,21 +1,14 @@
 @use "../core";
 $active: core.$second-color;
 
-@mixin inline {
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-    vertical-align: top;
-}
 .breadcrumbs {
     display: -webkit-flex;
     -webkit-flex-wrap: wrap;
     display: flex;
     flex-wrap: wrap;
-    margin: 0 20px 20px;
+    margin: 0 1rem 1rem;
     padding: 0px;
     line-height: 0px;
-    @include inline;
 
     li {
         position: relative;
@@ -23,8 +16,7 @@ $active: core.$second-color;
         padding: 0px;
         list-style: none;
         list-style-image: none;
-        @include inline;
-        border-left: 1px solid #ccc;
+        border-left: 1px solid core.$border;
         transition: 0.3s ease;
 
         &:hover {
@@ -33,7 +25,7 @@ $active: core.$second-color;
             }
 
             a {
-                color: #fff;
+                color: core.$fourth-color;
                 background: core.$first-color;
             }
         }
@@ -44,7 +36,7 @@ $active: core.$second-color;
             right: -9px;
             top: -1px;
             z-index: 20;
-            border-left: 10px solid #fff;
+            border-left: 10px solid core.$fourth-color;
             border-top: 24px solid transparent;
             border-bottom: 24px solid transparent;
             transition: 0.3s ease;
@@ -56,14 +48,14 @@ $active: core.$second-color;
             right: -10px;
             top: -1px;
             z-index: 10;
-            border-left: 10px solid #ccc;
+            border-left: 10px solid core.$border;
             border-top: 24px solid transparent;
             border-bottom: 24px solid transparent;
         }
 
         &:last-child {
             a {
-                color: #fff;
+                color: core.$fourth-color;
                 background: $active;
             }
             &:before {
@@ -97,11 +89,11 @@ $active: core.$second-color;
         a {
             display: block;
             line-height: 40px;
-            color: #757575;
+            color: core.$second-color;
             padding: 2px 15px 2px 25px;
             text-decoration: none;
-            background: #fff;
-            border: 1px solid #ddd;
+            background: core.$fourth-color;
+            border: 1px solid core.$border;
             white-space: nowrap;
             overflow: hidden;
             transition: 0.3s ease;

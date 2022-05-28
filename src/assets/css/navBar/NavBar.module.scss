@@ -1,30 +1,36 @@
 @use "../core";
 .min_navbar,
 .navbar {
+    margin-left: 1rem;
+    display: flex;
+    justify-content: center;
     background: core.$third-color;
-    border: 1px solid core.$border;
-    border-radius: 3px;
+    border: 0.1em solid core.$border;
+    border-radius: 0.3em;
+    ul {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        a {
+            color: core.$second-color;
+            position: relative;
+        }
+    }
     .toggle {
         color: core.$second-color;
-        font-size: 40px;
-        opacity: 1;
+        font-size: 3.5em;
         cursor: pointer;
     }
 }
 .navbar {
-    padding: 10px;
     ul {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        list-style-type: none;
+        padding: 0 2em;
         li {
-            padding: 6px 0;
             a {
-                position: relative;
                 display: block;
-                padding: 4px 0;
-                color: core.$second-color;
+                padding: 0.5em 0;
                 text-decoration: none;
                 text-transform: uppercase;
                 transition: 0.5s;
@@ -35,7 +41,7 @@
                     top: 100%;
                     left: 0;
                     width: 100%;
-                    height: 3px;
+                    height: 0.2em;
                     transform: scaleX(0);
                     background: core.$second-color;
                     transform-origin: right;
@@ -54,14 +60,13 @@
 }
 .min_navbar {
     ul {
-        list-style-type: none;
-        padding: 0;
-        font-size: 40px;
-        color: core.$second-color;
-        li {
+        padding: 0 0.5em;
+        font-size: 3.5em;
+        .active {
             a {
-                color: core.$second-color;
-                position: relative;
+                path {
+                    color: core.$first-color;
+                }
             }
         }
     }

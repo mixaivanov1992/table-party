@@ -1,8 +1,7 @@
 @use "../core";
 .footer {
-    margin-top: 20px;
     background: core.$second-color;
     min-height: 100px;
-    padding: 20px;
+    padding: 2rem;
     color: core.$third-color;
 }
