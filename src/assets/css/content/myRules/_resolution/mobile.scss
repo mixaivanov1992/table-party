@@ -1,41 +1,5 @@
-@media screen and (device-height: 320px) {
-    .add {
-        //310px;
-    }
-}
 .my_rules {
-    .container {
-        margin: 10px 20px;
-        display: -webkit-flex;
-        -webkit-flex-wrap: wrap;
-        display: flex;
-        flex-wrap: wrap;
-        .item {
-            cursor: pointer;
-            border: 0.1em solid core.$third-color;
-            margin: 0 auto;
-            text-align: center;
-            .logo {
-                height: 180px;
-                color: core.$second-color;
-                .no_image {
-                    font-size: 180px;
-                }
-            }
-            .name {
-                margin-bottom: 10px;
-            }
-        }
-    }
-    .add {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        .icon {
-            cursor: pointer;
-            color: core.$second-color;
-            font-size: 50px;
-            z-index: 1;
-        }
+    .rule {
+        width: calc(100% - 2em);
     }
 }

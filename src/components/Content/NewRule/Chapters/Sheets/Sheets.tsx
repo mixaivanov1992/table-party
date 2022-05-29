@@ -1,20 +1,22 @@
 import React from 'react';
 import Paginate from '@shared/Paginate/Paginate';
-import styles from '@css/content/newRule/chapters/settings/sheets/Sheets.module.scss';
+import styles from '@css/content/newRule/chapters/sheets/Sheets.module.scss';
+import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 import SheetItem from './SheetItem/SheetItem';
 
 interface Props {
-    chapterSheetCount: number,
     chapterIndex: number,
 }
 const Sheets: React.FC<Props> = (props) => {
     console.info('sheets');
 
     const sheetCountPerPage = 3;
-    const { chapterSheetCount, chapterIndex } = props;
+    const { chapterIndex } = props;
+    const chapterSheetCount = useTypedSelector((state) => state.chapterReducer.chapters[chapterIndex].sheetCount);
+    const chapterUid = useTypedSelector((state) => state.chapterReducer.chapters[chapterIndex].uid);
 
     const renderContent = (index: number): JSX.Element => (
-        <SheetItem chapterIndex={chapterIndex} sheetIndex={index} />
+        <SheetItem chapterUid={chapterUid} chapterIndex={chapterIndex} sheetIndex={index} />
     );
 
     return (

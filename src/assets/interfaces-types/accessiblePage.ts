@@ -1,3 +1,5 @@
+import { IconType } from 'react-icons';
+
 export enum LinkLocation{
     header = 'header',
     content = 'content',
@@ -31,7 +33,8 @@ export interface AccessiblePage {
     readonly pageAlias: PageAlias,
     readonly pageRedirect: PageRoute | null,
     readonly componentName: string,
-    readonly isContentComponent: boolean
+    readonly isContentComponent: boolean,
+    readonly linkIcon: IconType,
 }
 
 export type AccessiblePages = Array<AccessiblePage>;

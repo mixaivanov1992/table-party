@@ -1,34 +1,81 @@
 import React, { ReactNode } from 'react';
 import styles from '@css/content/myRules/MyRules.module.scss';
 import { IoMdImages } from 'react-icons/io';
-import { IoAddCircleOutline } from 'react-icons/io5';
-import { Link } from 'react-router-dom';
-import { Page } from '@src/assets/interfaces-types/pagesPath';
+import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import { v4 as uuidv4 } from 'uuid';
 
 interface Props {
     children: ReactNode
 }
 const MyRules: React.FC<Props> = (props) => {
+    console.info('MyRules');
+
+    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
+    // Localization.setLanguage(language);
     const { children } = props;
+
+    const myRulesState = [{
+        name: {
+            ru: 'Ярость дракулы',
+            en: 'Ярость дракулы en',
+        },
+        image: '',
+    }, {
+        name: {
+            ru: 'Спартак',
+            en: 'Спартак en',
+        },
+        image: '',
+    }, {
+        name: {
+            ru: 'Мрачная гавань',
+            en: 'Мрачная гавань en',
+        },
+        image: 'https://www.mirf.ru/wp-content/uploads/2019/07/Gloomhaven_Mrachnaya-gavan_1200h630.jpg',
+    }, {
+        name: {
+            ru: 'Нечто',
+            en: 'Нечто en',
+        },
+        image: '',
+    }, {
+        name: {
+            ru: 'Пэчворк',
+            en: 'Пэчворк en',
+        },
+        image: '',
+    }, {
+        name: {
+            ru: 'Чужая планета',
+            en: 'Чужая планета en',
+        },
+        image: '',
+    }];
+
+    const rules = myRulesState.map((rule) => {
+        const { name, image } = rule;
+        const cover = image ? <img src={image} alt={name[language]} /> : <IoMdImages />;
+        return (
+            <div key={uuidv4()} className={styles.rule}>
+                <div className={styles.logo}>
+                    {cover}
+                </div>
+                <div className={styles.name}>
+                    {name[language]}
+                </div>
+                <div className={styles.menu}>
+                    <button type="button">Играть</button>
+                    <button type="button">Редактировать</button>
+                </div>
+            </div>
+        );
+    });
+
     return (
         <>
             {children}
-            <div className={styles.my_rules}>
-                <div className={styles.add}>
-                    <Link to={`/${Page.newRule}`}>
-                        <IoAddCircleOutline className={styles.icon} title="Создать новое правило" />
-                    </Link>
-                </div>
-                <div className={styles.container}>
-                    <div className={styles.item}>
-                        <div className={styles.logo}>
-                            <IoMdImages className={styles.no_image} />
-                        </div>
-                        <div className={styles.name}>
-                            Ярость Дракулы
-                        </div>
-                    </div>
-                </div>
+            <div>
+                <div className={styles.my_rules}>{rules}</div>
             </div>
         </>
     );

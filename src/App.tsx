@@ -6,7 +6,7 @@ import { setPersonalData } from '@store/reducer/personalDataReducer';
 
 const App: React.FC = () => {
     console.info('App');
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState<Boolean>(true);
     const dispatch = useDispatch();
 
     useEffect(() => {

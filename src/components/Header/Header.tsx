@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from '@css/header/Header.module.scss';
 import { Link } from 'react-router-dom';
-import { IoPersonCircle } from 'react-icons/io5';
 import { Language } from '@src/assets/interfaces-types/language';
 import { v4 as uuidv4 } from 'uuid';
 import { setLanguage } from '@src/store/reducer/mainSettingsReducer';
@@ -39,11 +38,19 @@ const Header: React.FC<Props> = (props) => {
                     {option}
                 </select>
                 <div className={styles.user_menu}>
-                    <Link className={styles.login} to="/login">
-                        <IoPersonCircle />
-                        <br />
-                        <span>Гость</span>
-                    </Link>
+                    {accessiblePages.map((accessiblePage) => {
+                        const {
+                            pageRoute, pageRedirect, pageAlias, linkIcon,
+                        } = accessiblePage;
+                        const route = pageRedirect || pageRoute;
+                        const Icon = linkIcon;
+
+                        return (
+                            <Link key={uuidv4()} className={styles[pageAlias]} to={route}>
+                                <Icon />
+                            </Link>
+                        );
+                    })}
                 </div>
             </div>
         </header>

@@ -1,47 +1,8 @@
 .my_rules {
-    .container {
-        margin: 10px 20px;
-        display: -webkit-flex;
-        -webkit-flex-wrap: wrap;
-        display: flex;
-        flex-wrap: wrap;
-        .item {
-            cursor: pointer;
-            border: 0.1em solid core.$third-color;
-            width: calc(25% - 22px);
-            margin: 10px 10px;
-            text-align: center;
-            .logo {
-                height: 180px;
-                color: core.$second-color;
-                .no_image {
-                    font-size: 180px;
-                }
-            }
-            .name {
-                margin-bottom: 10px;
-            }
-            &:hover {
-                opacity: 0.5;
-                width: calc(25% - 22px);
-                border: 0.1em solid;
-                border-radius: 5px;
-            }
-        }
-    }
-    .add {
-        height: 80px;
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        .icon {
-            cursor: pointer;
-            color: core.$second-color;
-            font-size: 80px;
-            z-index: 1;
-            &:hover {
-                color: core.$first-color;
-            }
+    .rule {
+        width: calc(25% - 2em);
+        &:hover {
+            transform: scale(1.1);
         }
     }
 }

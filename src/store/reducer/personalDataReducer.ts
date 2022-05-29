@@ -1,3 +1,6 @@
+import { IoHome, IoDiceSharp, IoPersonCircle } from 'react-icons/io5';
+import { ImUsers, ImBook } from 'react-icons/im';
+import { GiRuleBook } from 'react-icons/gi';
 import {
     PersonalDataAction,
     PersonalDataActionType,
@@ -20,6 +23,7 @@ const initialAccessiblePages: AccessiblePages = [{
     pageRedirect: PageRoute.home,
     componentName: 'Home',
     isContentComponent: true,
+    linkIcon: IoHome,
 }, {
     linkLocation: LinkLocation.navbar,
     pageRoute: PageRoute.rules,
@@ -27,6 +31,7 @@ const initialAccessiblePages: AccessiblePages = [{
     pageRedirect: null,
     componentName: 'Rules',
     isContentComponent: true,
+    linkIcon: IoDiceSharp,
 }, {
     linkLocation: LinkLocation.navbar,
     pageRoute: PageRoute.about,
@@ -34,6 +39,7 @@ const initialAccessiblePages: AccessiblePages = [{
     pageRedirect: null,
     componentName: 'About',
     isContentComponent: true,
+    linkIcon: ImUsers,
 }, {
     linkLocation: LinkLocation.header,
     pageRoute: PageRoute.login,
@@ -41,6 +47,7 @@ const initialAccessiblePages: AccessiblePages = [{
     pageRedirect: null,
     componentName: 'Login',
     isContentComponent: false,
+    linkIcon: IoPersonCircle,
 }];
 
 const initialState: PersonalDataState = {
@@ -66,6 +73,7 @@ export const personalDataReducer = (state = initialState, action: PersonalDataAc
                 pageRedirect: null,
                 componentName: 'MyRules',
                 isContentComponent: true,
+                linkIcon: ImBook,
             }, {
                 linkLocation: LinkLocation.navbar,
                 pageRoute: PageRoute.newRule,
@@ -73,6 +81,7 @@ export const personalDataReducer = (state = initialState, action: PersonalDataAc
                 pageRedirect: null,
                 componentName: 'NewRule',
                 isContentComponent: true,
+                linkIcon: GiRuleBook,
             }, {
                 linkLocation: LinkLocation.header,
                 pageRoute: PageRoute.profile,
@@ -80,6 +89,7 @@ export const personalDataReducer = (state = initialState, action: PersonalDataAc
                 pageRedirect: null,
                 componentName: 'Profile',
                 isContentComponent: true,
+                linkIcon: IoPersonCircle,
             });
 
             return {

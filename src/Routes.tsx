@@ -29,7 +29,6 @@ const Routes: React.FC = () => {
         } = accessiblePage;
         const route = pageRedirect || pageRoute;
 
-        console.log(111, componentName);
         if (isContentComponent) {
             const headerFilter = accessiblePages.filter((item) => item.linkLocation === LinkLocation.header);
             const navbarFilter = accessiblePages.filter((item) => item.linkLocation === LinkLocation.navbar);

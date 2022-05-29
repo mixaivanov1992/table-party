@@ -1,9 +1,13 @@
 import {
-    NewRuleState, newRuleActionType, SetGameName, NewRuleAction,
+    NewRuleState, newRuleActionType, SetGameName, NewRuleAction, Version,
 } from '@interfaces-types/newRuleReducer';
+
+const versionIndex = Object.keys(Version);
+const version = Version[versionIndex[versionIndex.length - 1]];
 
 const initialState: NewRuleState = {
     gameName: '',
+    version,
 };
 
 export const newRuleReducer = (state = initialState, action: NewRuleAction): NewRuleState => {

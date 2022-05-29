@@ -6,6 +6,7 @@ import Localization from '@src/assets/localization/content/newRule/chapter';
 // import { v4 as uuidv4 } from 'uuid';
 // import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Settings from './Settings/Settings';
+import Sheets from './Sheets/Sheets';
 
 const Chapter: React.FC = () => {
     console.info('Chapter');
@@ -29,6 +30,7 @@ const Chapter: React.FC = () => {
                 }}
             > */}
             <Settings chapterIndex={index + emptyIndex} />
+            <Sheets chapterIndex={index + emptyIndex} />
             {/* </CSSTransition> */}
         </div>
     );

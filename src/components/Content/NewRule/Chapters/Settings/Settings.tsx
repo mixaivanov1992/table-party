@@ -5,7 +5,6 @@ import styles from '@css/content/newRule/chapters/settings/Settings.module.scss'
 import InputNumber from '@shared/InputNumber/InputNumber';
 import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 import Localization from '@src/assets/localization/content/newRule/chapter/settings';
-import Sheets from './Sheets/Sheets';
 
 interface Props {
     chapterIndex: number
@@ -40,50 +39,47 @@ const Settings: React.FC<Props> = (props) => {
     };
 
     return (
-        <>
-            <div className={styles.settings}>
-                <div className={styles.sheet}>
-                    <span>{Localization.numberSheets}</span>
-                    <InputNumber
-                        uid={chapterUid}
-                        value={chapterSheetCount}
-                        onInputData={onInputSheet}
-                    />
-                </div>
-                <div className={styles.chapter_name}>
-                    <span>
-                        {Localization.chapterNumber}
-                        {chapterIndex}
-                    </span>
-                    <label htmlFor={`chapterName-${chapterIndex}`}>
-                        <input
-                            type="text"
-                            placeholder={Localization.chapterTitle}
-                            id={`chapterName-${chapterIndex}`}
-                            value={chapterName}
-                            onChange={
-                                (e) => {
-                                    onChangeChapterName(e.currentTarget.value);
-                                }
-                            }
-                        />
-                    </label>
-                </div>
-                <div className={styles.remove_chapter}>
-                    <button
-                        type="button"
-                        onClick={
-                            () => {
-                                onClickRemoveChapter();
+        <div className={styles.settings}>
+            <div className={styles.sheet}>
+                <span>{Localization.numberSheets}</span>
+                <InputNumber
+                    uid={chapterUid}
+                    value={chapterSheetCount}
+                    onInputData={onInputSheet}
+                />
+            </div>
+            <div className={styles.chapter_name}>
+                <span>
+                    {Localization.chapterNumber}
+                    {chapterIndex}
+                </span>
+                <label htmlFor={`chapterName-${chapterIndex}`}>
+                    <input
+                        type="text"
+                        placeholder={Localization.chapterTitle}
+                        id={`chapterName-${chapterIndex}`}
+                        value={chapterName}
+                        onChange={
+                            (e) => {
+                                onChangeChapterName(e.currentTarget.value);
                             }
                         }
-                    >
-                        {Localization.deleteChapter}
-                    </button>
-                </div>
+                    />
+                </label>
             </div>
-            <Sheets chapterIndex={chapterIndex} chapterSheetCount={chapterSheetCount} />
-        </>
+            <div className={styles.remove_chapter}>
+                <button
+                    type="button"
+                    onClick={
+                        () => {
+                            onClickRemoveChapter();
+                        }
+                    }
+                >
+                    {Localization.deleteChapter}
+                </button>
+            </div>
+        </div>
     );
 };
 

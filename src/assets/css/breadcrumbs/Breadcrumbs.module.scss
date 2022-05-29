@@ -1,5 +1,4 @@
 @use "../core";
-$active: core.$second-color;
 
 .breadcrumbs {
     display: -webkit-flex;
@@ -12,16 +11,16 @@ $active: core.$second-color;
 
     li {
         position: relative;
-        margin-bottom: 5px;
+        margin-bottom: 0.1rem;
         padding: 0px;
         list-style: none;
         list-style-image: none;
-        border-left: 1px solid core.$border;
+        // border-left: 0.1em solid core.$border;
         transition: 0.3s ease;
 
         &:hover {
             &:before {
-                border-left: 10px solid core.$first-color;
+                border-left: 0.86em solid core.$first-color;
             }
 
             a {
@@ -33,33 +32,34 @@ $active: core.$second-color;
         &:before {
             content: "";
             position: absolute;
-            right: -9px;
-            top: -1px;
+            right: -0.74em;
+            top: 0;
             z-index: 20;
-            border-left: 10px solid core.$fourth-color;
-            border-top: 24px solid transparent;
-            border-bottom: 24px solid transparent;
+            border-left: 0.86em solid core.$fourth-color;
+            border-top: 1.8em solid transparent;
+            border-bottom: 1.8em solid transparent;
             transition: 0.3s ease;
         }
 
         &:after {
             content: "";
             position: absolute;
-            right: -10px;
-            top: -1px;
+            right: -0.86em;
+            top: 0;
             z-index: 10;
-            border-left: 10px solid core.$border;
-            border-top: 24px solid transparent;
-            border-bottom: 24px solid transparent;
+            border-left: 0.86em solid core.$border;
+            border-top: 1.8em solid transparent;
+            border-bottom: 1.8em solid transparent;
         }
 
         &:last-child {
             a {
                 color: core.$fourth-color;
-                background: $active;
+                background: core.$second-color;
             }
             &:before {
-                border-left: 10px solid $active;
+                border-left: 0.9em solid core.$second-color;
+                right: -0.86em;
             }
         }
 
@@ -67,8 +67,8 @@ $active: core.$second-color;
             border-left: none;
 
             a {
-                padding-left: 20px;
-                border-radius: 5px 0px 0px 5px;
+                padding-left: 2em;
+                border-radius: 0.2em 0px 0px 0.2em;
             }
         }
 
@@ -81,19 +81,22 @@ $active: core.$second-color;
             }
 
             a {
-                padding-right: 20px;
-                border-radius: 0px 40px 40px 0px;
+                padding-right: 2em;
+                // border-radius: 0px 40px 40px 0px;
             }
         }
 
         a {
             display: block;
-            line-height: 40px;
+            line-height: 3em;
             color: core.$second-color;
-            padding: 2px 15px 2px 25px;
+            padding: 0.2em 2em 0.2em 2em;
             text-decoration: none;
             background: core.$fourth-color;
-            border: 1px solid core.$border;
+            // border: 0.1em solid core.$border;
+            border-top: 0.1em solid core.$border;
+            border-left: 0.1em solid core.$border;
+            border-bottom: 0.1em solid core.$border;
             white-space: nowrap;
             overflow: hidden;
             transition: 0.3s ease;

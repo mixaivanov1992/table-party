@@ -8,6 +8,7 @@ interface Props {
     children: ReactNode
 }
 const Home: React.FC<Props> = (props) => {
+    console.info('Home');
     const { language } = useTypedSelector((state) => state.mainSettingsReducer);
     Localization.setLanguage(language);
     const { children } = props;

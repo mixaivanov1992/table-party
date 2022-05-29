@@ -24,18 +24,19 @@
         margin-right: 1rem;
     }
     .user_menu {
+        .profile,
         .login {
             text-align: center;
             color: core.$second-color;
             text-decoration: none;
             cursor: pointer;
             display: inline-block;
-            span {
-                display: inline-block;
-                max-width: 100px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
+            // span {
+            //     display: inline-block;
+            //     max-width: 100px;
+            //     overflow: hidden;
+            //     text-overflow: ellipsis;
+            // }
             svg {
                 color: core.$second-color;
                 font-size: 4em;

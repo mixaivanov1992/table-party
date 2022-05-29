@@ -2,12 +2,10 @@ import React from 'react';
 import styles from '@css/navBar/NavBar.module.scss';
 import Localization from '@localization/navBar';
 import { Link, useLocation } from 'react-router-dom';
-import { IoArrowRedoCircleSharp, IoHome, IoDiceSharp } from 'react-icons/io5';
-import { ImUsers, ImBook } from 'react-icons/im';
 import { AccessiblePages } from '@interfaces-types/accessiblePage';
-import { GiRuleBook } from 'react-icons/gi';
 import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
+import { IoArrowRedoCircleSharp } from 'react-icons/io5';
 
 interface Props {
     onClickToggle(): void,
@@ -20,20 +18,15 @@ const MinNavBar: React.FC<Props> = (props) => {
     Localization.setLanguage(language);
 
     const { accessiblePages, onClickToggle } = props;
-    const linkContent = {
-        home: IoHome,
-        about: ImUsers,
-        rules: IoDiceSharp,
-        newRule: GiRuleBook,
-        myRules: ImBook,
-    };
     return (
         <nav className={styles.min_navbar}>
             <ul>
                 {
                     accessiblePages.map((accessiblePage) => {
-                        const { pageRoute, pageRedirect, pageAlias } = accessiblePage;
-                        const Icon = linkContent[pageAlias];
+                        const {
+                            pageRoute, pageRedirect, pageAlias, linkIcon,
+                        } = accessiblePage;
+                        const Icon = linkIcon;
 
                         const location = useLocation();
                         if (location.pathname === pageRoute || (pageRedirect && location.pathname === pageRedirect)) {

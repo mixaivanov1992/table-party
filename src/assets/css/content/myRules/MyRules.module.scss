@@ -1,7 +1,41 @@
 @use "../../core";
-@media screen and (min-device-width: 320px) and (max-width: 1279px) {
+.my_rules {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .rule {
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border: 0.1em solid core.$border;
+        margin: 1em;
+        border-radius: 0.25em;
+        .logo {
+            flex: 1;
+            > img {
+                width: 100%;
+            }
+            svg {
+                font-size: 12em;
+            }
+        }
+        .name {
+            margin: 1em;
+        }
+        .menu {
+            padding-bottom: 1em;
+            button:first-child {
+                margin-right: 0.5em;
+            }
+        }
+    }
+}
+@media screen and (max-width: 600px) {
     @import "./_resolution/mobile";
 }
-@media screen and (min-device-width: 1280px) {
+@media screen and (min-width: 601px) {
     @import "./_resolution/display";
 }

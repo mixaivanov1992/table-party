@@ -35,7 +35,7 @@
                 text-decoration: none;
                 &::after {
                     content: attr(data-localization);
-                    font-size: 4vw;
+                    font-size: 0.5em;
                     margin-left: 1rem;
                     color: core.$second-color;
                 }
