@@ -6,6 +6,7 @@ export interface ChapterState{
         sheets: Array<{
             uid: string,
             content: string
+            cover: string
         }>
     }>
 }
@@ -17,6 +18,7 @@ export enum ChapterActionType{
     SET_CHAPTER_NAME = 'SET_CHAPTER_NAME',
     DELETE_CHAPTERS = 'DELETE_CHAPTERS',
     SET_SHEET_CONTENT = 'SET_SHEET_CONTENT',
+    SET_SHEET_COVER = 'SET_SHEET_COVER',
 }
 
 export interface SetSheetCount{
@@ -51,5 +53,11 @@ export interface SetSheetContent{
     sheetUid: string,
     content: string
 }
+export interface SetSheetCover{
+    type: ChapterActionType.SET_SHEET_COVER,
+    chapterUid: string,
+    sheetUid: string,
+    cover: string
+}
 
-export type ChapterAction = SetSheetCount | AddChapter | RemoveChapter | SetChapterName | DeleteChapters | SetSheetContent;
+export type ChapterAction = SetSheetCount | AddChapter | RemoveChapter | SetChapterName | DeleteChapters | SetSheetContent | SetSheetCover;

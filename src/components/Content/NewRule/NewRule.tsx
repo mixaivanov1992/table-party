@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import Chapters from './Chapters/Chapters';
 import Settings from './Settings/Settings';
-import SheetDialog from './sheetDialog/SheetDialog';
+import SheetDialog from './SheetDialog/SheetDialog';
 
 interface Props {
     children: ReactNode

@@ -7,6 +7,8 @@
     transition: all 0.3s ease-in-out;
     width: calc(33% - 2em);
     cursor: pointer;
+
+    .cover,
     .number {
         display: flex;
         justify-content: center;
@@ -14,11 +16,10 @@
         align-items: center;
         width: 100%;
     }
-    .toolbar_wysiwyg {
-        opacity: 0;
-        margin: 0;
-        height: 0;
-        padding: 0;
+    .cover {
+        img {
+            width: 100%;
+        }
     }
     &:after {
         content: "";

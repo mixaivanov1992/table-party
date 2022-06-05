@@ -5,13 +5,14 @@ interface Props {
     onClickCloseDialog(): void,
     title: string,
     content: JSX.Element,
+    beforeFooter: JSX.Element,
     footer: JSX.Element,
     dialogSize: string
 }
 const Dialog: React.FC<Props> = (props) => {
     console.info('Dialog');
     const {
-        onClickCloseDialog, title, content, footer, dialogSize,
+        onClickCloseDialog, title, content, beforeFooter, footer, dialogSize,
     } = props;
     const stylesDialogSize = styles[`dialog_${dialogSize}`];
     useEffect(() => {
@@ -39,6 +40,11 @@ const Dialog: React.FC<Props> = (props) => {
                 <div className={styles.container}>
                     {content}
                 </div>
+                {beforeFooter ? (
+                    <div className={styles.before_footer}>
+                        {beforeFooter}
+                    </div>
+                ) : ''}
                 <div className={styles.footer}>
                     {footer}
                 </div>

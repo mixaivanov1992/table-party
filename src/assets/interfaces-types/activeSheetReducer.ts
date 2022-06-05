@@ -1,7 +1,8 @@
 export interface ActiveSheetState{
     chapterUid: string,
     sheetUid: string,
-    content: string
+    content: string,
+    cover: string
 }
 
 export enum ActiveSheetActionType{
@@ -12,7 +13,8 @@ export interface SetActiveSheet{
     type: ActiveSheetActionType.SET_ACTIVE_SHEET,
     chapterUid: string,
     sheetUid: string,
-    content: string
+    content: string,
+    cover: string,
 }
 
 export type ActiveSheetAction = SetActiveSheet;

@@ -2,12 +2,10 @@ import LocalizedStrings from 'react-localization';
 
 const Localization = new LocalizedStrings({
     ru: {
-        sheetNumber: 'Лист №',
-        cover: 'обложка',
+        about: 'О нас',
     },
     en: {
-        sheetNumber: 'Sheet number',
-        cover: 'cover',
+        about: 'About us',
     },
 });
 export default Localization;

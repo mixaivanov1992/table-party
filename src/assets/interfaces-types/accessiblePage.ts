@@ -28,13 +28,14 @@ export enum PageAlias{
 }
 
 export interface AccessiblePage {
-    readonly linkLocation: LinkLocation,
+    readonly linkLocation: Array<LinkLocation>,
     readonly pageRoute: PageRoute,
     readonly pageAlias: PageAlias,
     readonly pageRedirect: PageRoute | null,
     readonly componentName: string,
     readonly isContentComponent: boolean,
     readonly linkIcon: IconType,
+    readonly sort: number
 }
 
 export type AccessiblePages = Array<AccessiblePage>;

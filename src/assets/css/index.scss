@@ -48,6 +48,13 @@ button:active {
 button:focus {
     outline: 0.1em solid core.$second-color;
 }
+button:disabled {
+    opacity: 0.6;
+}
+button:disabled:active {
+    background-color: core.$first-color;
+    color: core.$third-color;
+}
 select {
     font-weight: 400;
     border: 0.1em solid core.$border;
@@ -56,10 +63,10 @@ select {
     background-color: core.$fourth-color;
     outline: none;
 }
-
 input[type="number"],
 input[type="password"],
-input[type="text"] {
+input[type="text"],
+input[type="search"] {
     display: inline-block;
     font-weight: 400;
     text-align: center;
@@ -68,6 +75,7 @@ input[type="text"] {
     padding: 0.5em;
     border-radius: 0.25em;
     background-color: core.$fourth-color;
+    color: core.$second-color;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -ms-transition: all 0.5s ease;
@@ -75,32 +83,53 @@ input[type="text"] {
     transition: all 0.5s ease;
     outline: none;
 }
+select:disabled,
+input[type="number"]:disabled,
+input[type="password"]:disabled,
+input[type="text"]:disabled,
+input[type="search"]:disabled {
+    opacity: 0.6;
+    color: core.$second-color;
+    border-color: core.$border;
+}
+
+select:disabled:hover,
+input[type="number"]:disabled:hover,
+input[type="password"]:disabled:hover,
+input[type="text"]:disabled:hover,
+input[type="search"]:disabled:hover {
+    opacity: 0.6;
+    color: core.$second-color;
+    border-color: core.$border;
+}
+
 select:hover,
-select:focus,
 input[type="number"]:hover,
 input[type="password"]:hover,
 input[type="text"]:hover,
-input[type="number"]:focus,
-input[type="password"]:focus,
-input[type="text"]:focus {
+input[type="search"]:hover {
     color: core.$first-color;
     border-color: core.$first-color;
 }
-input[type="number"]:hover::placeholder,
-input[type="password"]:hover::placeholder,
-input[type="text"]:hover::placeholder,
-input[type="number"]:focus::placeholder,
-input[type="password"]:focus::placeholder,
-input[type="text"]:focus::placeholder {
+select:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus,
+input[type="search"]:focus {
     color: core.$first-color;
+    border-color: core.$first-color;
 }
+
+input[type="number"]::placeholder,
+input[type="password"]::placeholder,
+input[type="text"]::placeholder,
+input[type="search"]::placeholder {
+    color: core.$placeholder;
+    opacity: 0.6;
+}
+
 #root {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-}
-.DraftEditor-root {
-    .public-DraftStyleDefault-block {
-        margin: 0;
-    }
 }

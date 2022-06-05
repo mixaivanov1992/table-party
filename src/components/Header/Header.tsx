@@ -31,7 +31,7 @@ const Header: React.FC<Props> = (props) => {
     return (
         <header className={styles.header}>
             <div className={styles.search}>
-                <input type="text" placeholder={Localization.searchRules} />
+                <input type="search" placeholder={Localization.searchRules} />
             </div>
             <div>
                 <select value={language} onChange={(event) => onChangeSetLanguage(event.currentTarget.value)} className={styles.language}>

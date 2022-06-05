@@ -37,6 +37,9 @@ const Settings: React.FC<Props> = (props) => {
         setChapterCount(+count);
     };
 
+    const onClickSave = (): void => {
+    };
+
     return (
         <div className={styles.settings}>
             <div className={styles.game_name}>
@@ -46,6 +49,10 @@ const Settings: React.FC<Props> = (props) => {
                     </span>
                     <input onChange={(e) => { changeGameName(e.currentTarget.value); }} id="gameName" type="text" placeholder={Localization.enterName} value={gameName} />
                 </label>
+                {gameName
+                    ? <button type="button" onClick={onClickSave}>{Localization.save}</button>
+                    : <button type="button" disabled>{Localization.save}</button>}
+
             </div>
             <div className={styles.chapter}>
                 <InputNumber

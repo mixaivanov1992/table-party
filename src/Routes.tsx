@@ -15,7 +15,6 @@ import { LinkLocation } from '@interfaces-types/accessiblePage';
 const Routes: React.FC = () => {
     console.info('Routes');
     const { accessiblePages } = useTypedSelector((state) => state.personalDataReducer);
-
     const redirectFilter = accessiblePages.filter((accessiblePage) => accessiblePage.pageRedirect);
 
     const redirects = redirectFilter.map((item) => {
@@ -30,8 +29,9 @@ const Routes: React.FC = () => {
         const route = pageRedirect || pageRoute;
 
         if (isContentComponent) {
-            const headerFilter = accessiblePages.filter((item) => item.linkLocation === LinkLocation.header);
-            const navbarFilter = accessiblePages.filter((item) => item.linkLocation === LinkLocation.navbar);
+            const headerFilter = accessiblePages.filter((item) => item.linkLocation.includes(LinkLocation.header));
+            const navbarFilter = accessiblePages.filter((item) => item.linkLocation.includes(LinkLocation.navbar));
+            const footerFilter = accessiblePages.filter((item) => item.linkLocation.includes(LinkLocation.footer));
             return (
                 <Route key={uuidv4()} exact path={route}>
                     <Header accessiblePages={headerFilter} />
@@ -40,7 +40,7 @@ const Routes: React.FC = () => {
                         <NavBarController accessiblePages={navbarFilter} />
                         <Content accessiblePage={accessiblePage} />
                     </main>
-                    <Footer />
+                    <Footer accessiblePages={footerFilter} />
                 </Route>
             );
         }

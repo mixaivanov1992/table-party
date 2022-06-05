@@ -1,7 +1,29 @@
 import {
-    ChapterState, ChapterActionType, SetSheetCount, SetChapterName, AddChapter, ChapterAction, RemoveChapter, DeleteChapters, SetSheetContent,
+    ChapterState,
+    ChapterActionType,
+    SetSheetCount,
+    SetChapterName,
+    AddChapter,
+    ChapterAction,
+    RemoveChapter,
+    DeleteChapters,
+    SetSheetContent,
+    SetSheetCover,
 } from '@src/assets/interfaces-types/chapterReducer';
 import { v4 as uuidv4 } from 'uuid';
+
+function setSheetContentOrCover(state: ChapterState, action: SetSheetContent | SetSheetCover, itemKey: string): ChapterState {
+    const chapters = [...state.chapters];
+    const { chapterUid, sheetUid } = action;
+    const chapter = chapters.filter((item) => item.uid === chapterUid);
+    for (const chapterItem of chapter) {
+        const sheet = chapterItem.sheets.filter((item) => item.uid === sheetUid);
+        for (const sheetItem of sheet) {
+            sheetItem[itemKey] = action[itemKey];
+        }
+    }
+    return { ...state, chapters };
+}
 
 const initialState: ChapterState = {
     chapters: [{
@@ -11,6 +33,7 @@ const initialState: ChapterState = {
         sheets: [{
             uid: '',
             content: '',
+            cover: '',
         }],
     }],
 };
@@ -27,6 +50,7 @@ export const chapterReducer = (state = initialState, action: ChapterAction): Cha
                     const sheets = [...Array(action.count - chapter.sheetCount)].map(() => ({
                         uid: uuidv4(),
                         content: '',
+                        cover: '',
                     }));
                     chapters[index].sheets = chapters[index].sheets.concat(sheets);
                 }
@@ -42,6 +66,7 @@ export const chapterReducer = (state = initialState, action: ChapterAction): Cha
             const sheets = [...Array(action.sheetCount)].map(() => ({
                 uid: uuidv4(),
                 content: '',
+                cover: '',
             }));
 
             chapters.push({
@@ -67,15 +92,10 @@ export const chapterReducer = (state = initialState, action: ChapterAction): Cha
         return { ...state, chapters };
     }
     case ChapterActionType.SET_SHEET_CONTENT: {
-        const chapters = [...state.chapters];
-        const chapter = chapters.filter((item) => item.uid === action.chapterUid);
-        for (const chapterItem of chapter) {
-            const sheet = chapterItem.sheets.filter((item) => item.uid === action.sheetUid);
-            for (const sheetItem of sheet) {
-                sheetItem.content = action.content;
-            }
-        }
-        return { ...state, chapters };
+        return setSheetContentOrCover(state, action, 'content');
+    }
+    case ChapterActionType.SET_SHEET_COVER: {
+        return setSheetContentOrCover(state, action, 'cover');
     }
     case ChapterActionType.DELETE_CHAPTERS:
         return initialState;
@@ -116,4 +136,11 @@ export const setSheetContent = (chapterUid: string, sheetUid: string, content: s
     chapterUid,
     sheetUid,
     content,
+});
+
+export const setSheetCover = (chapterUid: string, sheetUid: string, cover: string): SetSheetCover => ({
+    type: ChapterActionType.SET_SHEET_COVER,
+    chapterUid,
+    sheetUid,
+    cover,
 });
