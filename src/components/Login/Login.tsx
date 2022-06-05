@@ -1,11 +1,11 @@
-import React from 'react';
-import styles from '@css/login/Login.module.scss';
-import { IoChevronBackOutline, IoPersonCircle } from 'react-icons/io5';
-import Localization from '@localization/login';
-import { useHistory } from 'react-router-dom';
 import { CgGoogle } from 'react-icons/cg';
 import { FaYandex } from 'react-icons/fa';
+import { IoChevronBackOutline, IoPersonCircle } from 'react-icons/io5';
+import { useHistory } from 'react-router-dom';
 import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import Localization from '@localization/login';
+import React from 'react';
+import styles from '@css/login/Login.module.scss';
 
 const Login: React.FC = () => {
     const { language } = useTypedSelector((state) => state.mainSettingsReducer);

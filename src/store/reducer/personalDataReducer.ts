@@ -1,19 +1,19 @@
-import { IoHome, IoDiceSharp, IoPersonCircle } from 'react-icons/io5';
-import { ImUsers, ImBook } from 'react-icons/im';
 import { GiRuleBook } from 'react-icons/gi';
+import { ImBook, ImUsers } from 'react-icons/im';
+import { IoDiceSharp, IoHome, IoPersonCircle } from 'react-icons/io5';
 import {
     PersonalDataAction,
     PersonalDataActionType,
     PersonalDataState,
-    SetPersonalData,
     Roles,
+    SetPersonalData,
 } from '@interfaces-types/personalDataReducer';
 
 import {
     AccessiblePages,
     LinkLocation,
-    PageRoute,
     PageAlias,
+    PageRoute,
 } from '@interfaces-types/accessiblePage';
 
 const initialAccessiblePages: AccessiblePages = [{

@@ -1,11 +1,11 @@
+import { AccessiblePage } from '@interfaces-types/accessiblePage';
+import {
+    GiDiceEightFacesEight, GiDiceFire, GiPerspectiveDiceSixFacesFive, GiRollingDiceCup, GiRollingDices,
+} from 'react-icons/gi';
+import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import Localization from '@localization/content';
 import React from 'react';
 import styles from '@css/content/Content.module.scss';
-import Localization from '@localization/content';
-import {
-    GiRollingDices, GiPerspectiveDiceSixFacesFive, GiRollingDiceCup, GiDiceEightFacesEight, GiDiceFire,
-} from 'react-icons/gi';
-import { AccessiblePage } from '@interfaces-types/accessiblePage';
-import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 
 interface Props {
     accessiblePage: AccessiblePage

@@ -1,13 +1,13 @@
-import React from 'react';
-import Dialog from '@shared/Dialog/Dialog';
 import { CSSTransition } from 'react-transition-group';
-import Localization from '@src/assets/localization/content/newRule/sheetDialog';
-import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
-import styles from '@css/content/newRule/sheetDialog/SheetDialog.module.scss';
-import { useDispatch } from 'react-redux';
 import { setActiveSheet } from '@src/store/reducer/activeSheetReducer';
-import Footer from './Footer/Footer';
-import Content from './Content/Content';
+import { useDispatch } from 'react-redux';
+import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import Content from '@components/Content/NewRule/SheetDialog/Content/Content';
+import Dialog from '@shared/Dialog/Dialog';
+import Footer from '@components/Content/NewRule/SheetDialog/Footer/Footer';
+import Localization from '@src/assets/localization/content/newRule/sheetDialog';
+import React from 'react';
+import styles from '@css/content/newRule/sheetDialog/SheetDialog.module.scss';
 
 const SheetDialog:React.FC = () => {
     console.info('SheetDialog');

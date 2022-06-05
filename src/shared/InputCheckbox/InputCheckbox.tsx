@@ -1,5 +1,5 @@
-import React from 'react';
 import { AiOutlineBorder, AiOutlineCheckSquare } from 'react-icons/ai';
+import React from 'react';
 import styles from '@css/shared/inputCheckbox/InputCheckbox.module.scss';
 
 interface Props {

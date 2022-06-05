@@ -1,8 +1,8 @@
 import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import Localization from '@src/assets/localization/content/newRule/chapter';
+import Paginate from '@shared/Paginate/Paginate';
 import React from 'react';
 import styles from '@css/content/newRule/chapters/Chapters.module.scss';
-import Paginate from '@shared/Paginate/Paginate';
-import Localization from '@src/assets/localization/content/newRule/chapter';
 // import { v4 as uuidv4 } from 'uuid';
 // import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Settings from './Settings/Settings';

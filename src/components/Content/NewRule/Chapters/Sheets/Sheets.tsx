@@ -1,8 +1,8 @@
-import React from 'react';
-import Paginate from '@shared/Paginate/Paginate';
-import styles from '@css/content/newRule/chapters/sheets/Sheets.module.scss';
 import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
-import SheetItem from './SheetItem/SheetItem';
+import Paginate from '@shared/Paginate/Paginate';
+import React from 'react';
+import SheetItem from '@components/Content/NewRule/Chapters/Sheets/SheetItem/SheetItem';
+import styles from '@css/content/newRule/chapters/sheets/Sheets.module.scss';
 
 interface Props {
     chapterIndex: number,

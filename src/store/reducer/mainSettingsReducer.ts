@@ -1,6 +1,6 @@
 import { Language } from '@src/assets/interfaces-types/language';
 import {
-    MainSettingsActionType, SetLanguage, MainSettingsState, MainSettingsAction,
+    MainSettingsAction, MainSettingsActionType, MainSettingsState, SetLanguage,
 } from '@src/assets/interfaces-types/mainSettingsReducer';
 
 const initialState: MainSettingsState = {

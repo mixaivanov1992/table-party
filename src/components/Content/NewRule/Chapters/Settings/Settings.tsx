@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { removeChapter, setChapterName, setSheetCount } from '@src/store/reducer/chapterReducer';
 import { useDispatch } from 'react-redux';
-import { setSheetCount, setChapterName, removeChapter } from '@src/store/reducer/chapterReducer';
-import styles from '@css/content/newRule/chapters/settings/Settings.module.scss';
-import InputNumber from '@shared/InputNumber/InputNumber';
 import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import InputNumber from '@shared/InputNumber/InputNumber';
 import Localization from '@src/assets/localization/content/newRule/chapter/settings';
+import React, { useState } from 'react';
+import styles from '@css/content/newRule/chapters/settings/Settings.module.scss';
 
 interface Props {
     chapterIndex: number

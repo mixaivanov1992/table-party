@@ -1,11 +1,11 @@
-import React from 'react';
-import styles from '@css/navBar/NavBar.module.scss';
-import Localization from '@localization/navBar';
-import { Link, useLocation } from 'react-router-dom';
 import { AccessiblePages } from '@interfaces-types/accessiblePage';
+import { IoArrowRedoCircleSharp } from 'react-icons/io5';
+import { Link, useLocation } from 'react-router-dom';
 import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
-import { IoArrowRedoCircleSharp } from 'react-icons/io5';
+import Localization from '@localization/navBar';
+import React from 'react';
+import styles from '@css/navBar/NavBar.module.scss';
 
 interface Props {
     onClickToggle(): void,
@@ -28,6 +28,7 @@ const MinNavBar: React.FC<Props> = (props) => {
                         } = accessiblePage;
                         const Icon = linkIcon;
 
+                        // eslint-disable-next-line react-hooks/rules-of-hooks
                         const location = useLocation();
                         if (location.pathname === pageRoute || (pageRedirect && location.pathname === pageRedirect)) {
                             return (

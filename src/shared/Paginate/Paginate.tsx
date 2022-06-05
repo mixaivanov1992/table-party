@@ -1,7 +1,7 @@
+import PaginateItems from '@shared/Paginate/PaginateItems';
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import styles from '@css/shared/paginate/Paginate.module.scss';
-import PaginateItems from './PaginateItems';
 
 interface Props {
     renderContent(index: number): JSX.Element,

@@ -1,8 +1,8 @@
-import React from 'react';
-import Editor from '@shared/Editor/Editor';
-import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 import { setSheetContent } from '@src/store/reducer/chapterReducer';
 import { useDispatch } from 'react-redux';
+import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import Editor from '@shared/Editor/Editor';
+import React from 'react';
 
 const Content:React.FC = () => {
     console.info('SheetDialog-Content');

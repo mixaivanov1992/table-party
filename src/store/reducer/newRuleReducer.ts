@@ -1,5 +1,5 @@
 import {
-    NewRuleState, newRuleActionType, SetGameName, NewRuleAction, Version,
+    NewRuleAction, NewRuleState, SetGameName, Version, newRuleActionType,
 } from '@interfaces-types/newRuleReducer';
 
 const versionIndex = Object.keys(Version);

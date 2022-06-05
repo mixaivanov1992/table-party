@@ -1,13 +1,13 @@
 import {
-    ChapterState,
-    ChapterActionType,
-    SetSheetCount,
-    SetChapterName,
     AddChapter,
     ChapterAction,
-    RemoveChapter,
+    ChapterActionType,
+    ChapterState,
     DeleteChapters,
+    RemoveChapter,
+    SetChapterName,
     SetSheetContent,
+    SetSheetCount,
     SetSheetCover,
 } from '@src/assets/interfaces-types/chapterReducer';
 import { v4 as uuidv4 } from 'uuid';

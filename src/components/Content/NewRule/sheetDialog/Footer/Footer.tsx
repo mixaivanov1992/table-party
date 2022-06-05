@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import { setActiveSheet } from '@src/store/reducer/activeSheetReducer';
+import { setSheetCover } from '@src/store/reducer/chapterReducer';
+import { useDispatch } from 'react-redux';
+import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 import InputCheckbox from '@src/shared/InputCheckbox/InputCheckbox';
 import InputFile from '@src/shared/InputFile/InputFile';
 import Localization from '@src/assets/localization/content/newRule/sheetDialog/footer';
-import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import React, { useState } from 'react';
 import styles from '@css/content/newRule/sheetDialog/footer/Footer.module.scss';
-import { setSheetCover } from '@src/store/reducer/chapterReducer';
-import { useDispatch } from 'react-redux';
-import { setActiveSheet } from '@src/store/reducer/activeSheetReducer';
 
 const Footer:React.FC = () => {
     console.info('SheetDialog-Footer');

@@ -1,13 +1,13 @@
+import { AccessiblePages } from '@interfaces-types/accessiblePage';
+import { Language } from '@src/assets/interfaces-types/language';
+import { Link } from 'react-router-dom';
+import { setLanguage } from '@src/store/reducer/mainSettingsReducer';
+import { useDispatch } from 'react-redux';
+import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import { v4 as uuidv4 } from 'uuid';
+import Localization from '@localization/header';
 import React from 'react';
 import styles from '@css/header/Header.module.scss';
-import { Link } from 'react-router-dom';
-import { Language } from '@src/assets/interfaces-types/language';
-import { v4 as uuidv4 } from 'uuid';
-import { setLanguage } from '@src/store/reducer/mainSettingsReducer';
-import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
-import { useDispatch } from 'react-redux';
-import Localization from '@localization/header';
-import { AccessiblePages } from '@interfaces-types/accessiblePage';
 
 interface Props {
     accessiblePages: AccessiblePages
@@ -16,6 +16,8 @@ interface Props {
 const Header: React.FC<Props> = (props) => {
     console.info('Header');
     const dispatch = useDispatch();
+    // const localStorageLanguage = localStorage.getItem('language');
+    // localStorageLanguage !== null ? JSON.parse(localStorageLanguage) : true
 
     const { language } = useTypedSelector((state) => state.mainSettingsReducer);
     Localization.setLanguage(language);

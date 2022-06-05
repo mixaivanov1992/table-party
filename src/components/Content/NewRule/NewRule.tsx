@@ -1,7 +1,7 @@
+import Chapters from '@components/Content/NewRule/Chapters/Chapters';
 import React, { ReactNode } from 'react';
-import Chapters from './Chapters/Chapters';
-import Settings from './Settings/Settings';
-import SheetDialog from './SheetDialog/SheetDialog';
+import Settings from '@components/Content/NewRule/Settings/Settings';
+import SheetDialog from '@components/Content/NewRule/SheetDialog/SheetDialog';
 
 interface Props {
     children: ReactNode

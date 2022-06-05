@@ -1,16 +1,17 @@
-import React from 'react';
-import styles from '@css/Route.module.scss';
-import Header from '@components/Header/Header';
-import Content from '@components/Content/Content';
-import NavBarController from '@src/components/NavBar/NavBarController';
-import Footer from '@components/Footer/Footer';
-import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs';
 import {
-    BrowserRouter as Router, Switch, Route, Redirect,
+    // eslint-disable-next-line
+    HashRouter, Redirect, Route, BrowserRouter as Router, Switch,
 } from 'react-router-dom';
+import { LinkLocation } from '@interfaces-types/accessiblePage';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
-import { LinkLocation } from '@interfaces-types/accessiblePage';
+import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs';
+import Content from '@components/Content/Content';
+import Footer from '@components/Footer/Footer';
+import Header from '@components/Header/Header';
+import NavBarController from '@src/components/NavBar/NavBarController';
+import React from 'react';
+import styles from '@css/Route.module.scss';
 
 const Routes: React.FC = () => {
     console.info('Routes');
@@ -19,7 +20,7 @@ const Routes: React.FC = () => {
 
     const redirects = redirectFilter.map((item) => {
         const { pageRoute, pageRedirect } = item;
-        return <Redirect key={uuidv4()} from={pageRoute} to={pageRedirect || pageRoute} />;
+        return <Redirect key={uuidv4()} exact from={pageRoute} to={pageRedirect || pageRoute} />;
     });
 
     const routes = accessiblePages.map((accessiblePage) => {
@@ -53,12 +54,13 @@ const Routes: React.FC = () => {
     });
 
     return (
-        <Router>
+        // github pages use HashRouter // Router
+        <HashRouter>
             <Switch>
                 {routes}
                 {redirects}
             </Switch>
-        </Router>
+        </HashRouter>
     );
 };
 

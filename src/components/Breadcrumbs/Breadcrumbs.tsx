@@ -1,10 +1,10 @@
-import React from 'react';
+import { AccessiblePages } from '@interfaces-types/accessiblePage';
 import { Link } from 'react-router-dom';
+import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import Localization from '@localization/breadcrumbs/';
+import React from 'react';
 import styles from '@css/breadcrumbs/Breadcrumbs.module.scss';
 import useBreadcrumbs from 'use-react-router-breadcrumbs';
-import Localization from '@localization/breadcrumbs/';
-import { AccessiblePages } from '@interfaces-types/accessiblePage';
-import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 
 interface Props {
     accessiblePages: AccessiblePages

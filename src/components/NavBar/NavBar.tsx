@@ -1,12 +1,12 @@
+import { AccessiblePages } from '@interfaces-types/accessiblePage';
+import { IoArrowUndoCircleSharp } from 'react-icons/io5';
+import { Link, useLocation } from 'react-router-dom';
+import { UseLocation } from '@src/assets/interfaces-types/typeReactRouterDom';
+import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import { v4 as uuidv4 } from 'uuid';
+import Localization from '@localization/navBar';
 import React from 'react';
 import styles from '@css/navBar/NavBar.module.scss';
-import Localization from '@localization/navBar';
-import { Link, useLocation } from 'react-router-dom';
-import { IoArrowUndoCircleSharp } from 'react-icons/io5';
-import { AccessiblePages } from '@interfaces-types/accessiblePage';
-import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
-import { UseLocation } from '@src/assets/interfaces-types/typeReactRouterDom';
-import { v4 as uuidv4 } from 'uuid';
 
 interface Props {
     onClickToggle(): void,
@@ -25,6 +25,7 @@ const NavBar: React.FC<Props> = (props) => {
                 {
                     accessiblePages.map((accessiblePage) => {
                         const { pageRoute, pageRedirect, pageAlias } = accessiblePage;
+                        // eslint-disable-next-line react-hooks/rules-of-hooks
                         const location = useLocation<UseLocation>();
 
                         if (location.pathname === pageRoute || (pageRedirect && location.pathname === pageRedirect)) {

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import Loader from '@src/shared/Loader/Loader';
-import Routes from '@src/Routes';
-import { useDispatch } from 'react-redux';
 import { setPersonalData } from '@store/reducer/personalDataReducer';
+import { useDispatch } from 'react-redux';
+import Loader from '@src/shared/Loader/Loader';
+import React, { useEffect, useState } from 'react';
+import Routes from '@src/Routes';
 
 const App: React.FC = () => {
     console.info('App');

@@ -16,6 +16,7 @@
         "sourceType": "module"
     },
     "plugins": [
+        "sort-imports-es6-autofix",
         "react",
         "@typescript-eslint",
         "react-hooks"
@@ -24,6 +25,11 @@
         "JSX": "readonly"
     },
     "rules": {
+        "sort-imports-es6-autofix/sort-imports-es6": [2, {
+            "ignoreCase": false,
+            "ignoreMemberSort": false,
+            "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+        }],
         "import/no-dynamic-require": "off", //пересмотреть
         "global-require": "off", //пересмотреть
         "import/no-extraneous-dependencies": "off", //пересмотреть
@@ -52,5 +58,6 @@
         "import/resolver": {
             "typescript": {}
         }
-    }
+    },
+    "ignorePatterns": ["dist/*"]
 }

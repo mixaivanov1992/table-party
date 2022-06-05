@@ -1,10 +1,10 @@
-import React from 'react';
-import styles from '@css/footer/Footer.module.scss';
-import { Link } from 'react-router-dom';
 import { AccessiblePages } from '@src/assets/interfaces-types/accessiblePage';
+import { Link } from 'react-router-dom';
+import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
 import Localization from '@localization/footer';
-import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import React from 'react';
+import styles from '@css/footer/Footer.module.scss';
 
 interface Props {
     accessiblePages: AccessiblePages

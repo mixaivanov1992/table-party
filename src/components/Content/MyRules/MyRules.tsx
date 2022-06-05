@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react';
-import styles from '@css/content/myRules/MyRules.module.scss';
 import { IoMdImages } from 'react-icons/io';
 import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
+import React, { ReactNode } from 'react';
+import styles from '@css/content/myRules/MyRules.module.scss';
 
 interface Props {
     children: ReactNode

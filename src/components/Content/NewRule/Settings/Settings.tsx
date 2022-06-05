@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import styles from '@css/content/newRule/settings/Settings.module.scss';
+import { addChapter, deleteChapters } from '@src/store/reducer/chapterReducer';
+import { setGameName } from '@store/reducer/newRuleReducer';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
-import { setGameName } from '@store/reducer/newRuleReducer';
-import { addChapter, deleteChapters } from '@src/store/reducer/chapterReducer';
-import Localization from '@src/assets/localization/content/newRule/settings';
 import InputNumber from '@shared/InputNumber/InputNumber';
+import Localization from '@src/assets/localization/content/newRule/settings';
+import React, { useState } from 'react';
+import styles from '@css/content/newRule/settings/Settings.module.scss';
 
 interface Props {
     sheetCount: number,

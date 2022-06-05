@@ -9,8 +9,8 @@ interface Props {
 }
 
 const NavBarController: React.FC<Props> = (props) => {
-    const storage = localStorage.getItem('toggle');
-    const [toggle, setToggle] = useState<boolean>(storage !== null ? JSON.parse(storage) : true);
+    const localStorageToggle = localStorage.getItem('toggle');
+    const [toggle, setToggle] = useState<boolean>(localStorageToggle !== null ? JSON.parse(localStorageToggle) : true);
     const { accessiblePages } = props;
 
     useEffect(() => {

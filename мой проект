@@ -94,6 +94,7 @@ ESLINT
 npm install eslint --save-dev
 npm install eslint-import-resolver-typescript --save-dev
 npm install eslint-plugin-react-hooks --save-dev
+npm install eslint-plugin-sort-imports-es6-autofix --save-dev
 
 
 npm install patch-package --save-dev                                                            -   для изменений в node_model

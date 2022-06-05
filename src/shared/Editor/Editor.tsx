@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import '@css/shared/editor/editor.scss';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import { ContentState, EditorState, convertToRaw } from 'draft-js';
+import { Language } from '@src/assets/interfaces-types/language';
 import { Editor as Wysiwyg } from 'react-draft-wysiwyg';
-import { EditorState, ContentState, convertToRaw } from 'draft-js';
+import React, { useState } from 'react';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import '@css/shared/editor/editor.scss';
-import { Language } from '@src/assets/interfaces-types/language';
 
 interface Props {
     initialState: string,
@@ -44,6 +44,7 @@ const Editor: React.FC<Props> = (props) => {
         <Wysiwyg
             onTab={(event) => {
                 event.preventDefault();
+                // eslint-disable-next-line
                 const tabIndent = '     ';
             }}
             toolbarClassName="toolbar_wysiwyg"

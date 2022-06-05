@@ -1,5 +1,5 @@
 import {
-    ActiveSheetState, ActiveSheetActionType, SetActiveSheet, ActiveSheetAction,
+    ActiveSheetAction, ActiveSheetActionType, ActiveSheetState, SetActiveSheet,
 } from '@src/assets/interfaces-types/activeSheetReducer';
 
 const initialState: ActiveSheetState = {

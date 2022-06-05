@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
 import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 import Localization from '@localization/content/profile/profile';
+import React, { ReactNode } from 'react';
 
 interface Props {
     children: ReactNode
@@ -15,7 +15,12 @@ const Profile: React.FC<Props> = (props) => {
     return (
         <>
             {children}
-            <div>123</div>
+            <div>
+                <ul>
+                    <li>Локализация</li>
+                </ul>
+                <div>123</div>
+            </div>
         </>
     );
 };
