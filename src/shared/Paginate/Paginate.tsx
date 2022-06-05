@@ -15,8 +15,8 @@ const Paginate: React.FC<Props> = (props) => {
     const { renderContent, itemCount, itemsPerPage } = props;
     const paginateItems = [...Array(itemCount)].map((empty, i) => i);
 
-    const [pageCount, setPageCount] = useState(Math.ceil(itemCount / itemsPerPage));
-    const [itemOffset, setItemOffset] = useState(0);
+    const [pageCount, setPageCount] = useState<number>(Math.ceil(itemCount / itemsPerPage));
+    const [itemOffset, setItemOffset] = useState<number>(0);
     const currentItems = paginateItems.slice(itemOffset, itemOffset + itemsPerPage);
 
     useEffect(() => {

@@ -1,5 +1,6 @@
 {
-  "name": "my-app",
+  "homepage": "https://mixaivanov1992.github.io/table-party",
+  "name": "table-party",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -31,6 +32,7 @@
     "eject": "react-scripts eject",
     "start": "webpack serve --config webpack/webpack.config.js --env env=dev",
     "build": "webpack --config webpack/webpack.config.js --env env=prod",
+    "deploy": "gh-pages -d build",
     "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
     "postinstall": "patch-package"
   },
@@ -95,6 +97,7 @@
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
     "fork-ts-checker-webpack-plugin": "^7.0.0",
+    "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^5.3.2",
     "node-sass": "^6.0.1",
     "patch-package": "^6.4.7",

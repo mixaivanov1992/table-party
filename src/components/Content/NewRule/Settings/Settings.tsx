@@ -17,7 +17,7 @@ const Settings: React.FC<Props> = (props) => {
     Localization.setLanguage(language);
 
     const { gameName } = useTypedSelector((state) => state.newRuleReducer);
-    const [chapterCount, setChapterCount] = useState(1);
+    const [chapterCount, setChapterCount] = useState<number>(1);
     const dispatch = useDispatch();
     const { sheetCount } = props;
 

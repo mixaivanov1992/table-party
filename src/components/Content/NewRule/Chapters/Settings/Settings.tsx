@@ -22,7 +22,7 @@ const Settings: React.FC<Props> = (props) => {
         sheetCount: chapterSheetCount, uid: chapterUid, name: chapterName,
     } = useTypedSelector((state) => state.chapterReducer.chapters[chapterIndex]);
 
-    const [updateComponent, setUpdateComponent] = useState(true);
+    const [updateComponent, setUpdateComponent] = useState<boolean>(true);
 
     const onClickRemoveChapter = (): void => {
         dispatch(removeChapter(chapterUid));

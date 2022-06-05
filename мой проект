@@ -96,7 +96,8 @@ npm install eslint-import-resolver-typescript --save-dev
 npm install eslint-plugin-react-hooks --save-dev
 
 
-npm install patch-package --save-dev                                                                  -   для изменений в node_model
+npm install patch-package --save-dev                                                            -   для изменений в node_model
+npm install gh-pages --save-dev                                                                 -   для публикаций gh-pages
 
 ????
 react-scripts
