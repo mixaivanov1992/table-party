@@ -25,14 +25,14 @@ const Content: React.FC<Props> = (props) => {
 
     const Component = require(`./${componentName}/${componentName}`).default;
     return (
-        <div className={styles.content}>
+        <main className={styles.content}>
             <Component>
                 <div className={styles.header}>
                     <span>{Localization[pageAlias]}</span>
                     <DiceComponent />
                 </div>
             </Component>
-        </div>
+        </main>
     );
 };
 

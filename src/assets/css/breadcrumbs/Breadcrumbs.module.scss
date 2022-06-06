@@ -1,22 +1,23 @@
 @use "../core";
 
 .breadcrumbs {
+    width: calc(100% - 2rem);
     display: -webkit-flex;
     -webkit-flex-wrap: wrap;
     display: flex;
     flex-wrap: wrap;
-    margin: 0 1rem 1rem;
+    margin: 0 1rem 0.5rem;
     padding: 0px;
     line-height: 0px;
 
     li {
         position: relative;
-        margin-bottom: 0.1rem;
+        margin-bottom: 0.5rem;
         padding: 0px;
         list-style: none;
         list-style-image: none;
         // border-left: 0.1em solid core.$border;
-        transition: 0.3s ease;
+        transition: color 0.3s ease;
 
         &:hover {
             &:before {
@@ -38,7 +39,7 @@
             border-left: 0.86em solid core.$fourth-color;
             border-top: 1.8em solid transparent;
             border-bottom: 1.8em solid transparent;
-            transition: 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         &:after {
@@ -99,7 +100,7 @@
             border-bottom: 0.1em solid core.$border;
             white-space: nowrap;
             overflow: hidden;
-            transition: 0.3s ease;
+            transition: color 0.3s ease;
         }
     }
 }

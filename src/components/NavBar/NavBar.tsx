@@ -21,28 +21,30 @@ const NavBar: React.FC<Props> = (props) => {
     const { accessiblePages, onClickToggle } = props;
     return (
         <nav className={styles.navbar}>
-            <ul>
-                {
-                    accessiblePages.map((accessiblePage) => {
-                        const { pageRoute, pageRedirect, pageAlias } = accessiblePage;
-                        // eslint-disable-next-line react-hooks/rules-of-hooks
-                        const location = useLocation<UseLocation>();
+            <div className={styles.wrapper}>
+                <ul>
+                    {
+                        accessiblePages.map((accessiblePage) => {
+                            const { pageRoute, pageRedirect, pageAlias } = accessiblePage;
+                            // eslint-disable-next-line react-hooks/rules-of-hooks
+                            const location = useLocation<UseLocation>();
 
-                        if (location.pathname === pageRoute || (pageRedirect && location.pathname === pageRedirect)) {
+                            if (location.pathname === pageRoute || (pageRedirect && location.pathname === pageRedirect)) {
+                                return (
+                                    <li key={uuidv4()} className={styles.active}>
+                                        <Link to={pageRoute}>{Localization[pageAlias]}</Link>
+                                    </li>
+                                );
+                            }
                             return (
-                                <li key={uuidv4()} className={styles.active}>
+                                <li key={uuidv4()}>
                                     <Link to={pageRoute}>{Localization[pageAlias]}</Link>
                                 </li>
                             );
-                        }
-                        return (
-                            <li key={uuidv4()}>
-                                <Link to={pageRoute}>{Localization[pageAlias]}</Link>
-                            </li>
-                        );
-                    })
-                }
-            </ul>
+                        })
+                    }
+                </ul>
+            </div>
             <div
                 tabIndex={-1}
                 onKeyPress={() => {}}

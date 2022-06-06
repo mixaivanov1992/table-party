@@ -11,7 +11,6 @@ import Footer from '@components/Footer/Footer';
 import Header from '@components/Header/Header';
 import NavBarController from '@src/components/NavBar/NavBarController';
 import React from 'react';
-import styles from '@css/Route.module.scss';
 
 const Routes: React.FC = () => {
     console.info('Routes');
@@ -37,10 +36,8 @@ const Routes: React.FC = () => {
                 <Route key={uuidv4()} exact path={route}>
                     <Header accessiblePages={headerFilter} />
                     <Breadcrumbs accessiblePages={accessiblePages} />
-                    <main className={styles.wrapper}>
-                        <NavBarController accessiblePages={navbarFilter} />
-                        <Content accessiblePage={accessiblePage} />
-                    </main>
+                    <NavBarController accessiblePages={navbarFilter} />
+                    <Content accessiblePage={accessiblePage} />
                     <Footer accessiblePages={footerFilter} />
                 </Route>
             );

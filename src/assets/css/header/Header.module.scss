@@ -1,5 +1,6 @@
 @use "../core";
 .header {
+    width: calc(100% - 2rem);
     background: core.$third-color;
     border-bottom: 0.1em solid core.$border;
     border-left: 0.1em solid core.$border;

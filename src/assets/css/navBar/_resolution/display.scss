@@ -1,6 +1,5 @@
 .min_navbar,
 .navbar {
-    margin-bottom: 5em;
     position: relative;
     ul {
         li {
@@ -8,8 +7,6 @@
         }
     }
     .toggle {
-        position: absolute;
-        bottom: -1.4em;
         &:hover {
             color: core.$first-color;
         }

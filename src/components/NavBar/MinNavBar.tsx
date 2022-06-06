@@ -20,35 +20,37 @@ const MinNavBar: React.FC<Props> = (props) => {
     const { accessiblePages, onClickToggle } = props;
     return (
         <nav className={styles.min_navbar}>
-            <ul>
-                {
-                    accessiblePages.map((accessiblePage) => {
-                        const {
-                            pageRoute, pageRedirect, pageAlias, linkIcon,
-                        } = accessiblePage;
-                        const Icon = linkIcon;
+            <div className={styles.wrapper}>
+                <ul>
+                    {
+                        accessiblePages.map((accessiblePage) => {
+                            const {
+                                pageRoute, pageRedirect, pageAlias, linkIcon,
+                            } = accessiblePage;
+                            const Icon = linkIcon;
 
-                        // eslint-disable-next-line react-hooks/rules-of-hooks
-                        const location = useLocation();
-                        if (location.pathname === pageRoute || (pageRedirect && location.pathname === pageRedirect)) {
+                            // eslint-disable-next-line react-hooks/rules-of-hooks
+                            const location = useLocation();
+                            if (location.pathname === pageRoute || (pageRedirect && location.pathname === pageRedirect)) {
+                                return (
+                                    <li key={uuidv4()} className={styles.active}>
+                                        <Link data-localization={Localization[pageAlias]} to={pageRoute}>
+                                            <Icon />
+                                        </Link>
+                                    </li>
+                                );
+                            }
                             return (
-                                <li key={uuidv4()} className={styles.active}>
+                                <li key={uuidv4()}>
                                     <Link data-localization={Localization[pageAlias]} to={pageRoute}>
                                         <Icon />
                                     </Link>
                                 </li>
                             );
-                        }
-                        return (
-                            <li key={uuidv4()}>
-                                <Link data-localization={Localization[pageAlias]} to={pageRoute}>
-                                    <Icon />
-                                </Link>
-                            </li>
-                        );
-                    })
-                }
-            </ul>
+                        })
+                    }
+                </ul>
+            </div>
             <div
                 role="button"
                 tabIndex={-1}

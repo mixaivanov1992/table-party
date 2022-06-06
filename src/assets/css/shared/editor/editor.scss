@@ -84,7 +84,7 @@
                 text-align: center;
                 white-space: nowrap;
                 border: 0.1em solid core.$border;
-                padding: 1em;
+                padding: 0.5em;
                 border-radius: 0.25em;
                 background-color: core.$fourth-color;
                 -webkit-transition: all 0.5s ease;
@@ -94,6 +94,9 @@
                 transition: all 0.5s ease;
                 outline: none;
                 height: auto;
+            }
+            button {
+                padding: 0.5em;
             }
             > span {
                 margin-left: 0;

@@ -1,5 +1,6 @@
 @use "../core";
 .footer {
+    width: 100%;
     background: core.$second-color;
     color: core.$third-color;
     min-height: 100px;

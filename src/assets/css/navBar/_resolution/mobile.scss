@@ -1,8 +1,7 @@
 .min_navbar,
 .navbar {
     margin-right: 1rem;
-    margin-bottom: 1rem;
-    width: 100%;
+    width: calc(100% - 2rem);
     ul {
         width: 100%;
     }
