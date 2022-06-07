@@ -1,72 +1,9 @@
-.min_navbar,
 .navbar {
-    position: relative;
+    margin-right: 1rem;
+    height: calc(100% - 1rem);
+    direction: rtl;
+    overflow: auto;
     ul {
-        li {
-            margin-bottom: 0.5rem;
-        }
-    }
-    .toggle {
-        &:hover {
-            color: core.$first-color;
-        }
-    }
-}
-
-.navbar {
-    ul {
-        li {
-            a {
-                &:hover {
-                    opacity: 0.7;
-                }
-                &:hover::after {
-                    transform: scaleX(1);
-                    transform-origin: left;
-                }
-            }
-        }
-        .active {
-            a {
-                color: core.$first-color;
-                &::after {
-                    background: core.$first-color;
-                    transform: scaleX(1);
-                }
-                &:hover {
-                    color: core.$first-color;
-                }
-            }
-        }
-    }
-}
-.min_navbar {
-    ul {
-        li {
-            a {
-                &:hover {
-                    &::after {
-                        content: attr(data-localization);
-                        position: absolute;
-                        font-size: 0.5em;
-                        left: 2.5em;
-                        z-index: 10;
-                        background-color: core.$second-color;
-                        padding: 0.5em;
-                        color: core.$third-color;
-                        border-radius: 0.3em;
-                    }
-                }
-            }
-        }
-        .active {
-            a {
-                &:hover {
-                    &::after {
-                        background-color: core.$first-color;
-                    }
-                }
-            }
-        }
+        direction: ltr;
     }
 }

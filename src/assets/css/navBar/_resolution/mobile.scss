@@ -1,30 +1,7 @@
-.min_navbar,
 .navbar {
-    margin-right: 1rem;
-    width: calc(100% - 2rem);
+    width: 100%;
     ul {
         width: 100%;
-    }
-    .toggle {
-        display: none;
-    }
-}
-
-.navbar {
-    ul {
-        .active {
-            a {
-                color: core.$first-color;
-                &::after {
-                    background: core.$first-color;
-                    transform: scaleX(1);
-                }
-            }
-        }
-    }
-}
-.min_navbar {
-    ul {
         li {
             margin-bottom: 1rem;
             a {
@@ -34,7 +11,6 @@
                 text-decoration: none;
                 &::after {
                     content: attr(data-localization);
-                    font-size: 0.5em;
                     margin-left: 1rem;
                     color: core.$second-color;
                 }

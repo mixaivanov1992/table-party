@@ -9,7 +9,7 @@ import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs';
 import Content from '@components/Content/Content';
 import Footer from '@components/Footer/Footer';
 import Header from '@components/Header/Header';
-import NavBarController from '@src/components/NavBar/NavBarController';
+import NavBar from '@src/components/NavBar/NavBar';
 import React from 'react';
 
 const Routes: React.FC = () => {
@@ -36,8 +36,10 @@ const Routes: React.FC = () => {
                 <Route key={uuidv4()} exact path={route}>
                     <Header accessiblePages={headerFilter} />
                     <Breadcrumbs accessiblePages={accessiblePages} />
-                    <NavBarController accessiblePages={navbarFilter} />
-                    <Content accessiblePage={accessiblePage} />
+                    <div>
+                        <NavBar accessiblePages={navbarFilter} />
+                        <Content accessiblePage={accessiblePage} />
+                    </div>
                     <Footer accessiblePages={footerFilter} />
                 </Route>
             );

@@ -1,6 +1,6 @@
 .content {
-    height: 100vh;
     overflow: auto;
+    height: calc(100% - 1rem);
     .header {
         > svg {
             font-size: 2em;

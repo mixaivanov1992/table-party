@@ -2,11 +2,21 @@
 @media screen and (max-width: 600px) {
     body {
         font-size: 4vw;
+        #root {
+            min-height: 100vh;
+        }
     }
 }
 @media screen and (min-width: 601px) {
     body {
         font-size: 1vw;
+        #root {
+            height: 100vh;
+            overflow: hidden;
+            > div {
+                overflow: hidden;
+            }
+        }
     }
 }
 body {
@@ -130,5 +140,12 @@ input[type="search"]::placeholder {
 
 #root {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    > div {
+        display: flex;
+        flex-wrap: wrap;
+        flex: 1;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
 }
