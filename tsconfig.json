@@ -15,7 +15,7 @@
 				"./src/store/*"
 			],
 			"@interfaces-types/*": [
-				"./src/assets/interfaces-types/*"
+				"src/assets/models/*"
 			],
 			"@css/*": [
 				"./src/assets/css/*"

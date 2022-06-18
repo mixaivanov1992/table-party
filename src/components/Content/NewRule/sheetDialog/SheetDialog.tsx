@@ -2,7 +2,7 @@ import { CSSTransition } from 'react-transition-group';
 import { setActiveSheet } from '@src/store/reducer/activeSheetReducer';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
-import Content from '@components/Content/NewRule/SheetDialog/Content/Content';
+import Content from '@src/components/Content/NewRule/SheetDialog/Content/Content';
 import Dialog from '@shared/Dialog/Dialog';
 import Footer from '@components/Content/NewRule/SheetDialog/Footer/Footer';
 import Localization from '@src/assets/localization/content/newRule/sheetDialog';

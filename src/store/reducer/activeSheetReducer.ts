@@ -1,6 +1,6 @@
 import {
     ActiveSheetAction, ActiveSheetActionType, ActiveSheetState, SetActiveSheet,
-} from '@src/assets/interfaces-types/activeSheetReducer';
+} from '@src/assets/models/reducer/activeSheetReducer';
 
 const initialState: ActiveSheetState = {
     chapterUid: '',

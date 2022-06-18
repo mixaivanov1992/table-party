@@ -9,7 +9,7 @@ import {
     SetSheetContent,
     SetSheetCount,
     SetSheetCover,
-} from '@src/assets/interfaces-types/chapterReducer';
+} from '@src/assets/models/reducer/chapterReducer';
 import { v4 as uuidv4 } from 'uuid';
 
 function setSheetContentOrCover(state: ChapterState, action: SetSheetContent | SetSheetCover, itemKey: string): ChapterState {

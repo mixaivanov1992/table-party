@@ -1,4 +1,4 @@
-import { AccessiblePage } from '@interfaces-types/accessiblePage';
+import { AccessiblePage } from '@src/assets/models/accessiblePage';
 import {
     GiDiceEightFacesEight, GiDiceFire, GiPerspectiveDiceSixFacesFive, GiRollingDiceCup, GiRollingDices,
 } from 'react-icons/gi';

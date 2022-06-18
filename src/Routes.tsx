@@ -2,7 +2,7 @@ import {
     // eslint-disable-next-line
     HashRouter, Redirect, Route, BrowserRouter as Router, Switch,
 } from 'react-router-dom';
-import { LinkLocation } from '@interfaces-types/accessiblePage';
+import { LinkLocation } from '@src/assets/models/accessiblePage';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
 import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs';

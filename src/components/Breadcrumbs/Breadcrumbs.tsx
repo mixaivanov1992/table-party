@@ -1,4 +1,4 @@
-import { AccessiblePages } from '@interfaces-types/accessiblePage';
+import { AccessiblePages } from '@src/assets/models/accessiblePage';
 import { Link } from 'react-router-dom';
 import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 import Localization from '@localization/breadcrumbs/';

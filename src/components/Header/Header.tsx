@@ -1,5 +1,5 @@
-import { AccessiblePages } from '@interfaces-types/accessiblePage';
-import { Language } from '@src/assets/interfaces-types/language';
+import { AccessiblePages } from '@src/assets/models/accessiblePage';
+import { Language } from '@src/assets/models/language';
 import { Link } from 'react-router-dom';
 import { setLanguage } from '@src/store/reducer/mainSettingsReducer';
 import { useDispatch } from 'react-redux';

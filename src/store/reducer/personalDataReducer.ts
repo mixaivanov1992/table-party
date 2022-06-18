@@ -7,14 +7,14 @@ import {
     PersonalDataState,
     Roles,
     SetPersonalData,
-} from '@interfaces-types/personalDataReducer';
+} from '@src/assets/models/reducer/personalDataReducer';
 
 import {
     AccessiblePages,
     LinkLocation,
     PageAlias,
     PageRoute,
-} from '@interfaces-types/accessiblePage';
+} from '@src/assets/models/accessiblePage';
 
 const initialAccessiblePages: AccessiblePages = [{
     linkLocation: [LinkLocation.navbar],

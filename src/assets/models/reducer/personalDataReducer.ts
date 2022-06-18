@@ -1,4 +1,4 @@
-import { AccessiblePages } from '@interfaces-types/accessiblePage';
+import { AccessiblePages } from '@src/assets/models/accessiblePage';
 
 export interface PersonalDataState {
     isAuthorized: boolean,

@@ -1,4 +1,4 @@
-import { AccessiblePages } from '@interfaces-types/accessiblePage';
+import { AccessiblePages } from '@src/assets/models/accessiblePage';
 import { Link, useLocation } from 'react-router-dom';
 import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
