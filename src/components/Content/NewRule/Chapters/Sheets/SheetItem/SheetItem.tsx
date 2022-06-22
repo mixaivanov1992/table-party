@@ -2,7 +2,7 @@ import { setActiveSheet } from '@store/reducer/activeSheetReducer';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
-import Localization from '@localization/content/newRule/chapter/settings/sheets/sheetItem';
+import Localization from '@localization/components/content/newRule/chapter/settings/sheets/sheetItem';
 import React from 'react';
 import styles from '@css/content/newRule/chapters/sheets/sheetItem/SheetItem.module.scss';
 

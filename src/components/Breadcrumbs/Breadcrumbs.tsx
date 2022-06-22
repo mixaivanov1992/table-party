@@ -1,7 +1,7 @@
 import { AccessiblePages } from '@models/accessiblePage';
 import { Link } from 'react-router-dom';
 import { useTypedSelector } from '@hooks/useTypedSelector';
-import Localization from '@localization/breadcrumbs/';
+import Localization from '@localization/components/breadcrumbs/';
 import React from 'react';
 import styles from '@css/breadcrumbs/Breadcrumbs.module.scss';
 import useBreadcrumbs from 'use-react-router-breadcrumbs';

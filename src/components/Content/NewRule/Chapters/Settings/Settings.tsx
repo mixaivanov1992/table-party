@@ -2,7 +2,7 @@ import { removeChapter, setChapterName, setSheetCount } from '@store/reducer/cha
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import InputNumber from '@shared/InputNumber/InputNumber';
-import Localization from '@localization/content/newRule/chapter/settings';
+import Localization from '@localization/components/content/newRule/chapter/settings';
 import React, { useState } from 'react';
 import styles from '@css/content/newRule/chapters/settings/Settings.module.scss';
 

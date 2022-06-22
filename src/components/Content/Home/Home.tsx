@@ -1,6 +1,6 @@
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
-import Localization from '@localization/home';
+import Localization from '@localization/components/home';
 import React, { ReactNode } from 'react';
 import styles from '@css/content/home/Home.module.scss';
 

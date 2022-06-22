@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import Loader from '@shared/Loader/Loader';
-import Localization from '@localization/login';
+import Localization from '@localization/components/login';
 import React, { useState } from 'react';
 import styles from '@css/login/Login.module.scss';
 

@@ -2,7 +2,7 @@ import { AccessiblePages } from '@models/accessiblePage';
 import { Link } from 'react-router-dom';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
-import Localization from '@localization/footer';
+import Localization from '@localization/components/footer';
 import React from 'react';
 import styles from '@css/footer/Footer.module.scss';
 

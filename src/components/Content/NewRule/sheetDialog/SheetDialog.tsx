@@ -5,7 +5,7 @@ import { useTypedSelector } from '@hooks/useTypedSelector';
 import Content from '@components/Content/NewRule/SheetDialog/Content/Content';
 import Dialog from '@shared/Dialog/Dialog';
 import Footer from '@components/Content/NewRule/SheetDialog/Footer/Footer';
-import Localization from '@localization/content/newRule/sheetDialog';
+import Localization from '@localization/components/content/newRule/sheetDialog';
 import React from 'react';
 import styles from '@css/content/newRule/sheetDialog/SheetDialog.module.scss';
 

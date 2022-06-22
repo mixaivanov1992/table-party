@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import InputCheckbox from '@shared/InputCheckbox/InputCheckbox';
 import InputFile from '@shared/InputFile/InputFile';
-import Localization from '@localization/content/newRule/sheetDialog/footer';
+import Localization from '@localization/components/content/newRule/sheetDialog/footer';
 import React, { useState } from 'react';
 import styles from '@css/content/newRule/sheetDialog/footer/Footer.module.scss';
 

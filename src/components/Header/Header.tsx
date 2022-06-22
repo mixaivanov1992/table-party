@@ -5,7 +5,7 @@ import { setLanguage } from '@store/reducer/mainSettingsReducer';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
-import Localization from '@localization/header';
+import Localization from '@localization/components/header';
 import React from 'react';
 import styles from '@css/header/Header.module.scss';
 
@@ -16,8 +16,6 @@ interface Props {
 const Header: React.FC<Props> = (props) => {
     console.info('Header');
     const dispatch = useDispatch();
-    // const localStorageLanguage = localStorage.getItem('language');
-    // localStorageLanguage !== null ? JSON.parse(localStorageLanguage) : true
 
     const { language } = useTypedSelector((state) => state.mainSettingsReducer);
     Localization.setLanguage(language);

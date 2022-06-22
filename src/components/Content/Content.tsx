@@ -3,7 +3,7 @@ import {
     GiDiceEightFacesEight, GiDiceFire, GiPerspectiveDiceSixFacesFive, GiRollingDiceCup, GiRollingDices,
 } from 'react-icons/gi';
 import { useTypedSelector } from '@hooks/useTypedSelector';
-import Localization from '@localization/content';
+import Localization from '@localization/components/content';
 import React from 'react';
 import styles from '@css/content/Content.module.scss';
 

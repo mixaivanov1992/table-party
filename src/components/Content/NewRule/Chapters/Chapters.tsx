@@ -1,5 +1,5 @@
 import { useTypedSelector } from '@hooks/useTypedSelector';
-import Localization from '@localization/content/newRule/chapter';
+import Localization from '@localization/components/content/newRule/chapter';
 import Paginate from '@shared/Paginate/Paginate';
 import React from 'react';
 import styles from '@css/content/newRule/chapters/Chapters.module.scss';

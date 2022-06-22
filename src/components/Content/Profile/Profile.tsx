@@ -1,5 +1,5 @@
 import { useTypedSelector } from '@hooks/useTypedSelector';
-import Localization from '@localization/content/profile/profile';
+import Localization from '@localization/components/content/profile/profile';
 import React, { ReactNode } from 'react';
 
 interface Props {

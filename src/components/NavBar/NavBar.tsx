@@ -2,7 +2,7 @@ import { AccessiblePages } from '@models/accessiblePage';
 import { Link, useLocation } from 'react-router-dom';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
-import Localization from '@localization/navBar';
+import Localization from '@localization/components/navBar';
 import React from 'react';
 import styles from '@css/navBar/NavBar.module.scss';
 
