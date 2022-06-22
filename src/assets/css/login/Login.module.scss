@@ -16,15 +16,15 @@
             border-radius: 50%;
             position: absolute;
             background: core.$second-color;
-            left: -1.8em;
-            top: 1.8em;
+            left: -1.2em;
+            top: 1.2em;
             padding: 0.5em;
             > span {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 svg {
-                    font-size: 2.5em;
+                    font-size: 1.5em;
                     color: core.$third-color;
                 }
             }
@@ -62,6 +62,10 @@
             > button {
                 margin-bottom: 0.5em;
             }
+        }
+        .message {
+            color: core.$danger;
+            margin-bottom: 0.5em;
         }
         .social {
             display: flex;

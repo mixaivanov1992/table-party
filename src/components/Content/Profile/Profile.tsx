@@ -1,4 +1,4 @@
-import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import { useTypedSelector } from '@hooks/useTypedSelector';
 import Localization from '@localization/content/profile/profile';
 import React, { ReactNode } from 'react';
 

@@ -1,10 +1,10 @@
-import { setActiveSheet } from '@src/store/reducer/activeSheetReducer';
-import { setSheetCover } from '@src/store/reducer/chapterReducer';
+import { setActiveSheet } from '@store/reducer/activeSheetReducer';
+import { setSheetCover } from '@store/reducer/chapterReducer';
 import { useDispatch } from 'react-redux';
-import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
-import InputCheckbox from '@src/shared/InputCheckbox/InputCheckbox';
-import InputFile from '@src/shared/InputFile/InputFile';
-import Localization from '@src/assets/localization/content/newRule/sheetDialog/footer';
+import { useTypedSelector } from '@hooks/useTypedSelector';
+import InputCheckbox from '@shared/InputCheckbox/InputCheckbox';
+import InputFile from '@shared/InputFile/InputFile';
+import Localization from '@localization/content/newRule/sheetDialog/footer';
 import React, { useState } from 'react';
 import styles from '@css/content/newRule/sheetDialog/footer/Footer.module.scss';
 

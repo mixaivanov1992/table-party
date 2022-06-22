@@ -1,4 +1,4 @@
-import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
 import Localization from '@localization/about';
 import React, { ReactNode } from 'react';

@@ -2,14 +2,14 @@ import {
     // eslint-disable-next-line
     HashRouter, Redirect, Route, BrowserRouter as Router, Switch,
 } from 'react-router-dom';
-import { LinkLocation } from '@src/assets/models/accessiblePage';
+import { LinkLocation } from '@models/accessiblePage';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
 import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs';
 import Content from '@components/Content/Content';
 import Footer from '@components/Footer/Footer';
 import Header from '@components/Header/Header';
-import NavBar from '@src/components/NavBar/NavBar';
+import NavBar from '@components/NavBar/NavBar';
 import React from 'react';
 
 const Routes: React.FC = () => {

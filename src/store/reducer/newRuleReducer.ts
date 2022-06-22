@@ -1,6 +1,6 @@
 import {
     NewRuleAction, NewRuleState, SetGameName, Version, newRuleActionType,
-} from '@src/assets/models/reducer/newRuleReducer';
+} from '@models/reducer/newRuleReducer';
 
 const versionIndex = Object.keys(Version);
 const version = Version[versionIndex[versionIndex.length - 1]];

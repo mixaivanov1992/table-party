@@ -7,14 +7,14 @@ import {
     PersonalDataState,
     Roles,
     SetPersonalData,
-} from '@src/assets/models/reducer/personalDataReducer';
+} from '@models/reducer/personalDataReducer';
 
 import {
     AccessiblePages,
     LinkLocation,
     PageAlias,
     PageRoute,
-} from '@src/assets/models/accessiblePage';
+} from '@models/accessiblePage';
 
 const initialAccessiblePages: AccessiblePages = [{
     linkLocation: [LinkLocation.navbar],
@@ -66,7 +66,6 @@ const initialState: PersonalDataState = {
 export const personalDataReducer = (state = initialState, action: PersonalDataAction): PersonalDataState => {
     switch (action.type) {
     case PersonalDataActionType.SET_PERSONAL_DATA:
-
         if (action.isAuthorized) {
             const accessiblePages: AccessiblePages = [...initialAccessiblePages];
             accessiblePages.pop();

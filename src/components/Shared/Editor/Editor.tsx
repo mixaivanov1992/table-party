@@ -1,7 +1,7 @@
 import '@css/shared/editor/editor.scss';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { ContentState, EditorState, convertToRaw } from 'draft-js';
-import { Language } from '@src/assets/models/language';
+import { Language } from '@models/language';
 import { Editor as Wysiwyg } from 'react-draft-wysiwyg';
 import React, { useState } from 'react';
 import draftToHtml from 'draftjs-to-html';

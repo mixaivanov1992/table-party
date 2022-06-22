@@ -1,9 +1,9 @@
-import { AccessiblePages } from '@src/assets/models/accessiblePage';
-import { Language } from '@src/assets/models/language';
+import { AccessiblePages } from '@models/accessiblePage';
+import { Language } from '@models/language';
 import { Link } from 'react-router-dom';
-import { setLanguage } from '@src/store/reducer/mainSettingsReducer';
+import { setLanguage } from '@store/reducer/mainSettingsReducer';
 import { useDispatch } from 'react-redux';
-import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
 import Localization from '@localization/header';
 import React from 'react';

@@ -1,9 +1,9 @@
-import { addChapter, deleteChapters } from '@src/store/reducer/chapterReducer';
+import { addChapter, deleteChapters } from '@store/reducer/chapterReducer';
 import { setGameName } from '@store/reducer/newRuleReducer';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import InputNumber from '@shared/InputNumber/InputNumber';
-import Localization from '@src/assets/localization/content/newRule/settings';
+import Localization from '@localization/content/newRule/settings';
 import React, { useState } from 'react';
 import styles from '@css/content/newRule/settings/Settings.module.scss';
 

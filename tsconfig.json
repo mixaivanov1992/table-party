@@ -2,19 +2,16 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"@src/*": [
-				"./src/*"
+			"@shared/*": [
+				"src/components/Shared/*"
 			],
 			"@components/*": [
 				"./src/components/*"
 			],
-			"@shared/*": [
-				"./src/shared/*"
-			],
 			"@store/*": [
 				"./src/store/*"
 			],
-			"@interfaces-types/*": [
+			"@models/*": [
 				"src/assets/models/*"
 			],
 			"@css/*": [
@@ -25,6 +22,9 @@
 			],
 			"@localization/*": [
 				"./src/assets/localization/*"
+			],
+			"@src/*": [
+				"./src/*"
 			],
 		},
 		"plugins": [
@@ -50,7 +50,7 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noEmit": false,
-		"noImplicitAny": false, //добавил
+		"noImplicitAny": false,
 		"jsx": "react-jsx",
         "removeComments": true,
 		"sourceMap": true

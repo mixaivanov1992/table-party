@@ -1,5 +1,5 @@
 import { IoMdImages } from 'react-icons/io';
-import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
 import React, { ReactNode } from 'react';
 import styles from '@css/content/rules/Rules.module.scss';

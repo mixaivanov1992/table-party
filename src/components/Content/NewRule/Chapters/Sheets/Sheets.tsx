@@ -1,4 +1,4 @@
-import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import { useTypedSelector } from '@hooks/useTypedSelector';
 import Paginate from '@shared/Paginate/Paginate';
 import React from 'react';
 import SheetItem from '@components/Content/NewRule/Chapters/Sheets/SheetItem/SheetItem';

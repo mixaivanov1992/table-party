@@ -1,7 +1,7 @@
-import { Language } from '@src/assets/models/language';
+import { Language } from '@models/language';
 import {
     MainSettingsAction, MainSettingsActionType, MainSettingsState, SetLanguage,
-} from '@src/assets/models/reducer/mainSettingsReducer';
+} from '@models/reducer/mainSettingsReducer';
 
 const initialState: MainSettingsState = {
     language: Language.ru,

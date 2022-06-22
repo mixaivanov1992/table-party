@@ -1,8 +1,8 @@
-import { AccessiblePage } from '@src/assets/models/accessiblePage';
+import { AccessiblePage } from '@models/accessiblePage';
 import {
     GiDiceEightFacesEight, GiDiceFire, GiPerspectiveDiceSixFacesFive, GiRollingDiceCup, GiRollingDices,
 } from 'react-icons/gi';
-import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import { useTypedSelector } from '@hooks/useTypedSelector';
 import Localization from '@localization/content';
 import React from 'react';
 import styles from '@css/content/Content.module.scss';

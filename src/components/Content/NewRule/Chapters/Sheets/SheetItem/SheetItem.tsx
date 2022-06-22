@@ -1,8 +1,8 @@
-import { setActiveSheet } from '@src/store/reducer/activeSheetReducer';
+import { setActiveSheet } from '@store/reducer/activeSheetReducer';
 import { useDispatch } from 'react-redux';
-import { useTypedSelector } from '@src/assets/hooks/useTypedSelector';
+import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
-import Localization from '@src/assets/localization/content/newRule/chapter/settings/sheets/sheetItem';
+import Localization from '@localization/content/newRule/chapter/settings/sheets/sheetItem';
 import React from 'react';
 import styles from '@css/content/newRule/chapters/sheets/sheetItem/SheetItem.module.scss';
 

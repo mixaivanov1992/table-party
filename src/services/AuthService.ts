@@ -1,17 +1,15 @@
-import { AuthResponse } from '@src/assets/models/services/authResponse';
+import { AuthResponse } from '@models/services/authResponse';
 import { AxiosResponse } from 'axios';
 import $api from '@src/http';
 
-export default class AuthService {
-    static async login(email: string, password: string): Promise<AxiosResponse<AuthResponse>> {
-        return $api.post<AuthResponse>('/login', { email, password });
-    }
+export async function login(email: string, password: string): Promise<AxiosResponse<AuthResponse>> {
+    return $api.post<AuthResponse>('/login', { email, password });
+}
 
-    static async registration(email: string, password: string): Promise<AxiosResponse<AuthResponse>> {
-        return $api.post<AuthResponse>('/registration', { email, password });
-    }
+export async function registration(email: string, password: string): Promise<AxiosResponse<AuthResponse>> {
+    return $api.post<AuthResponse>('/registration', { email, password });
+}
 
-    static async logout(): Promise<void> {
-        return $api.post('/logout');
-    }
+export async function logout(): Promise<void> {
+    return $api.post('/logout');
 }
