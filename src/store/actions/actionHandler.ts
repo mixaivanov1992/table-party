@@ -3,7 +3,7 @@ import { Language } from '@models/language';
 import { LoaderAction } from '@models/reducer/loaderReducer';
 import { ServerAnswer } from '@models/actions/serverAnswerAction';
 import { showLoader } from '@store/reducer/loaderReducer';
-import Localization from '@localization/actions/auth';
+import Localization from '@localization/actions/errors';
 
 function errorText(language: Language, text: string): string {
     Localization.setLanguage(language);

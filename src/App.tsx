@@ -1,5 +1,5 @@
 import { actionHandler } from '@store/actions/actionHandler';
-import { checkAuth } from '@store/actions/authAction';
+import { checkAuthAction } from '@store/actions/authAction';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import React, { useEffect } from 'react';
@@ -12,7 +12,7 @@ const App: React.FC = () => {
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
-            dispatch(actionHandler(dispatch(checkAuth()), language));
+            dispatch(actionHandler(dispatch(checkAuthAction()), language));
         }
     }, [dispatch]);
 

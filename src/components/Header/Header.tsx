@@ -1,6 +1,8 @@
 import { AccessiblePages } from '@models/accessiblePage';
 import { Language } from '@models/language';
 import { Link } from 'react-router-dom';
+import { actionHandler } from '@store/actions/actionHandler';
+import { logoutAction } from '@store/actions/authAction';
 import { setLanguage } from '@store/reducer/mainSettingsReducer';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
@@ -17,6 +19,7 @@ const Header: React.FC<Props> = (props) => {
     console.info('Header');
     const dispatch = useDispatch();
 
+    const { isAuthorized } = useTypedSelector((state) => state.personalDataReducer);
     const { language } = useTypedSelector((state) => state.mainSettingsReducer);
     Localization.setLanguage(language);
 
@@ -26,6 +29,10 @@ const Header: React.FC<Props> = (props) => {
 
     const onChangeSetLanguage = (item: string): void => {
         dispatch(setLanguage(item));
+    };
+
+    const onClickLogout = ():void => {
+        dispatch(actionHandler(dispatch(logoutAction()), language));
     };
 
     return (
@@ -38,19 +45,33 @@ const Header: React.FC<Props> = (props) => {
                     {option}
                 </select>
                 <div className={styles.user_menu}>
-                    {accessiblePages.map((accessiblePage) => {
-                        const {
-                            pageRoute, pageRedirect, pageAlias, linkIcon,
-                        } = accessiblePage;
-                        const route = pageRedirect || pageRoute;
-                        const Icon = linkIcon;
+                    <div>
+                        {accessiblePages.map((accessiblePage) => {
+                            const {
+                                pageRoute, pageRedirect, pageAlias, linkIcon,
+                            } = accessiblePage;
+                            const route = pageRedirect || pageRoute;
+                            const Icon = linkIcon;
 
-                        return (
-                            <Link key={uuidv4()} className={styles[pageAlias]} to={route}>
-                                <Icon />
-                            </Link>
-                        );
-                    })}
+                            return (
+                                <Link key={uuidv4()} className={styles[pageAlias]} to={route}>
+                                    <Icon />
+                                </Link>
+                            );
+                        })}
+                    </div>
+                    {isAuthorized ? (
+                        <span
+                            role="button"
+                            tabIndex={-1}
+                            onKeyPress={() => {}}
+                            onClick={onClickLogout}
+                            className={styles.logout}
+                        >
+                            {Localization.logout}
+
+                        </span>
+                    ) : <span>{Localization.guest}</span>}
                 </div>
             </div>
         </header>
