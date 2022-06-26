@@ -11,6 +11,11 @@ const ForgotPassword: React.FC = () => {
     const onChangeEmail = ((value: string): void => {
         setEmail(value.trim());
     });
+    async function onClickRecover() {
+        if (!email) {
+            setMessage(Localization.emailNotField);
+        }
+    }
 
     return (
         <div className={styles.forgot_password}>
@@ -29,8 +34,8 @@ const ForgotPassword: React.FC = () => {
                     </label>
                 </div>
                 <button
-                    className={styles.recover}
-                    onClick={() => {}}
+                    className={styles.recover_btn}
+                    onClick={onClickRecover}
                     type="button"
                 >
                     {Localization.recover}

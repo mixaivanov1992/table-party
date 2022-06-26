@@ -1,14 +1,6 @@
-import {
-    AccessiblePages,
-    LinkLocation,
-    PageAlias,
-    PageRoute,
-} from '@models/accessiblePage';
-import { GiRuleBook } from 'react-icons/gi';
-import { GuestPages } from '@store/defaultParameters/guestPages';
-import { ImBook } from 'react-icons/im';
-import { InitialPages } from '@store/defaultParameters/initialPages';
-import { IoPersonCircle } from 'react-icons/io5';
+import { AccessiblePages } from '@models/accessiblePage';
+import { GuestPages } from '@store/defaultParameters/pages/guestPages';
+import { InitialPages } from '@store/defaultParameters/pages/initialPages';
 import {
     PersonalDataAction,
     PersonalDataActionType,
@@ -16,6 +8,7 @@ import {
     Roles,
     SetPersonalData,
 } from '@models/reducer/personalDataReducer';
+import { UserPage } from '@store/defaultParameters/pages/userPages';
 
 const initialState: PersonalDataState = {
     isAuthorized: false,
@@ -30,36 +23,7 @@ export const personalDataReducer = (state = initialState, action: PersonalDataAc
     switch (action.type) {
     case PersonalDataActionType.SET_PERSONAL_DATA:
         if (action.isAuthorized) {
-            const accessiblePages: AccessiblePages = [...InitialPages];
-            accessiblePages.push({
-                linkLocation: [LinkLocation.navbar],
-                pageRoute: PageRoute.myRules,
-                pageAlias: PageAlias.myRules,
-                pageRedirect: null,
-                component: 'MyRules/MyRules',
-                isContentComponent: true,
-                linkIcon: ImBook,
-                sort: 3,
-            }, {
-                linkLocation: [LinkLocation.navbar],
-                pageRoute: PageRoute.newRule,
-                pageAlias: PageAlias.newRule,
-                pageRedirect: null,
-                component: 'NewRule/NewRule',
-                isContentComponent: true,
-                linkIcon: GiRuleBook,
-                sort: 4,
-            }, {
-                linkLocation: [LinkLocation.header],
-                pageRoute: PageRoute.profile,
-                pageAlias: PageAlias.profile,
-                pageRedirect: null,
-                component: 'Profile/Profile',
-                isContentComponent: true,
-                linkIcon: IoPersonCircle,
-                sort: 1,
-            });
-
+            const accessiblePages: AccessiblePages = [...InitialPages, ...UserPage];
             accessiblePages.sort((a, b) => a.sort - b.sort);
             return {
                 ...state,

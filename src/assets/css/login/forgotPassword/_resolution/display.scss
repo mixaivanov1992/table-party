@@ -1,7 +1,6 @@
 .forgot_password {
     .wrapper {
         width: 30%;
-        height: 50%;
         .email {
             input:focus + span {
                 color: core.$first-color;

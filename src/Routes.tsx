@@ -36,7 +36,7 @@ const Routes: React.FC = () => {
                 <Route key={uuidv4()} exact path={route}>
                     <Header accessiblePages={headerFilter} />
                     <Breadcrumbs accessiblePages={accessiblePages} />
-                    <div>
+                    <div className="content">
                         <NavBar accessiblePages={navbarFilter} />
                         <Content accessiblePage={accessiblePage} />
                     </div>

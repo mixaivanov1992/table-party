@@ -35,6 +35,10 @@ const Registration: React.FC = () => {
         }
         if (!confirm) {
             setMessage(Localization.confirmNotField);
+            return;
+        }
+        if (confirm !== password) {
+            setMessage(Localization.passwordsNotMatch);
         }
     }
 
