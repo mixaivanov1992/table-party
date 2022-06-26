@@ -32,7 +32,7 @@ const Header: React.FC<Props> = (props) => {
     };
 
     const onClickLogout = ():void => {
-        dispatch(actionHandler(dispatch(logoutAction()), language));
+        actionHandler(dispatch, language, logoutAction);
     };
 
     return (

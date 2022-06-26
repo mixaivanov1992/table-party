@@ -1,6 +1,7 @@
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useHistory } from 'react-router-dom';
 import { PageAlias } from '@models/accessiblePage';
+import { ServerAnswer } from '@models/actions/serverAnswerAction';
 import { actionHandler } from '@store/actions/actionHandler';
 import { loginAction } from '@store/actions/authAction';
 import { useDispatch } from 'react-redux';
@@ -32,11 +33,6 @@ const Login: React.FC = () => {
     const onChangePassword = ((value: string): void => {
         setPassword(value.trim());
     });
-
-    interface Result{
-        isSuccess: boolean,
-        message: string
-    }
     async function onClickLogin() {
         if (!email) {
             setMessage(Localization.emailNotField);
@@ -46,11 +42,7 @@ const Login: React.FC = () => {
             setMessage(Localization.passwordNotField);
             return;
         }
-        const result = {
-            ...await dispatch(
-                actionHandler(dispatch(loginAction(email, password)), language),
-            ),
-        } as Result;
+        const result = await actionHandler(dispatch, language, loginAction, email, password);
         if (result.isSuccess) {
             history.goBack();
         } else {

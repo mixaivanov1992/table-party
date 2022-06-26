@@ -12,9 +12,9 @@ const App: React.FC = () => {
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
-            dispatch(actionHandler(dispatch(checkAuthAction()), language));
+            actionHandler(dispatch, language, checkAuthAction);
         }
-    }, [dispatch]);
+    }, []);
 
     return (
         <Routes />

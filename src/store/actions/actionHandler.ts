@@ -1,6 +1,5 @@
 import { Dispatch } from 'react';
 import { Language } from '@models/language';
-import { LoaderAction } from '@models/reducer/loaderReducer';
 import { ReducersActions } from '@models/actions/reducersAction';
 import { ServerAnswer } from '@models/actions/serverAnswerAction';
 import { showLoader } from '@store/reducer/loaderReducer';
@@ -14,13 +13,14 @@ function errorText(language: Language, text: string): string {
     }
     return Localization.unknownError;
 }
-
-export const actionHandler = (action:(dispatch: Dispatch<ReducersActions>) => Promise<ServerAnswer>, language: Language) => async (dispatch:Dispatch<LoaderAction>): Promise<ServerAnswer> => {
+// action, ...args - any remake
+export async function actionHandler(dispatch: Dispatch<ReducersActions>, language: Language, action, ...args): Promise<ServerAnswer> {
     dispatch(showLoader(true));
-    const result = { ...await action } as ServerAnswer;
+    const result = { ...await action(dispatch, ...args) } as ServerAnswer;
     dispatch(showLoader(false));
+
     if (!result.isSuccess) {
         return { ...result, message: errorText(language, result.message) };
     }
     return result;
-};
+}
