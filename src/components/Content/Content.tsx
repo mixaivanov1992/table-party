@@ -15,7 +15,7 @@ const Content: React.FC<Props> = (props) => {
     Localization.setLanguage(language);
 
     const { accessiblePage } = props;
-    const { pageAlias, componentName } = accessiblePage;
+    const { pageAlias, component } = accessiblePage;
 
     console.info('Content', `page-${pageAlias}`);
 
@@ -23,7 +23,7 @@ const Content: React.FC<Props> = (props) => {
     const dice = [GiRollingDices, GiPerspectiveDiceSixFacesFive, GiRollingDiceCup, GiDiceEightFacesEight, GiDiceFire];
     const DiceComponent = dice[randomInt(0, 4)];
 
-    const Component = require(`./${componentName}/${componentName}`).default;
+    const Component = require(`./${component}`).default;
     return (
         <main className={styles.content}>
             <Component>

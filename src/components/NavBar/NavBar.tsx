@@ -33,7 +33,7 @@ const NavBar: React.FC<Props> = (props) => {
                             return (
                                 <li key={uuidv4()} className={styles.active}>
                                     <Link data-localization={Localization[pageAlias]} to={pageRoute}>
-                                        <Icon />
+                                        {Icon ? <Icon /> : ''}
                                     </Link>
                                 </li>
                             );
@@ -41,7 +41,7 @@ const NavBar: React.FC<Props> = (props) => {
                         return (
                             <li key={uuidv4()}>
                                 <Link data-localization={Localization[pageAlias]} to={pageRoute}>
-                                    <Icon />
+                                    {Icon ? <Icon /> : ''}
                                 </Link>
                             </li>
                         );

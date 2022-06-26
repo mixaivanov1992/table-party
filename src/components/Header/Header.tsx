@@ -55,7 +55,7 @@ const Header: React.FC<Props> = (props) => {
 
                             return (
                                 <Link key={uuidv4()} className={styles[pageAlias]} to={route}>
-                                    <Icon />
+                                    {Icon ? <Icon /> : ''}
                                 </Link>
                             );
                         })}

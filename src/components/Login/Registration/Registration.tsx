@@ -1,30 +1,19 @@
-import { FcGoogle } from 'react-icons/fc';
-import { Link, useHistory } from 'react-router-dom';
-import { PageAlias } from '@models/accessiblePage';
-import { actionHandler } from '@store/actions/actionHandler';
-import { loginAction } from '@store/actions/authAction';
-import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
-import { v4 as uuidv4 } from 'uuid';
 import GoBack from '@components/Login/GoBack/GoBack';
-import Loader from '@shared/Loader/Loader';
-import Localization from '@localization/components/login';
+import Localization from '@localization/components/login/registration';
 import React, { useState } from 'react';
-import styles from '@css/login/Login.module.scss';
+import styles from '@css/login/registration/Registration.module.scss';
 
-const Login: React.FC = () => {
-    console.info('Login');
-    const dispatch = useDispatch();
+const Registration: React.FC = () => {
+    console.info('Registration');
 
-    const { isLoading } = useTypedSelector((state) => state.loaderReducer);
     const { language } = useTypedSelector((state) => state.mainSettingsReducer);
     Localization.setLanguage(language);
 
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [confirm, setConfirm] = useState<string>('');
     const [message, setMessage] = useState<string>('');
-
-    const history = useHistory();
 
     const onChangeEmail = ((value: string): void => {
         setEmail(value.trim());
@@ -32,12 +21,10 @@ const Login: React.FC = () => {
     const onChangePassword = ((value: string): void => {
         setPassword(value.trim());
     });
-
-    interface Result{
-        isSuccess: boolean,
-        message: string
-    }
-    async function onClickLogin() {
+    const onChangeConfirm = ((value: string): void => {
+        setConfirm(value.trim());
+    });
+    async function onClickRegistration() {
         if (!email) {
             setMessage(Localization.emailNotField);
             return;
@@ -46,27 +33,16 @@ const Login: React.FC = () => {
             setMessage(Localization.passwordNotField);
             return;
         }
-        const result = {
-            ...await dispatch(
-                actionHandler(dispatch(loginAction(email, password)), language),
-            ),
-        } as Result;
-        if (result.isSuccess) {
-            history.goBack();
-        } else {
-            setMessage(result.message);
+        if (!confirm) {
+            setMessage(Localization.confirmNotField);
         }
     }
 
-    if (isLoading) {
-        return <Loader />;
-    }
-
     return (
-        <div className={styles.login}>
+        <div className={styles.registration}>
             <div className={styles.wrapper}>
                 <GoBack />
-                <div className={styles.header}>{Localization.entrance}</div>
+                <div className={styles.header}>{Localization.registration}</div>
                 <div className={styles.email}>
                     <label htmlFor="email">
                         <input
@@ -89,33 +65,29 @@ const Login: React.FC = () => {
                         {password ? <span className={styles.raise}>{Localization.password}</span> : <span>{Localization.password}</span>}
                     </label>
                 </div>
-                <div>
-                    <div className={styles.message}>{message}</div>
-                    <Link key={uuidv4()} className={styles.forgot_password} to={PageAlias.forgotPassword}>
-                        {Localization.forgotPassword}
-                    </Link>
+                <div className={styles.confirm}>
+                    <label htmlFor="confirm">
+                        <input
+                            onChange={(e) => { onChangeConfirm(e.currentTarget.value); }}
+                            type="password"
+                            id="confirm"
+                            value={confirm}
+                        />
+                        {confirm ? <span className={styles.raise}>{Localization.confirm}</span> : <span>{Localization.confirm}</span>}
+                    </label>
+                </div>
+                <div className={styles.registration_btn}>
                     <button
-                        className={styles.login_btn}
-                        onClick={onClickLogin}
+                        onClick={onClickRegistration}
                         type="button"
                     >
-                        {Localization.login}
+                        {Localization.registration}
                     </button>
-                    <div>
-                        <Link key={uuidv4()} className={styles.registration} to={PageAlias.registration}>
-                            {Localization.registration}
-                        </Link>
-                    </div>
                 </div>
-                <div className={styles.social}>
-                    <div className={styles.google}>
-                        <FcGoogle />
-                        <span>{Localization.google}</span>
-                    </div>
-                </div>
+                <div className={styles.message}>{message}</div>
             </div>
         </div>
     );
 };
 
-export default Login;
+export default Registration;

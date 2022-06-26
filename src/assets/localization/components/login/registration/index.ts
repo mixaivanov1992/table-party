@@ -2,26 +2,22 @@ import LocalizedStrings from 'react-localization';
 
 const Localization = new LocalizedStrings({
     ru: {
-        entrance: 'Вход',
+        registration: 'Регистрация',
         email: 'Email',
         password: 'Пароль',
-        forgotPassword: 'Забыли пароль?',
-        login: 'Войти',
-        registration: 'Регистрация',
-        google: 'Войти через Google',
+        confirm: 'Подтвердить',
         emailNotField: 'Поле "Email" не заполнено',
         passwordNotField: 'Поле "Пароль" не заполнено',
+        confirmNotField: 'Поле "Confirm" не заполнено',
     },
     en: {
-        entrance: 'Entrance',
+        registration: 'Registration',
         email: 'Email',
         password: 'Password',
-        forgotPassword: 'Forgot your password?',
-        login: 'Log in',
-        registration: 'Registration',
-        google: 'Log in via Google',
+        confirm: 'Confirm',
         emailNotField: 'The "Email" field is not filled in',
         passwordNotField: 'The "Password" field is not filled in',
+        confirmNotField: 'The "Confirm" field is not filled in',
     },
 });
 export default Localization;

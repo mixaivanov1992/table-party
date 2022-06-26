@@ -13,7 +13,9 @@ export enum PageRoute{
     rules = '/rules',
     about = '/about',
     login = '/login',
-    myRules = '/my-rules',
+    registration = '/registration',
+    forgotPassword = '/forgotPassword',
+    myRules = '/my-rules', // убрать в profile
     newRule = '/new-rule',
     profile = '/profile',
 }
@@ -22,6 +24,8 @@ export enum PageAlias{
     rules = 'rules',
     about = 'about',
     login = 'login',
+    registration = 'registration',
+    forgotPassword = 'forgotPassword',
     myRules = 'myRules',
     newRule = 'newRule',
     profile = 'profile',
@@ -32,9 +36,9 @@ export interface AccessiblePage {
     readonly pageRoute: PageRoute,
     readonly pageAlias: PageAlias,
     readonly pageRedirect: PageRoute | null,
-    readonly componentName: string,
+    readonly component: string,
     readonly isContentComponent: boolean,
-    readonly linkIcon: IconType,
+    readonly linkIcon?: IconType,
     readonly sort: number
 }
 

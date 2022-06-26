@@ -1,14 +1,8 @@
-.login {
+.forgot_password {
     .wrapper {
         width: 30%;
         height: 50%;
-        .social {
-            > div:hover {
-                background-color: core.$third-color;
-            }
-        }
-        .email,
-        .password {
+        .email {
             input:focus + span {
                 color: core.$first-color;
                 transform: translateY(-1em);

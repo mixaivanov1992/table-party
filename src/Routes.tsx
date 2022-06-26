@@ -24,7 +24,7 @@ const Routes: React.FC = () => {
 
     const routes = accessiblePages.map((accessiblePage) => {
         const {
-            pageRoute, pageRedirect, isContentComponent, componentName,
+            pageRoute, pageRedirect, isContentComponent, component,
         } = accessiblePage;
         const route = pageRedirect || pageRoute;
 
@@ -44,7 +44,7 @@ const Routes: React.FC = () => {
                 </Route>
             );
         }
-        const Component = require(`./components/${componentName}/${componentName}`).default;
+        const Component = require(`./components/${component}`).default;
         return (
             <Route key={uuidv4()} exact path={route}>
                 <Component />
