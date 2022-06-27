@@ -1,7 +1,6 @@
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useHistory } from 'react-router-dom';
 import { PageAlias } from '@models/accessiblePage';
-import { ServerAnswer } from '@models/actions/serverAnswerAction';
 import { actionHandler } from '@store/actions/actionHandler';
 import { loginAction } from '@store/actions/authAction';
 import { useDispatch } from 'react-redux';

@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     background-size: cover;
-    background-image: url("../../../img/login-background.png");
+    background-image: url("../../../img/login-background.jpg");
     &::after {
         content: "";
         background: rgba(0, 0, 0, 0.2);
@@ -14,6 +14,7 @@
         position: fixed;
     }
     .wrapper {
+        z-index: 1;
         -webkit-box-shadow: 0px 0px 20px 0px core.$shadow;
         -moz-box-shadow: 0px 0px 20px 0px core.$shadow;
         box-shadow: 0px 0px 20px 0px core.$shadow;
