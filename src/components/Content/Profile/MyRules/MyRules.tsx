@@ -1,18 +1,14 @@
 import { IoMdImages } from 'react-icons/io';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
-import React, { ReactNode } from 'react';
-import styles from '@css/content/myRules/MyRules.module.scss';
+import React from 'react';
+import styles from '@css/content/profile/myRules/MyRules.module.scss';
 
-interface Props {
-    children: ReactNode
-}
-const MyRules: React.FC<Props> = (props) => {
+const MyRules: React.FC = () => {
     console.info('MyRules');
 
     const { language } = useTypedSelector((state) => state.mainSettingsReducer);
     // Localization.setLanguage(language);
-    const { children } = props;
 
     const myRulesState = [{
         name: {
@@ -72,12 +68,9 @@ const MyRules: React.FC<Props> = (props) => {
     });
 
     return (
-        <>
-            {children}
-            <div>
-                <div className={styles.my_rules}>{rules}</div>
-            </div>
-        </>
+        <div>
+            <div className={styles.my_rules}>{rules}</div>
+        </div>
     );
 };
 

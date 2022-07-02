@@ -8,16 +8,15 @@ export enum LinkLocation{
     separately = 'separately'
 }
 export enum PageRoute{
-    default = '/',
-    home = '/home',
+    home = '/',
     rules = '/rules',
     about = '/about',
     login = '/login',
     registration = '/registration',
     forgotPassword = '/forgotPassword',
-    myRules = '/my-rules', // убрать в profile
     newRule = '/new-rule',
     profile = '/profile',
+    page404 = '*',
 }
 export enum PageAlias{
     home = 'home',
@@ -26,16 +25,16 @@ export enum PageAlias{
     login = 'login',
     registration = 'registration',
     forgotPassword = 'forgotPassword',
-    myRules = 'myRules',
     newRule = 'newRule',
     profile = 'profile',
+    page404 = 'page404',
 }
 
 export interface AccessiblePage {
     readonly linkLocation: Array<LinkLocation>,
     readonly pageRoute: PageRoute,
     readonly pageAlias: PageAlias,
-    readonly pageRedirect: PageRoute | null,
+    readonly exact: boolean,
     readonly component: string,
     readonly isContentComponent: boolean,
     readonly linkIcon?: IconType,

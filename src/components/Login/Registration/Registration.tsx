@@ -1,3 +1,6 @@
+import { actionHandler } from '@store/actions/actionHandler';
+import { registrationAction } from '@store/actions/authAction';
+import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import GoBack from '@components/Login/GoBack/GoBack';
 import Localization from '@localization/components/login/registration';
@@ -6,6 +9,7 @@ import styles from '@css/login/registration/Registration.module.scss';
 
 const Registration: React.FC = () => {
     console.info('Registration');
+    const dispatch = useDispatch();
 
     const { language } = useTypedSelector((state) => state.mainSettingsReducer);
     Localization.setLanguage(language);
@@ -14,6 +18,7 @@ const Registration: React.FC = () => {
     const [password, setPassword] = useState<string>('');
     const [confirm, setConfirm] = useState<string>('');
     const [message, setMessage] = useState<string>('');
+    const [isRegistered, setIsRegistered] = useState<boolean>(false);
 
     const onChangeEmail = ((value: string): void => {
         setEmail(value.trim());
@@ -25,6 +30,7 @@ const Registration: React.FC = () => {
         setConfirm(value.trim());
     });
     async function onClickRegistration() {
+        setMessage('');
         if (!email) {
             setMessage(Localization.emailNotField);
             return;
@@ -39,6 +45,13 @@ const Registration: React.FC = () => {
         }
         if (confirm !== password) {
             setMessage(Localization.passwordsNotMatch);
+            return;
+        }
+        const result = await actionHandler(dispatch, language, registrationAction, { email, password });
+        if (result.isSuccess) {
+            setIsRegistered(true);
+        } else {
+            setMessage(result.message);
         }
     }
 
@@ -47,47 +60,52 @@ const Registration: React.FC = () => {
             <div className={styles.wrapper}>
                 <GoBack />
                 <div className={styles.header}>{Localization.registration}</div>
-                <div className={styles.email}>
-                    <label htmlFor="email">
-                        <input
-                            onChange={(e) => { onChangeEmail(e.currentTarget.value); }}
-                            type="email"
-                            id="email"
-                            value={email}
-                        />
-                        {email ? <span className={styles.raise}>{Localization.email}</span> : <span>{Localization.email}</span>}
-                    </label>
-                </div>
-                <div className={styles.password}>
-                    <label htmlFor="password">
-                        <input
-                            onChange={(e) => { onChangePassword(e.currentTarget.value); }}
-                            type="password"
-                            id="password"
-                            value={password}
-                        />
-                        {password ? <span className={styles.raise}>{Localization.password}</span> : <span>{Localization.password}</span>}
-                    </label>
-                </div>
-                <div className={styles.confirm}>
-                    <label htmlFor="confirm">
-                        <input
-                            onChange={(e) => { onChangeConfirm(e.currentTarget.value); }}
-                            type="password"
-                            id="confirm"
-                            value={confirm}
-                        />
-                        {confirm ? <span className={styles.raise}>{Localization.confirm}</span> : <span>{Localization.confirm}</span>}
-                    </label>
-                </div>
-                <div className={styles.registration_btn}>
-                    <button
-                        onClick={onClickRegistration}
-                        type="button"
-                    >
-                        {Localization.registration}
-                    </button>
-                </div>
+                { !isRegistered
+                    && (
+                        <>
+                            <div className={styles.email}>
+                                <label htmlFor="email">
+                                    <input
+                                        onChange={(e) => { onChangeEmail(e.currentTarget.value); }}
+                                        type="email"
+                                        id="email"
+                                        value={email}
+                                    />
+                                    {email ? <span className={styles.raise}>{Localization.email}</span> : <span>{Localization.email}</span>}
+                                </label>
+                            </div>
+                            <div className={styles.password}>
+                                <label htmlFor="password">
+                                    <input
+                                        onChange={(e) => { onChangePassword(e.currentTarget.value); }}
+                                        type="password"
+                                        id="password"
+                                        value={password}
+                                    />
+                                    {password ? <span className={styles.raise}>{Localization.password}</span> : <span>{Localization.password}</span>}
+                                </label>
+                            </div>
+                            <div className={styles.confirm}>
+                                <label htmlFor="confirm">
+                                    <input
+                                        onChange={(e) => { onChangeConfirm(e.currentTarget.value); }}
+                                        type="password"
+                                        id="confirm"
+                                        value={confirm}
+                                    />
+                                    {confirm ? <span className={styles.raise}>{Localization.confirm}</span> : <span>{Localization.confirm}</span>}
+                                </label>
+                            </div>
+                            <div className={styles.registration_btn}>
+                                <button
+                                    onClick={onClickRegistration}
+                                    type="button"
+                                >
+                                    {Localization.registration}
+                                </button>
+                            </div>
+                        </>
+                    )}
                 <div className={styles.message}>{message}</div>
             </div>
         </div>

@@ -11,7 +11,7 @@ export const mainSettingsReducer = (state = initialState, action: MainSettingsAc
     switch (action.type) {
     case MainSettingsActionType.SET_LANGUAGE:
         if (action.language in Language) {
-            return { ...state, language: Language[action.language] };
+            return { ...state, language: Language[action.language as Language] };
         }
         return state;
     default:

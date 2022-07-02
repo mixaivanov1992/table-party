@@ -8,7 +8,7 @@ const Localization = new LocalizedStrings({
         confirm: 'Подтвердить',
         emailNotField: 'Поле "Email" не заполнено',
         passwordNotField: 'Поле "Пароль" не заполнено',
-        confirmNotField: 'Поле "Confirm" не заполнено',
+        confirmNotField: 'Поле "Подтвердить" не заполнено',
         passwordsNotMatch: 'Пароли не совпадают',
     },
     en: {

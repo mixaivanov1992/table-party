@@ -23,13 +23,13 @@ const NavBar: React.FC<Props> = (props) => {
                 {
                     accessiblePages.map((accessiblePage) => {
                         const {
-                            pageRoute, pageRedirect, pageAlias, linkIcon,
+                            pageRoute, pageAlias, linkIcon,
                         } = accessiblePage;
                         const Icon = linkIcon;
 
                         // eslint-disable-next-line react-hooks/rules-of-hooks
                         const location = useLocation();
-                        if (location.pathname === pageRoute || (pageRedirect && location.pathname === pageRedirect)) {
+                        if (location.pathname === pageRoute) {
                             return (
                                 <li key={uuidv4()} className={styles.active}>
                                     <Link data-localization={Localization[pageAlias]} to={pageRoute}>

@@ -16,7 +16,7 @@ const initialState: PersonalDataState = {
     favorites: [],
     libraryOwner: [],
     role: Roles.GUEST,
-    accessiblePages: [...InitialPages, ...GuestPages],
+    accessiblePages: [...InitialPages, ...GuestPages].sort((a, b) => a.sort - b.sort),
 };
 
 export const personalDataReducer = (state = initialState, action: PersonalDataAction): PersonalDataState => {

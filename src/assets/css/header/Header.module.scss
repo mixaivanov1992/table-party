@@ -37,6 +37,9 @@
                 font-size: 2.8em;
             }
         }
+        a {
+            color: core.$second-color;
+        }
         span {
             display: inline-block;
             overflow: hidden;

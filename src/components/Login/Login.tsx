@@ -7,7 +7,6 @@ import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
 import GoBack from '@components/Login/GoBack/GoBack';
-import Loader from '@shared/Loader/Loader';
 import Localization from '@localization/components/login';
 import React, { useState } from 'react';
 import styles from '@css/login/Login.module.scss';
@@ -16,7 +15,6 @@ const Login: React.FC = () => {
     console.info('Login');
     const dispatch = useDispatch();
 
-    const { isLoading } = useTypedSelector((state) => state.loaderReducer);
     const { language } = useTypedSelector((state) => state.mainSettingsReducer);
     Localization.setLanguage(language);
 
@@ -41,16 +39,12 @@ const Login: React.FC = () => {
             setMessage(Localization.passwordNotField);
             return;
         }
-        const result = await actionHandler(dispatch, language, loginAction, email, password);
+        const result = await actionHandler(dispatch, language, loginAction, { email, password });
         if (result.isSuccess) {
             history.goBack();
         } else {
             setMessage(result.message);
         }
-    }
-
-    if (isLoading) {
-        return <Loader />;
     }
 
     return (

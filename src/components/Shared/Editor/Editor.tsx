@@ -21,7 +21,7 @@ const Editor: React.FC<Props> = (props) => {
     const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);
     const [editorState, setEditorState] = useState<EditorState>(EditorState.createWithContent(contentState));
 
-    const getFileBase64 = (file: Blob, callback): void => {
+    const getFileBase64 = (file: Blob, callback: (result: string | ArrayBuffer | null) => void): void => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = () => callback(reader.result);

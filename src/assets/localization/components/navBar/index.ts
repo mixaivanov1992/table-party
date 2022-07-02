@@ -5,14 +5,12 @@ const Localization = new LocalizedStrings({
         home: 'Главная страница',
         rules: 'Все правила',
         about: 'О нас',
-        myRules: 'Мои правила',
         newRule: 'Новое правило',
     },
     en: {
         home: 'Home page',
         rules: 'All rules',
         about: 'About us',
-        myRules: 'My rules',
         newRule: 'New rules',
     },
 });

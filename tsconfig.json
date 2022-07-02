@@ -42,7 +42,7 @@
 		"skipLibCheck": true,
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
-		"strict": true,
+		"alwaysStrict": true,
 		"forceConsistentCasingInFileNames": true,
 		"noFallthroughCasesInSwitch": true,
 		"module": "esnext",
@@ -50,10 +50,20 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noEmit": false,
-		"noImplicitAny": false,
 		"jsx": "react-jsx",
         "removeComments": true,
-		"sourceMap": true
+		"sourceMap": true,
+		
+		"strict": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"strictPropertyInitialization": true,
+		"strictFunctionTypes": true,
+		"noImplicitThis": true,
+		"strictBindCallApply": true,
+		"suppressImplicitAnyIndexErrors": true	//убрать
+		// "noPropertyAccessFromIndexSignature": true,
+    	// "noUncheckedIndexedAccess": true,
 	},
 	"include": [
 		"src"

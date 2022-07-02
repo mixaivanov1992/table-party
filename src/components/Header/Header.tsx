@@ -1,4 +1,4 @@
-import { AccessiblePages } from '@models/accessiblePage';
+import { AccessiblePages, PageRoute } from '@models/accessiblePage';
 import { Language } from '@models/language';
 import { Link } from 'react-router-dom';
 import { actionHandler } from '@store/actions/actionHandler';
@@ -32,7 +32,7 @@ const Header: React.FC<Props> = (props) => {
     };
 
     const onClickLogout = ():void => {
-        actionHandler(dispatch, language, logoutAction);
+        actionHandler(dispatch, language, logoutAction, {});
     };
 
     return (
@@ -48,29 +48,30 @@ const Header: React.FC<Props> = (props) => {
                     <div>
                         {accessiblePages.map((accessiblePage) => {
                             const {
-                                pageRoute, pageRedirect, pageAlias, linkIcon,
+                                pageRoute, pageAlias, linkIcon,
                             } = accessiblePage;
-                            const route = pageRedirect || pageRoute;
                             const Icon = linkIcon;
 
                             return (
-                                <Link key={uuidv4()} className={styles[pageAlias]} to={route}>
+                                <Link key={uuidv4()} className={styles[pageAlias]} to={pageRoute}>
                                     {Icon ? <Icon /> : ''}
                                 </Link>
                             );
                         })}
                     </div>
                     {isAuthorized ? (
-                        <span
-                            role="button"
-                            tabIndex={-1}
-                            onKeyPress={() => {}}
-                            onClick={onClickLogout}
-                            className={styles.logout}
-                        >
-                            {Localization.logout}
+                        <Link to={PageRoute.home}>
+                            <span
+                                role="button"
+                                tabIndex={-1}
+                                onKeyPress={() => {}}
+                                onClick={onClickLogout}
+                                className={styles.logout}
+                            >
+                                {Localization.logout}
 
-                        </span>
+                            </span>
+                        </Link>
                     ) : <span>{Localization.guest}</span>}
                 </div>
             </div>

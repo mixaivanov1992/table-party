@@ -3,7 +3,7 @@ import {
 } from '@models/reducer/newRuleReducer';
 
 const versionIndex = Object.keys(Version);
-const version = Version[versionIndex[versionIndex.length - 1]];
+const version:Version = Version[versionIndex[versionIndex.length - 1] as Version];
 
 const initialState: NewRuleState = {
     gameName: '',

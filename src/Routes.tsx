@@ -1,6 +1,6 @@
 import {
     // eslint-disable-next-line
-    HashRouter, Redirect, Route, BrowserRouter as Router, Switch,
+    HashRouter, Route, BrowserRouter as Router, Switch,
 } from 'react-router-dom';
 import { LinkLocation } from '@models/accessiblePage';
 import { useTypedSelector } from '@hooks/useTypedSelector';
@@ -15,25 +15,19 @@ import React from 'react';
 const Routes: React.FC = () => {
     console.info('Routes');
     const { accessiblePages } = useTypedSelector((state) => state.personalDataReducer);
-    const redirectFilter = accessiblePages.filter((accessiblePage) => accessiblePage.pageRedirect);
-
-    const redirects = redirectFilter.map((item) => {
-        const { pageRoute, pageRedirect } = item;
-        return <Redirect key={uuidv4()} exact from={pageRoute} to={pageRedirect || pageRoute} />;
-    });
 
     const routes = accessiblePages.map((accessiblePage) => {
         const {
-            pageRoute, pageRedirect, isContentComponent, component,
+            pageRoute, isContentComponent, component, exact,
         } = accessiblePage;
-        const route = pageRedirect || pageRoute;
 
         if (isContentComponent) {
             const headerFilter = accessiblePages.filter((item) => item.linkLocation.includes(LinkLocation.header));
             const navbarFilter = accessiblePages.filter((item) => item.linkLocation.includes(LinkLocation.navbar));
             const footerFilter = accessiblePages.filter((item) => item.linkLocation.includes(LinkLocation.footer));
+
             return (
-                <Route key={uuidv4()} exact path={route}>
+                <Route key={uuidv4()} exact={exact} path={pageRoute}>
                     <Header accessiblePages={headerFilter} />
                     <Breadcrumbs accessiblePages={accessiblePages} />
                     <div className="content">
@@ -46,7 +40,7 @@ const Routes: React.FC = () => {
         }
         const Component = require(`./components/${component}`).default;
         return (
-            <Route key={uuidv4()} exact path={route}>
+            <Route key={uuidv4()} exact path={pageRoute}>
                 <Component />
             </Route>
         );
@@ -57,7 +51,6 @@ const Routes: React.FC = () => {
         <HashRouter>
             <Switch>
                 {routes}
-                {redirects}
             </Switch>
         </HashRouter>
     );

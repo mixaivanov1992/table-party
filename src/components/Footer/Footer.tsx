@@ -24,12 +24,11 @@ const Footer: React.FC<Props> = (props) => {
                 <div className={styles.links}>
                     {accessiblePages.map((accessiblePage) => {
                         const {
-                            pageRoute, pageRedirect, pageAlias,
+                            pageRoute, pageAlias,
                         } = accessiblePage;
-                        const route = pageRedirect || pageRoute;
 
                         return (
-                            <Link key={uuidv4()} className={styles[pageAlias]} to={route}>{Localization[pageAlias]}</Link>
+                            <Link key={uuidv4()} className={styles[pageAlias]} to={pageRoute}>{Localization[pageAlias]}</Link>
                         );
                     })}
                 </div>
