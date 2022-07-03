@@ -7,6 +7,7 @@ const Localization = new LocalizedStrings({
         userUnauthorized: 'Пользователь не авторизован',
         unActivatedUser: 'Пользователь не активирован',
         unknownError: 'Неизвестная ошибка',
+        unexpectedError: 'Непредвиденная ошибка',
         incorrectEmail: 'Неправильный адрес электронной почты',
         incorrectPassword: 'Пароль должен состоять минимум из 8 символов',
     },
@@ -16,6 +17,8 @@ const Localization = new LocalizedStrings({
         userUnauthorized: 'The user is not logged in',
         unActivatedUser: 'The user is not activated',
         unknownError: 'Unknown error',
+        unexpectedError: 'Unknown error',
+        incorrectEmail: 'Incorrect email address',
         incorrectPassword: 'The password must consist of at least 8 characters',
     },
 });

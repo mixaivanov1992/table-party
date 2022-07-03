@@ -23,8 +23,7 @@ export const personalDataReducer = (state = initialState, action: PersonalDataAc
     switch (action.type) {
     case PersonalDataActionType.SET_PERSONAL_DATA:
         if (action.isAuthorized) {
-            const accessiblePages: AccessiblePages = [...InitialPages, ...UserPage];
-            accessiblePages.sort((a, b) => a.sort - b.sort);
+            const accessiblePages: AccessiblePages = [...InitialPages, ...UserPage].sort((a, b) => a.sort - b.sort);
             return {
                 ...state,
                 isAuthorized: action.isAuthorized,
@@ -33,12 +32,11 @@ export const personalDataReducer = (state = initialState, action: PersonalDataAc
             };
         }
 
-        InitialPages.sort((a, b) => a.sort - b.sort);
         return {
             ...state,
             isAuthorized: action.isAuthorized,
             role: Roles.GUEST,
-            accessiblePages: [...InitialPages, ...GuestPages],
+            accessiblePages: [...InitialPages, ...GuestPages].sort((a, b) => a.sort - b.sort),
         };
 
     default:

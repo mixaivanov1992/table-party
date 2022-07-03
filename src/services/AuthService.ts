@@ -10,6 +10,10 @@ export async function registration(email: string, password: string): Promise<Axi
     return $api.post<AuthResponse>('/registration', { email, password });
 }
 
+export async function forgotPassword(email: string): Promise<AxiosResponse<AuthResponse>> {
+    return $api.post<AuthResponse>('/forgot-password', { email });
+}
+
 export async function logout(): Promise<void> {
     return $api.post('/logout');
 }

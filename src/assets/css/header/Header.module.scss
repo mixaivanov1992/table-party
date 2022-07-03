@@ -40,11 +40,13 @@
         a {
             color: core.$second-color;
         }
+        .logout {
+            cursor: pointer;
+        }
         span {
             display: inline-block;
             overflow: hidden;
             text-overflow: ellipsis;
-            cursor: pointer;
         }
     }
 }
