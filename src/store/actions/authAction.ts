@@ -5,7 +5,7 @@ import { ReducersActions } from '@models/actions/reducersAction';
 import { ServerAnswer } from '@models/actions/serverAnswerAction';
 import {
     forgotPassword, login, logout, registration,
-} from '@src/services/-authService';
+} from '@src/services/authService';
 import { setPersonalData } from '@store/reducer/personalDataReducer';
 import axios, { AxiosError } from 'axios';
 
