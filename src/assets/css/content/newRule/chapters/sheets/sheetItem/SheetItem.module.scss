@@ -1,30 +1,40 @@
 @use "../../../../../core";
-.sheet {
-    overflow: hidden;
-    display: flex;
-    border: 0.1em solid core.$border;
-    background-color: core.$third-color;
-    width: calc(33% - 2em);
-    cursor: pointer;
 
-    .cover,
-    .number {
+.sheet {
+    display: flex;
+    flex-direction: column;
+    width: calc(33% - 2em);
+    .item {
+        overflow: hidden;
         display: flex;
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-        width: 100%;
-    }
-    .cover {
-        img {
+        border: 0.1em solid core.$border;
+        background-color: core.$third-color;
+        margin-bottom: 0.5em;
+        cursor: pointer;
+
+        .cover,
+        .number {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
             width: 100%;
         }
+        .cover {
+            img {
+                width: 100%;
+            }
+        }
+        &:after {
+            content: "";
+            padding-top: 100%;
+            float: left;
+        }
     }
-    &:after {
-        content: "";
-        padding-top: 100%;
-        float: left;
-    }
+}
+.sheet:first-child + .sheet {
+    margin-right: 1em;
+    margin-left: 1em;
 }
 
 @media screen and (max-width: 600px) {

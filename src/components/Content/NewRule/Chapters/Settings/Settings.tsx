@@ -1,4 +1,5 @@
-import { removeChapter, setChapterName, setSheetCount } from '@store/reducer/chapterReducer';
+import { addSheet } from '@store/reducer/sheetReducer';
+import { removeChapter, setChapterName } from '@store/reducer/chapterReducer';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import InputNumber from '@shared/InputNumber/InputNumber';
@@ -7,7 +8,8 @@ import React, { useState } from 'react';
 import styles from '@css/content/newRule/chapters/settings/Settings.module.scss';
 
 interface Props {
-    chapterIndex: number
+    ruleUid: string,
+    chapterIndex: number,
 }
 
 const Settings: React.FC<Props> = (props) => {
@@ -17,25 +19,27 @@ const Settings: React.FC<Props> = (props) => {
     Localization.setLanguage(language);
 
     const dispatch = useDispatch();
-    const { chapterIndex } = props;
-    const {
-        sheetCount: chapterSheetCount, uid: chapterUid, name: chapterName,
-    } = useTypedSelector((state) => state.chapterReducer.chapters[chapterIndex]);
+    const { ruleUid, chapterIndex } = props;
+    const chapterUid = useTypedSelector((state) => state.chapterReducer[ruleUid][chapterIndex].uid);
+    const chapterName = useTypedSelector((state) => state.chapterReducer[ruleUid][chapterIndex].name);
 
-    const [updateComponent, setUpdateComponent] = useState<boolean>(true);
+    const [sheetCount, SetSheetCount] = useState<number>(1);
+    const chapterNumber = chapterIndex + 1;
 
     const onClickRemoveChapter = (): void => {
-        dispatch(removeChapter(chapterUid));
+        dispatch(removeChapter(ruleUid, chapterUid));
     };
 
     const onChangeChapterName = (name: string): void => {
-        dispatch(setChapterName(chapterUid, name));
-        setUpdateComponent(!updateComponent);
+        dispatch(setChapterName(ruleUid, chapterUid, name));
     };
 
     const onInputSheet = (count: string): void => {
-        dispatch(setSheetCount(chapterUid, +count));
-        setUpdateComponent(!updateComponent);
+        SetSheetCount(+count);
+    };
+
+    const onClickAddSheet = (): void => {
+        dispatch(addSheet(chapterUid, sheetCount));
     };
 
     return (
@@ -44,20 +48,26 @@ const Settings: React.FC<Props> = (props) => {
                 <span>{Localization.numberSheets}</span>
                 <InputNumber
                     uid={chapterUid}
-                    value={chapterSheetCount}
+                    value={sheetCount}
                     onInputData={onInputSheet}
                 />
+                <button
+                    type="button"
+                    onClick={onClickAddSheet}
+                >
+                    {Localization.addSheets}
+                </button>
             </div>
             <div className={styles.chapter_name}>
                 <span>
                     {Localization.chapterNumber}
-                    {chapterIndex}
+                    {chapterNumber}
                 </span>
-                <label htmlFor={`chapterName-${chapterIndex}`}>
+                <label htmlFor={`chapterName-${chapterNumber}`}>
                     <input
                         type="text"
                         placeholder={Localization.chapterTitle}
-                        id={`chapterName-${chapterIndex}`}
+                        id={`chapterName-${chapterNumber}`}
                         value={chapterName}
                         onChange={
                             (e) => {
@@ -70,11 +80,7 @@ const Settings: React.FC<Props> = (props) => {
             <div className={styles.remove_chapter}>
                 <button
                     type="button"
-                    onClick={
-                        () => {
-                            onClickRemoveChapter();
-                        }
-                    }
+                    onClick={onClickRemoveChapter}
                 >
                     {Localization.deleteChapter}
                 </button>

@@ -13,20 +13,13 @@
     .chapter_navigation {
         text-align: center;
     }
-    // .paginate_enter {
-    //     opacity: 0;
-    // }
-    // .paginate_enter_active {
-    //     opacity: 1;
-    //     transition: opacity 200ms ease-in;
-    // }
-    // .paginate_exit {
-    //     opacity: 1;
-    // }
-    // .paginate_exit_active {
-    //     opacity: 0;
-    //     transition: opacity 200ms ease-in;
-    // }
+    .noData {
+        margin-top: 1em;
+        border: 0.1em solid core.$border;
+        background-color: core.$fourth-color;
+        padding: 2em;
+        text-align: center;
+    }
 }
 @media screen and (max-width: 600px) {
     @import "./_resolution/mobile";

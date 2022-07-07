@@ -1,5 +1,5 @@
 import { setActiveSheet } from '@store/reducer/activeSheetReducer';
-import { setSheetCover } from '@store/reducer/chapterReducer';
+import { setSheetCover } from '@store/reducer/sheetReducer';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import InputCheckbox from '@shared/InputCheckbox/InputCheckbox';

@@ -1,4 +1,4 @@
-import { setSheetContent } from '@store/reducer/chapterReducer';
+import { setSheetContent } from '@store/reducer/sheetReducer';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import Editor from '@shared/Editor/Editor';

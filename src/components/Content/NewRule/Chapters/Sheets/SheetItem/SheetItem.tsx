@@ -1,3 +1,4 @@
+import { deleteSheet } from '@store/reducer/sheetReducer';
 import { setActiveSheet } from '@store/reducer/activeSheetReducer';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
@@ -8,7 +9,6 @@ import styles from '@css/content/newRule/chapters/sheets/sheetItem/SheetItem.mod
 
 interface Props {
     chapterUid: string,
-    chapterIndex: number,
     sheetIndex: number
 }
 
@@ -20,14 +20,14 @@ const SheetItem:React.FC<Props> = (props) => {
     Localization.setLanguage(language);
 
     const {
-        chapterIndex, sheetIndex, chapterUid,
+        sheetIndex, chapterUid,
     } = props;
-
-    const sheetUid = useTypedSelector((state) => state.chapterReducer.chapters[chapterIndex].sheets[sheetIndex].uid);
-    const sheetContent = useTypedSelector((state) => state.chapterReducer.chapters[chapterIndex].sheets[sheetIndex].content);
-    const sheetCover = useTypedSelector((state) => state.chapterReducer.chapters[chapterIndex].sheets[sheetIndex].cover);
-
     const sheetNumber = sheetIndex + 1;
+
+    const sheetUid = useTypedSelector((state) => state.sheetReducer[chapterUid][sheetIndex].uid);
+    const sheetContent = useTypedSelector((state) => state.sheetReducer[chapterUid][sheetIndex].content);
+    const sheetCover = useTypedSelector((state) => state.sheetReducer[chapterUid][sheetIndex].cover);
+
     const coverImage = sheetCover.split(',').pop() || '';
 
     const regExpBase64 = new RegExp('/[A-Za-z0-9+/=]/');
@@ -41,19 +41,30 @@ const SheetItem:React.FC<Props> = (props) => {
     const onClickActivateSheet = () => {
         dispatch(setActiveSheet(chapterUid, sheetUid, sheetContent, sheetCover));
     };
+    const onClickDeleteSheet = (): void => {
+        dispatch(deleteSheet(chapterUid, sheetUid));
+    };
 
     return (
-        <div
-            role="button"
-            tabIndex={-1}
-            onKeyPress={() => {}}
-            onClick={() => { onClickActivateSheet(); }}
-            key={uuidv4()}
-            className={styles.sheet}
-        >
-            {sheetCover ? (
-                <div className={styles.cover}>{cover}</div>
-            ) : <div className={styles.number}>{`${Localization.sheetNumber}${sheetNumber}`}</div>}
+        <div className={styles.sheet}>
+            <div
+                role="button"
+                tabIndex={-1}
+                onKeyPress={() => {}}
+                onClick={onClickActivateSheet}
+                key={uuidv4()}
+                className={styles.item}
+            >
+                {sheetCover ? (
+                    <div className={styles.cover}>{cover}</div>
+                ) : <div className={styles.number}>{`${Localization.sheetNumber}${sheetNumber}`}</div>}
+            </div>
+            <button
+                type="button"
+                onClick={onClickDeleteSheet}
+            >
+                {Localization.deleteSheet}
+            </button>
         </div>
     );
 };

@@ -7,26 +7,26 @@ import Localization from '@localization/components/content/newRule/settings';
 import React, { useState } from 'react';
 import styles from '@css/content/newRule/settings/Settings.module.scss';
 
-interface Props {
-    sheetCount: number,
+interface Props{
+    ruleUid: string
+    gameName: string
 }
 
 const Settings: React.FC<Props> = (props) => {
     console.info('NewRuleSettings');
     const { language } = useTypedSelector((state) => state.mainSettingsReducer);
     Localization.setLanguage(language);
+    const { ruleUid, gameName } = props;
 
-    const { gameName } = useTypedSelector((state) => state.newRuleReducer);
     const [chapterCount, setChapterCount] = useState<number>(1);
     const dispatch = useDispatch();
-    const { sheetCount } = props;
 
     const changeGameName = (name: string): void => {
         dispatch(setGameName(name));
     };
 
     const onClickChapterAdd = (): void => {
-        dispatch(addChapter(chapterCount, sheetCount));
+        dispatch(addChapter(ruleUid, chapterCount));
     };
 
     const onClickDeleteChapters = (): void => {

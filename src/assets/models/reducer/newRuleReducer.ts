@@ -1,5 +1,6 @@
 export interface NewRuleState {
-    gameName: string,
+    uid: string,
+    name: string,
     version: Version
 }
 
@@ -13,7 +14,7 @@ export enum newRuleActionType {
 
 export interface SetGameName {
     type: newRuleActionType.SET_GAME_NAME,
-    gameName: string
+    name: string
 }
 
 export type NewRuleAction = SetGameName;
