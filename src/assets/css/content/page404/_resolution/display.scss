@@ -1,0 +1,7 @@
+.page404 {
+    height: 100%;
+    &::before {
+        content: "404";
+        font-size: 22em;
+    }
+}

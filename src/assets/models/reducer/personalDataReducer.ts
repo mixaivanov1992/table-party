@@ -2,7 +2,7 @@ import { AccessiblePages } from '@models/accessiblePage';
 
 export interface PersonalDataState {
     isAuthorized: boolean,
-    userName: string,
+    user: string,
     favorites: Array<Number>,
     libraryOwner: Array<Number>,
     role: Roles,

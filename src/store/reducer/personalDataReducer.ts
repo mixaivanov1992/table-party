@@ -12,7 +12,7 @@ import { UserPage } from '@store/defaultParameters/pages/userPages';
 
 const initialState: PersonalDataState = {
     isAuthorized: false,
-    userName: '',
+    user: '',
     favorites: [],
     libraryOwner: [],
     role: Roles.GUEST,
@@ -26,6 +26,7 @@ export const personalDataReducer = (state = initialState, action: PersonalDataAc
             const accessiblePages: AccessiblePages = [...InitialPages, ...UserPage].sort((a, b) => a.sort - b.sort);
             return {
                 ...state,
+                user: 'User1',
                 isAuthorized: action.isAuthorized,
                 role: Roles.USER,
                 accessiblePages,
