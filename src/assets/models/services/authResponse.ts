@@ -1,7 +1,7 @@
-import { User } from './userService';
+import { UserData } from './userService';
 
 export interface AuthResponse{
     accessToken: string,
     refreshToken: string,
-    user: User
+    userData: UserData
 }

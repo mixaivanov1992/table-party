@@ -10,6 +10,7 @@ interface Props {
 const NewRule: React.FC<Props> = (props) => {
     console.info('NewRule');
     const { name: gameName, uid: ruleUid } = useTypedSelector((state) => state.newRuleReducer);
+    const { username } = useTypedSelector((state) => state.personalDataReducer);
 
     const { children } = props;
     const components = useMemo((): JSX.Element => (
@@ -22,7 +23,7 @@ const NewRule: React.FC<Props> = (props) => {
         <>
             {children}
             <div>
-                <Settings ruleUid={ruleUid} gameName={gameName} />
+                <Settings ruleUid={ruleUid} gameName={gameName} username={username} />
                 {components}
             </div>
         </>

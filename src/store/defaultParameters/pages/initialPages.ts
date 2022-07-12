@@ -4,8 +4,6 @@ import {
     PageAlias,
     PageRoute,
 } from '@models/accessiblePage';
-import { ImUsers } from 'react-icons/im';
-import { IoDiceSharp, IoHome } from 'react-icons/io5';
 
 export const InitialPages: AccessiblePages = [{
     linkLocation: [LinkLocation.navbar],
@@ -14,7 +12,10 @@ export const InitialPages: AccessiblePages = [{
     exact: true,
     component: 'Home/Home',
     isContentComponent: true,
-    linkIcon: IoHome,
+    linkIcon: {
+        path: 'io5',
+        name: 'IoHome',
+    },
     sort: 1,
 }, {
     linkLocation: [LinkLocation.navbar],
@@ -23,7 +24,10 @@ export const InitialPages: AccessiblePages = [{
     exact: true,
     component: 'Rules/Rules',
     isContentComponent: true,
-    linkIcon: IoDiceSharp,
+    linkIcon: {
+        path: 'io5',
+        name: 'IoDiceSharp',
+    },
     sort: 2,
 }, {
     linkLocation: [LinkLocation.navbar, LinkLocation.footer],
@@ -32,7 +36,10 @@ export const InitialPages: AccessiblePages = [{
     exact: true,
     component: 'About/About',
     isContentComponent: true,
-    linkIcon: ImUsers,
+    linkIcon: {
+        path: 'im',
+        name: 'ImUsers',
+    },
     sort: 90,
 }, {
     linkLocation: [],

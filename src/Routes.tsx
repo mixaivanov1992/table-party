@@ -38,7 +38,6 @@ const Routes: React.FC = () => {
                 </Route>
             );
         }
-        console.log(`./components/${component}`);
         const Component = require(`./components/${component}`).default;
         return (
             <Route key={uuidv4()} exact path={pageRoute}>

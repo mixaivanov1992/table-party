@@ -1,5 +1,9 @@
+import { Version } from '@models/reducer/newRuleReducer';
+import { actionHandler } from '@store/actions/actionHandler';
 import { addChapter, deleteChapters } from '@store/reducer/chapterReducer';
+import { saveRuleAction } from '@store/actions/ruleAction';
 import { setGameName } from '@store/reducer/newRuleReducer';
+import { store } from '@store/index';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import InputNumber from '@shared/InputNumber/InputNumber';
@@ -9,14 +13,15 @@ import styles from '@css/content/newRule/settings/Settings.module.scss';
 
 interface Props{
     ruleUid: string
-    gameName: string
+    gameName: string,
+    username: string
 }
 
 const Settings: React.FC<Props> = (props) => {
     console.info('NewRuleSettings');
     const { language } = useTypedSelector((state) => state.mainSettingsReducer);
     Localization.setLanguage(language);
-    const { ruleUid, gameName } = props;
+    const { ruleUid, gameName, username } = props;
 
     const [chapterCount, setChapterCount] = useState<number>(1);
     const dispatch = useDispatch();
@@ -37,8 +42,37 @@ const Settings: React.FC<Props> = (props) => {
         setChapterCount(+count);
     };
 
-    const onClickSave = (): void => {
-    };
+    async function onClickSave(): Promise<void> {
+        const versionIndex = Object.keys(Version);
+        const version:Version = Version[versionIndex[versionIndex.length - 1] as Version];
+        const { chapterReducer, sheetReducer } = store.getState();
+
+        const rule = {
+            uid: ruleUid,
+            username,
+            name: gameName,
+            language: navigator.language,
+            isPrivate: false,
+            rating: 0,
+            version,
+        };
+        const chapters = {
+            [ruleUid]: chapterReducer[ruleUid].map((chapter) => ({ uid: chapter.uid, name: chapter.name })),
+        };
+        const sheets = {};
+        chapters[ruleUid].forEach((chapter) => {
+            const chapterUid = chapter.uid;
+            if (sheetReducer[chapterUid]) {
+                sheets[chapterUid] = sheetReducer[chapterUid].map((sheet) => ({ uid: sheet.uid, content: sheet.content, cover: sheet.cover }));
+            } else {
+                sheets[chapterUid] = [];
+            }
+        });
+        const result = await actionHandler(dispatch, language, saveRuleAction, { rule, chapters, sheets });
+        // if (result.isSuccess) {
+        // } else {
+        // }
+    }
 
     return (
         <div className={styles.settings}>

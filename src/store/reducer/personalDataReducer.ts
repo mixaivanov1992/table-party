@@ -7,12 +7,15 @@ import {
     PersonalDataState,
     Roles,
     SetPersonalData,
+    UserData,
 } from '@models/reducer/personalDataReducer';
 import { UserPage } from '@store/defaultParameters/pages/userPages';
 
 const initialState: PersonalDataState = {
     isAuthorized: false,
-    user: '',
+    username: '',
+    email: '',
+    avatar: '',
     favorites: [],
     libraryOwner: [],
     role: Roles.GUEST,
@@ -21,31 +24,38 @@ const initialState: PersonalDataState = {
 
 export const personalDataReducer = (state = initialState, action: PersonalDataAction): PersonalDataState => {
     switch (action.type) {
-    case PersonalDataActionType.SET_PERSONAL_DATA:
-        if (action.isAuthorized) {
-            const accessiblePages: AccessiblePages = [...InitialPages, ...UserPage].sort((a, b) => a.sort - b.sort);
-            return {
-                ...state,
-                user: 'User1',
-                isAuthorized: action.isAuthorized,
-                role: Roles.USER,
-                accessiblePages,
-            };
+    case PersonalDataActionType.SET_PERSONAL_DATA: {
+        if (action.userData) {
+            const { isAuthorized, userData } = action;
+
+            if (isAuthorized) {
+                const {
+                    username, avatar, email, role,
+                } = userData;
+                const accessiblePages: AccessiblePages = [...InitialPages, ...UserPage].sort((a, b) => a.sort - b.sort);
+                return {
+                    ...state,
+                    isAuthorized,
+                    username,
+                    email,
+                    avatar,
+                    favorites: [],
+                    libraryOwner: [],
+                    role: Roles[role],
+                    accessiblePages,
+                };
+            }
         }
 
-        return {
-            ...state,
-            isAuthorized: action.isAuthorized,
-            role: Roles.GUEST,
-            accessiblePages: [...InitialPages, ...GuestPages].sort((a, b) => a.sort - b.sort),
-        };
-
+        return initialState;
+    }
     default:
         return state;
     }
 };
 
-export const setPersonalData = (isAuthorized: boolean): SetPersonalData => ({
+export const setPersonalData = (isAuthorized: boolean, userData?: UserData): SetPersonalData => ({
     type: PersonalDataActionType.SET_PERSONAL_DATA,
     isAuthorized,
+    userData,
 });

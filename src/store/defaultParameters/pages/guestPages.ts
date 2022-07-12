@@ -4,7 +4,6 @@ import {
     PageAlias,
     PageRoute,
 } from '@models/accessiblePage';
-import { IoPersonCircle } from 'react-icons/io5';
 
 export const GuestPages: AccessiblePages = [{
     linkLocation: [LinkLocation.header],
@@ -13,7 +12,10 @@ export const GuestPages: AccessiblePages = [{
     exact: true,
     component: 'Login/Login',
     isContentComponent: false,
-    linkIcon: IoPersonCircle,
+    linkIcon: {
+        path: 'io5',
+        name: 'IoPersonCircle',
+    },
     sort: 91,
 }, {
     linkLocation: [],

@@ -4,8 +4,6 @@ import {
     PageAlias,
     PageRoute,
 } from '@models/accessiblePage';
-import { GiRuleBook } from 'react-icons/gi';
-import { IoPersonCircle } from 'react-icons/io5';
 
 export const UserPage: AccessiblePages = [{
     linkLocation: [LinkLocation.navbar],
@@ -14,7 +12,10 @@ export const UserPage: AccessiblePages = [{
     exact: true,
     component: 'NewRule/NewRule',
     isContentComponent: true,
-    linkIcon: GiRuleBook,
+    linkIcon: {
+        path: 'gi',
+        name: 'GiRuleBook',
+    },
     sort: 4,
 }, {
     linkLocation: [LinkLocation.header],
@@ -23,6 +24,9 @@ export const UserPage: AccessiblePages = [{
     exact: true,
     component: 'Profile/Profile',
     isContentComponent: true,
-    linkIcon: IoPersonCircle,
+    linkIcon: {
+        path: 'io5',
+        name: 'IoPersonCircle',
+    },
     sort: 1,
 }];

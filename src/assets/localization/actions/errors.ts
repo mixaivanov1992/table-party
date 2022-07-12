@@ -10,6 +10,9 @@ const Localization = new LocalizedStrings({
         unexpectedError: 'Непредвиденная ошибка',
         incorrectEmail: 'Неправильный адрес электронной почты',
         incorrectPassword: 'Пароль должен состоять минимум из 8 символов',
+        failedSaveRule: 'Не удалось сохранить правило',
+        ruleNameAlreadyExist: 'Правило с таким именем уже существует',
+        usernameAlreadyExist: 'Имя пользователя уже существует',
     },
     en: {
         userNotFound: 'Invalid username or password',
@@ -20,6 +23,9 @@ const Localization = new LocalizedStrings({
         unexpectedError: 'Unknown error',
         incorrectEmail: 'Incorrect email address',
         incorrectPassword: 'The password must consist of at least 8 characters',
+        failedSaveRule: 'Failed to save rule',
+        ruleNameAlreadyExist: 'The rule with that name already exists',
+        usernameAlreadyExist: 'The username already exist',
     },
 });
 export default Localization;

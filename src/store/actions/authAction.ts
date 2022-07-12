@@ -10,9 +10,9 @@ import { setPersonalData } from '@store/reducer/personalDataReducer';
 import axios, { AxiosError } from 'axios';
 
 export async function registrationAction<T extends object>(args: T): Promise<ServerAnswer> {
-    const { email, password } = args as {email:string, password:string};
+    const { email, username, password } = args as {email:string, username:string, password:string};
     try {
-        await registration(email, password);
+        await registration(email, username, password);
         return { isSuccess: true, message: '' };
     } catch (error) {
         const err = error as AxiosError;
@@ -25,8 +25,9 @@ export async function loginAction<T extends object>(args: T): Promise<ServerAnsw
     const { dispatch, email, password } = args as {dispatch:Dispatch<ReducersActions>, email:string, password:string};
     try {
         const response = await login(email, password);
-        localStorage.setItem('token', response.data.accessToken);
-        dispatch(setPersonalData(true));
+        const { accessToken, userData } = response.data;
+        localStorage.setItem('token', accessToken);
+        dispatch(setPersonalData(true, userData));
         return { isSuccess: true, message: '' };
     } catch (error) {
         const err = error as AxiosError;
@@ -51,8 +52,9 @@ export async function checkAuthAction<T extends object>(args: T): Promise<Server
     const { dispatch } = args as {dispatch:Dispatch<ReducersActions>};
     try {
         const response = await axios.get<AuthResponse>(`${API_URL}/refresh-token`, { withCredentials: true });
-        localStorage.setItem('token', response.data.accessToken);
-        dispatch(setPersonalData(true));
+        const { accessToken, userData } = response.data;
+        localStorage.setItem('token', accessToken);
+        dispatch(setPersonalData(true, userData));
         return { isSuccess: true, message: '' };
     } catch (error) {
         const err = error as AxiosError;

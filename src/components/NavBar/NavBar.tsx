@@ -2,6 +2,7 @@ import { AccessiblePages } from '@models/accessiblePage';
 import { Link, useLocation } from 'react-router-dom';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
+import DynamicIcon from '@shared/DynamicIcon/DynamicIcon';
 import Localization from '@localization/components/navBar';
 import React from 'react';
 import styles from '@css/navBar/NavBar.module.scss';
@@ -25,7 +26,6 @@ const NavBar: React.FC<Props> = (props) => {
                         const {
                             pageRoute, pageAlias, linkIcon,
                         } = accessiblePage;
-                        const Icon = linkIcon;
 
                         // eslint-disable-next-line react-hooks/rules-of-hooks
                         const location = useLocation();
@@ -33,7 +33,7 @@ const NavBar: React.FC<Props> = (props) => {
                             return (
                                 <li key={uuidv4()} className={styles.active}>
                                     <Link data-localization={Localization[pageAlias]} to={pageRoute}>
-                                        {Icon ? <Icon /> : ''}
+                                        { linkIcon ? <DynamicIcon path={linkIcon.path} name={linkIcon.name} /> : '' }
                                     </Link>
                                 </li>
                             );
@@ -41,7 +41,7 @@ const NavBar: React.FC<Props> = (props) => {
                         return (
                             <li key={uuidv4()}>
                                 <Link data-localization={Localization[pageAlias]} to={pageRoute}>
-                                    {Icon ? <Icon /> : ''}
+                                    { linkIcon ? <DynamicIcon path={linkIcon.path} name={linkIcon.name} /> : '' }
                                 </Link>
                             </li>
                         );

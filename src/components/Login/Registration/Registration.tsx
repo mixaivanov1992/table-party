@@ -15,24 +15,20 @@ const Registration: React.FC = () => {
     Localization.setLanguage(language);
 
     const [email, setEmail] = useState<string>('');
+    const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [confirm, setConfirm] = useState<string>('');
     const [message, setMessage] = useState<string>('');
     const [isRegistered, setIsRegistered] = useState<boolean>(false);
 
-    const onChangeEmail = ((value: string): void => {
-        setEmail(value.trim());
-    });
-    const onChangePassword = ((value: string): void => {
-        setPassword(value.trim());
-    });
-    const onChangeConfirm = ((value: string): void => {
-        setConfirm(value.trim());
-    });
     async function onClickRegistration() {
         setMessage('');
         if (!email) {
             setMessage(Localization.emailNotField);
+            return;
+        }
+        if (!username) {
+            setMessage(Localization.usernameNotField);
             return;
         }
         if (!password) {
@@ -47,7 +43,7 @@ const Registration: React.FC = () => {
             setMessage(Localization.passwordsNotMatch);
             return;
         }
-        const result = await actionHandler(dispatch, language, registrationAction, { email, password });
+        const result = await actionHandler(dispatch, language, registrationAction, { email, username, password });
         if (result.isSuccess) {
             setIsRegistered(true);
         } else {
@@ -66,7 +62,7 @@ const Registration: React.FC = () => {
                             <div className={styles.email}>
                                 <label htmlFor="email">
                                     <input
-                                        onChange={(e) => { onChangeEmail(e.currentTarget.value); }}
+                                        onChange={(e) => { setEmail(e.currentTarget.value.trim()); }}
                                         type="email"
                                         id="email"
                                         value={email}
@@ -74,10 +70,21 @@ const Registration: React.FC = () => {
                                     {email ? <span className={styles.raise}>{Localization.email}</span> : <span>{Localization.email}</span>}
                                 </label>
                             </div>
+                            <div className={styles.username}>
+                                <label htmlFor="username">
+                                    <input
+                                        onChange={(e) => { setUsername(e.currentTarget.value.trim()); }}
+                                        type="text"
+                                        id="username"
+                                        value={username}
+                                    />
+                                    {username ? <span className={styles.raise}>{Localization.username}</span> : <span>{Localization.username}</span>}
+                                </label>
+                            </div>
                             <div className={styles.password}>
                                 <label htmlFor="password">
                                     <input
-                                        onChange={(e) => { onChangePassword(e.currentTarget.value); }}
+                                        onChange={(e) => { setPassword(e.currentTarget.value.trim()); }}
                                         type="password"
                                         id="password"
                                         value={password}
@@ -88,7 +95,7 @@ const Registration: React.FC = () => {
                             <div className={styles.confirm}>
                                 <label htmlFor="confirm">
                                     <input
-                                        onChange={(e) => { onChangeConfirm(e.currentTarget.value); }}
+                                        onChange={(e) => { setConfirm(e.currentTarget.value.trim()); }}
                                         type="password"
                                         id="confirm"
                                         value={confirm}

@@ -7,6 +7,7 @@ import { setLanguage } from '@store/reducer/mainSettingsReducer';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
+import DynamicIcon from '@shared/DynamicIcon/DynamicIcon';
 import Localization from '@localization/components/header';
 import React from 'react';
 import styles from '@css/header/Header.module.scss';
@@ -50,11 +51,10 @@ const Header: React.FC<Props> = (props) => {
                             const {
                                 pageRoute, pageAlias, linkIcon,
                             } = accessiblePage;
-                            const Icon = linkIcon;
 
                             return (
                                 <Link key={uuidv4()} className={styles[pageAlias]} to={pageRoute}>
-                                    {Icon ? <Icon /> : ''}
+                                    { linkIcon ? <DynamicIcon path={linkIcon.path} name={linkIcon.name} /> : '' }
                                 </Link>
                             );
                         })}

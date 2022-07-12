@@ -1,5 +1,3 @@
-import { IconType } from 'react-icons';
-
 export enum LinkLocation{
     header = 'header',
     content = 'content',
@@ -37,8 +35,12 @@ export interface AccessiblePage {
     readonly exact: boolean,
     readonly component: string,
     readonly isContentComponent: boolean,
-    readonly linkIcon?: IconType,
+    readonly linkIcon?: IconData,
     readonly sort: number
+}
+type IconData = {
+    path: string,
+    name: string
 }
 
 export type AccessiblePages = Array<AccessiblePage>;
