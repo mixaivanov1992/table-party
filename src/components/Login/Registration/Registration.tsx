@@ -1,7 +1,6 @@
 import { actionHandler } from '@store/actions/actionHandler';
 import { registrationAction } from '@store/actions/authAction';
 import { useDispatch } from 'react-redux';
-import { useTypedSelector } from '@hooks/useTypedSelector';
 import GoBack from '@components/Login/GoBack/GoBack';
 import Localization from '@localization/components/login/registration';
 import React, { useState } from 'react';
@@ -10,9 +9,7 @@ import styles from '@css/login/registration/Registration.module.scss';
 const Registration: React.FC = () => {
     console.info('Registration');
     const dispatch = useDispatch();
-
-    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
-    Localization.setLanguage(language);
+    Localization.setLanguage(navigator.language);
 
     const [email, setEmail] = useState<string>('');
     const [username, setUsername] = useState<string>('');
@@ -43,7 +40,7 @@ const Registration: React.FC = () => {
             setMessage(Localization.passwordsNotMatch);
             return;
         }
-        const result = await actionHandler(dispatch, language, registrationAction, { email, username, password });
+        const result = await actionHandler(dispatch, registrationAction, { email, username, password });
         if (result.isSuccess) {
             setIsRegistered(true);
         } else {

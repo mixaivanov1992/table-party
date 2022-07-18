@@ -1,7 +1,7 @@
 import LocalizedStrings from 'react-localization';
 
 const Localization = new LocalizedStrings({
-    ru: {
+    'ru-RU': {
         userNotFound: 'Неверный логин или пароль',
         emailAlreadyExist: 'Электронная почта уже существует',
         userUnauthorized: 'Пользователь не авторизован',
@@ -14,7 +14,7 @@ const Localization = new LocalizedStrings({
         ruleNameAlreadyExist: 'Правило с таким именем уже существует',
         usernameAlreadyExist: 'Имя пользователя уже существует',
     },
-    en: {
+    'en-US': {
         userNotFound: 'Invalid username or password',
         emailAlreadyExist: 'The email already exists',
         userUnauthorized: 'The user is not logged in',

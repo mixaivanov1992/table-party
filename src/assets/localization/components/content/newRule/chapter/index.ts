@@ -1,11 +1,11 @@
 import LocalizedStrings from 'react-localization';
 
 const Localization = new LocalizedStrings({
-    ru: {
+    'ru-RU': {
         chapterNavigation: 'Навигация по главам',
         noData: 'Нет данных',
     },
-    en: {
+    'en-US': {
         chapterNavigation: 'Number of sheets',
         noData: 'No data',
     },

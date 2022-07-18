@@ -2,7 +2,6 @@ import { AccessiblePage } from '@models/accessiblePage';
 import {
     GiDiceEightFacesEight, GiDiceFire, GiPerspectiveDiceSixFacesFive, GiRollingDiceCup, GiRollingDices,
 } from 'react-icons/gi';
-import { useTypedSelector } from '@hooks/useTypedSelector';
 import Localization from '@localization/components/content';
 import React from 'react';
 import styles from '@css/content/Content.module.scss';
@@ -11,8 +10,7 @@ interface Props {
     accessiblePage: AccessiblePage
 }
 const Content: React.FC<Props> = (props) => {
-    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
-    Localization.setLanguage(language);
+    Localization.setLanguage(navigator.language);
 
     const { accessiblePage } = props;
     const { pageAlias, component } = accessiblePage;

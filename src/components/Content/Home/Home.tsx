@@ -1,4 +1,3 @@
-import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
 import Localization from '@localization/components/home';
 import React, { ReactNode } from 'react';
@@ -9,8 +8,7 @@ interface Props {
 }
 const Home: React.FC<Props> = (props) => {
     console.info('Home');
-    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
-    Localization.setLanguage(language);
+    Localization.setLanguage(navigator.language);
     const { children } = props;
     return (
         <>

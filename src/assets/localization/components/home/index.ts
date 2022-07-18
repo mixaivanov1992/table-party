@@ -1,7 +1,7 @@
 import LocalizedStrings from 'react-localization';
 
 const Localization = new LocalizedStrings({
-    ru: {
+    'ru-RU': {
         description:
             [
                 'Настольная игра — это отличное развлечение для всех: мужчин и женщин, взрослых и детей, компании друзей и незнакомых людей, коллег по работе и одногруппников по учебе, интровертов и экстравертов. В магазинах можно найти огромное количество игр: от простых, маленьких и быстрых до больших, со сложными правилами и лихо закрученным сюжетом.',
@@ -10,7 +10,7 @@ const Localization = new LocalizedStrings({
                 'Приятной игры!',
             ],
     },
-    en: {
+    'en-US': {
         description: [
             'A board game is a great entertainment for everyone: men and women, adults and children, the company of friends and strangers, work colleagues and classmates at school, introverts and extroverts. In stores you can find a huge number of games: from simple, small and fast to large, with complex rules and a famously twisted plot.',
             'Our website offers you to immerse yourself in the atmosphere of board games with the least concern about the rules. Since other people have already taken care of you by collecting the rules in a convenient and readable form, and if not, then you have the right to collect your own rules for your favorite games in our constructor in a form convenient for you, oh and yes, you can also share them with other people!',

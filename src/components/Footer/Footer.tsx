@@ -1,6 +1,5 @@
 import { AccessiblePages } from '@models/accessiblePage';
 import { Link } from 'react-router-dom';
-import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
 import Localization from '@localization/components/footer';
 import React from 'react';
@@ -12,9 +11,7 @@ interface Props {
 
 const Footer: React.FC<Props> = (props) => {
     console.info('Footer');
-    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
-    Localization.setLanguage(language);
-
+    Localization.setLanguage(navigator.language);
     const { accessiblePages } = props;
 
     return (

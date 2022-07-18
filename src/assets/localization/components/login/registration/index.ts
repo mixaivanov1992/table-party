@@ -1,7 +1,7 @@
 import LocalizedStrings from 'react-localization';
 
 const Localization = new LocalizedStrings({
-    ru: {
+    'ru-RU': {
         registration: 'Регистрация',
         email: 'Email',
         username: 'Имя пользователя',
@@ -13,7 +13,7 @@ const Localization = new LocalizedStrings({
         confirmNotField: 'Поле "Подтвердить" не заполнено',
         passwordsNotMatch: 'Пароли не совпадают',
     },
-    en: {
+    'en-US': {
         registration: 'Registration',
         email: 'Email',
         username: 'Username',

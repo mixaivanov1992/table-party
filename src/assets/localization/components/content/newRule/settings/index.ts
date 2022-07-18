@@ -1,7 +1,7 @@
 import LocalizedStrings from 'react-localization';
 
 const Localization = new LocalizedStrings({
-    ru: {
+    'ru-RU': {
         addChapter: 'Добавить главу(ы)',
         deleteChapters: 'Удалить все главы',
         gameName: 'Название игры:',
@@ -11,7 +11,7 @@ const Localization = new LocalizedStrings({
         dataSaved: 'Данные сохранены',
         close: 'Закрыть',
     },
-    en: {
+    'en-US': {
         addChapter: 'Add a chapter(s)',
         deleteChapters: 'Delete all chapters',
         gameName: 'Name of the game:',

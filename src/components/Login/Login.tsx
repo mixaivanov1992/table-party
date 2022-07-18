@@ -4,7 +4,6 @@ import { PageAlias } from '@models/accessiblePage';
 import { actionHandler } from '@store/actions/actionHandler';
 import { loginAction } from '@store/actions/authAction';
 import { useDispatch } from 'react-redux';
-import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
 import GoBack from '@components/Login/GoBack/GoBack';
 import Localization from '@localization/components/login';
@@ -15,8 +14,7 @@ const Login: React.FC = () => {
     console.info('Login');
     const dispatch = useDispatch();
 
-    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
-    Localization.setLanguage(language);
+    Localization.setLanguage(navigator.language);
 
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -39,7 +37,7 @@ const Login: React.FC = () => {
             setMessage(Localization.passwordNotField);
             return;
         }
-        const result = await actionHandler(dispatch, language, loginAction, { email, password });
+        const result = await actionHandler(dispatch, loginAction, { email, password });
         if (result.isSuccess) {
             history.goBack();
         } else {

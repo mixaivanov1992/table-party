@@ -1,4 +1,3 @@
-import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
 import Localization from '@localization/components/content/profile';
 import MyRules from '@components/Content/Profile/MyRules/MyRules';
@@ -11,8 +10,7 @@ interface Props {
 
 const Profile: React.FC<Props> = (props) => {
     console.info('Profile');
-    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
-    Localization.setLanguage(language);
+    Localization.setLanguage(navigator.language);
 
     const { children } = props;
     const [activeTab, setActiveTab] = useState<number>(0);

@@ -1,7 +1,6 @@
 import '@css/shared/editor/editor.scss';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { ContentState, EditorState, convertToRaw } from 'draft-js';
-import { Language } from '@models/language';
 import { Editor as Wysiwyg } from 'react-draft-wysiwyg';
 import React, { useState } from 'react';
 import draftToHtml from 'draftjs-to-html';
@@ -9,13 +8,12 @@ import htmlToDraft from 'html-to-draftjs';
 
 interface Props {
     initialState: string,
-    language: Language,
     editorResult(html: string): void
 }
 
 const Editor: React.FC<Props> = (props) => {
     console.info('Editor');
-    const { initialState, language, editorResult } = props;
+    const { initialState, editorResult } = props;
 
     const { contentBlocks, entityMap } = htmlToDraft(initialState);
     const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);
@@ -51,7 +49,7 @@ const Editor: React.FC<Props> = (props) => {
             wrapperClassName="wrapper_wysiwyg"
             editorClassName="editor_wysiwyg"
             localization={{
-                locale: language,
+                locale: navigator.language.split('-')[0],
             }}
             toolbar={{
                 image: {

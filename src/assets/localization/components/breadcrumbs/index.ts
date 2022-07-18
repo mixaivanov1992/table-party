@@ -1,7 +1,7 @@
 import LocalizedStrings from 'react-localization';
 
 const Localization = new LocalizedStrings({
-    ru: {
+    'ru-RU': {
         home: 'Главная страница',
         rules: 'Все правила',
         about: 'О нас',
@@ -9,7 +9,7 @@ const Localization = new LocalizedStrings({
         newRule: 'Новое правило',
         profile: 'Профиль',
     },
-    en: {
+    'en-US': {
         home: 'Home page',
         rules: 'All rules',
         about: 'About us',

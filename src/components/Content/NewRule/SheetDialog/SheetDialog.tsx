@@ -10,9 +10,7 @@ import React from 'react';
 const SheetDialog:React.FC = () => {
     console.info('SheetDialog');
     const dispatch = useDispatch();
-
-    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
-    Localization.setLanguage(language);
+    Localization.setLanguage(navigator.language);
 
     const onClickCloseDialog = () => {
         const chapterUid = ''; const sheetUid = ''; const content = ''; const cover = '';

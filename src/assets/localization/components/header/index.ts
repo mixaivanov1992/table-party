@@ -1,12 +1,12 @@
 import LocalizedStrings from 'react-localization';
 
 const Localization = new LocalizedStrings({
-    ru: {
+    'ru-RU': {
         searchRules: 'Поиск правил',
         logout: 'Выйти',
         guest: 'Гость',
     },
-    en: {
+    'en-US': {
         searchRules: 'Search for rules',
         logout: 'Logout',
         guest: 'Guest',

@@ -3,7 +3,7 @@ import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { chapterReducer } from '@store/reducer/chapterReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { loaderReducer } from '@store/reducer/loaderReducer';
-import { mainSettingsReducer } from '@store/reducer/mainSettingsReducer';
+import { messageReducer } from '@store/reducer/messageReducer';
 import { newRuleReducer } from '@store/reducer/newRuleReducer';
 import { persistReducer, persistStore } from 'redux-persist';
 import { personalDataReducer } from '@store/reducer/personalDataReducer';
@@ -14,7 +14,7 @@ import thunk from 'redux-thunk';
 const persistConfig = {
     key: 'root',
     storage,
-    blacklist: ['loaderReducer'],
+    blacklist: ['loaderReducer', 'messageReducer'],
 };
 
 export const routeReducer = combineReducers({
@@ -22,9 +22,9 @@ export const routeReducer = combineReducers({
     newRuleReducer,
     chapterReducer,
     sheetReducer,
-    mainSettingsReducer,
     activeSheetReducer,
     loaderReducer,
+    messageReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, routeReducer);

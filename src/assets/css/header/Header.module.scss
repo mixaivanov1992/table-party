@@ -1,59 +1,56 @@
 @use "../core";
 .header {
-    width: calc(100% - 2rem);
-    background: core.$third-color;
-    border-bottom: 0.1em solid core.$border;
-    border-left: 0.1em solid core.$border;
-    border-right: 0.1em solid core.$border;
-    border-bottom-left-radius: 0.3em;
-    border-bottom-right-radius: 0.3em;
-    display: -webkit-flex;
-    -webkit-flex-wrap: wrap;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 1rem;
-    margin: 0 1rem 1rem;
-    .search + div {
-        flex: 1;
-        display: -webkit-flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .language {
-        margin-right: 1rem;
-    }
-    .user_menu {
-        .profile,
-        .login {
-            text-align: center;
-            color: core.$second-color;
-            text-decoration: none;
-            cursor: pointer;
-            display: inline-block;
-            svg {
-                color: core.$second-color;
-                font-size: 2.8em;
-            }
-        }
-        a {
-            color: core.$second-color;
-        }
-        .logout {
-            cursor: pointer;
-        }
-        span {
-            display: inline-block;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-    }
+	width: calc(100% - 2rem);
+	background: core.$third-color;
+	border-bottom: 0.1em solid core.$border;
+	border-left: 0.1em solid core.$border;
+	border-right: 0.1em solid core.$border;
+	border-bottom-left-radius: 0.3em;
+	border-bottom-right-radius: 0.3em;
+	display: -webkit-flex;
+	-webkit-flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.5rem 1rem;
+	margin: 0 1rem 1rem;
+	.search + div {
+		flex: 1;
+		display: -webkit-flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.user_menu {
+		.profile,
+		.login {
+			text-align: center;
+			color: core.$second-color;
+			text-decoration: none;
+			cursor: pointer;
+			display: inline-block;
+			svg {
+				color: core.$second-color;
+				font-size: 2.8em;
+			}
+		}
+		a {
+			color: core.$second-color;
+		}
+		.logout {
+			cursor: pointer;
+		}
+		span {
+			display: inline-block;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
 }
 
 @media screen and (max-width: 600px) {
-    @import "./_resolution/mobile";
+	@import "./_resolution/mobile";
 }
 @media screen and (min-width: 601px) {
-    @import "./_resolution/display";
+	@import "./_resolution/display";
 }

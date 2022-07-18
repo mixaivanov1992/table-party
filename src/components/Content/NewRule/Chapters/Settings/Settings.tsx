@@ -14,9 +14,7 @@ interface Props {
 
 const Settings: React.FC<Props> = (props) => {
     console.info('Settings');
-
-    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
-    Localization.setLanguage(language);
+    Localization.setLanguage(navigator.language);
 
     const dispatch = useDispatch();
     const { ruleUid, chapterIndex } = props;

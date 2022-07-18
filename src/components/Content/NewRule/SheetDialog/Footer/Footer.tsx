@@ -11,9 +11,7 @@ import styles from '@css/content/newRule/sheetDialog/footer/Footer.module.scss';
 const Footer:React.FC = () => {
     console.info('SheetDialog-Footer');
     const dispatch = useDispatch();
-
-    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
-    Localization.setLanguage(language);
+    Localization.setLanguage(navigator.language);
 
     const {
         chapterUid, sheetUid, content: sheetContent, cover: sheetCover,

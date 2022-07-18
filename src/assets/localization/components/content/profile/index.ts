@@ -1,10 +1,10 @@
 import LocalizedStrings from 'react-localization';
 
 const Localization = new LocalizedStrings({
-    ru: {
+    'ru-RU': {
         myRules: 'Мои правила',
     },
-    en: {
+    'en-US': {
         myRules: 'My rules',
     },
 });

@@ -1,6 +1,5 @@
 import { AccessiblePages } from '@models/accessiblePage';
 import { Link } from 'react-router-dom';
-import { useTypedSelector } from '@hooks/useTypedSelector';
 import Localization from '@localization/components/breadcrumbs/';
 import React from 'react';
 import styles from '@css/breadcrumbs/Breadcrumbs.module.scss';
@@ -11,10 +10,9 @@ interface Props {
 }
 
 const Breadcrumbs: React.FC<Props> = (props) => {
+    Localization.setLanguage(navigator.language);
     const breadcrumbs = useBreadcrumbs();
     const { accessiblePages } = props;
-    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
-    Localization.setLanguage(language);
 
     return (
         <ul className={styles.breadcrumbs}>

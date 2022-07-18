@@ -1,13 +1,13 @@
 import LocalizedStrings from 'react-localization';
 
 const Localization = new LocalizedStrings({
-    ru: {
+    'ru-RU': {
         passwordRecovery: 'Восстановление пароля',
         email: 'Email',
         recover: 'Восстановить',
         emailNotField: 'Поле "Email" не заполнено',
     },
-    en: {
+    'en-US': {
         passwordRecovery: 'Password recovery',
         email: 'Email',
         recover: 'Recover',

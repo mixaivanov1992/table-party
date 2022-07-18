@@ -1,10 +1,10 @@
 import LocalizedStrings from 'react-localization';
 
 const Localization = new LocalizedStrings({
-    ru: {
+    'ru-RU': {
         about: 'О нас',
     },
-    en: {
+    'en-US': {
         about: 'About us',
     },
 });

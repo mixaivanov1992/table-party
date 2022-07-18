@@ -1,7 +1,6 @@
 import { actionHandler } from '@store/actions/actionHandler';
 import { forgotPasswordAction } from '@store/actions/authAction';
 import { useDispatch } from 'react-redux';
-import { useTypedSelector } from '@hooks/useTypedSelector';
 import GoBack from '@components/Login/GoBack/GoBack';
 import Localization from '@localization/components/login/forgotPassword';
 import React, { useState } from 'react';
@@ -10,8 +9,7 @@ import styles from '@css/login/forgotPassword/ForgotPassword.module.scss';
 const ForgotPassword: React.FC = () => {
     console.info('ForgotPassword');
     const dispatch = useDispatch();
-    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
-    Localization.setLanguage(language);
+    Localization.setLanguage(navigator.language);
 
     const [email, setEmail] = useState<string>('');
     const [message, setMessage] = useState<string>('');
@@ -26,7 +24,7 @@ const ForgotPassword: React.FC = () => {
             setMessage(Localization.emailNotField);
             return;
         }
-        const result = await actionHandler(dispatch, language, forgotPasswordAction, { email });
+        const result = await actionHandler(dispatch, forgotPasswordAction, { email });
         if (result.isSuccess) {
             setIsSent(true);
         } else {

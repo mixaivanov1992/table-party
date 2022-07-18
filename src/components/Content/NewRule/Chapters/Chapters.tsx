@@ -12,8 +12,7 @@ interface Props{
 
 const Chapter: React.FC<Props> = (props) => {
     console.info('Chapter');
-    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
-    Localization.setLanguage(language);
+    Localization.setLanguage(navigator.language);
 
     const { ruleUid } = props;
     const chapterCount = useTypedSelector((state) => state.chapterReducer[ruleUid]?.length || 0);

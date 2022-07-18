@@ -15,9 +15,7 @@ interface Props {
 const SheetItem:React.FC<Props> = (props) => {
     console.info('sheetItem');
     const dispatch = useDispatch();
-
-    const { language } = useTypedSelector((state) => state.mainSettingsReducer);
-    Localization.setLanguage(language);
+    Localization.setLanguage(navigator.language);
 
     const {
         sheetIndex, chapterUid,
