@@ -1,4 +1,3 @@
-import { CSSTransition } from 'react-transition-group';
 import { setActiveSheet } from '@store/reducer/activeSheetReducer';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
@@ -7,7 +6,6 @@ import Dialog from '@shared/Dialog/Dialog';
 import Footer from '@components/Content/NewRule/SheetDialog/Footer/Footer';
 import Localization from '@localization/components/content/newRule/sheetDialog';
 import React from 'react';
-import styles from '@css/content/newRule/sheetDialog/SheetDialog.module.scss';
 
 const SheetDialog:React.FC = () => {
     console.info('SheetDialog');
@@ -25,34 +23,24 @@ const SheetDialog:React.FC = () => {
         chapterUid, sheetUid,
     } = useTypedSelector((state) => state.activeSheetReducer);
 
+    const isOpen = !!chapterUid && !!sheetUid;
+
     return (
-        <CSSTransition
-            in={!!chapterUid && !!sheetUid}
-            timeout={300}
-            classNames={{
-                enter: styles.dialog_enter,
-                enterActive: styles.dialog_enter_active,
-                exit: styles.dialog_exit,
-                exitActive: styles.dialog_exit_active,
-            }}
-            mountOnEnter
-            unmountOnExit
-        >
-            <Dialog
-                onClickCloseDialog={onClickCloseDialog}
-                title={Localization.dataEntry}
-                beforeFooter={<Footer />}
-                footer={(
-                    <div>
-                        <button type="button" onClick={onClickCloseDialog}>{Localization.close}</button>
-                    </div>
-                )}
-                dialogSize="90"
-                content={(
-                    <Content />
-                )}
-            />
-        </CSSTransition>
+        <Dialog
+            isOpen={isOpen}
+            onClickCloseDialog={onClickCloseDialog}
+            title={Localization.dataEntry}
+            beforeFooter={<Footer />}
+            footer={(
+                <div>
+                    <button type="button" onClick={onClickCloseDialog}>{Localization.close}</button>
+                </div>
+            )}
+            dialogSize="90"
+            content={(
+                <Content />
+            )}
+        />
     );
 };
 

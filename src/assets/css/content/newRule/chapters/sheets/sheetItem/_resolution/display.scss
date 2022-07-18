@@ -1,8 +1,10 @@
 .sheet {
-    transition: transform 0.2s ease-in-out;
-    &:hover {
-        border-color: core.$first-color;
-        transform: scale(1.02);
-        color: core.$first-color;
-    }
+	.item {
+		transition: transform 0.2s ease-in-out;
+		&:hover {
+			border-color: core.$first-color;
+			transform: scale(1.02);
+			color: core.$first-color;
+		}
+	}
 }

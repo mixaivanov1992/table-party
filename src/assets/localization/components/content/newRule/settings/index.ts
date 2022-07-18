@@ -7,6 +7,9 @@ const Localization = new LocalizedStrings({
         gameName: 'Название игры:',
         enterName: 'Введите название',
         save: 'Сохранить',
+        error: 'Ошибка',
+        dataSaved: 'Данные сохранены',
+        close: 'Закрыть',
     },
     en: {
         addChapter: 'Add a chapter(s)',
@@ -14,6 +17,9 @@ const Localization = new LocalizedStrings({
         gameName: 'Name of the game:',
         enterName: 'Enter a name',
         save: 'Save',
+        error: 'Error',
+        dataSaved: 'Data saved',
+        close: 'Close',
     },
 });
 export default Localization;

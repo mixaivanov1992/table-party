@@ -6,25 +6,30 @@ import { setGameName } from '@store/reducer/newRuleReducer';
 import { store } from '@store/index';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
+import Dialog from '@shared/Dialog/Dialog';
 import InputNumber from '@shared/InputNumber/InputNumber';
 import Localization from '@localization/components/content/newRule/settings';
 import React, { useState } from 'react';
 import styles from '@css/content/newRule/settings/Settings.module.scss';
 
 interface Props{
-    ruleUid: string
+    ruleUid: string,
     gameName: string,
     username: string
 }
 
 const Settings: React.FC<Props> = (props) => {
     console.info('NewRuleSettings');
+    const dispatch = useDispatch();
+
     const { language } = useTypedSelector((state) => state.mainSettingsReducer);
     Localization.setLanguage(language);
+
     const { ruleUid, gameName, username } = props;
 
+    const [messageProps, setMessageProps] = useState<{isOpen: boolean, message: string, title: string}>({ isOpen: false, message: '', title: '' });
+
     const [chapterCount, setChapterCount] = useState<number>(1);
-    const dispatch = useDispatch();
 
     const changeGameName = (name: string): void => {
         dispatch(setGameName(name));
@@ -40,6 +45,10 @@ const Settings: React.FC<Props> = (props) => {
 
     const onInputChapter = (count: string): void => {
         setChapterCount(+count);
+    };
+
+    const onClickCloseDialog = (): void => {
+        setMessageProps({ isOpen: false, message: '', title: '' });
     };
 
     async function onClickSave(): Promise<void> {
@@ -69,35 +78,50 @@ const Settings: React.FC<Props> = (props) => {
             }
         });
         const result = await actionHandler(dispatch, language, saveRuleAction, { rule, chapters, sheets });
-        // if (result.isSuccess) {
-        // } else {
-        // }
+
+        if (result.isSuccess) {
+            setMessageProps({ isOpen: true, message: result.message, title: Localization.dataSaved });
+        } else {
+            setMessageProps({ isOpen: true, message: result.message, title: Localization.error });
+        }
     }
-
     return (
-        <div className={styles.settings}>
-            <div className={styles.game_name}>
-                <label htmlFor="gameName">
-                    <span>
-                        {Localization.gameName}
-                    </span>
-                    <input onChange={(e) => { changeGameName(e.currentTarget.value); }} id="gameName" type="text" placeholder={Localization.enterName} value={gameName} />
-                </label>
-                {gameName
-                    ? <button type="button" onClick={onClickSave}>{Localization.save}</button>
-                    : <button type="button" disabled>{Localization.save}</button>}
+        <>
+            <Dialog
+                isOpen={messageProps.isOpen}
+                onClickCloseDialog={onClickCloseDialog}
+                title={messageProps.title}
+                footer={(
+                    <div>
+                        <button type="button" onClick={onClickCloseDialog}>{Localization.close}</button>
+                    </div>
+                )}
+                content={<div>{messageProps.message}</div>}
+            />
+            <div className={styles.settings}>
+                <div className={styles.game_name}>
+                    <label htmlFor="gameName">
+                        <span>
+                            {Localization.gameName}
+                        </span>
+                        <input onChange={(e) => { changeGameName(e.currentTarget.value); }} id="gameName" type="text" placeholder={Localization.enterName} value={gameName} />
+                    </label>
+                    {gameName
+                        ? <button type="button" onClick={onClickSave}>{Localization.save}</button>
+                        : <button type="button" disabled>{Localization.save}</button>}
 
+                </div>
+                <div className={styles.chapter}>
+                    <InputNumber
+                        uid="chaptersSettings"
+                        value={chapterCount}
+                        onInputData={onInputChapter}
+                    />
+                    <button type="button" onClick={onClickChapterAdd}>{Localization.addChapter}</button>
+                    <button type="button" onClick={onClickDeleteChapters}>{Localization.deleteChapters}</button>
+                </div>
             </div>
-            <div className={styles.chapter}>
-                <InputNumber
-                    uid="chaptersSettings"
-                    value={chapterCount}
-                    onInputData={onInputChapter}
-                />
-                <button type="button" onClick={onClickChapterAdd}>{Localization.addChapter}</button>
-                <button type="button" onClick={onClickDeleteChapters}>{Localization.deleteChapters}</button>
-            </div>
-        </div>
+        </>
     );
 };
 export default Settings;
