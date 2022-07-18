@@ -1,64 +1,72 @@
 @use "../../core";
 .dialog_background {
-    position: fixed;
-    z-index: 90;
-    width: 100vw;
-    height: 100vh;
-    background-color: core.$second-color;
-    opacity: 0.7;
-    top: 0;
-    left: 0;
+	position: fixed;
+	z-index: 90;
+	width: 100vw;
+	height: 100vh;
+	background-color: core.$layer;
+	top: 0;
+	left: 0;
 }
-.dialog {
-    position: fixed;
-    z-index: 91;
-    background-color: core.$fourth-color;
-    flex-direction: column;
-    display: flex;
-    .header {
-        display: flex;
-        background-color: core.$first-color;
-        border: 0.1em solid core.$third-color;
-        color: core.$third-color;
-        .title {
-            display: flex;
-            justify-content: center;
-            flex: 1;
-            background-color: core.$first-color;
-            padding: 1em 0;
-            border-right: 0.1em solid core.$third-color;
-        }
-        .close {
-            padding: 1em;
-            cursor: pointer;
-        }
-    }
-    .container {
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        border-top: 0.1em solid core.$border;
-        padding: 1em 1em 0;
-        flex: 1;
-    }
-    .before_footer {
-        padding: 1em;
-    }
-    .footer {
-        padding: 1em;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-end;
-        justify-content: end;
-        > button {
-            margin-left: 1em;
-        }
-    }
+.wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 91;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	.dialog {
+		background-color: core.$fourth-color;
+		flex-direction: column;
+		display: flex;
+		.header {
+			display: flex;
+			background-color: core.$first-color;
+			border: 0.1em solid core.$third-color;
+			color: core.$third-color;
+			.title {
+				display: flex;
+				justify-content: center;
+				flex: 1;
+				background-color: core.$first-color;
+				padding: 1em 0;
+				border-right: 0.1em solid core.$third-color;
+			}
+			.close {
+				padding: 1em;
+				cursor: pointer;
+			}
+		}
+		.container {
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+			border-top: 0.1em solid core.$border;
+			padding: 1em;
+			flex: 1;
+		}
+		.before_footer {
+			padding: 1em;
+		}
+		.footer {
+			padding: 1em;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-end;
+			justify-content: end;
+			> button {
+				margin-left: 1em;
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 600px) {
-    @import "./_resolution/mobile";
+	@import "./_resolution/mobile";
 }
 @media screen and (min-width: 601px) {
-    @import "./_resolution/display";
+	@import "./_resolution/display";
 }

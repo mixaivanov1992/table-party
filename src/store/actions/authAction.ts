@@ -57,6 +57,7 @@ export async function checkAuthAction<T extends object>(args: T): Promise<Server
         dispatch(setPersonalData(true, userData));
         return { isSuccess: true, message: '' };
     } catch (error) {
+        dispatch(setPersonalData(false));
         const err = error as AxiosError;
         const message = err.response?.data?.message as string || '';
         return { isSuccess: false, message };

@@ -20,11 +20,6 @@ const Message: React.FC = () => {
             isOpen={isOpen}
             onClickCloseDialog={onClickCloseDialog}
             title={title}
-            footer={(
-                <div>
-                    <button type="button" onClick={onClickCloseDialog}>{Localization.close}</button>
-                </div>
-            )}
             content={<div>{content}</div>}
         />
     );

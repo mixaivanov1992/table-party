@@ -1,26 +1,25 @@
 .dialog {
-    border-bottom-right-radius: 0.5em;
-    border-bottom-left-radius: 0.5em;
-    .header {
-        .close {
-            &:hover {
-                background-color: core.$second-color;
-            }
-            &:active {
-                opacity: 0.9;
-            }
-        }
-    }
+	border-bottom-right-radius: 0.5em;
+	border-bottom-left-radius: 0.5em;
+	.header {
+		.close {
+			&:hover {
+				background-color: core.$second-color;
+			}
+			&:active {
+				opacity: 0.9;
+			}
+		}
+	}
 }
 .dialog_90 {
-    width: 90vw;
-    left: 5vw;
-    top: 5vh;
-    height: 90vh;
+	width: 90vw;
+	height: 90vh;
 }
 .dialog_50 {
-    width: 50vw;
-    left: 25vw;
-    top: 25vh;
-    height: 50vh;
+	width: 50vw;
+	height: 50vh;
+}
+.dialog_auto {
+	width: 50vw;
 }

@@ -2,7 +2,7 @@ import { useTypedSelector } from '@hooks/useTypedSelector';
 import React from 'react';
 import styles from '@css/shared/loader/Loader.module.scss';
 
-const Loader = () => {
+const Loader: React.FC = () => {
     const { isLoading } = useTypedSelector((state) => state.loaderReducer);
 
     return (

@@ -46,7 +46,6 @@ export const personalDataReducer = (state = initialState, action: PersonalDataAc
                 };
             }
         }
-
         return initialState;
     }
     default:

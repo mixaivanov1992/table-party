@@ -1,6 +1,6 @@
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useHistory } from 'react-router-dom';
-import { PageAlias } from '@models/accessiblePage';
+import { PageAlias, PageRoute } from '@models/accessiblePage';
 import { actionHandler } from '@store/actions/actionHandler';
 import { loginAction } from '@store/actions/authAction';
 import { useDispatch } from 'react-redux';
@@ -39,7 +39,7 @@ const Login: React.FC = () => {
         }
         const result = await actionHandler(dispatch, loginAction, { email, password });
         if (result.isSuccess) {
-            history.goBack();
+            history.push(PageRoute.home);
         } else {
             setMessage(result.message);
         }

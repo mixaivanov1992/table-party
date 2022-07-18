@@ -8,7 +8,7 @@ interface Props {
     title: string,
     content: JSX.Element,
     beforeFooter?: JSX.Element,
-    footer: JSX.Element,
+    footer?: JSX.Element,
     dialogSize?: string,
 }
 const Dialog: React.FC<Props> = (props) => {
@@ -16,13 +16,17 @@ const Dialog: React.FC<Props> = (props) => {
     const {
         onClickCloseDialog, isOpen, title, content, beforeFooter, footer, dialogSize,
     } = props;
-    const stylesDialogSize = styles[`dialog_${dialogSize}`];
     useEffect(() => {
-        document.body.style.overflow = 'hidden';
+        const main = document.getElementsByTagName('main')[0];
+        if (isOpen) {
+            main.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
+        }
         return () => {
+            main.style.overflow = 'auto';
             document.body.style.overflow = 'auto';
         };
-    }, []);
+    }, [isOpen]);
 
     return (
         <CSSTransition
@@ -38,29 +42,33 @@ const Dialog: React.FC<Props> = (props) => {
             unmountOnExit
         >
             <>
-                <div className={`${styles.dialog} ${stylesDialogSize}`}>
-                    <div className={styles.header}>
-                        <div className={styles.title}>{title}</div>
-                        <div
-                            role="button"
-                            tabIndex={-1}
-                            onKeyPress={() => {}}
-                            onClick={() => { onClickCloseDialog(); }}
-                            className={styles.close}
-                        >
-                            &#10005;
+                <div className={styles.wrapper}>
+                    <div className={`${styles.dialog} ${styles[`dialog_${dialogSize}`]}`}>
+                        <div className={styles.header}>
+                            <div className={styles.title}>{title}</div>
+                            <div
+                                role="button"
+                                tabIndex={-1}
+                                onKeyPress={() => {}}
+                                onClick={() => { onClickCloseDialog(); }}
+                                className={styles.close}
+                            >
+                                &#10005;
+                            </div>
                         </div>
-                    </div>
-                    <div className={styles.container}>
-                        {content}
-                    </div>
-                    {beforeFooter && (
-                        <div className={styles.before_footer}>
-                            {beforeFooter}
+                        <div className={styles.container}>
+                            {content}
                         </div>
-                    )}
-                    <div className={styles.footer}>
-                        {footer}
+                        {beforeFooter && (
+                            <div className={styles.before_footer}>
+                                {beforeFooter}
+                            </div>
+                        )}
+                        {footer && (
+                            <div className={styles.footer}>
+                                {footer}
+                            </div>
+                        )}
                     </div>
                 </div>
                 <div className={styles.dialog_background} />
@@ -70,7 +78,8 @@ const Dialog: React.FC<Props> = (props) => {
 };
 Dialog.defaultProps = {
     beforeFooter: undefined,
-    dialogSize: '50',
+    footer: undefined,
+    dialogSize: 'auto',
 };
 
 export default Dialog;

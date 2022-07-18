@@ -1,5 +1,6 @@
 $border: rgba(36, 41, 47, 0.3);
 $shadow: rgba(36, 41, 47, 0.2);
+$layer: rgba(0, 0, 0, 0.7);
 $first-color: #38ae90;
 $second-color: #24292f;
 $third-color: #f9f9f9;
@@ -10,6 +11,6 @@ $logo-color: #222324;
 $danger: rgb(168, 24, 24);
 
 $svg-first-color: invert(81%) sepia(11%) saturate(2517%) hue-rotate(107deg)
-    brightness(75%) contrast(74%);
+	brightness(75%) contrast(74%);
 $svg-second-color: invert(11%) sepia(9%) saturate(1205%) hue-rotate(173deg)
-    brightness(96%) contrast(87%);
+	brightness(96%) contrast(87%);
