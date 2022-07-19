@@ -66,6 +66,8 @@ const Footer:React.FC<Props> = (props) => {
             setTimeout(() => {
                 dispatch(showLoader(false));
             }, 500);
+        } else {
+            setCoverText(currentTarget.value);
         }
     };
 
