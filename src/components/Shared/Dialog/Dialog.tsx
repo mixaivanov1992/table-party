@@ -1,5 +1,6 @@
 import { CSSTransition } from 'react-transition-group';
 import React, { useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import styles from '@css/shared/dialog/Dialog.module.scss';
 
 interface Props {
@@ -16,17 +17,22 @@ const Dialog: React.FC<Props> = (props) => {
     const {
         onClickCloseDialog, isOpen, title, content, beforeFooter, footer, dialogSize,
     } = props;
+    const root = document.createElement('div');
+
     useEffect(() => {
         const main = document.getElementsByTagName('main')[0];
         if (isOpen) {
             main.style.overflow = 'hidden';
             document.body.style.overflow = 'hidden';
+            document.body.appendChild(root);
+            return () => {
+                main.style.overflow = 'auto';
+                document.body.style.overflow = 'auto';
+                document.body.removeChild(root);
+            };
         }
-        return () => {
-            main.style.overflow = 'auto';
-            document.body.style.overflow = 'auto';
-        };
-    }, [isOpen]);
+        return () => {};
+    }, [isOpen, root]);
 
     return (
         <CSSTransition
@@ -42,36 +48,41 @@ const Dialog: React.FC<Props> = (props) => {
             unmountOnExit
         >
             <>
-                <div className={styles.wrapper}>
-                    <div className={`${styles.dialog} ${styles[`dialog_${dialogSize}`]}`}>
-                        <div className={styles.header}>
-                            <div className={styles.title}>{title}</div>
-                            <div
-                                role="button"
-                                tabIndex={-1}
-                                onKeyPress={() => {}}
-                                onClick={() => { onClickCloseDialog(); }}
-                                className={styles.close}
-                            >
-                                &#10005;
+                {ReactDOM.createPortal(
+                    <>
+                        <div className={styles.wrapper}>
+                            <div className={`${styles.dialog} ${styles[`dialog_${dialogSize}`]}`}>
+                                <div className={styles.header}>
+                                    <div className={styles.title}>{title}</div>
+                                    <div
+                                        role="button"
+                                        tabIndex={-1}
+                                        onKeyPress={() => {}}
+                                        onClick={() => { onClickCloseDialog(); }}
+                                        className={styles.close}
+                                    >
+                                        &#10005;
+                                    </div>
+                                </div>
+                                <div className={styles.container}>
+                                    {content}
+                                </div>
+                                {beforeFooter && (
+                                    <div className={styles.before_footer}>
+                                        {beforeFooter}
+                                    </div>
+                                )}
+                                {footer && (
+                                    <div className={styles.footer}>
+                                        {footer}
+                                    </div>
+                                )}
                             </div>
                         </div>
-                        <div className={styles.container}>
-                            {content}
-                        </div>
-                        {beforeFooter && (
-                            <div className={styles.before_footer}>
-                                {beforeFooter}
-                            </div>
-                        )}
-                        {footer && (
-                            <div className={styles.footer}>
-                                {footer}
-                            </div>
-                        )}
-                    </div>
-                </div>
-                <div className={styles.dialog_background} />
+                        <div className={styles.dialog_background} />
+                    </>,
+                    root,
+                )}
             </>
         </CSSTransition>
     );

@@ -7,9 +7,9 @@ import React from 'react';
 
 const Message: React.FC = () => {
     console.info('Message');
+    const dispatch = useDispatch();
     Localization.setLanguage(navigator.language);
 
-    const dispatch = useDispatch();
     const { isOpen, title, content } = useTypedSelector((state) => state.messageReducer);
 
     const onClickCloseDialog = (): void => {

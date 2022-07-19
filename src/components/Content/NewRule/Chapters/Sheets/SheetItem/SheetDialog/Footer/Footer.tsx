@@ -1,67 +1,77 @@
-import { setActiveSheet } from '@store/reducer/activeSheetReducer';
 import { setSheetCover } from '@store/reducer/sheetReducer';
+import { showLoader } from '@store/reducer/loaderReducer';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import InputCheckbox from '@shared/InputCheckbox/InputCheckbox';
 import InputFile from '@shared/InputFile/InputFile';
-import Localization from '@localization/components/content/newRule/sheetDialog/footer';
+import Localization from '@localization/components/content/newRule/chapter/settings/sheets/sheetItem/sheetDialog/footer';
 import React, { useState } from 'react';
-import styles from '@css/content/newRule/sheetDialog/footer/Footer.module.scss';
+import styles from '@css/content/newRule/chapters/sheets/sheetItem/sheetDialog/footer/Footer.module.scss';
 
-const Footer:React.FC = () => {
+interface Props {
+    chapterUid: string,
+    sheetUid: string,
+    sheetIndex: number,
+}
+
+const Footer:React.FC<Props> = (props) => {
     console.info('SheetDialog-Footer');
     const dispatch = useDispatch();
     Localization.setLanguage(navigator.language);
 
     const {
-        chapterUid, sheetUid, content: sheetContent, cover: sheetCover,
-    } = useTypedSelector((state) => state.activeSheetReducer);
+        chapterUid, sheetUid, sheetIndex,
+    } = props;
+
+    const sheetCover = useTypedSelector((state) => state.sheetReducer[chapterUid][sheetIndex].cover);
 
     const regExpBase64 = new RegExp('/[A-Za-z0-9+/=]/');
     const base64 = sheetCover.split(',').pop() || '';
-    const coverText = regExpBase64.test(base64) ? '' : sheetCover;
     const coverImage = regExpBase64.test(base64) ? sheetCover : '';
 
-    const [coverIsImage, SetCoverIsImage] = useState<boolean>(!!coverImage);
-    const [coverIsText, SetCoverIsText] = useState<boolean>(!!coverText);
+    const [coverText, setCoverText] = useState<string>(regExpBase64.test(base64) ? '' : sheetCover);
+    const [coverIsImage, setCoverIsImage] = useState<boolean>(!!coverImage);
+    const [coverIsText, setCoverIsText] = useState<boolean>(!!coverText);
+    const [failedUploadImage, setFailedUploadImage] = useState<string>('');
 
     const onChangeCoverImage = (): void => {
         if (!coverIsImage) {
-            SetCoverIsImage(true);
-            SetCoverIsText(false);
+            setCoverIsImage(true);
+            setCoverIsText(false);
         }
     };
     const onChangeCoverText = (): void => {
         if (!coverIsText) {
-            SetCoverIsText(true);
-            SetCoverIsImage(false);
+            setCoverIsText(true);
+            setCoverIsImage(false);
         }
     };
 
     const onChangeSheetCover = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { currentTarget } = event;
         if (currentTarget.files) {
+            dispatch(showLoader(true));
             const reader = new FileReader();
             reader.readAsDataURL(currentTarget.files[0]);
             reader.onload = () => {
                 if (typeof reader.result === 'string') {
                     dispatch(setSheetCover(chapterUid, sheetUid, reader.result));
-                    dispatch(setActiveSheet(chapterUid, sheetUid, sheetContent, reader.result));
                 } else {
-                    console.log('Error: Incorrect type');
+                    setFailedUploadImage(Localization.failedUploadImage);
                 }
             };
-            reader.onerror = (error) => {
-                console.log('Error: ', error);
+            reader.onerror = () => {
+                setFailedUploadImage(Localization.failedUploadImage);
             };
-        } else {
-            dispatch(setSheetCover(chapterUid, sheetUid, currentTarget.value));
-            dispatch(setActiveSheet(chapterUid, sheetUid, sheetContent, currentTarget.value));
+            setTimeout(() => {
+                dispatch(showLoader(false));
+            }, 500);
         }
     };
 
     return (
         <div className={styles.footer}>
+            <div className={styles.error}>{failedUploadImage}</div>
             <legend>{Localization.sheetCover}</legend>
             <div className={styles.image}>
                 <InputCheckbox
@@ -95,6 +105,13 @@ const Footer:React.FC = () => {
                         value={coverText}
                         disabled={!coverIsText}
                         placeholder={Localization.coverText}
+                        onBlur={(event) => {
+                            dispatch(showLoader(true));
+                            dispatch(setSheetCover(chapterUid, sheetUid, event.currentTarget.value));
+                            setTimeout(() => {
+                                dispatch(showLoader(false));
+                            }, 500);
+                        }}
                     />
                 </div>
             </div>

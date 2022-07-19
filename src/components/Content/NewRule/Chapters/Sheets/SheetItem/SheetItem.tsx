@@ -1,10 +1,10 @@
 import { deleteSheet } from '@store/reducer/sheetReducer';
-import { setActiveSheet } from '@store/reducer/activeSheetReducer';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
 import Localization from '@localization/components/content/newRule/chapter/settings/sheets/sheetItem';
-import React from 'react';
+import React, { useState } from 'react';
+import SheetDialog from '@components/Content/NewRule/Chapters/Sheets/SheetItem/SheetDialog/SheetDialog';
 import styles from '@css/content/newRule/chapters/sheets/sheetItem/SheetItem.module.scss';
 
 interface Props {
@@ -23,8 +23,9 @@ const SheetItem:React.FC<Props> = (props) => {
     const sheetNumber = sheetIndex + 1;
 
     const sheetUid = useTypedSelector((state) => state.sheetReducer[chapterUid][sheetIndex].uid);
-    const sheetContent = useTypedSelector((state) => state.sheetReducer[chapterUid][sheetIndex].content);
     const sheetCover = useTypedSelector((state) => state.sheetReducer[chapterUid][sheetIndex].cover);
+
+    const [isOpenDialog, setIsOpenDialog] = useState<boolean>(false);
 
     const coverImage = sheetCover.split(',').pop() || '';
 
@@ -36,34 +37,53 @@ const SheetItem:React.FC<Props> = (props) => {
         />
     ) : <span>{sheetCover}</span>;
 
-    const onClickActivateSheet = () => {
-        dispatch(setActiveSheet(chapterUid, sheetUid, sheetContent, sheetCover));
-    };
     const onClickDeleteSheet = (): void => {
         dispatch(deleteSheet(chapterUid, sheetUid));
     };
 
+    const onClickOpenDialog = () => {
+        setIsOpenDialog(true);
+    };
+
+    const onClickCloseDialog = () => {
+        setIsOpenDialog(false);
+    };
+
     return (
-        <div className={styles.sheet}>
-            <div
-                role="button"
-                tabIndex={-1}
-                onKeyPress={() => {}}
-                onClick={onClickActivateSheet}
-                key={uuidv4()}
-                className={styles.item}
-            >
-                {sheetCover ? (
-                    <div className={styles.cover}>{cover}</div>
-                ) : <div className={styles.number}>{`${Localization.sheetNumber}${sheetNumber}`}</div>}
+        <>
+            {
+                isOpenDialog
+            && (
+                <SheetDialog
+                    onClickCloseDialog={onClickCloseDialog}
+                    isOpen={isOpenDialog}
+                    chapterUid={chapterUid}
+                    sheetUid={sheetUid}
+                    sheetIndex={sheetIndex}
+                />
+            )
+            }
+            <div className={styles.sheet}>
+                <div
+                    role="button"
+                    tabIndex={-1}
+                    onKeyPress={() => {}}
+                    onClick={onClickOpenDialog}
+                    key={uuidv4()}
+                    className={styles.item}
+                >
+                    {sheetCover ? (
+                        <div className={styles.cover}>{cover}</div>
+                    ) : <div className={styles.number}>{`${Localization.sheetNumber}${sheetNumber}`}</div>}
+                </div>
+                <button
+                    type="button"
+                    onClick={onClickDeleteSheet}
+                >
+                    {Localization.deleteSheet}
+                </button>
             </div>
-            <button
-                type="button"
-                onClick={onClickDeleteSheet}
-            >
-                {Localization.deleteSheet}
-            </button>
-        </div>
+        </>
     );
 };
 

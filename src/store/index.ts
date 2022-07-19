@@ -1,4 +1,3 @@
-import { activeSheetReducer } from '@store/reducer/activeSheetReducer';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { chapterReducer } from '@store/reducer/chapterReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -22,7 +21,6 @@ export const routeReducer = combineReducers({
     newRuleReducer,
     chapterReducer,
     sheetReducer,
-    activeSheetReducer,
     loaderReducer,
     messageReducer,
 });

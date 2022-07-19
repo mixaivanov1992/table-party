@@ -2,7 +2,6 @@ import { useTypedSelector } from '@hooks/useTypedSelector';
 import Chapters from '@components/Content/NewRule/Chapters/Chapters';
 import React, { ReactNode, useMemo } from 'react';
 import Settings from '@components/Content/NewRule/Settings/Settings';
-import SheetDialog from '@components/Content/NewRule/SheetDialog/SheetDialog';
 
 interface Props {
     children: ReactNode
@@ -14,10 +13,7 @@ const NewRule: React.FC<Props> = (props) => {
 
     const { children } = props;
     const components = useMemo((): JSX.Element => (
-        <>
-            <Chapters ruleUid={ruleUid} />
-            <SheetDialog />
-        </>
+        <Chapters ruleUid={ruleUid} />
     ), [ruleUid]);
     return (
         <>
