@@ -17,22 +17,19 @@ const Dialog: React.FC<Props> = (props) => {
     const {
         onClickCloseDialog, isOpen, title, content, beforeFooter, footer, dialogSize,
     } = props;
-    const root = document.createElement('div');
 
     useEffect(() => {
-        const main = document.getElementsByTagName('main')[0];
         if (isOpen) {
+            const main = document.getElementsByTagName('main')[0];
             main.style.overflow = 'hidden';
             document.body.style.overflow = 'hidden';
-            document.body.appendChild(root);
             return () => {
                 main.style.overflow = 'auto';
                 document.body.style.overflow = 'auto';
-                document.body.removeChild(root);
             };
         }
         return () => {};
-    }, [isOpen, root]);
+    }, [isOpen]);
 
     return (
         <CSSTransition
@@ -81,7 +78,7 @@ const Dialog: React.FC<Props> = (props) => {
                         </div>
                         <div className={styles.dialog_background} />
                     </>,
-                    root,
+                    document.getElementById('portal-dialog') as HTMLElement,
                 )}
             </>
         </CSSTransition>

@@ -1,5 +1,5 @@
 import '@css/shared/editor/editor.scss';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import '@css/shared/editor/react-draft-wysiwyg.css';
 import { ContentState, EditorState, convertToRaw } from 'draft-js';
 import { Editor as Wysiwyg } from 'react-draft-wysiwyg';
 import React, { useState } from 'react';
