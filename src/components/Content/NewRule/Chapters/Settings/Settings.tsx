@@ -1,5 +1,6 @@
 import { addSheet } from '@store/reducer/sheetReducer';
 import { removeChapter, setChapterName } from '@store/reducer/chapterReducer';
+import { showMessage } from '@store/reducer/messageReducer';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import InputNumber from '@shared/InputNumber/InputNumber';
@@ -22,6 +23,7 @@ const Settings: React.FC<Props> = (props) => {
     const chapterName = useTypedSelector((state) => state.chapterReducer[ruleUid][chapterIndex].name);
 
     const [sheetCount, SetSheetCount] = useState<number>(1);
+    const stateSheetCount = useTypedSelector((state) => state.sheetReducer[chapterUid]?.length || 0);
     const chapterNumber = chapterIndex + 1;
 
     const onClickRemoveChapter = (): void => {
@@ -37,7 +39,11 @@ const Settings: React.FC<Props> = (props) => {
     };
 
     const onClickAddSheet = (): void => {
-        dispatch(addSheet(chapterUid, sheetCount));
+        if ((stateSheetCount + sheetCount) <= 100) {
+            dispatch(addSheet(chapterUid, sheetCount));
+        } else {
+            dispatch(showMessage(true, Localization.limitReached, Localization.maximumSheets));
+        }
     };
 
     return (

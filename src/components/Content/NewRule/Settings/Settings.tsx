@@ -6,6 +6,7 @@ import { setGameName } from '@store/reducer/newRuleReducer';
 import { showMessage } from '@store/reducer/messageReducer';
 import { store } from '@store/index';
 import { useDispatch } from 'react-redux';
+import { useTypedSelector } from '@hooks/useTypedSelector';
 import InputNumber from '@shared/InputNumber/InputNumber';
 import Localization from '@localization/components/content/newRule/settings';
 import React, { useState } from 'react';
@@ -25,13 +26,18 @@ const Settings: React.FC<Props> = (props) => {
     const { ruleUid, gameName, username } = props;
 
     const [chapterCount, setChapterCount] = useState<number>(1);
+    const stateChapterCount = useTypedSelector((state) => state.chapterReducer[ruleUid]?.length || 0);
 
     const changeGameName = (name: string): void => {
         dispatch(setGameName(name));
     };
 
     const onClickChapterAdd = (): void => {
-        dispatch(addChapter(ruleUid, chapterCount));
+        if ((stateChapterCount + chapterCount) <= 100) {
+            dispatch(addChapter(ruleUid, chapterCount));
+        } else {
+            dispatch(showMessage(true, Localization.limitReached, Localization.maximumChapters));
+        }
     };
 
     const onClickDeleteChapters = (): void => {
