@@ -1,6 +1,7 @@
 import { Version } from '@models/reducer/newRuleReducer';
 import { actionHandler } from '@store/actions/actionHandler';
 import { addChapter, deleteChapters } from '@store/reducer/chapterReducer';
+import { deleteSheets } from '@store/reducer/sheetReducer';
 import { saveRuleAction } from '@store/actions/ruleAction';
 import { setGameName } from '@store/reducer/newRuleReducer';
 import { showMessage } from '@store/reducer/messageReducer';
@@ -28,6 +29,7 @@ const Settings: React.FC<Props> = (props) => {
 
     const [chapterCount, setChapterCount] = useState<number>(1);
     const stateChapterCount = useTypedSelector((state) => state.chapterReducer[ruleUid]?.length || 0);
+    const { chapterReducer, sheetReducer } = store.getState();
 
     const changeGameName = (name: string): void => {
         dispatch(setGameName(name));
@@ -42,7 +44,10 @@ const Settings: React.FC<Props> = (props) => {
     };
 
     const onClickDeleteChapters = (): void => {
-        dispatch(deleteChapters());
+        const chapters = chapterReducer[ruleUid].map((chapter) => (chapter.uid));
+        console.log(chapters);
+        dispatch(deleteSheets(chapters));
+        dispatch(deleteChapters(ruleUid));
     };
 
     const onInputChapter = (count: string): void => {
@@ -52,7 +57,6 @@ const Settings: React.FC<Props> = (props) => {
     async function onClickSave(): Promise<void> {
         const versionIndex = Object.keys(Version);
         const version:Version = Version[versionIndex[versionIndex.length - 1] as Version];
-        const { chapterReducer, sheetReducer } = store.getState();
 
         const rule = {
             uid: ruleUid,

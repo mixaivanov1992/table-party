@@ -8,13 +8,19 @@ export enum SheetActionType{
     SET_SHEET_CONTENT = 'SET_SHEET_CONTENT',
     SET_SHEET_COVER = 'SET_SHEET_COVER',
     ADD_SHEET = 'ADD_SHEET',
-    DELETE_SHEET = 'DELETE_SHEET'
+    DELETE_SHEET = 'DELETE_SHEET',
+    DELETE_SHEETS = 'DELETE_SHEETS'
 }
 
 export interface AddSheet{
     type: SheetActionType.ADD_SHEET,
     chapter: string,
     count: number,
+}
+
+export interface DeleteSheets{
+    type: SheetActionType.DELETE_SHEETS,
+    chapters: string[],
 }
 
 export interface DeleteSheet{
@@ -36,4 +42,4 @@ export interface SetSheetCover{
     cover: string
 }
 
-export type SheetAction = SetSheetContent | SetSheetCover | AddSheet | DeleteSheet;
+export type SheetAction = SetSheetContent | SetSheetCover | AddSheet | DeleteSheet | DeleteSheets;

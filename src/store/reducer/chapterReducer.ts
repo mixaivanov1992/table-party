@@ -52,8 +52,12 @@ export const chapterReducer = (state = initialState, action: ChapterAction): Cha
         }
         return { ...state, chapters };
     }
-    case ChapterActionType.DELETE_CHAPTERS:
-        return initialState;
+    case ChapterActionType.DELETE_CHAPTERS: {
+        const { rule } = action;
+        const newState = { ...state };
+        delete newState[rule];
+        return newState;
+    }
     default:
         return state;
     }
@@ -78,6 +82,7 @@ export const removeChapter = (rule: string, uid: string): RemoveChapter => ({
     uid,
 });
 
-export const deleteChapters = (): DeleteChapters => ({
+export const deleteChapters = (rule: string): DeleteChapters => ({
     type: ChapterActionType.DELETE_CHAPTERS,
+    rule,
 });

@@ -1,4 +1,4 @@
-import { addSheet } from '@store/reducer/sheetReducer';
+import { addSheet, deleteSheets } from '@store/reducer/sheetReducer';
 import { removeChapter, setChapterName } from '@store/reducer/chapterReducer';
 import { showMessage } from '@store/reducer/messageReducer';
 import { useDispatch } from 'react-redux';
@@ -27,6 +27,7 @@ const Settings: React.FC<Props> = (props) => {
     const chapterNumber = chapterIndex + 1;
 
     const onClickRemoveChapter = (): void => {
+        dispatch(deleteSheets([chapterUid]));
         dispatch(removeChapter(ruleUid, chapterUid));
     };
 

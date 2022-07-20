@@ -25,7 +25,7 @@ export const routeReducer = combineReducers({
     messageReducer,
 });
 
-const persistedReducer = persistReducer(persistConfig, routeReducer);
+const persistedReducer = persistReducer<RootState, any>(persistConfig, routeReducer);
 
 export type RootState = ReturnType<typeof routeReducer>;
 export const store = createStore(persistedReducer, composeWithDevTools(applyMiddleware(thunk)));

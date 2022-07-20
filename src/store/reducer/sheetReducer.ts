@@ -1,6 +1,7 @@
 import {
     AddSheet,
     DeleteSheet,
+    DeleteSheets,
     SetSheetContent,
     SetSheetCover,
     SheetAction,
@@ -54,6 +55,14 @@ export const sheetReducer = (state = initialState, action: SheetAction): SheetSt
         newState[chapter] = newState[chapter].filter((item) => item.uid !== uid);
         return newState;
     }
+    case SheetActionType.DELETE_SHEETS: {
+        const { chapters } = action;
+        const newState = { ...state };
+        chapters.forEach((chapter) => {
+            delete newState[chapter];
+        });
+        return newState;
+    }
     default:
         return state;
     }
@@ -62,6 +71,11 @@ export const addSheet = (chapter: string, count: number): AddSheet => ({
     type: SheetActionType.ADD_SHEET,
     chapter,
     count,
+});
+
+export const deleteSheets = (chapters: string[]): DeleteSheets => ({
+    type: SheetActionType.DELETE_SHEETS,
+    chapters,
 });
 
 export const deleteSheet = (chapter: string, uid: string): DeleteSheet => ({

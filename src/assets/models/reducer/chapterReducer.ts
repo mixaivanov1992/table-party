@@ -30,7 +30,8 @@ export interface RemoveChapter{
 }
 
 export interface DeleteChapters{
-    type: ChapterActionType.DELETE_CHAPTERS
+    type: ChapterActionType.DELETE_CHAPTERS,
+    rule: string,
 }
 
 export type ChapterAction = AddChapter | RemoveChapter | SetChapterName | DeleteChapters;

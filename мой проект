@@ -88,6 +88,7 @@ npm install react-paginate --save                                               
 npm install --save-dev @types/react-paginate                                                    -   paginate type
 
 npm install redux-persist --save
+npm install --save-dev @types/redux-persist
 
 DEBUG
 npm install --save-dev redux-devtools-extension													-	дополнение для браузера, для разработки
