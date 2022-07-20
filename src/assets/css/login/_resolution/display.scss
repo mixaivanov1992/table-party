@@ -1,17 +1,10 @@
 .login {
-    .wrapper {
-        width: 30%;
-        .social {
-            > div:hover {
-                background-color: core.$third-color;
-            }
-        }
-        .email,
-        .password {
-            input:focus + span {
-                color: core.$first-color;
-                transform: translateY(-1em);
-            }
-        }
-    }
+	.wrapper {
+		width: 30%;
+		.social {
+			> div:hover {
+				background-color: core.$third-color;
+			}
+		}
+	}
 }

@@ -1,14 +1,5 @@
 .registration {
-    .wrapper {
-        width: 30%;
-        .email,
-        .username,
-        .password,
-        .confirm {
-            input:focus + span {
-                color: core.$first-color;
-                transform: translateY(-1em);
-            }
-        }
-    }
+	.wrapper {
+		width: 30%;
+	}
 }

@@ -812,8 +812,6 @@
   flex-wrap: wrap;
   margin-bottom: 0.5em;
   user-select: none;
-  overflow: auto;
-  min-height: 6em;
 }
 .public-DraftStyleDefault-block {
   margin: 1em 0;

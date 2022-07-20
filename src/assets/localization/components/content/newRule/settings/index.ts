@@ -4,7 +4,8 @@ const Localization = new LocalizedStrings({
     'ru-RU': {
         addChapter: 'Добавить главу(ы)',
         deleteChapters: 'Удалить все главы',
-        gameName: 'Название игры:',
+        gameName: 'Название игры',
+        chapterCount: 'Количество глав',
         enterName: 'Введите название',
         save: 'Сохранить',
         error: 'Ошибка',
@@ -16,7 +17,8 @@ const Localization = new LocalizedStrings({
     'en-US': {
         addChapter: 'Add a chapter(s)',
         deleteChapters: 'Delete all chapters',
-        gameName: 'Name of the game:',
+        gameName: 'Name of the game',
+        chapterCount: 'Number of chapters',
         enterName: 'Enter a name',
         save: 'Save',
         error: 'Error',

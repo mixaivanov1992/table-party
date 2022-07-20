@@ -49,28 +49,20 @@ const Settings: React.FC<Props> = (props) => {
     return (
         <div className={styles.settings}>
             <div className={styles.sheet}>
-                <span>{Localization.numberSheets}</span>
-                <InputNumber
-                    uid={chapterUid}
-                    value={sheetCount}
-                    onInputData={onInputSheet}
-                />
-                <button
-                    type="button"
-                    onClick={onClickAddSheet}
-                >
-                    {Localization.addSheets}
-                </button>
+                <label htmlFor="sheetCount">
+                    <InputNumber
+                        uid={chapterUid}
+                        value={sheetCount}
+                        onInputData={onInputSheet}
+                    />
+                    {sheetCount ? <span className={styles.raise}>{Localization.numberSheets}</span> : <span>{Localization.numberSheets}</span>}
+                </label>
+                <div><button type="button" onClick={onClickAddSheet}>{Localization.addSheets}</button></div>
             </div>
-            <div className={styles.chapter_name}>
-                <span>
-                    {Localization.chapterNumber}
-                    {chapterNumber}
-                </span>
+            <div className={styles.chapter}>
                 <label htmlFor={`chapterName-${chapterNumber}`}>
                     <input
                         type="text"
-                        placeholder={Localization.chapterTitle}
                         id={`chapterName-${chapterNumber}`}
                         value={chapterName}
                         onChange={
@@ -79,15 +71,9 @@ const Settings: React.FC<Props> = (props) => {
                             }
                         }
                     />
+                    {chapterName ? <span className={styles.raise}>{Localization.chapterTitle}</span> : <span>{Localization.chapterTitle}</span>}
                 </label>
-            </div>
-            <div className={styles.remove_chapter}>
-                <button
-                    type="button"
-                    onClick={onClickRemoveChapter}
-                >
-                    {Localization.deleteChapter}
-                </button>
+                <div><button type="button" onClick={onClickRemoveChapter}>{Localization.deleteChapter}</button></div>
             </div>
         </div>
     );

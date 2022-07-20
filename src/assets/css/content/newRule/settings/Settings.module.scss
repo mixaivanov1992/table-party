@@ -1,46 +1,50 @@
 @use "../../../core";
 .settings {
-    border: 0.1em solid core.$border;
-    background-color: core.$fourth-color;
-    padding-top: 2em;
-    .game_name {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        label {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 0.3em;
-            > * {
-                margin-left: 0.6em;
-                margin-right: 0.6em;
-            }
-        }
-        > button {
-            margin-bottom: 0.3em;
-        }
-    }
-    .chapter {
-        margin-bottom: 1em;
-        justify-content: center;
-        display: flex;
-        width: 100%;
-        flex-wrap: wrap;
-        > input + button,
-        .save > button {
-            margin-left: 0.6em;
-            margin-right: 0.6em;
-        }
-        > * {
-            margin-bottom: 0.3em;
-        }
-    }
+	border: 0.1em solid core.$border;
+	background-color: core.$fourth-color;
+	padding-top: 2em;
+	.game_name {
+		margin: 0 1em;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.chapter {
+		margin: 0 1em;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-bottom: 1em;
+	}
+	label {
+		display: flex;
+		position: relative;
+		margin-bottom: 1em;
+		> span {
+			position: absolute;
+			top: 0.5em;
+			left: 0.5em;
+			padding: 0 0.3em;
+			color: core.$placeholder;
+			transition: transform 0.1s;
+			transform: translateY(0px);
+			background: core.$fourth-color;
+		}
+		input:focus + span {
+			color: core.$first-color;
+			transform: translateY(-1em);
+		}
+	}
+	button {
+		margin-bottom: 1em;
+	}
+	.raise {
+		transform: translateY(-1em);
+	}
 }
 @media screen and (max-width: 600px) {
-    @import "./_resolution/mobile";
+	@import "./_resolution/mobile";
 }
 @media screen and (min-width: 601px) {
-    @import "./_resolution/display";
+	@import "./_resolution/display";
 }

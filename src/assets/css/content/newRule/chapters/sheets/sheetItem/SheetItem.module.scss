@@ -33,6 +33,10 @@
 			float: left;
 		}
 	}
+	button {
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
 }
 .sheet:first-child + .sheet {
 	margin-right: 1em;

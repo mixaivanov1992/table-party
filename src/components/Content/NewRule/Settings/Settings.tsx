@@ -7,6 +7,7 @@ import { showMessage } from '@store/reducer/messageReducer';
 import { store } from '@store/index';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
+import { v4 as uuidv4 } from 'uuid';
 import InputNumber from '@shared/InputNumber/InputNumber';
 import Localization from '@localization/components/content/newRule/settings';
 import React, { useState } from 'react';
@@ -86,24 +87,30 @@ const Settings: React.FC<Props> = (props) => {
         <div className={styles.settings}>
             <div className={styles.game_name}>
                 <label htmlFor="gameName">
-                    <span>
-                        {Localization.gameName}
-                    </span>
-                    <input onChange={(e) => { changeGameName(e.currentTarget.value); }} id="gameName" type="text" placeholder={Localization.enterName} value={gameName} />
+                    <input
+                        onChange={(e) => { changeGameName(e.currentTarget.value); }}
+                        id="gameName"
+                        type="text"
+                        value={gameName}
+                    />
+                    {gameName ? <span className={styles.raise}>{Localization.gameName}</span> : <span>{Localization.gameName}</span>}
                 </label>
                 {gameName
-                    ? <button type="button" onClick={onClickSave}>{Localization.save}</button>
-                    : <button type="button" disabled>{Localization.save}</button>}
+                    ? <div><button type="button" onClick={onClickSave}>{Localization.save}</button></div>
+                    : <div><button type="button" disabled>{Localization.save}</button></div>}
 
             </div>
             <div className={styles.chapter}>
-                <InputNumber
-                    uid="chaptersSettings"
-                    value={chapterCount}
-                    onInputData={onInputChapter}
-                />
-                <button type="button" onClick={onClickChapterAdd}>{Localization.addChapter}</button>
-                <button type="button" onClick={onClickDeleteChapters}>{Localization.deleteChapters}</button>
+                <label htmlFor="chapterCount">
+                    <InputNumber
+                        uid={uuidv4()}
+                        value={chapterCount}
+                        onInputData={onInputChapter}
+                    />
+                    {chapterCount ? <span className={styles.raise}>{Localization.chapterCount}</span> : <span>{Localization.chapterCount}</span>}
+                </label>
+                <div><button type="button" onClick={onClickChapterAdd}>{Localization.addChapter}</button></div>
+                <div><button type="button" onClick={onClickDeleteChapters}>{Localization.deleteChapters}</button></div>
             </div>
         </div>
     );
