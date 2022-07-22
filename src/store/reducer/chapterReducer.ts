@@ -7,10 +7,11 @@ import {
     RemoveChapter,
     SetChapterName,
 } from '@models/reducer/chapterReducer';
+import { NewRuleAlias } from '@models/reducer/RuleReducer';
 import { v4 as uuidv4 } from 'uuid';
 
 const initialState: ChapterState = {
-    0: [{
+    [NewRuleAlias]: [{
         uid: '',
         name: '',
     }],

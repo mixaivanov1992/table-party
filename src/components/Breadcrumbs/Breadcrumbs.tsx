@@ -20,11 +20,13 @@ const Breadcrumbs: React.FC<Props> = (props) => {
                 breadcrumbs.map(({ match }) => {
                     for (const accessiblePage of accessiblePages) {
                         const { pageRoute, pageAlias } = accessiblePage;
+                        const baseUrl = pageRoute.split('/:')[0];
+                        const currentUrl = match.url.split('/:')[0];
 
-                        if (match.url === pageRoute) {
+                        if (currentUrl === baseUrl) {
                             return (
-                                <li key={pageRoute}>
-                                    <Link to={pageRoute}>{Localization[pageAlias]}</Link>
+                                <li key={baseUrl}>
+                                    <Link to={baseUrl}>{Localization[pageAlias]}</Link>
                                 </li>
                             );
                         }

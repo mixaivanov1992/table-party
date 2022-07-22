@@ -7,6 +7,7 @@ const Localization = new LocalizedStrings({
         about: 'О нас',
         newRule: 'Новое правило',
         profile: 'Профиль',
+        ruleEdit: 'Правка правила',
     },
     'en-US': {
         home: 'Welcome',
@@ -14,6 +15,7 @@ const Localization = new LocalizedStrings({
         about: 'About us',
         newRule: 'New rules',
         profile: 'Profile',
+        ruleEdit: 'Rule edit',
     },
 });
 export default Localization;

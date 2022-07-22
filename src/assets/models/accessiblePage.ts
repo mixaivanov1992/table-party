@@ -11,9 +11,10 @@ export enum PageRoute{
     about = '/about',
     login = '/login',
     registration = '/registration',
-    forgotPassword = '/forgotPassword',
+    forgotPassword = '/forgot-password',
     newRule = '/new-rule',
     profile = '/profile',
+    ruleEdit = '/rule-edit/:ruleId',
     page404 = '*',
 }
 export enum PageAlias{
@@ -25,6 +26,7 @@ export enum PageAlias{
     forgotPassword = 'forgotPassword',
     newRule = 'newRule',
     profile = 'profile',
+    ruleEdit = 'ruleEdit',
     page404 = 'page404',
 }
 

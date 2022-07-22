@@ -16,7 +16,7 @@ export const GuestPages: AccessiblePages = [{
         path: 'io5',
         name: 'IoPersonCircle',
     },
-    sort: 91,
+    sort: 0,
 }, {
     linkLocation: [],
     pageRoute: PageRoute.registration,
@@ -24,7 +24,7 @@ export const GuestPages: AccessiblePages = [{
     exact: true,
     component: 'Login/Registration/Registration',
     isContentComponent: false,
-    sort: 92,
+    sort: 0,
 }, {
     linkLocation: [],
     pageRoute: PageRoute.forgotPassword,
@@ -32,5 +32,5 @@ export const GuestPages: AccessiblePages = [{
     exact: true,
     component: 'Login/ForgotPassword/ForgotPassword',
     isContentComponent: false,
-    sort: 93,
+    sort: 0,
 }];

@@ -40,7 +40,7 @@ export const InitialPages: AccessiblePages = [{
         path: 'im',
         name: 'ImUsers',
     },
-    sort: 90,
+    sort: 5,
 }, {
     linkLocation: [],
     pageRoute: PageRoute.page404,

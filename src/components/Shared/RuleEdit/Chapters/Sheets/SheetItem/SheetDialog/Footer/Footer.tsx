@@ -4,9 +4,9 @@ import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import InputCheckbox from '@shared/InputCheckbox/InputCheckbox';
 import InputFile from '@shared/InputFile/InputFile';
-import Localization from '@localization/components/content/newRule/chapter/settings/sheets/sheetItem/sheetDialog/footer';
+import Localization from '@localization/components/shared/ruleEdit/chapter/settings/sheets/sheetItem/sheetDialog/footer';
 import React, { useState } from 'react';
-import styles from '@css/content/newRule/chapters/sheets/sheetItem/sheetDialog/footer/Footer.module.scss';
+import styles from '@css/shared/ruleEdit/chapters/sheets/sheetItem/sheetDialog/footer/Footer.module.scss';
 
 interface Props {
     chapterUid: string,

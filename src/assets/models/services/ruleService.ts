@@ -1,6 +1,6 @@
 import { ChapterData } from '@models/reducer/chapterReducer';
 import { SheetData } from '@models/reducer/sheetReducer';
-import { Version } from '@models/reducer/newRuleReducer';
+import { Version } from '@models/reducer/RuleReducer';
 
 export interface Rule{
     uid: string,

@@ -1,10 +1,10 @@
 import { useTypedSelector } from '@hooks/useTypedSelector';
-import Localization from '@localization/components/content/newRule/chapter';
+import Localization from '@localization/components/shared/ruleEdit/chapter';
 import Paginate from '@shared/Paginate/Paginate';
 import React from 'react';
-import Settings from '@components/Content/NewRule/Chapters/Settings/Settings';
-import Sheets from '@components/Content/NewRule/Chapters/Sheets/Sheets';
-import styles from '@css/content/newRule/chapters/Chapters.module.scss';
+import Settings from '@shared/RuleEdit/Chapters/Settings/Settings';
+import Sheets from '@shared/RuleEdit/Chapters/Sheets/Sheets';
+import styles from '@css/shared/ruleEdit/chapters/Chapters.module.scss';
 
 interface Props{
     ruleUid: string,

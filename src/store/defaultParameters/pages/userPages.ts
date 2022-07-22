@@ -28,5 +28,13 @@ export const UserPage: AccessiblePages = [{
         path: 'io5',
         name: 'IoPersonCircle',
     },
-    sort: 1,
+    sort: 0,
+}, {
+    linkLocation: [LinkLocation.separately],
+    pageRoute: PageRoute.ruleEdit,
+    pageAlias: PageAlias.ruleEdit,
+    exact: true,
+    component: 'Profile/RuleEdit/RuleEdit',
+    isContentComponent: true,
+    sort: 0,
 }];

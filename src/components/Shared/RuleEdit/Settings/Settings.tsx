@@ -1,18 +1,18 @@
-import { Version } from '@models/reducer/newRuleReducer';
+import { Version } from '@models/reducer/RuleReducer';
 import { actionHandler } from '@store/actions/actionHandler';
 import { addChapter, deleteChapters } from '@store/reducer/chapterReducer';
 import { deleteSheets } from '@store/reducer/sheetReducer';
 import { saveRuleAction } from '@store/actions/ruleAction';
-import { setGameName } from '@store/reducer/newRuleReducer';
+import { setGameName } from '@store/reducer/RuleReducer';
 import { showMessage } from '@store/reducer/messageReducer';
 import { store } from '@store/index';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
 import InputNumber from '@shared/InputNumber/InputNumber';
-import Localization from '@localization/components/content/newRule/settings';
+import Localization from '@localization/components/shared/ruleEdit/settings';
 import React, { useState } from 'react';
-import styles from '@css/content/newRule/settings/Settings.module.scss';
+import styles from '@css/shared/ruleEdit/settings/Settings.module.scss';
 
 interface Props{
     ruleUid: string,
@@ -32,7 +32,7 @@ const Settings: React.FC<Props> = (props) => {
     const { chapterReducer, sheetReducer } = store.getState();
 
     const changeGameName = (name: string): void => {
-        dispatch(setGameName(name));
+        dispatch(setGameName(ruleUid, name));
     };
 
     const onClickChapterAdd = (): void => {
@@ -45,7 +45,6 @@ const Settings: React.FC<Props> = (props) => {
 
     const onClickDeleteChapters = (): void => {
         const chapters = chapterReducer[ruleUid].map((chapter) => (chapter.uid));
-        console.log(chapters);
         dispatch(deleteSheets(chapters));
         dispatch(deleteChapters(ruleUid));
     };

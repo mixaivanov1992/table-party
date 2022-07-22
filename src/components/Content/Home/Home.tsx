@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import Localization from '@localization/components/home';
+import Localization from '@localization/components/content/home';
 import React, { ReactNode } from 'react';
 import styles from '@css/content/home/Home.module.scss';
 

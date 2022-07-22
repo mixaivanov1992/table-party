@@ -4,9 +4,9 @@ import { showMessage } from '@store/reducer/messageReducer';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import InputNumber from '@shared/InputNumber/InputNumber';
-import Localization from '@localization/components/content/newRule/chapter/settings';
+import Localization from '@localization/components/shared/ruleEdit/chapter/settings';
 import React, { useState } from 'react';
-import styles from '@css/content/newRule/chapters/settings/Settings.module.scss';
+import styles from '@css/shared/ruleEdit/chapters/settings/Settings.module.scss';
 
 interface Props {
     ruleUid: string,

@@ -74,7 +74,7 @@ const Login: React.FC = () => {
                 </div>
                 <div>
                     <div className={styles.message}>{message}</div>
-                    <Link key={uuidv4()} className={styles.forgot_password} to={PageAlias.forgotPassword}>
+                    <Link key={uuidv4()} className={styles.forgot_password} to={PageRoute.forgotPassword}>
                         {Localization.forgotPassword}
                     </Link>
                     <button
@@ -85,7 +85,7 @@ const Login: React.FC = () => {
                         {Localization.login}
                     </button>
                     <div>
-                        <Link key={uuidv4()} className={styles.registration} to={PageAlias.registration}>
+                        <Link key={uuidv4()} className={styles.registration} to={PageRoute.registration}>
                             {Localization.registration}
                         </Link>
                     </div>

@@ -1,7 +1,7 @@
-import Content from '@components/Content/NewRule/Chapters/Sheets/SheetItem/SheetDialog/Content/Content';
+import Content from '@shared/RuleEdit/Chapters/Sheets/SheetItem/SheetDialog/Content/Content';
 import Dialog from '@shared/Dialog/Dialog';
-import Footer from '@components/Content/NewRule/Chapters/Sheets/SheetItem/SheetDialog/Footer/Footer';
-import Localization from '@localization/components/content/newRule/chapter/settings/sheets/sheetItem/sheetDialog';
+import Footer from '@shared/RuleEdit/Chapters/Sheets/SheetItem/SheetDialog/Footer/Footer';
+import Localization from '@localization/components/shared/ruleEdit/chapter/settings/sheets/sheetItem/sheetDialog';
 import React from 'react';
 
 interface Props {

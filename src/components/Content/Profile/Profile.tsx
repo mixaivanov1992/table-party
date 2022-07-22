@@ -15,7 +15,11 @@ const Profile: React.FC<Props> = (props) => {
     const { children } = props;
     const [activeTab, setActiveTab] = useState<number>(0);
 
-    const Content:Array<JSX.Element> = [<MyRules />];
+    const Content:Array<JSX.Element> = [
+        <MyRules>
+            {children}
+        </MyRules>,
+    ];
     const li:Array<JSX.Element> = [Localization.myRules].map((name: string, index:number) => (
         <li
             key={uuidv4()}

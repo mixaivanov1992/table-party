@@ -2,10 +2,10 @@ import { deleteSheet } from '@store/reducer/sheetReducer';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
-import Localization from '@localization/components/content/newRule/chapter/settings/sheets/sheetItem';
+import Localization from '@localization/components/shared/ruleEdit/chapter/settings/sheets/sheetItem';
 import React, { useState } from 'react';
-import SheetDialog from '@components/Content/NewRule/Chapters/Sheets/SheetItem/SheetDialog/SheetDialog';
-import styles from '@css/content/newRule/chapters/sheets/sheetItem/SheetItem.module.scss';
+import SheetDialog from '@shared/RuleEdit/Chapters/Sheets/SheetItem/SheetDialog/SheetDialog';
+import styles from '@css/shared/ruleEdit/chapters/sheets/sheetItem/SheetItem.module.scss';
 
 interface Props {
     chapterUid: string,

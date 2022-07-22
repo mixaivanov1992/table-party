@@ -41,7 +41,7 @@ export const personalDataReducer = (state = initialState, action: PersonalDataAc
                     avatar,
                     favorites: [],
                     libraryOwner: [],
-                    role: Roles[role],
+                    role: Roles[role.toUpperCase()],
                     accessiblePages,
                 };
             }
