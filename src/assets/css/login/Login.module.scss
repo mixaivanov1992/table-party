@@ -30,35 +30,6 @@
 			font-size: 2em;
 			margin-bottom: 0.5em;
 		}
-		.email,
-		.password {
-			label {
-				display: flex;
-				flex-direction: column;
-				position: relative;
-				margin-bottom: 0.5em;
-				> input {
-					margin-bottom: 0.5em;
-				}
-				> span {
-					position: absolute;
-					top: 0.5em;
-					left: 0.5em;
-					padding: 0 0.3em;
-					color: core.$placeholder;
-					transition: transform 0.1s;
-					transform: translateY(0px);
-					background: core.$fourth-color;
-				}
-			}
-			.raise {
-				transform: translateY(-1em);
-			}
-			input:focus + span {
-				color: core.$first-color;
-				transform: translateY(-1em);
-			}
-		}
 		.forgot_password {
 			margin-right: 0.5em;
 		}

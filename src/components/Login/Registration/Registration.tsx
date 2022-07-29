@@ -1,6 +1,7 @@
 import { actionHandler } from '@store/actions/actionHandler';
 import { registrationAction } from '@store/actions/authAction';
 import { useDispatch } from 'react-redux';
+import Field from '@components/Login/Field/Field';
 import GoBack from '@components/Login/GoBack/GoBack';
 import Localization from '@localization/components/login/registration';
 import React, { useState } from 'react';
@@ -56,50 +57,10 @@ const Registration: React.FC = () => {
                 { !isRegistered
                     && (
                         <>
-                            <div className={styles.email}>
-                                <label htmlFor="email">
-                                    <input
-                                        onChange={(e) => { setEmail(e.currentTarget.value.trim()); }}
-                                        type="email"
-                                        id="email"
-                                        value={email}
-                                    />
-                                    {email ? <span className={styles.raise}>{Localization.email}</span> : <span>{Localization.email}</span>}
-                                </label>
-                            </div>
-                            <div className={styles.username}>
-                                <label htmlFor="username">
-                                    <input
-                                        onChange={(e) => { setUsername(e.currentTarget.value.trim()); }}
-                                        type="text"
-                                        id="username"
-                                        value={username}
-                                    />
-                                    {username ? <span className={styles.raise}>{Localization.username}</span> : <span>{Localization.username}</span>}
-                                </label>
-                            </div>
-                            <div className={styles.password}>
-                                <label htmlFor="password">
-                                    <input
-                                        onChange={(e) => { setPassword(e.currentTarget.value.trim()); }}
-                                        type="password"
-                                        id="password"
-                                        value={password}
-                                    />
-                                    {password ? <span className={styles.raise}>{Localization.password}</span> : <span>{Localization.password}</span>}
-                                </label>
-                            </div>
-                            <div className={styles.confirm}>
-                                <label htmlFor="confirm">
-                                    <input
-                                        onChange={(e) => { setConfirm(e.currentTarget.value.trim()); }}
-                                        type="password"
-                                        id="confirm"
-                                        value={confirm}
-                                    />
-                                    {confirm ? <span className={styles.raise}>{Localization.confirm}</span> : <span>{Localization.confirm}</span>}
-                                </label>
-                            </div>
+                            <Field text={Localization.email} value={email} type="email" id="email" setState={setEmail} />
+                            <Field text={Localization.username} value={username} type="password" id="username" setState={setUsername} />
+                            <Field text={Localization.password} value={password} type="password" id="password" setState={setPassword} />
+                            <Field text={Localization.confirm} value={confirm} type="text" id="confirm" setState={setConfirm} />
                             <div className={styles.registration_btn}>
                                 <button
                                     onClick={onClickRegistration}

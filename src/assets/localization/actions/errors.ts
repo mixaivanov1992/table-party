@@ -13,6 +13,7 @@ const Localization = new LocalizedStrings({
         failedSaveRule: 'Не удалось сохранить правило',
         ruleNameAlreadyExist: 'Правило с таким именем уже существует',
         usernameAlreadyExist: 'Имя пользователя уже существует',
+        failedGetRule: 'Не удалось получить правило',
     },
     'en-US': {
         userNotFound: 'Invalid username or password',
@@ -26,6 +27,7 @@ const Localization = new LocalizedStrings({
         failedSaveRule: 'Failed to save rule',
         ruleNameAlreadyExist: 'The rule with that name already exists',
         usernameAlreadyExist: 'The username already exist',
+        failedGetRule: 'Failed get rule',
     },
 });
 export default Localization;

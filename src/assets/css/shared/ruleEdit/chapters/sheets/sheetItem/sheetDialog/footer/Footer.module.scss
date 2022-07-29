@@ -2,10 +2,6 @@
 .footer {
 	display: flex;
 	flex-direction: column;
-	.error {
-		text-align: center;
-		color: core.$danger;
-	}
 	legend {
 		width: 100%;
 		margin-bottom: 0.5rem;

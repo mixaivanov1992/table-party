@@ -12,7 +12,6 @@ const InputNumber: React.FC<Props> = (props) => {
         <input
             key={uid}
             type="text"
-            inputMode="numeric"
             onInput={(e) => {
                 const targetValue = e.currentTarget.value;
                 if ((new RegExp('^[1-9]').test(targetValue) && new RegExp('^[0-9]+$').test(targetValue)) || targetValue === '') {

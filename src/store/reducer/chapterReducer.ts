@@ -7,11 +7,11 @@ import {
     RemoveChapter,
     SetChapterName,
 } from '@models/reducer/chapterReducer';
-import { NewRuleAlias } from '@models/reducer/RuleReducer';
-import { v4 as uuidv4 } from 'uuid';
+import { Chapters } from '@models/services/ruleService';
+import { DefaultRuleKey } from '@models/reducer/ruleReducer';
 
 const initialState: ChapterState = {
-    [NewRuleAlias]: [{
+    [DefaultRuleKey]: [{
         uid: '',
         name: '',
     }],
@@ -19,20 +19,16 @@ const initialState: ChapterState = {
 
 export const chapterReducer = (state = initialState, action: ChapterAction): ChapterState => {
     switch (action.type) {
-    case ChapterActionType.ADD_CHAPTER: {
-        const { rule, count } = action;
+    case ChapterActionType.ADD_CHAPTERS: {
+        const { chapters } = action;
         const newState = { ...state };
-
-        if (!newState[rule]) {
-            newState[rule] = [];
+        for (const index in chapters) {
+            if (Object.hasOwnProperty.call(newState, index)) {
+                newState[index].push(...chapters[index]);
+            } else {
+                newState[index] = chapters[index];
+            }
         }
-
-        [...Array(count)].forEach(() => {
-            newState[rule].push({
-                uid: uuidv4(),
-                name: '',
-            });
-        });
         return newState;
     }
     case ChapterActionType.REMOVE_CHAPTER: {
@@ -71,10 +67,9 @@ export const setChapterName = (rule: string, uid: string, name: string): SetChap
     name,
 });
 
-export const addChapter = (rule: string, count: number): AddChapter => ({
-    type: ChapterActionType.ADD_CHAPTER,
-    rule,
-    count,
+export const addChapter = (chapters: Chapters): AddChapter => ({
+    type: ChapterActionType.ADD_CHAPTERS,
+    chapters,
 });
 
 export const removeChapter = (rule: string, uid: string): RemoveChapter => ({

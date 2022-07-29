@@ -1,15 +1,5 @@
-import { ChapterData } from '@models/reducer/chapterReducer';
-import { SheetData } from '@models/reducer/sheetReducer';
-import { Version } from '@models/reducer/RuleReducer';
-
 export interface Rule{
-    uid: string,
-    username: string,
-    name: string,
-    language: string,
-    isPrivate: boolean,
-    rating: number,
-    version: Version,
+    [key: string]: RuleData,
 }
 
 export interface Chapters{
@@ -19,3 +9,18 @@ export interface Chapters{
 export interface Sheets{
     [key: string]: SheetData
 }
+export type RuleData = {
+    author: string,
+    pageId: number,
+    name: string,
+    language: string,
+    isPrivate: boolean,
+    rating: number,
+    version: Version,
+}
+export enum Version {
+    V0_0_1 = 'V0_0_1'
+}
+
+type SheetData = Array<{uid: string, content: string, cover: string}>;
+type ChapterData = Array<{uid: string, name: string}>

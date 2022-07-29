@@ -16,30 +16,8 @@
 		justify-content: center;
 		margin-bottom: 1em;
 	}
-	label {
-		display: flex;
-		position: relative;
-		margin-bottom: 1em;
-		> span {
-			position: absolute;
-			top: 0.5em;
-			left: 0.5em;
-			padding: 0 0.3em;
-			color: core.$placeholder;
-			transition: transform 0.1s;
-			transform: translateY(0px);
-			background: core.$fourth-color;
-		}
-		input:focus + span {
-			color: core.$first-color;
-			transform: translateY(-1em);
-		}
-	}
 	button {
 		margin-bottom: 1em;
-	}
-	.raise {
-		transform: translateY(-1em);
 	}
 }
 @media screen and (max-width: 600px) {

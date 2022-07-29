@@ -1,4 +1,4 @@
-import { NewRuleAlias } from '@models/reducer/RuleReducer';
+import { DefaultRuleKey } from '@models/reducer/ruleReducer';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import Chapters from '@shared/RuleEdit/Chapters/Chapters';
 import React, { ReactNode, useMemo } from 'react';
@@ -9,19 +9,19 @@ interface Props {
 }
 const NewRule: React.FC<Props> = (props) => {
     console.info('NewRule');
-    const gameName = useTypedSelector((state) => state.RuleReducer[NewRuleAlias].name);
+    const gameName = useTypedSelector((state) => state.RuleReducer[DefaultRuleKey].name);
     const { username } = useTypedSelector((state) => state.personalDataReducer);
 
     const { children } = props;
     const components = useMemo((): JSX.Element => (
-        <Chapters ruleUid={NewRuleAlias} />
+        <Chapters ruleUid={DefaultRuleKey} />
     ), []);
 
     return (
         <>
             {children}
             <div>
-                <Settings ruleUid={NewRuleAlias} gameName={gameName} username={username} />
+                <Settings ruleUid={DefaultRuleKey} gameName={gameName} username={username} />
                 {components}
             </div>
         </>

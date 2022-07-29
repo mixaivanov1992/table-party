@@ -8,13 +8,16 @@ interface Props {
     chapterUid: string,
     sheetUid: string,
     sheetIndex: number,
+    errorMessage: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const Content:React.FC<Props> = (props) => {
     console.info('SheetDialog-Content');
     const dispatch = useDispatch();
 
-    const { chapterUid, sheetUid, sheetIndex } = props;
+    const {
+        chapterUid, sheetUid, sheetIndex, errorMessage,
+    } = props;
     const sheetContent = useTypedSelector((state) => state.sheetReducer[chapterUid][sheetIndex].content);
 
     const editorResult = (html: string) => {
@@ -25,6 +28,7 @@ const Content:React.FC<Props> = (props) => {
         <Editor
             initialState={sheetContent}
             editorResult={editorResult}
+            errorMessage={errorMessage}
         />
     );
 };

@@ -3,7 +3,9 @@ import { removeChapter, setChapterName } from '@store/reducer/chapterReducer';
 import { showMessage } from '@store/reducer/messageReducer';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '@hooks/useTypedSelector';
+import { v4 as uuidv4 } from 'uuid';
 import InputNumber from '@shared/InputNumber/InputNumber';
+import InputWrapper from '@shared/InputWrapper/InputWrapper';
 import Localization from '@localization/components/shared/ruleEdit/chapter/settings';
 import React, { useState } from 'react';
 import styles from '@css/shared/ruleEdit/chapters/settings/Settings.module.scss';
@@ -41,7 +43,10 @@ const Settings: React.FC<Props> = (props) => {
 
     const onClickAddSheet = (): void => {
         if ((stateSheetCount + sheetCount) <= 100) {
-            dispatch(addSheet(chapterUid, sheetCount));
+            const sheets = {
+                [chapterUid]: [...Array(sheetCount)].map(() => ({ uid: uuidv4(), content: '', cover: '' })),
+            };
+            dispatch(addSheet(sheets));
         } else {
             dispatch(showMessage(true, Localization.limitReached, Localization.maximumSheets));
         }
@@ -50,18 +55,25 @@ const Settings: React.FC<Props> = (props) => {
     return (
         <div className={styles.settings}>
             <div className={styles.sheet}>
-                <label htmlFor="sheetCount">
+                <InputWrapper
+                    htmlFor="sheetCount"
+                    text={Localization.numberSheets}
+                    value={sheetCount}
+                >
                     <InputNumber
                         uid={chapterUid}
                         value={sheetCount}
                         onInputData={onInputSheet}
                     />
-                    {sheetCount ? <span className={styles.raise}>{Localization.numberSheets}</span> : <span>{Localization.numberSheets}</span>}
-                </label>
+                </InputWrapper>
                 <div><button type="button" onClick={onClickAddSheet}>{Localization.addSheets}</button></div>
             </div>
             <div className={styles.chapter}>
-                <label htmlFor={`chapterName-${chapterNumber}`}>
+                <InputWrapper
+                    htmlFor={`chapterName-${chapterNumber}`}
+                    text={Localization.chapterTitle}
+                    value={chapterName}
+                >
                     <input
                         type="text"
                         id={`chapterName-${chapterNumber}`}
@@ -72,8 +84,7 @@ const Settings: React.FC<Props> = (props) => {
                             }
                         }
                     />
-                    {chapterName ? <span className={styles.raise}>{Localization.chapterTitle}</span> : <span>{Localization.chapterTitle}</span>}
-                </label>
+                </InputWrapper>
                 <div><button type="button" onClick={onClickRemoveChapter}>{Localization.deleteChapter}</button></div>
             </div>
         </div>

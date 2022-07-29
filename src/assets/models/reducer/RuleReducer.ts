@@ -1,20 +1,12 @@
-export interface RuleState {
-    [key: string]: {
-        author: string,
-        name: string,
-        language: string,
-        isPrivate: boolean,
-        rating: number,
-        version: Version,
-    }
-}
+import { Rule } from '@models/services/ruleService';
 
-export enum Version {
-    V0_0_1 = 'V0_0_1'
-}
-export const NewRuleAlias = 'NewRule';
+export type RuleState = Rule;
+
+export const DefaultRuleKey = 'DefaultRuleKey';
 export enum RuleActionType {
     SET_GAME_NAME = 'SET_GAME_NAME',
+    ADD_RULE = 'ADD_RULE',
+    REMOVE_RULE = 'REMOVE_RULE'
 }
 
 export interface SetGameName {
@@ -23,4 +15,14 @@ export interface SetGameName {
     uid: string
 }
 
-export type RuleAction = SetGameName;
+export interface AddRule {
+    type: RuleActionType.ADD_RULE,
+    rule: Rule
+}
+
+export interface RemoveRule {
+    type: RuleActionType.REMOVE_RULE,
+    uid: string
+}
+
+export type RuleAction = SetGameName | AddRule | RemoveRule;

@@ -2,6 +2,7 @@ import '@css/shared/editor/editor.scss';
 import '@css/shared/editor/react-draft-wysiwyg.css';
 import { ContentState, EditorState, convertToRaw } from 'draft-js';
 import { Editor as Wysiwyg } from 'react-draft-wysiwyg';
+import Localization from '@localization/components/shared/editor';
 import React, { useState } from 'react';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
@@ -9,11 +10,13 @@ import htmlToDraft from 'html-to-draftjs';
 interface Props {
     initialState: string,
     editorResult(html: string): void
+    errorMessage: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const Editor: React.FC<Props> = (props) => {
     console.info('Editor');
-    const { initialState, editorResult } = props;
+    Localization.setLanguage(navigator.language);
+    const { initialState, editorResult, errorMessage } = props;
 
     const { contentBlocks, entityMap } = htmlToDraft(initialState);
     const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);
@@ -22,18 +25,27 @@ const Editor: React.FC<Props> = (props) => {
     const getFileBase64 = (file: Blob, callback: (result: string | ArrayBuffer | null) => void): void => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
-        reader.onload = () => callback(reader.result);
         reader.onerror = () => {};
+        reader.onload = () => callback(reader.result);
     };
 
-    const imageUploadCallback = (file: Blob) => new Promise((resolve) => {
-        getFileBase64(
-            file,
-            (data) => resolve({ data: { link: data } }),
-        );
+    const imageUploadCallback = (file: Blob) => new Promise((resolve, reject) => {
+        if (file.type !== 'image/jpeg' && file.type !== 'image/jpg') {
+            errorMessage(Localization.incorrectFileFormat);
+            reject();
+        } else if (file.size > 5000000) {
+            errorMessage(Localization.fileTooLarge);
+            reject();
+        } else {
+            getFileBase64(
+                file,
+                (data) => resolve({ data: { link: data } }),
+            );
+        }
     });
 
     const onEditorStateChange = (value: EditorState) => {
+        errorMessage('');
         setEditorState(value);
         const currentContent = draftToHtml(convertToRaw(value.getCurrentContent()));
         editorResult(currentContent);
@@ -55,6 +67,7 @@ const Editor: React.FC<Props> = (props) => {
                 image: {
                     uploadCallback: imageUploadCallback,
                     previewImage: true,
+                    inputAccept: '.jpg, .jpeg',
                 },
             }}
             hashtag={{
@@ -64,7 +77,6 @@ const Editor: React.FC<Props> = (props) => {
             // spellCheck
             editorState={editorState}
             onEditorStateChange={onEditorStateChange}
-
         />
     );
 };

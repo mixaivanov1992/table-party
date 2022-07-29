@@ -61,9 +61,7 @@
 		"strictFunctionTypes": true,
 		"noImplicitThis": true,
 		"strictBindCallApply": true,
-		"suppressImplicitAnyIndexErrors": true	//убрать
-		// "noPropertyAccessFromIndexSignature": true,
-    	// "noUncheckedIndexedAccess": true,
+		"suppressImplicitAnyIndexErrors": true
 	},
 	"include": [
 		"src"

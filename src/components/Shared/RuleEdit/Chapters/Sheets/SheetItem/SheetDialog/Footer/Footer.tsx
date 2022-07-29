@@ -12,6 +12,7 @@ interface Props {
     chapterUid: string,
     sheetUid: string,
     sheetIndex: number,
+    errorMessage: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const Footer:React.FC<Props> = (props) => {
@@ -20,7 +21,7 @@ const Footer:React.FC<Props> = (props) => {
     Localization.setLanguage(navigator.language);
 
     const {
-        chapterUid, sheetUid, sheetIndex,
+        chapterUid, sheetUid, sheetIndex, errorMessage,
     } = props;
 
     const sheetCover = useTypedSelector((state) => state.sheetReducer[chapterUid][sheetIndex].cover);
@@ -32,7 +33,6 @@ const Footer:React.FC<Props> = (props) => {
     const [coverText, setCoverText] = useState<string>(regExpBase64.test(base64) ? '' : sheetCover);
     const [coverIsImage, setCoverIsImage] = useState<boolean>(!!coverImage);
     const [coverIsText, setCoverIsText] = useState<boolean>(!!coverText);
-    const [failedUploadImage, setFailedUploadImage] = useState<string>('');
 
     const onChangeCoverImage = (): void => {
         if (!coverIsImage) {
@@ -57,11 +57,11 @@ const Footer:React.FC<Props> = (props) => {
                 if (typeof reader.result === 'string') {
                     dispatch(setSheetCover(chapterUid, sheetUid, reader.result));
                 } else {
-                    setFailedUploadImage(Localization.failedUploadImage);
+                    errorMessage(Localization.failedUploadImage);
                 }
             };
             reader.onerror = () => {
-                setFailedUploadImage(Localization.failedUploadImage);
+                errorMessage(Localization.failedUploadImage);
             };
             setTimeout(() => {
                 dispatch(showLoader(false));
@@ -73,7 +73,6 @@ const Footer:React.FC<Props> = (props) => {
 
     return (
         <div className={styles.footer}>
-            <div className={styles.error}>{failedUploadImage}</div>
             <legend>{Localization.sheetCover}</legend>
             <div className={styles.image}>
                 <InputCheckbox
@@ -86,7 +85,7 @@ const Footer:React.FC<Props> = (props) => {
                     <InputFile
                         onChangeFile={onChangeSheetCover}
                         name="coverFile"
-                        accept=".jpg, .jpeg, .png"
+                        accept=".jpg, .jpeg"
                         text={Localization.coverImage}
                         isDisabled={!coverIsImage}
                     />

@@ -1,10 +1,11 @@
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useHistory } from 'react-router-dom';
-import { PageAlias, PageRoute } from '@models/accessiblePage';
+import { PageRoute } from '@models/accessiblePage';
 import { actionHandler } from '@store/actions/actionHandler';
 import { loginAction } from '@store/actions/authAction';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+import Field from '@components/Login/Field/Field';
 import GoBack from '@components/Login/GoBack/GoBack';
 import Localization from '@localization/components/login';
 import React, { useState } from 'react';
@@ -21,13 +22,6 @@ const Login: React.FC = () => {
     const [message, setMessage] = useState<string>('');
 
     const history = useHistory();
-
-    const onChangeEmail = ((value: string): void => {
-        setEmail(value.trim());
-    });
-    const onChangePassword = ((value: string): void => {
-        setPassword(value.trim());
-    });
     async function onClickLogin() {
         if (!email) {
             setMessage(Localization.emailNotField);
@@ -50,28 +44,8 @@ const Login: React.FC = () => {
             <div className={styles.wrapper}>
                 <GoBack />
                 <div className={styles.header}>{Localization.entrance}</div>
-                <div className={styles.email}>
-                    <label htmlFor="email">
-                        <input
-                            onChange={(e) => { onChangeEmail(e.currentTarget.value); }}
-                            type="email"
-                            id="email"
-                            value={email}
-                        />
-                        {email ? <span className={styles.raise}>{Localization.email}</span> : <span>{Localization.email}</span>}
-                    </label>
-                </div>
-                <div className={styles.password}>
-                    <label htmlFor="password">
-                        <input
-                            onChange={(e) => { onChangePassword(e.currentTarget.value); }}
-                            type="password"
-                            id="password"
-                            value={password}
-                        />
-                        {password ? <span className={styles.raise}>{Localization.password}</span> : <span>{Localization.password}</span>}
-                    </label>
-                </div>
+                <Field text={Localization.email} value={email} type="email" id="email" setState={setEmail} />
+                <Field text={Localization.password} value={password} type="password" id="password" setState={setPassword} />
                 <div>
                     <div className={styles.message}>{message}</div>
                     <Link key={uuidv4()} className={styles.forgot_password} to={PageRoute.forgotPassword}>

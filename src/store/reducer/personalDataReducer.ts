@@ -2,12 +2,7 @@ import { AccessiblePages } from '@models/accessiblePage';
 import { GuestPages } from '@store/defaultParameters/pages/guestPages';
 import { InitialPages } from '@store/defaultParameters/pages/initialPages';
 import {
-    PersonalDataAction,
-    PersonalDataActionType,
-    PersonalDataState,
-    Roles,
-    SetPersonalData,
-    UserData,
+    PersonalDataAction, PersonalDataActionType, PersonalDataState, Roles, SetPersonalData, UserData,
 } from '@models/reducer/personalDataReducer';
 import { UserPage } from '@store/defaultParameters/pages/userPages';
 

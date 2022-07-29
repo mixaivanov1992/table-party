@@ -1,4 +1,4 @@
-import { RuleReducer } from '@store/reducer/RuleReducer';
+import { RuleReducer } from '@store/reducer/ruleReducer';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { chapterReducer } from '@store/reducer/chapterReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';

@@ -2,7 +2,8 @@ import Content from '@shared/RuleEdit/Chapters/Sheets/SheetItem/SheetDialog/Cont
 import Dialog from '@shared/Dialog/Dialog';
 import Footer from '@shared/RuleEdit/Chapters/Sheets/SheetItem/SheetDialog/Footer/Footer';
 import Localization from '@localization/components/shared/ruleEdit/chapter/settings/sheets/sheetItem/sheetDialog';
-import React from 'react';
+import React, { useState } from 'react';
+import styles from '@css/shared/ruleEdit/chapters/sheets/sheetItem/sheetDialog/SheetDialog.module.scss';
 
 interface Props {
     onClickCloseDialog: () => void,
@@ -15,10 +16,10 @@ interface Props {
 const SheetDialog:React.FC<Props> = (props) => {
     console.info('SheetDialog');
     Localization.setLanguage(navigator.language);
-
     const {
         onClickCloseDialog, isOpen, chapterUid, sheetUid, sheetIndex,
     } = props;
+    const [errorMessage, setErrorMessage] = useState<string>('');
 
     return (
         <Dialog
@@ -30,6 +31,7 @@ const SheetDialog:React.FC<Props> = (props) => {
                     chapterUid={chapterUid}
                     sheetUid={sheetUid}
                     sheetIndex={sheetIndex}
+                    errorMessage={setErrorMessage}
                 />
             )}
             footer={(
@@ -39,11 +41,15 @@ const SheetDialog:React.FC<Props> = (props) => {
             )}
             dialogSize="90"
             content={(
-                <Content
-                    chapterUid={chapterUid}
-                    sheetUid={sheetUid}
-                    sheetIndex={sheetIndex}
-                />
+                <>
+                    <Content
+                        chapterUid={chapterUid}
+                        sheetUid={sheetUid}
+                        sheetIndex={sheetIndex}
+                        errorMessage={setErrorMessage}
+                    />
+                    <div className={styles.error}>{errorMessage}</div>
+                </>
             )}
         />
     );

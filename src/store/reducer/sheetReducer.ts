@@ -8,7 +8,7 @@ import {
     SheetActionType,
     SheetState,
 } from '@models/reducer/sheetReducer';
-import { v4 as uuidv4 } from 'uuid';
+import { Sheets } from '@models/services/ruleService';
 
 const initialState: SheetState = {
     0: [{
@@ -20,20 +20,16 @@ const initialState: SheetState = {
 
 export const sheetReducer = (state = initialState, action: SheetAction): SheetState => {
     switch (action.type) {
-    case SheetActionType.ADD_SHEET: {
-        const { chapter, count } = action;
+    case SheetActionType.ADD_SHEETS: {
+        const { sheets } = action;
         const newState = { ...state };
-
-        if (!newState[chapter]) {
-            newState[chapter] = [];
+        for (const index in sheets) {
+            if (Object.hasOwnProperty.call(newState, index)) {
+                newState[index].push(...sheets[index]);
+            } else {
+                newState[index] = sheets[index];
+            }
         }
-        [...Array(count)].forEach(() => {
-            newState[chapter].push({
-                uid: uuidv4(),
-                content: '',
-                cover: '',
-            });
-        });
         return newState;
     }
     case SheetActionType.SET_SHEET_CONTENT:
@@ -67,10 +63,9 @@ export const sheetReducer = (state = initialState, action: SheetAction): SheetSt
         return state;
     }
 };
-export const addSheet = (chapter: string, count: number): AddSheet => ({
-    type: SheetActionType.ADD_SHEET,
-    chapter,
-    count,
+export const addSheet = (sheets: Sheets): AddSheet => ({
+    type: SheetActionType.ADD_SHEETS,
+    sheets,
 });
 
 export const deleteSheets = (chapters: string[]): DeleteSheets => ({

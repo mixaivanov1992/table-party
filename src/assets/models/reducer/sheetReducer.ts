@@ -1,21 +1,18 @@
-export interface SheetState{
-    [key: string]: SheetData
-}
+import { Sheets } from '@models/services/ruleService';
 
-export type SheetData = Array<{uid: string, content: string, cover: string}>;
+export type SheetState = Sheets;
 
 export enum SheetActionType{
     SET_SHEET_CONTENT = 'SET_SHEET_CONTENT',
     SET_SHEET_COVER = 'SET_SHEET_COVER',
-    ADD_SHEET = 'ADD_SHEET',
+    ADD_SHEETS = 'ADD_SHEETS',
     DELETE_SHEET = 'DELETE_SHEET',
     DELETE_SHEETS = 'DELETE_SHEETS'
 }
 
 export interface AddSheet{
-    type: SheetActionType.ADD_SHEET,
-    chapter: string,
-    count: number,
+    type: SheetActionType.ADD_SHEETS,
+    sheets: Sheets,
 }
 
 export interface DeleteSheets{

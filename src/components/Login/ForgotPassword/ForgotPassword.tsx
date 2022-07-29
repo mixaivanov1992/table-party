@@ -1,6 +1,7 @@
 import { actionHandler } from '@store/actions/actionHandler';
 import { forgotPasswordAction } from '@store/actions/authAction';
 import { useDispatch } from 'react-redux';
+import Field from '@components/Login/Field/Field';
 import GoBack from '@components/Login/GoBack/GoBack';
 import Localization from '@localization/components/login/forgotPassword';
 import React, { useState } from 'react';
@@ -15,9 +16,6 @@ const ForgotPassword: React.FC = () => {
     const [message, setMessage] = useState<string>('');
     const [isSent, setIsSent] = useState<boolean>(false);
 
-    const onChangeEmail = ((value: string): void => {
-        setEmail(value.trim());
-    });
     async function onClickRecover() {
         setMessage('');
         if (!email) {
@@ -40,17 +38,7 @@ const ForgotPassword: React.FC = () => {
                 { !isSent
                 && (
                     <>
-                        <div className={styles.email}>
-                            <label htmlFor="email">
-                                <input
-                                    onChange={(e) => { onChangeEmail(e.currentTarget.value); }}
-                                    type="email"
-                                    id="email"
-                                    value={email}
-                                />
-                                {email ? <span className={styles.raise}>{Localization.email}</span> : <span>{Localization.email}</span>}
-                            </label>
-                        </div>
+                        <Field text={Localization.email} value={email} type="email" id="email" setState={setEmail} />
                         <button
                             className={styles.recover_btn}
                             onClick={onClickRecover}
